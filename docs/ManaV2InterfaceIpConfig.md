@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **address** | [**ManaV2NullableAddress**](ManaV2NullableAddress.md) |  | [optional] 
 **dhcp** | [**ManaV2InterfaceDhcpConfig**](ManaV2InterfaceDhcpConfig.md) |  | [optional] 
+**gw** | [**ManaV2NullableGatewayConfig**](ManaV2NullableGatewayConfig.md) |  | [optional] 
 **vrrp** | [**ManaV2NullableVrrpGroupConfig**](ManaV2NullableVrrpGroupConfig.md) |  | [optional] 
 
 ## Example

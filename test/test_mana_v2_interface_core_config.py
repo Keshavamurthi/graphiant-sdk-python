@@ -111,6 +111,7 @@ class TestManaV2InterfaceCoreConfig(unittest.TestCase):
                             relay_servers = [
                                 'example string'
                                 ], ), ), 
+                    gw = graphiant_sdk.models.mana_v2_nullable_gateway_config.manaV2NullableGatewayConfig(), 
                     vrrp = graphiant_sdk.models.mana_v2_nullable_vrrp_group_config.manaV2NullableVrrpGroupConfig(
                         group = graphiant_sdk.models.mana_v2_vrrp_group_config.manaV2VrrpGroupConfig(
                             accept_mode = True, 
@@ -134,6 +135,7 @@ class TestManaV2InterfaceCoreConfig(unittest.TestCase):
                             relay_servers = [
                                 'example string'
                                 ], ), ), 
+                    gw = graphiant_sdk.models.mana_v2_nullable_gateway_config.manaV2NullableGatewayConfig(), 
                     vrrp = graphiant_sdk.models.mana_v2_nullable_vrrp_group_config.manaV2NullableVrrpGroupConfig(
                         group = graphiant_sdk.models.mana_v2_vrrp_group_config.manaV2VrrpGroupConfig(
                             accept_mode = True, 

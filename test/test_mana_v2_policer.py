@@ -40,6 +40,8 @@ class TestManaV2Policer(unittest.TestCase):
             )
         else:
             return ManaV2Policer(
+                burst_size = 123,
+                bw = 123,
         )
         """
 

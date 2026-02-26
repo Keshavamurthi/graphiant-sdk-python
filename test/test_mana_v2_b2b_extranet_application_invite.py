@@ -46,6 +46,11 @@ class TestManaV2B2bExtranetApplicationInvite(unittest.TestCase):
             )
         else:
             return ManaV2B2bExtranetApplicationInvite(
+                admin_email = 'example string',
+                consumer_burst_size = 123,
+                consumer_bw_site = 123,
+                enterprise_id = 1234567891011,
+                maximum_site_count = 123,
         )
         """
 

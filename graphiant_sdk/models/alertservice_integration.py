@@ -33,9 +33,10 @@ class AlertserviceIntegration(BaseModel):
     enterprise_id: Optional[StrictStr] = Field(default=None, alias="enterpriseId")
     id: Optional[StrictInt] = None
     is_active: Optional[StrictBool] = Field(default=None, alias="isActive")
+    last_scanned: Optional[StrictInt] = Field(default=None, description="last scanned time for integrations (zendesk)", alias="lastScanned")
     nick_name: Optional[StrictStr] = Field(default=None, alias="nickName")
     type: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["createdBy", "createdOn", "details", "enterpriseId", "id", "isActive", "nickName", "type"]
+    __properties: ClassVar[List[str]] = ["createdBy", "createdOn", "details", "enterpriseId", "id", "isActive", "lastScanned", "nickName", "type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -97,6 +98,7 @@ class AlertserviceIntegration(BaseModel):
             "enterpriseId": obj.get("enterpriseId"),
             "id": obj.get("id"),
             "isActive": obj.get("isActive"),
+            "lastScanned": obj.get("lastScanned"),
             "nickName": obj.get("nickName"),
             "type": obj.get("type")
         })

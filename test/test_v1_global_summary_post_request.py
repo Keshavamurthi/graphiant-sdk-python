@@ -36,6 +36,7 @@ class TestV1GlobalSummaryPostRequest(unittest.TestCase):
         if include_optional:
             return V1GlobalSummaryPostRequest(
                 ipfix_exported_type = True,
+                ntp_type = True,
                 prefix_set_type = True,
                 routing_policy_type = True,
                 snmp_type = True,

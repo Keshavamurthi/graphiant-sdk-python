@@ -31,6 +31,7 @@ class StatsmonV2NodeCircuitInfo(BaseModel):
     average_uplink_utilization: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="averageUplinkUtilization")
     circuit_carrier: Optional[StrictStr] = Field(default=None, alias="circuitCarrier")
     circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName")
+    connected_region_name: Optional[StrictStr] = Field(default=None, alias="connectedRegionName")
     current_downlink_utilization: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="currentDownlinkUtilization")
     current_uplink_utilization: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="currentUplinkUtilization")
     device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
@@ -42,7 +43,7 @@ class StatsmonV2NodeCircuitInfo(BaseModel):
     loss: Optional[Union[StrictFloat, StrictInt]] = None
     qoe: Optional[Union[StrictFloat, StrictInt]] = None
     quality: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["averageDownlinkUtilization", "averageUplinkUtilization", "circuitCarrier", "circuitName", "currentDownlinkUtilization", "currentUplinkUtilization", "deviceId", "interfaceName", "jitter", "label", "lastResort", "latency", "loss", "qoe", "quality"]
+    __properties: ClassVar[List[str]] = ["averageDownlinkUtilization", "averageUplinkUtilization", "circuitCarrier", "circuitName", "connectedRegionName", "currentDownlinkUtilization", "currentUplinkUtilization", "deviceId", "interfaceName", "jitter", "label", "lastResort", "latency", "loss", "qoe", "quality"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -99,6 +100,7 @@ class StatsmonV2NodeCircuitInfo(BaseModel):
             "averageUplinkUtilization": obj.get("averageUplinkUtilization"),
             "circuitCarrier": obj.get("circuitCarrier"),
             "circuitName": obj.get("circuitName"),
+            "connectedRegionName": obj.get("connectedRegionName"),
             "currentDownlinkUtilization": obj.get("currentDownlinkUtilization"),
             "currentUplinkUtilization": obj.get("currentUplinkUtilization"),
             "deviceId": obj.get("deviceId"),

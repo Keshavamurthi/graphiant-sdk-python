@@ -73,15 +73,19 @@ class TestIamEnterprise(unittest.TestCase):
                             total_msps = 1234567891011, 
                             total_sites = 1234567891011, 
                             up_sites_count = 1234567891011, ), 
+                        description = 'example string', 
                         enterprise_id = 1234567891011, 
-                        impersonation_enabled = True, )
+                        impersonation_enabled = True, 
+                        marketplace_id = 'example string', )
                     },
+                description = 'example string',
                 enterprise_id = 1234567891011,
                 eula_agreement_date = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
                     nanos = 123, 
                     seconds = 1234567891011, ),
                 impersonation_enabled = True,
                 logo = 'example string',
+                marketplace_id = 'example string',
                 parent_company_name = 'example string',
                 parent_enterprise_id = 1234567891011,
                 portal_banner = 'example string',

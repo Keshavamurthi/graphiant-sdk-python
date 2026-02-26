@@ -40,10 +40,16 @@ class TestAlertserviceIntegration(unittest.TestCase):
                 details = graphiant_sdk.models.alertservice_integration_details.alertserviceIntegrationDetails(
                     opsgenie_key = 'example string', 
                     opsramp_details = 'example string', 
-                    webhook_url = 'example string', ),
+                    webhook_url = 'example string', 
+                    zendesk_details = graphiant_sdk.models.alertservice_zendesk_details.alertserviceZendeskDetails(
+                        zendesk_api_token = 'example string', 
+                        zendesk_assignee_id = 'example string', 
+                        zendesk_base_url = 'example string', 
+                        zendesk_email = 'example string', ), ),
                 enterprise_id = 'example string',
                 id = 1234567891011,
                 is_active = True,
+                last_scanned = 1234567891011,
                 nick_name = 'example string',
                 type = 'ENUM_VALUE'
             )

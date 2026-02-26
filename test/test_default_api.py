@@ -74,30 +74,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_alarm_history_get(self) -> None:
-        """Test case for v1_alarm_history_get
-
-        """
-        pass
-
-    def test_v1_alarm_mute_alarm_id_put(self) -> None:
-        """Test case for v1_alarm_mute_alarm_id_put
-
-        """
-        pass
-
-    def test_v1_alarms_events_get(self) -> None:
-        """Test case for v1_alarms_events_get
-
-        """
-        pass
-
-    def test_v1_alarms_list_get(self) -> None:
-        """Test case for v1_alarms_list_get
-
-        """
-        pass
-
     def test_v1_apps_app_summary_post(self) -> None:
         """Test case for v1_apps_app_summary_post
 
@@ -248,12 +224,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_b2b_extranet_monitoring_filter_post(self) -> None:
-        """Test case for v1_b2b_extranet_monitoring_filter_post
-
-        """
-        pass
-
     def test_v1_backbone_health_device_device_id_post(self) -> None:
         """Test case for v1_backbone_health_device_device_id_post
 
@@ -304,24 +274,6 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_v1_bwtracker_enterprise_summary_post(self) -> None:
         """Test case for v1_bwtracker_enterprise_summary_post
-
-        """
-        pass
-
-    def test_v1_bwtracker_region_cloud_chart_post(self) -> None:
-        """Test case for v1_bwtracker_region_cloud_chart_post
-
-        """
-        pass
-
-    def test_v1_bwtracker_region_cloud_csv_post(self) -> None:
-        """Test case for v1_bwtracker_region_cloud_csv_post
-
-        """
-        pass
-
-    def test_v1_bwtracker_region_cloud_summary_post(self) -> None:
-        """Test case for v1_bwtracker_region_cloud_summary_post
 
         """
         pass
@@ -464,12 +416,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_device_routing_bgp_nbr_stats_get(self) -> None:
-        """Test case for v1_device_routing_bgp_nbr_stats_get
-
-        """
-        pass
-
     def test_v1_device_routing_bgp_nbrid_get(self) -> None:
         """Test case for v1_device_routing_bgp_nbrid_get
 
@@ -512,12 +458,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_device_routing_ospfv2_area_interfaceid_get(self) -> None:
-        """Test case for v1_device_routing_ospfv2_area_interfaceid_get
-
-        """
-        pass
-
     def test_v1_device_routing_ospfv2_area_lsdb_get(self) -> None:
         """Test case for v1_device_routing_ospfv2_area_lsdb_get
 
@@ -556,18 +496,6 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_v1_device_routing_ospfv3_area_interface_get(self) -> None:
         """Test case for v1_device_routing_ospfv3_area_interface_get
-
-        """
-        pass
-
-    def test_v1_device_routing_ospfv3_area_interface_nbrid_get(self) -> None:
-        """Test case for v1_device_routing_ospfv3_area_interface_nbrid_get
-
-        """
-        pass
-
-    def test_v1_device_routing_ospfv3_area_interfaceid_get(self) -> None:
-        """Test case for v1_device_routing_ospfv3_area_interfaceid_get
 
         """
         pass
@@ -616,12 +544,6 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_v1_device_routing_vrf_bgp_eibgp_route_count_get(self) -> None:
         """Test case for v1_device_routing_vrf_bgp_eibgp_route_count_get
-
-        """
-        pass
-
-    def test_v1_device_routing_vrf_bgp_graphiant_eiroute_count_get(self) -> None:
-        """Test case for v1_device_routing_vrf_bgp_graphiant_eiroute_count_get
 
         """
         pass
@@ -758,12 +680,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_devices_device_id_edges_get(self) -> None:
-        """Test case for v1_devices_device_id_edges_get
-
-        """
-        pass
-
     def test_v1_devices_device_id_get(self) -> None:
         """Test case for v1_devices_device_id_get
 
@@ -778,12 +694,6 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_v1_devices_device_id_jobs_job_id_get(self) -> None:
         """Test case for v1_devices_device_id_jobs_job_id_get
-
-        """
-        pass
-
-    def test_v1_devices_device_id_ndcache_get(self) -> None:
-        """Test case for v1_devices_device_id_ndcache_get
 
         """
         pass
@@ -806,12 +716,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_devices_device_id_policy_customapplications_get(self) -> None:
-        """Test case for v1_devices_device_id_policy_customapplications_get
-
-        """
-        pass
-
     def test_v1_devices_device_id_policy_zonepairs_get(self) -> None:
         """Test case for v1_devices_device_id_policy_zonepairs_get
 
@@ -830,12 +734,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_devices_device_id_versions_compare_get(self) -> None:
-        """Test case for v1_devices_device_id_versions_compare_get
-
-        """
-        pass
-
     def test_v1_devices_device_id_versions_get(self) -> None:
         """Test case for v1_devices_device_id_versions_get
 
@@ -844,12 +742,6 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_v1_devices_device_id_versions_version_get(self) -> None:
         """Test case for v1_devices_device_id_versions_version_get
-
-        """
-        pass
-
-    def test_v1_devices_device_id_vrf_bgp_as_get(self) -> None:
-        """Test case for v1_devices_device_id_vrf_bgp_as_get
 
         """
         pass
@@ -920,12 +812,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_devices_inventory_serial_num_post(self) -> None:
-        """Test case for v1_devices_inventory_serial_num_post
-
-        """
-        pass
-
     def test_v1_devices_oauth_authorization_get(self) -> None:
         """Test case for v1_devices_oauth_authorization_get
 
@@ -940,12 +826,6 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_v1_devices_oauth_post(self) -> None:
         """Test case for v1_devices_oauth_post
-
-        """
-        pass
-
-    def test_v1_devices_oauth_redirect_get(self) -> None:
-        """Test case for v1_devices_oauth_redirect_get
 
         """
         pass
@@ -1064,12 +944,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_diagnostic_ping_pause_resume_post(self) -> None:
-        """Test case for v1_diagnostic_ping_pause_resume_post
-
-        """
-        pass
-
     def test_v1_diagnostic_ping_post(self) -> None:
         """Test case for v1_diagnostic_ping_post
 
@@ -1138,6 +1012,12 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_v1_edges_summary_get(self) -> None:
         """Test case for v1_edges_summary_get
+
+        """
+        pass
+
+    def test_v1_edges_summary_post(self) -> None:
+        """Test case for v1_edges_summary_post
 
         """
         pass
@@ -1220,36 +1100,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_enterprises_self_delete(self) -> None:
-        """Test case for v1_enterprises_self_delete
-
-        """
-        pass
-
-    def test_v1_event_device_get(self) -> None:
-        """Test case for v1_event_device_get
-
-        """
-        pass
-
-    def test_v1_event_enterprise_get(self) -> None:
-        """Test case for v1_event_enterprise_get
-
-        """
-        pass
-
-    def test_v1_event_system_ack_post(self) -> None:
-        """Test case for v1_event_system_ack_post
-
-        """
-        pass
-
-    def test_v1_event_system_get(self) -> None:
-        """Test case for v1_event_system_get
-
-        """
-        pass
-
     def test_v1_extranet_b2b_monitoring_peering_service_bandwidth_usage_post(self) -> None:
         """Test case for v1_extranet_b2b_monitoring_peering_service_bandwidth_usage_post
 
@@ -1282,12 +1132,6 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_v1_extranet_b2b_monitoring_peering_service_service_overtime_consumption_post(self) -> None:
         """Test case for v1_extranet_b2b_monitoring_peering_service_service_overtime_consumption_post
-
-        """
-        pass
-
-    def test_v1_extranet_sites_usage_post(self) -> None:
-        """Test case for v1_extranet_sites_usage_post
 
         """
         pass
@@ -1388,6 +1232,12 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_v1_extranets_b2b_peering_consumer_id_prefixes_put(self) -> None:
+        """Test case for v1_extranets_b2b_peering_consumer_id_prefixes_put
+
+        """
+        pass
+
     def test_v1_extranets_b2b_peering_consumer_match_id_match_details_get(self) -> None:
         """Test case for v1_extranets_b2b_peering_consumer_match_id_match_details_get
 
@@ -1432,6 +1282,12 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_v1_extranets_b2b_peering_match_service_to_customer_post(self) -> None:
         """Test case for v1_extranets_b2b_peering_match_service_to_customer_post
+
+        """
+        pass
+
+    def test_v1_extranets_b2b_peering_match_service_to_customer_service_status_put(self) -> None:
+        """Test case for v1_extranets_b2b_peering_match_service_to_customer_service_status_put
 
         """
         pass
@@ -1730,12 +1586,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_global_config_site_post(self) -> None:
-        """Test case for v1_global_config_site_post
-
-        """
-        pass
-
     def test_v1_global_device_status_get(self) -> None:
         """Test case for v1_global_device_status_get
 
@@ -1802,8 +1652,20 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_global_prefix_sets_device_get(self) -> None:
-        """Test case for v1_global_prefix_sets_device_get
+    def test_v1_global_ntps_device_get(self) -> None:
+        """Test case for v1_global_ntps_device_get
+
+        """
+        pass
+
+    def test_v1_global_ntps_post(self) -> None:
+        """Test case for v1_global_ntps_post
+
+        """
+        pass
+
+    def test_v1_global_ntps_site_get(self) -> None:
+        """Test case for v1_global_ntps_site_get
 
         """
         pass
@@ -1814,26 +1676,8 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_global_prefix_sets_site_get(self) -> None:
-        """Test case for v1_global_prefix_sets_site_get
-
-        """
-        pass
-
-    def test_v1_global_routing_policies_device_get(self) -> None:
-        """Test case for v1_global_routing_policies_device_get
-
-        """
-        pass
-
     def test_v1_global_routing_policies_post(self) -> None:
         """Test case for v1_global_routing_policies_post
-
-        """
-        pass
-
-    def test_v1_global_routing_policies_site_get(self) -> None:
-        """Test case for v1_global_routing_policies_site_get
 
         """
         pass
@@ -1928,20 +1772,8 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_global_traffic_policies_device_get(self) -> None:
-        """Test case for v1_global_traffic_policies_device_get
-
-        """
-        pass
-
     def test_v1_global_traffic_policies_post(self) -> None:
         """Test case for v1_global_traffic_policies_post
-
-        """
-        pass
-
-    def test_v1_global_traffic_policies_site_get(self) -> None:
-        """Test case for v1_global_traffic_policies_site_get
 
         """
         pass
@@ -1972,12 +1804,6 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_v1_groups_id_enterprises_post(self) -> None:
         """Test case for v1_groups_id_enterprises_post
-
-        """
-        pass
-
-    def test_v1_groups_id_get(self) -> None:
-        """Test case for v1_groups_id_get
 
         """
         pass
@@ -2024,12 +1850,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_id_password_recover_patch(self) -> None:
-        """Test case for v1_id_password_recover_patch
-
-        """
-        pass
-
     def test_v1_invitation_email_post(self) -> None:
         """Test case for v1_invitation_email_post
 
@@ -2062,36 +1882,6 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_v1_logs_post(self) -> None:
         """Test case for v1_logs_post
-
-        """
-        pass
-
-    def test_v1_monitoring_circuits_bandwidth_post(self) -> None:
-        """Test case for v1_monitoring_circuits_bandwidth_post
-
-        """
-        pass
-
-    def test_v1_monitoring_circuits_incidents_post(self) -> None:
-        """Test case for v1_monitoring_circuits_incidents_post
-
-        """
-        pass
-
-    def test_v1_monitoring_circuits_summary_post(self) -> None:
-        """Test case for v1_monitoring_circuits_summary_post
-
-        """
-        pass
-
-    def test_v1_monitoring_circuits_utilization_post(self) -> None:
-        """Test case for v1_monitoring_circuits_utilization_post
-
-        """
-        pass
-
-    def test_v1_monitoring_circuits_visualization_post(self) -> None:
-        """Test case for v1_monitoring_circuits_visualization_post
 
         """
         pass
@@ -2132,24 +1922,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_policy_prefix_sets_id_delete(self) -> None:
-        """Test case for v1_policy_prefix_sets_id_delete
-
-        """
-        pass
-
-    def test_v1_policy_prefix_sets_id_put(self) -> None:
-        """Test case for v1_policy_prefix_sets_id_put
-
-        """
-        pass
-
-    def test_v1_policy_prefix_sets_post(self) -> None:
-        """Test case for v1_policy_prefix_sets_post
-
-        """
-        pass
-
     def test_v1_policy_route_tag_sets_id_delete(self) -> None:
         """Test case for v1_policy_route_tag_sets_id_delete
 
@@ -2176,54 +1948,6 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_v1_policy_route_tag_sets_tags_summary_get(self) -> None:
         """Test case for v1_policy_route_tag_sets_tags_summary_get
-
-        """
-        pass
-
-    def test_v1_portal_apikeys_delete(self) -> None:
-        """Test case for v1_portal_apikeys_delete
-
-        """
-        pass
-
-    def test_v1_portal_apikeys_get(self) -> None:
-        """Test case for v1_portal_apikeys_get
-
-        """
-        pass
-
-    def test_v1_portal_apikeys_post(self) -> None:
-        """Test case for v1_portal_apikeys_post
-
-        """
-        pass
-
-    def test_v1_portal_private_details_get(self) -> None:
-        """Test case for v1_portal_private_details_get
-
-        """
-        pass
-
-    def test_v1_portal_private_inventory_details_get(self) -> None:
-        """Test case for v1_portal_private_inventory_details_get
-
-        """
-        pass
-
-    def test_v1_portal_private_post(self) -> None:
-        """Test case for v1_portal_private_post
-
-        """
-        pass
-
-    def test_v1_portal_private_register_post(self) -> None:
-        """Test case for v1_portal_private_register_post
-
-        """
-        pass
-
-    def test_v1_portal_private_sync_post(self) -> None:
-        """Test case for v1_portal_private_sync_post
 
         """
         pass
@@ -2324,12 +2048,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_software_release_notes_get(self) -> None:
-        """Test case for v1_software_release_notes_get
-
-        """
-        pass
-
     def test_v1_software_releases_download_get(self) -> None:
         """Test case for v1_software_releases_download_get
 
@@ -2408,12 +2126,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v1_tt_tt_identity_device_status_get(self) -> None:
-        """Test case for v1_tt_tt_identity_device_status_get
-
-        """
-        pass
-
     def test_v1_users_email_password_patch(self) -> None:
         """Test case for v1_users_email_password_patch
 
@@ -2470,6 +2182,12 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_v1_users_id_verify_patch(self) -> None:
         """Test case for v1_users_id_verify_patch
+
+        """
+        pass
+
+    def test_v1_users_passwords_expire_post(self) -> None:
+        """Test case for v1_users_passwords_expire_post
 
         """
         pass
@@ -2552,12 +2270,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v2_assistant_conversation_id_delete(self) -> None:
-        """Test case for v2_assistant_conversation_id_delete
-
-        """
-        pass
-
     def test_v2_assistant_conversation_interface_enable_disable_post(self) -> None:
         """Test case for v2_assistant_conversation_interface_enable_disable_post
 
@@ -2572,12 +2284,6 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_v2_assistant_delete_conversation_chat_conversation_id_delete(self) -> None:
         """Test case for v2_assistant_delete_conversation_chat_conversation_id_delete
-
-        """
-        pass
-
-    def test_v2_assistant_delete_conversation_conversation_id_delete(self) -> None:
-        """Test case for v2_assistant_delete_conversation_conversation_id_delete
 
         """
         pass
@@ -2618,12 +2324,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v2_assurance_bucket_app_servers_all_get(self) -> None:
-        """Test case for v2_assurance_bucket_app_servers_all_get
-
-        """
-        pass
-
     def test_v2_assurance_bucket_app_servers_post(self) -> None:
         """Test case for v2_assurance_bucket_app_servers_post
 
@@ -2654,6 +2354,12 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
+    def test_v2_assurance_create_dnsproxy_entry_post(self) -> None:
+        """Test case for v2_assurance_create_dnsproxy_entry_post
+
+        """
+        pass
+
     def test_v2_assurance_create_user_report_post(self) -> None:
         """Test case for v2_assurance_create_user_report_post
 
@@ -2662,6 +2368,12 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_v2_assurance_createclassifiedapplication_post(self) -> None:
         """Test case for v2_assurance_createclassifiedapplication_post
+
+        """
+        pass
+
+    def test_v2_assurance_delete_dnsproxy_entry_delete(self) -> None:
+        """Test case for v2_assurance_delete_dnsproxy_entry_delete
 
         """
         pass
@@ -2684,26 +2396,20 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v2_assurance_endpoint_intel_post(self) -> None:
-        """Test case for v2_assurance_endpoint_intel_post
-
-        """
-        pass
-
     def test_v2_assurance_enterprisesummary_post(self) -> None:
         """Test case for v2_assurance_enterprisesummary_post
 
         """
         pass
 
-    def test_v2_assurance_flow_summary_post(self) -> None:
-        """Test case for v2_assurance_flow_summary_post
+    def test_v2_assurance_getclassifiedapplicationlist_get(self) -> None:
+        """Test case for v2_assurance_getclassifiedapplicationlist_get
 
         """
         pass
 
-    def test_v2_assurance_getclassifiedapplicationlist_get(self) -> None:
-        """Test case for v2_assurance_getclassifiedapplicationlist_get
+    def test_v2_assurance_read_dnsproxy_list_get(self) -> None:
+        """Test case for v2_assurance_read_dnsproxy_list_get
 
         """
         pass
@@ -2738,12 +2444,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v2_assurance_topology_flows_post(self) -> None:
-        """Test case for v2_assurance_topology_flows_post
-
-        """
-        pass
-
     def test_v2_assurance_topology_inventory_post(self) -> None:
         """Test case for v2_assurance_topology_inventory_post
 
@@ -2774,14 +2474,14 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v2_assurance_updateclassifiedapplication_post(self) -> None:
-        """Test case for v2_assurance_updateclassifiedapplication_post
+    def test_v2_assurance_update_dnsproxy_entry_post(self) -> None:
+        """Test case for v2_assurance_update_dnsproxy_entry_post
 
         """
         pass
 
-    def test_v2_assurance_version_post(self) -> None:
-        """Test case for v2_assurance_version_post
+    def test_v2_assurance_updateclassifiedapplication_post(self) -> None:
+        """Test case for v2_assurance_updateclassifiedapplication_post
 
         """
         pass
@@ -2972,12 +2672,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v2_monitoring_ospf_post(self) -> None:
-        """Test case for v2_monitoring_ospf_post
-
-        """
-        pass
-
     def test_v2_monitoring_policy_post(self) -> None:
         """Test case for v2_monitoring_policy_post
 
@@ -2986,12 +2680,6 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_v2_monitoring_queue_instant_post(self) -> None:
         """Test case for v2_monitoring_queue_instant_post
-
-        """
-        pass
-
-    def test_v2_monitoring_queue_post(self) -> None:
-        """Test case for v2_monitoring_queue_post
 
         """
         pass
@@ -3010,12 +2698,6 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_v2_monitoring_site_twamp_site_id_post(self) -> None:
         """Test case for v2_monitoring_site_twamp_site_id_post
-
-        """
-        pass
-
-    def test_v2_monitoring_system_generic_post(self) -> None:
-        """Test case for v2_monitoring_system_generic_post
 
         """
         pass
@@ -3104,12 +2786,6 @@ class TestDefaultApi(unittest.TestCase):
         """
         pass
 
-    def test_v2_site_site_id_detail_post(self) -> None:
-        """Test case for v2_site_site_id_detail_post
-
-        """
-        pass
-
     def test_v2_site_site_id_lan_segments_post(self) -> None:
         """Test case for v2_site_site_id_lan_segments_post
 
@@ -3118,12 +2794,6 @@ class TestDefaultApi(unittest.TestCase):
 
     def test_v2_site_site_id_topology_post(self) -> None:
         """Test case for v2_site_site_id_topology_post
-
-        """
-        pass
-
-    def test_v2_version_post(self) -> None:
-        """Test case for v2_version_post
 
         """
         pass

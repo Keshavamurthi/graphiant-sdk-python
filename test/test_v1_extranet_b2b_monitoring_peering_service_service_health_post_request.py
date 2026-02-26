@@ -35,11 +35,13 @@ class TestV1ExtranetB2bMonitoringPeeringServiceServiceHealthPostRequest(unittest
         model = V1ExtranetB2bMonitoringPeeringServiceServiceHealthPostRequest()
         if include_optional:
             return V1ExtranetB2bMonitoringPeeringServiceServiceHealthPostRequest(
-                id = 1234567891011,
-                is_provider = True
+                id = 1,
+                is_provider = False
             )
         else:
             return V1ExtranetB2bMonitoringPeeringServiceServiceHealthPostRequest(
+                id = 1,
+                is_provider = False,
         )
         """
 

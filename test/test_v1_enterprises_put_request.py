@@ -43,7 +43,9 @@ class TestV1EnterprisesPutRequest(unittest.TestCase):
                 cloud_provider = 'ENUM_VALUE',
                 company_name = 'example string',
                 credit_limit = 123,
+                description = 'example string',
                 logo = 'example string',
+                marketplace_id = 'example string',
                 small_logo = 'example string'
             )
         else:

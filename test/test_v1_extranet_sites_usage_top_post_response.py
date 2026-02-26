@@ -37,9 +37,9 @@ class TestV1ExtranetSitesUsageTopPostResponse(unittest.TestCase):
             return V1ExtranetSitesUsageTopPostResponse(
                 top_sites = [
                     graphiant_sdk.models.v1_extranet_sites_usage_top_post_response_site_usage.v1ExtranetSitesUsageTopPostResponseSiteUsage(
-                        site_id = 1234567891011, 
-                        site_name = 'example string', 
-                        usage = 123.45, )
+                        site_id = 1, 
+                        site_name = 'Site 1', 
+                        usage = 1000000, )
                     ]
             )
         else:

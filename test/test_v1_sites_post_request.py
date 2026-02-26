@@ -62,6 +62,9 @@ class TestV1SitesPostRequest(unittest.TestCase):
                         state_code = 'example string', ), 
                     name = 'example string', 
                     notes = 'example string', 
+                    ntp_ops = {
+                        'key' : 'ENUM_VALUE'
+                        }, 
                     prefix_set_ops = {
                         'key' : 'ENUM_VALUE'
                         }, 

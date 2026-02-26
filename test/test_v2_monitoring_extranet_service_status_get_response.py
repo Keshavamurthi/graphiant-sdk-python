@@ -37,8 +37,8 @@ class TestV2MonitoringExtranetServiceStatusGetResponse(unittest.TestCase):
             return V2MonitoringExtranetServiceStatusGetResponse(
                 statuses = [
                     graphiant_sdk.models.statsmon_extranet_server_status.statsmonExtranetServerStatus(
-                        address = 'example string', 
-                        status = 'ENUM_VALUE', )
+                        address = '192.168.1.1', 
+                        status = 'Healthy', )
                     ]
             )
         else:

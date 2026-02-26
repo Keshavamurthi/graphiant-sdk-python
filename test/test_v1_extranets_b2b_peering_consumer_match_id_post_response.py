@@ -40,8 +40,8 @@ class TestV1ExtranetsB2bPeeringConsumerMatchIdPostResponse(unittest.TestCase):
                 lan_segment = 1234567891011,
                 nat = [
                     graphiant_sdk.models.mana_v2_b2b_nat.manaV2B2bNat(
-                        outside_nat_prefix = 'example string', 
-                        prefix = 'example string', )
+                        outside_nat_prefix = '100.1.2.0/24', 
+                        prefix = '10.1.2.0/24', )
                     ],
                 site_information = [
                     graphiant_sdk.models.mana_v2_b2b_site_information.manaV2B2bSiteInformation(

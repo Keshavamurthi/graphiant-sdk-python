@@ -45,6 +45,13 @@ class TestV1ExtranetsB2bPeeringCustomerPostRequest(unittest.TestCase):
             )
         else:
             return V1ExtranetsB2bPeeringCustomerPostRequest(
+                invite = graphiant_sdk.models.mana_v2_b2b_extranet_peering_service_customer_invite.manaV2B2bExtranetPeeringServiceCustomerInvite(
+                    admin_email = [
+                        'example string'
+                        ], 
+                    maximum_number_of_sites = 123, ),
+                name = 'example string',
+                type = 'ENUM_VALUE',
         )
         """
 

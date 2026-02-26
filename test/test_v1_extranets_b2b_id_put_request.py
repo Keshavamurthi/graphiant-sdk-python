@@ -65,7 +65,7 @@ class TestV1ExtranetsB2bIdPutRequest(unittest.TestCase):
                         ], 
                     prefix_tags = [
                         graphiant_sdk.models.mana_v2_b2b_extranet_prefix_tag.manaV2B2bExtranetPrefixTag(
-                            prefix = 'example string', 
+                            prefix = '10.1.2.0/24', 
                             tag = 'example string', )
                         ], 
                     profiles = [
@@ -103,6 +103,71 @@ class TestV1ExtranetsB2bIdPutRequest(unittest.TestCase):
             )
         else:
             return V1ExtranetsB2bIdPutRequest(
+                policy = graphiant_sdk.models.mana_v2_b2b_extranet_producer_policy.manaV2B2bExtranetProducerPolicy(
+                    description = 'example string', 
+                    global_object_device_summaries = {
+                        'key' : graphiant_sdk.models.mana_v2_global_object_service_summaries.manaV2GlobalObjectServiceSummaries(
+                            routing_policies = [
+                                graphiant_sdk.models.mana_v2_global_object_summary.manaV2GlobalObjectSummary(
+                                    attach_point = 'ENUM_VALUE', 
+                                    id = 1234567891011, 
+                                    ip_version = 123, 
+                                    name = 'example string', 
+                                    num_attached_devices = 123, 
+                                    num_attached_sites = 123, 
+                                    num_failures = 123, 
+                                    num_in_sync_devices = 123, 
+                                    num_override_devices = 123, 
+                                    num_policies = 123, 
+                                    num_prefixes = 123, 
+                                    num_rules = 123, 
+                                    num_statements = 123, 
+                                    traffic_policy_type = 'ENUM_VALUE', )
+                                ], )
+                        }, 
+                    global_object_summaries = {
+                        'key' : graphiant_sdk.models.mana_v2_global_object_service_summaries.manaV2GlobalObjectServiceSummaries()
+                        }, 
+                    nat_pools = [
+                        'example string'
+                        ], 
+                    prefix_tags = [
+                        graphiant_sdk.models.mana_v2_b2b_extranet_prefix_tag.manaV2B2bExtranetPrefixTag(
+                            prefix = '10.1.2.0/24', 
+                            tag = 'example string', )
+                        ], 
+                    profiles = [
+                        graphiant_sdk.models.mana_v2_application_profile.manaV2ApplicationProfile(
+                            ports = [
+                                123
+                                ], 
+                            protocol = 123, )
+                        ], 
+                    service_lan_segment = 1234567891011, 
+                    service_prefixes = [
+                        'example string'
+                        ], 
+                    sites = [
+                        graphiant_sdk.models.mana_v2_b2b_site_information.manaV2B2bSiteInformation(
+                            bw_allocation_site_lists = 123, 
+                            bw_allocation_sites = 123, 
+                            policer_site_lists = graphiant_sdk.models.mana_v2_policer.manaV2Policer(
+                                burst_size = 123, 
+                                bw = 123, ), 
+                            policer_sites = graphiant_sdk.models.mana_v2_policer.manaV2Policer(
+                                burst_size = 123, 
+                                bw = 123, ), 
+                            site_lists = [
+                                1234567891011
+                                ], )
+                        ], 
+                    sla = graphiant_sdk.models.mana_v2_sla_information.manaV2SlaInformation(
+                        backup_circuit = 'ENUM_VALUE', 
+                        class = 'ENUM_VALUE', 
+                        primary_circuit = 'ENUM_VALUE', ), 
+                    status = 'ENUM_VALUE', 
+                    type = 'ENUM_VALUE', 
+                    unmatched_customers = 123, ),
         )
         """
 

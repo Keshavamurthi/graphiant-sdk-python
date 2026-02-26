@@ -35,11 +35,11 @@ class TestV2ExtranetConsumersUsageTopPostRequest(unittest.TestCase):
         model = V2ExtranetConsumersUsageTopPostRequest()
         if include_optional:
             return V2ExtranetConsumersUsageTopPostRequest(
-                id = 1234567891011,
+                id = 1,
                 is_b2_b = True,
                 is_provider = True,
                 time_window = graphiant_sdk.models.statsmon_time_window.statsmonTimeWindow(
-                    bucket_size_sec = 123, 
+                    bucket_size_sec = 300, 
                     old_ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
                         nanos = 123, 
                         seconds = 1234567891011, ), 
@@ -49,6 +49,17 @@ class TestV2ExtranetConsumersUsageTopPostRequest(unittest.TestCase):
             )
         else:
             return V2ExtranetConsumersUsageTopPostRequest(
+                id = 1,
+                is_b2_b = True,
+                is_provider = True,
+                time_window = graphiant_sdk.models.statsmon_time_window.statsmonTimeWindow(
+                    bucket_size_sec = 300, 
+                    old_ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
+                        nanos = 123, 
+                        seconds = 1234567891011, ), 
+                    recent_ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
+                        nanos = 123, 
+                        seconds = 1234567891011, ), ),
         )
         """
 

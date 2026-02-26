@@ -37,16 +37,16 @@ class TestV1ExtranetB2bMonitoringPeeringServiceServiceOvertimeConsumptionPostRes
             return V1ExtranetB2bMonitoringPeeringServiceServiceOvertimeConsumptionPostResponse(
                 dl_agg_stats = [
                     graphiant_sdk.models.ipfix_stats.ipfixStats(
-                        avg_usage = 123.45, 
-                        peak_usage = 123.45, 
+                        avg_usage = 1000000, 
+                        peak_usage = 1000000, 
                         ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
                             nanos = 123, 
                             seconds = 1234567891011, ), )
                     ],
                 ul_agg_stats = [
                     graphiant_sdk.models.ipfix_stats.ipfixStats(
-                        avg_usage = 123.45, 
-                        peak_usage = 123.45, 
+                        avg_usage = 1000000, 
+                        peak_usage = 1000000, 
                         ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
                             nanos = 123, 
                             seconds = 1234567891011, ), )

@@ -35,7 +35,7 @@ class TestV2ExtranetTotalUsagePostResponse(unittest.TestCase):
         model = V2ExtranetTotalUsagePostResponse()
         if include_optional:
             return V2ExtranetTotalUsagePostResponse(
-                usage = 123.45
+                usage = 1000000
             )
         else:
             return V2ExtranetTotalUsagePostResponse(

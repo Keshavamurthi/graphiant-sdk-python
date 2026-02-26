@@ -40,7 +40,7 @@ class TestV1AppsVisualizationPostRequest(unittest.TestCase):
                 is_dia = True,
                 sla_class = 'ENUM_VALUE',
                 time_window = graphiant_sdk.models.statsmon_time_window.statsmonTimeWindow(
-                    bucket_size_sec = 123, 
+                    bucket_size_sec = 300, 
                     old_ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
                         nanos = 123, 
                         seconds = 1234567891011, ), 

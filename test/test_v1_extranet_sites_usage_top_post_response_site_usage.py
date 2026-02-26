@@ -35,9 +35,9 @@ class TestV1ExtranetSitesUsageTopPostResponseSiteUsage(unittest.TestCase):
         model = V1ExtranetSitesUsageTopPostResponseSiteUsage()
         if include_optional:
             return V1ExtranetSitesUsageTopPostResponseSiteUsage(
-                site_id = 1234567891011,
-                site_name = 'example string',
-                usage = 123.45
+                site_id = 1,
+                site_name = 'Site 1',
+                usage = 1000000
             )
         else:
             return V1ExtranetSitesUsageTopPostResponseSiteUsage(

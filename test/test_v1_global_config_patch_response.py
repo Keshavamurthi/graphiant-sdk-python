@@ -41,6 +41,9 @@ class TestV1GlobalConfigPatchResponse(unittest.TestCase):
                 ipfix_exporters = {
                     'key' : 1234567891011
                     },
+                ntps = {
+                    'key' : 1234567891011
+                    },
                 prefix_sets = {
                     'key' : 1234567891011
                     },

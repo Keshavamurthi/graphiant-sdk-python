@@ -36,10 +36,11 @@ class TestManaV2ExtranetConsumerNatRule(unittest.TestCase):
         if include_optional:
             return ManaV2ExtranetConsumerNatRule(
                 outside_nat_prefix = 'example string',
-                service_prefix = 'example string'
+                service_prefix = '10.1.2.0/24'
             )
         else:
             return ManaV2ExtranetConsumerNatRule(
+                service_prefix = '10.1.2.0/24',
         )
         """
 

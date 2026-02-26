@@ -39,6 +39,7 @@ class TestV1GlobalSyncPostRequest(unittest.TestCase):
                     1234567891011
                     ],
                 ipfix_exported_id = 1234567891011,
+                ntp_id = 1234567891011,
                 prefix_set_id = 1234567891011,
                 routing_policy_id = 1234567891011,
                 snmp_id = 1234567891011,

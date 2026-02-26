@@ -35,9 +35,10 @@ class StatsmonV2Node(BaseModel):
     id: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     name: Optional[StrictStr] = None
     node_info: Optional[StatsmonV2NodeDeviceInfo] = Field(default=None, alias="nodeInfo")
+    preferred_region_name: Optional[StrictStr] = Field(default=None, alias="preferredRegionName")
     quality: Optional[StrictStr] = None
     type: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["circuitInfo", "connections", "id", "name", "nodeInfo", "quality", "type"]
+    __properties: ClassVar[List[str]] = ["circuitInfo", "connections", "id", "name", "nodeInfo", "preferredRegionName", "quality", "type"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -112,6 +113,7 @@ class StatsmonV2Node(BaseModel):
             "id": obj.get("id"),
             "name": obj.get("name"),
             "nodeInfo": StatsmonV2NodeDeviceInfo.from_dict(obj["nodeInfo"]) if obj.get("nodeInfo") is not None else None,
+            "preferredRegionName": obj.get("preferredRegionName"),
             "quality": obj.get("quality"),
             "type": obj.get("type")
         })

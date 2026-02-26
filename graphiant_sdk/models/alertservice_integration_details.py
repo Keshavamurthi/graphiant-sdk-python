@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from graphiant_sdk.models.alertservice_zendesk_details import AlertserviceZendeskDetails
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +30,8 @@ class AlertserviceIntegrationDetails(BaseModel):
     opsgenie_key: Optional[StrictStr] = Field(default=None, alias="opsgenieKey")
     opsramp_details: Optional[StrictStr] = Field(default=None, alias="opsrampDetails")
     webhook_url: Optional[StrictStr] = Field(default=None, alias="webhookUrl")
-    __properties: ClassVar[List[str]] = ["opsgenieKey", "opsrampDetails", "webhookUrl"]
+    zendesk_details: Optional[AlertserviceZendeskDetails] = Field(default=None, alias="zendeskDetails")
+    __properties: ClassVar[List[str]] = ["opsgenieKey", "opsrampDetails", "webhookUrl", "zendeskDetails"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,6 +72,9 @@ class AlertserviceIntegrationDetails(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of zendesk_details
+        if self.zendesk_details:
+            _dict['zendeskDetails'] = self.zendesk_details.to_dict()
         return _dict
 
     @classmethod
@@ -84,7 +89,8 @@ class AlertserviceIntegrationDetails(BaseModel):
         _obj = cls.model_validate({
             "opsgenieKey": obj.get("opsgenieKey"),
             "opsrampDetails": obj.get("opsrampDetails"),
-            "webhookUrl": obj.get("webhookUrl")
+            "webhookUrl": obj.get("webhookUrl"),
+            "zendeskDetails": AlertserviceZendeskDetails.from_dict(obj["zendeskDetails"]) if obj.get("zendeskDetails") is not None else None
         })
         return _obj
 

@@ -37,7 +37,11 @@ class TestV1AuthLoginPostResponse(unittest.TestCase):
             return V1AuthLoginPostResponse(
                 auth = True,
                 token = 'gr-auth-12345678-1234-1234-1234-123456789012-87654321-4321-4321-4321-210987654321',
-                account_type = 'enterprise'
+                account_type = 'enterprise',
+                email = 'user@example.com',
+                mfa_type = 'TOTP',
+                state_token = 'state-token-12345',
+                status = 'AwaitingMfa'
             )
         else:
             return V1AuthLoginPostResponse(

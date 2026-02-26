@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **average_uplink_utilization** | **float** |  | [optional] 
 **circuit_carrier** | **str** |  | [optional] 
 **circuit_name** | **str** |  | [optional] 
+**connected_region_name** | **str** |  | [optional] 
 **current_downlink_utilization** | **float** |  | [optional] 
 **current_uplink_utilization** | **float** |  | [optional] 
 **device_id** | **int** |  | [optional] 

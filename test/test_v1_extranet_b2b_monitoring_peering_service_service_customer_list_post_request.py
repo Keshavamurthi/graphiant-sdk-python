@@ -35,10 +35,10 @@ class TestV1ExtranetB2bMonitoringPeeringServiceServiceCustomerListPostRequest(un
         model = V1ExtranetB2bMonitoringPeeringServiceServiceCustomerListPostRequest()
         if include_optional:
             return V1ExtranetB2bMonitoringPeeringServiceServiceCustomerListPostRequest(
-                id = 1234567891011,
+                id = 1,
                 is_provider = True,
                 time_window = graphiant_sdk.models.statsmon_time_window.statsmonTimeWindow(
-                    bucket_size_sec = 123, 
+                    bucket_size_sec = 300, 
                     old_ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
                         nanos = 123, 
                         seconds = 1234567891011, ), 
@@ -48,6 +48,16 @@ class TestV1ExtranetB2bMonitoringPeeringServiceServiceCustomerListPostRequest(un
             )
         else:
             return V1ExtranetB2bMonitoringPeeringServiceServiceCustomerListPostRequest(
+                id = 1,
+                is_provider = True,
+                time_window = graphiant_sdk.models.statsmon_time_window.statsmonTimeWindow(
+                    bucket_size_sec = 300, 
+                    old_ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
+                        nanos = 123, 
+                        seconds = 1234567891011, ), 
+                    recent_ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
+                        nanos = 123, 
+                        seconds = 1234567891011, ), ),
         )
         """
 

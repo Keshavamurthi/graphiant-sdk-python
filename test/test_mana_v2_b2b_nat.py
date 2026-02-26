@@ -35,11 +35,12 @@ class TestManaV2B2bNat(unittest.TestCase):
         model = ManaV2B2bNat()
         if include_optional:
             return ManaV2B2bNat(
-                outside_nat_prefix = 'example string',
-                prefix = 'example string'
+                outside_nat_prefix = '100.1.2.0/24',
+                prefix = '10.1.2.0/24'
             )
         else:
             return ManaV2B2bNat(
+                prefix = '10.1.2.0/24',
         )
         """
 

@@ -49,6 +49,17 @@ class TestV1ExtranetsB2bIdCustomerPostRequest(unittest.TestCase):
             )
         else:
             return V1ExtranetsB2bIdCustomerPostRequest(
+                invites = [
+                    graphiant_sdk.models.mana_v2_b2b_extranet_application_invite.manaV2B2bExtranetApplicationInvite(
+                        admin_email = 'example string', 
+                        consumer_burst_size = 123, 
+                        consumer_bw_site = 123, 
+                        enterprise_id = 1234567891011, 
+                        maximum_site_count = 123, 
+                        service_prefixes = [
+                            'example string'
+                            ], )
+                    ],
         )
         """
 
