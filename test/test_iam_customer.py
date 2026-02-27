@@ -51,8 +51,10 @@ class TestIamCustomer(unittest.TestCase):
                     total_msps = 1234567891011, 
                     total_sites = 1234567891011, 
                     up_sites_count = 1234567891011, ),
+                description = 'example string',
                 enterprise_id = 1234567891011,
-                impersonation_enabled = True
+                impersonation_enabled = True,
+                marketplace_id = 'example string'
             )
         else:
             return IamCustomer(

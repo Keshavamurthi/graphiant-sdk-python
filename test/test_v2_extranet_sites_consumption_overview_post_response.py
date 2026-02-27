@@ -43,7 +43,7 @@ class TestV2ExtranetSitesConsumptionOverviewPostResponse(unittest.TestCase):
                         connections_v2 = {
                             'key' : 123.45
                             }, 
-                        name = 'example string', )
+                        name = 'Site 1', )
                     ],
                 regions = [
                     graphiant_sdk.models.ipfix_connection_map.ipfixConnectionMap(
@@ -53,7 +53,7 @@ class TestV2ExtranetSitesConsumptionOverviewPostResponse(unittest.TestCase):
                         connections_v2 = {
                             'key' : 123.45
                             }, 
-                        name = 'example string', )
+                        name = 'Site 1', )
                     ],
                 sites = [
                     graphiant_sdk.models.ipfix_connection_map.ipfixConnectionMap(
@@ -63,9 +63,9 @@ class TestV2ExtranetSitesConsumptionOverviewPostResponse(unittest.TestCase):
                         connections_v2 = {
                             'key' : 123.45
                             }, 
-                        name = 'example string', )
+                        name = 'Site 1', )
                     ],
-                total_usage = 123.45
+                total_usage = 1000000
             )
         else:
             return V2ExtranetSitesConsumptionOverviewPostResponse(

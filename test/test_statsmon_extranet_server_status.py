@@ -35,8 +35,8 @@ class TestStatsmonExtranetServerStatus(unittest.TestCase):
         model = StatsmonExtranetServerStatus()
         if include_optional:
             return StatsmonExtranetServerStatus(
-                address = 'example string',
-                status = 'ENUM_VALUE'
+                address = '192.168.1.1',
+                status = 'Healthy'
             )
         else:
             return StatsmonExtranetServerStatus(

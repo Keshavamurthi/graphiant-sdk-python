@@ -38,6 +38,9 @@ class TestV1GlobalAttachedEdgesPostRequest(unittest.TestCase):
                 ipfix_exported_ids = [
                     1234567891011
                     ],
+                ntp_ids = [
+                    1234567891011
+                    ],
                 prefix_set_ids = [
                     1234567891011
                     ],

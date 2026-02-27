@@ -37,10 +37,10 @@ class TestV2MonitoringExtranetLogDetailsPostResponse(unittest.TestCase):
             return V2MonitoringExtranetLogDetailsPostResponse(
                 logs = [
                     graphiant_sdk.models.v2_monitoring_extranet_log_details_post_response_log_details.v2MonitoringExtranetLogDetailsPostResponseLogDetails(
-                        hostname = 'example string', 
-                        reason = 'example string', 
-                        server_address = 'example string', 
-                        site_name = 'example string', 
+                        hostname = 'hostname1', 
+                        reason = 'Reason 1', 
+                        server_address = '192.168.1.1', 
+                        site_name = 'site1', 
                         ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
                             nanos = 123, 
                             seconds = 1234567891011, ), )

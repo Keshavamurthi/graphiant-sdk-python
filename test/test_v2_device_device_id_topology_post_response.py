@@ -80,6 +80,7 @@ class TestV2DeviceDeviceIdTopologyPostResponse(unittest.TestCase):
                                 average_uplink_utilization = 123.45, 
                                 circuit_carrier = 'example string', 
                                 circuit_name = 'example string', 
+                                connected_region_name = 'example string', 
                                 current_downlink_utilization = 123.45, 
                                 current_uplink_utilization = 123.45, 
                                 device_id = 1234567891011, 
@@ -128,6 +129,7 @@ class TestV2DeviceDeviceIdTopologyPostResponse(unittest.TestCase):
                             uptime = graphiant_sdk.models.google_protobuf_duration.googleProtobufDuration(
                                 nanos = 123, 
                                 seconds = 1234567891011, ), ), 
+                        preferred_region_name = 'example string', 
                         quality = 'ENUM_VALUE', 
                         type = 'ENUM_VALUE', )
                     ],

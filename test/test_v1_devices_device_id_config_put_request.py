@@ -344,6 +344,9 @@ class TestV1DevicesDeviceIdConfigPutRequest(unittest.TestCase):
                             state_code = 'example string', ), 
                         name = 'example string', 
                         notes = 'example string', 
+                        ntp_ops = {
+                            'key' : 'ENUM_VALUE'
+                            }, 
                         prefix_set_ops = {
                             'key' : 'ENUM_VALUE'
                             }, 
@@ -569,6 +572,7 @@ class TestV1DevicesDeviceIdConfigPutRequest(unittest.TestCase):
                                             relay_servers = [
                                                 'example string'
                                                 ], ), ), 
+                                    gw = graphiant_sdk.models.mana_v2_nullable_gateway_config.manaV2NullableGatewayConfig(), 
                                     vrrp = graphiant_sdk.models.mana_v2_nullable_vrrp_group_config.manaV2NullableVrrpGroupConfig(
                                         group = graphiant_sdk.models.mana_v2_vrrp_group_config.manaV2VrrpGroupConfig(
                                             accept_mode = True, 
@@ -587,6 +591,7 @@ class TestV1DevicesDeviceIdConfigPutRequest(unittest.TestCase):
                                 lan = 'example string', 
                                 lldp_enabled = True, 
                                 loopback = True, 
+                                macsec = graphiant_sdk.models.mana_v2_nullable_ma_csec_configuration.manaV2NullableMaCsecConfiguration(), 
                                 max_transmission_unit = 123, 
                                 security_zone = 'example string', 
                                 speed = 1234567891011, 
@@ -662,6 +667,9 @@ class TestV1DevicesDeviceIdConfigPutRequest(unittest.TestCase):
                                                 type = 'ENUM_VALUE', ), )
                                         }, ), )
                             }, ), 
+                    ntp_global_object = {
+                        'key' : graphiant_sdk.models.mana_v2_nullable_ntp_config.manaV2NullableNtpConfig()
+                        }, 
                     ospfv2_enabled = True, 
                     ospfv3_enabled = True, 
                     prefix_sets = {
@@ -815,6 +823,9 @@ class TestV1DevicesDeviceIdConfigPutRequest(unittest.TestCase):
                             }, 
                         name = 'example string', 
                         notes = 'example string', 
+                        ntp_ops = {
+                            'key' : 'ENUM_VALUE'
+                            }, 
                         prefix_set_ops = {
                             'key' : 'ENUM_VALUE'
                             }, 
@@ -837,6 +848,7 @@ class TestV1DevicesDeviceIdConfigPutRequest(unittest.TestCase):
                     site_to_site_vpn = {
                         'key' : graphiant_sdk.models.mana_v2_nullable_i_psec_tunnel_config.manaV2NullableIPsecTunnelConfig()
                         }, 
+                    sla_conformance = graphiant_sdk.models.mana_v2_nullable_sla_conformance.manaV2NullableSlaConformance(), 
                     snmp = graphiant_sdk.models.mana_v2_nullable_snmp_config.manaV2NullableSnmpConfig(), 
                     snmp_global_object = {
                         'key' : graphiant_sdk.models.mana_v2_nullable_snmp_config.manaV2NullableSnmpConfig()

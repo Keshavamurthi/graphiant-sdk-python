@@ -42,6 +42,10 @@ class TestManaV2B2bExtranetPeeringServiceCustomerInvite(unittest.TestCase):
             )
         else:
             return ManaV2B2bExtranetPeeringServiceCustomerInvite(
+                admin_email = [
+                    'example string'
+                    ],
+                maximum_number_of_sites = 123,
         )
         """
 

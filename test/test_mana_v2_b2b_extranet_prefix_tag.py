@@ -35,11 +35,12 @@ class TestManaV2B2bExtranetPrefixTag(unittest.TestCase):
         model = ManaV2B2bExtranetPrefixTag()
         if include_optional:
             return ManaV2B2bExtranetPrefixTag(
-                prefix = 'example string',
+                prefix = '10.1.2.0/24',
                 tag = 'example string'
             )
         else:
             return ManaV2B2bExtranetPrefixTag(
+                prefix = '10.1.2.0/24',
         )
         """
 

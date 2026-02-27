@@ -243,6 +243,8 @@ class TestV1ExtranetsIdGetResponse(unittest.TestCase):
                                         description = 'example string', 
                                         duplex = 'example string', 
                                         enabled = True, 
+                                        gateway_address_v4 = 'example string', 
+                                        gateway_address_v6 = 'example string', 
                                         id = 1234567891011, 
                                         ip_sec = graphiant_sdk.models.mana_v2_interface_i_psec.manaV2InterfaceIPsec(
                                             anti_replay_window_size = 123, 
@@ -333,6 +335,27 @@ class TestV1ExtranetsIdGetResponse(unittest.TestCase):
                                             minimum_members = 123, ), 
                                         lan = 'example string', 
                                         lldp_enabled = True, 
+                                        macsec = graphiant_sdk.models.mana_v2_interface_ma_csec.manaV2InterfaceMaCsec(
+                                            enabled = True, 
+                                            encryption_enforcement_mode = 'ENUM_VALUE', 
+                                            key_server_priority = 1234567891011, 
+                                            psk_configurations = [
+                                                graphiant_sdk.models.mana_v2_psk_configuration.manaV2PskConfiguration(
+                                                    cak = '1234567890abcdef1234567890abcdef', 
+                                                    cak_cryptographic_algorithm = 'AES_128_CMAC', 
+                                                    ckn = 'Corp-MACsec-CKN', 
+                                                    nickname = 'PSK1', 
+                                                    start_time = , )
+                                                ], 
+                                            sak_configurations = [
+                                                graphiant_sdk.models.mana_v2_sak_configuration.manaV2SakConfiguration(
+                                                    cipher_suite = 'ENUM_VALUE', 
+                                                    lag_member_interface_id = 1, 
+                                                    rekey_interval = 1000, 
+                                                    replay_protection_window_size = 1000, )
+                                                ], 
+                                            split_sak_config_by_lag_member = True, 
+                                            transparent_vlan = True, ), 
                                         max_transmission_unit = 123, 
                                         name = 'example string', 
                                         oper_updated_at = , 
@@ -355,6 +378,8 @@ class TestV1ExtranetsIdGetResponse(unittest.TestCase):
                                                 description = 'example string', 
                                                 duplex = 'example string', 
                                                 enabled = True, 
+                                                gateway_address_v4 = 'example string', 
+                                                gateway_address_v6 = 'example string', 
                                                 id = 1234567891011, 
                                                 lan = 'example string', 
                                                 mac_address = 'example string', 
@@ -464,6 +489,15 @@ class TestV1ExtranetsIdGetResponse(unittest.TestCase):
                                                 ], )
                                         ], ), 
                                 notes = 'example string', 
+                                ntp = graphiant_sdk.models.mana_v2_ntp.manaV2Ntp(
+                                    domains = [
+                                        'example string'
+                                        ], 
+                                    error_message = 'example string', 
+                                    global_id = 1234567891011, 
+                                    id = 1234567891011, 
+                                    name = 'example string', 
+                                    status = 'ENUM_VALUE', ), 
                                 oper_staled = True, 
                                 oper_staled_at = , 
                                 oper_updated_at = , 
@@ -696,6 +730,10 @@ class TestV1ExtranetsIdGetResponse(unittest.TestCase):
                                         'example string'
                                         ], 
                                     updated_at = , ), 
+                                sla_conformance = graphiant_sdk.models.mana_v2_sla_conformance.manaV2SlaConformance(
+                                    dampening_factor = 1234567891011, 
+                                    duration = 1234567891011, 
+                                    interval = 1234567891011, ), 
                                 snmp = graphiant_sdk.models.mana_v2_snmp.manaV2Snmp(
                                     communities = [
                                         graphiant_sdk.models.mana_v2_snmp_community.manaV2SnmpCommunity(

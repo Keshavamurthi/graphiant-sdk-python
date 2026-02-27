@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **enterprise_id** | **str** |  | [optional] 
 **id** | **int** |  | [optional] 
 **is_active** | **bool** |  | [optional] 
+**last_scanned** | **int** | last scanned time for integrations (zendesk) | [optional] 
 **nick_name** | **str** |  | [optional] 
 **type** | **str** |  | [optional] 
 

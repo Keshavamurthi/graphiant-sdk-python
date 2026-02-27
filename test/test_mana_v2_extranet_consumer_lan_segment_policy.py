@@ -42,7 +42,7 @@ class TestManaV2ExtranetConsumerLanSegmentPolicy(unittest.TestCase):
                 rules = [
                     graphiant_sdk.models.mana_v2_extranet_consumer_nat_rule.manaV2ExtranetConsumerNatRule(
                         outside_nat_prefix = 'example string', 
-                        service_prefix = 'example string', )
+                        service_prefix = '10.1.2.0/24', )
                     ]
             )
         else:

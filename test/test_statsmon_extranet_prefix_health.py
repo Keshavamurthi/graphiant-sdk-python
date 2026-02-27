@@ -35,9 +35,9 @@ class TestStatsmonExtranetPrefixHealth(unittest.TestCase):
         model = StatsmonExtranetPrefixHealth()
         if include_optional:
             return StatsmonExtranetPrefixHealth(
-                health = 'ENUM_VALUE',
+                health = 'Impaired',
                 missing_prefixes = [
-                    'example string'
+                    '192.168.0.0/16'
                     ]
             )
         else:

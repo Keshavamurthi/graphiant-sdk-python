@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **description** | **str** |  | [optional] 
 **duplex** | **str** |  | [optional] 
 **enabled** | **bool** |  | [optional] 
+**gateway_address_v4** | **str** |  | [optional] 
+**gateway_address_v6** | **str** |  | [optional] 
 **id** | **int** |  | [optional] 
 **ipv4** | [**ManaV2InterfaceAddress**](ManaV2InterfaceAddress.md) |  | [optional] 
 **ipv6** | [**ManaV2InterfaceAddress**](ManaV2InterfaceAddress.md) |  | [optional] 

@@ -42,6 +42,10 @@ class TestManaV2ApplicationProfile(unittest.TestCase):
             )
         else:
             return ManaV2ApplicationProfile(
+                ports = [
+                    123
+                    ],
+                protocol = 123,
         )
         """
 

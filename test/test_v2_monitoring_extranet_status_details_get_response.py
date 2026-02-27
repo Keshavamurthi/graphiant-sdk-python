@@ -40,22 +40,22 @@ class TestV2MonitoringExtranetStatusDetailsGetResponse(unittest.TestCase):
                         created_at = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
                             nanos = 123, 
                             seconds = 1234567891011, ), 
-                        disconnected_reason = 'example string', 
-                        hostname = 'example string', 
-                        id = 1234567891011, 
-                        site_name = 'example string', 
-                        status = 'ENUM_VALUE', )
+                        disconnected_reason = 'No route to the server', 
+                        hostname = 'edge1', 
+                        id = 30000000001, 
+                        site_name = 'site1', 
+                        status = 'Healthy', )
                     ],
-                location = 'example string',
-                region = 'example string',
+                location = 'Location 1',
+                region = 'Region 1',
                 site_status = graphiant_sdk.models.statsmon_extranet_site_status.statsmonExtranetSiteStatus(
-                    id = 1234567891011, 
-                    name = 'example string', 
-                    status = 'ENUM_VALUE', 
+                    id = 1, 
+                    name = 'site1', 
+                    status = 'Healthy', 
                     statuses = [
                         graphiant_sdk.models.statsmon_extranet_server_status.statsmonExtranetServerStatus(
-                            address = 'example string', 
-                            status = 'ENUM_VALUE', )
+                            address = '192.168.1.1', 
+                            status = 'Healthy', )
                         ], )
             )
         else:

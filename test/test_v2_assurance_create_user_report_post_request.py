@@ -39,9 +39,9 @@ class TestV2AssuranceCreateUserReportPostRequest(unittest.TestCase):
                 email_list = [
                     'example string'
                     ],
-                pdf_content = '[B@60cf80e7',
+                pdf_content = '[B@4da855dd',
                 raw_content = [
-                    '[B@302fec27'
+                    '[B@6691490c'
                     ],
                 report_name = 'example string',
                 report_type = 'ENUM_VALUE',

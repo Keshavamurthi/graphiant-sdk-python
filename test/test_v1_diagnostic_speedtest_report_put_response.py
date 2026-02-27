@@ -35,7 +35,7 @@ class TestV1DiagnosticSpeedtestReportPutResponse(unittest.TestCase):
         model = V1DiagnosticSpeedtestReportPutResponse()
         if include_optional:
             return V1DiagnosticSpeedtestReportPutResponse(
-                report = '[B@48c40605',
+                report = '[B@2e5c7f0b',
                 report_id = 10
             )
         else:

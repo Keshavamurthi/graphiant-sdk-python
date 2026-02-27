@@ -35,17 +35,17 @@ class TestStatsmonExtranetServiceHealth(unittest.TestCase):
         model = StatsmonExtranetServiceHealth()
         if include_optional:
             return StatsmonExtranetServiceHealth(
-                customer_name = 'example string',
+                customer_name = 'Customer 1',
                 customer_prefix_health = graphiant_sdk.models.statsmon_extranet_prefix_health.statsmonExtranetPrefixHealth(
-                    health = 'ENUM_VALUE', 
+                    health = 'Impaired', 
                     missing_prefixes = [
-                        'example string'
+                        '192.168.0.0/16'
                         ], ),
-                overall_health = 'ENUM_VALUE',
+                overall_health = 'Impaired',
                 producer_prefix_health = graphiant_sdk.models.statsmon_extranet_prefix_health.statsmonExtranetPrefixHealth(
-                    health = 'ENUM_VALUE', 
+                    health = 'Impaired', 
                     missing_prefixes = [
-                        'example string'
+                        '192.168.0.0/16'
                         ], )
             )
         else:

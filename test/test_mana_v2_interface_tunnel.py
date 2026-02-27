@@ -51,6 +51,8 @@ class TestManaV2InterfaceTunnel(unittest.TestCase):
                     description = 'example string', 
                     duplex = 'example string', 
                     enabled = True, 
+                    gateway_address_v4 = 'example string', 
+                    gateway_address_v6 = 'example string', 
                     id = 1234567891011, 
                     ip_sec = graphiant_sdk.models.mana_v2_interface_i_psec.manaV2InterfaceIPsec(
                         anti_replay_window_size = 123, 
@@ -143,6 +145,27 @@ class TestManaV2InterfaceTunnel(unittest.TestCase):
                         minimum_members = 123, ), 
                     lan = 'example string', 
                     lldp_enabled = True, 
+                    macsec = graphiant_sdk.models.mana_v2_interface_ma_csec.manaV2InterfaceMaCsec(
+                        enabled = True, 
+                        encryption_enforcement_mode = 'ENUM_VALUE', 
+                        key_server_priority = 1234567891011, 
+                        psk_configurations = [
+                            graphiant_sdk.models.mana_v2_psk_configuration.manaV2PskConfiguration(
+                                cak = '1234567890abcdef1234567890abcdef', 
+                                cak_cryptographic_algorithm = 'AES_128_CMAC', 
+                                ckn = 'Corp-MACsec-CKN', 
+                                nickname = 'PSK1', 
+                                start_time = , )
+                            ], 
+                        sak_configurations = [
+                            graphiant_sdk.models.mana_v2_sak_configuration.manaV2SakConfiguration(
+                                cipher_suite = 'ENUM_VALUE', 
+                                lag_member_interface_id = 1, 
+                                rekey_interval = 1000, 
+                                replay_protection_window_size = 1000, )
+                            ], 
+                        split_sak_config_by_lag_member = True, 
+                        transparent_vlan = True, ), 
                     max_transmission_unit = 123, 
                     name = 'example string', 
                     oper_updated_at = , 
@@ -165,6 +188,8 @@ class TestManaV2InterfaceTunnel(unittest.TestCase):
                             description = 'example string', 
                             duplex = 'example string', 
                             enabled = True, 
+                            gateway_address_v4 = 'example string', 
+                            gateway_address_v6 = 'example string', 
                             id = 1234567891011, 
                             lan = 'example string', 
                             mac_address = 'example string', 
@@ -210,6 +235,8 @@ class TestManaV2InterfaceTunnel(unittest.TestCase):
                     description = 'example string', 
                     duplex = 'example string', 
                     enabled = True, 
+                    gateway_address_v4 = 'example string', 
+                    gateway_address_v6 = 'example string', 
                     id = 1234567891011, 
                     ip_sec = graphiant_sdk.models.mana_v2_interface_i_psec.manaV2InterfaceIPsec(
                         anti_replay_window_size = 123, 
@@ -302,6 +329,27 @@ class TestManaV2InterfaceTunnel(unittest.TestCase):
                         minimum_members = 123, ), 
                     lan = 'example string', 
                     lldp_enabled = True, 
+                    macsec = graphiant_sdk.models.mana_v2_interface_ma_csec.manaV2InterfaceMaCsec(
+                        enabled = True, 
+                        encryption_enforcement_mode = 'ENUM_VALUE', 
+                        key_server_priority = 1234567891011, 
+                        psk_configurations = [
+                            graphiant_sdk.models.mana_v2_psk_configuration.manaV2PskConfiguration(
+                                cak = '1234567890abcdef1234567890abcdef', 
+                                cak_cryptographic_algorithm = 'AES_128_CMAC', 
+                                ckn = 'Corp-MACsec-CKN', 
+                                nickname = 'PSK1', 
+                                start_time = , )
+                            ], 
+                        sak_configurations = [
+                            graphiant_sdk.models.mana_v2_sak_configuration.manaV2SakConfiguration(
+                                cipher_suite = 'ENUM_VALUE', 
+                                lag_member_interface_id = 1, 
+                                rekey_interval = 1000, 
+                                replay_protection_window_size = 1000, )
+                            ], 
+                        split_sak_config_by_lag_member = True, 
+                        transparent_vlan = True, ), 
                     max_transmission_unit = 123, 
                     name = 'example string', 
                     oper_updated_at = , 
@@ -324,6 +372,8 @@ class TestManaV2InterfaceTunnel(unittest.TestCase):
                             description = 'example string', 
                             duplex = 'example string', 
                             enabled = True, 
+                            gateway_address_v4 = 'example string', 
+                            gateway_address_v6 = 'example string', 
                             id = 1234567891011, 
                             lan = 'example string', 
                             mac_address = 'example string', 

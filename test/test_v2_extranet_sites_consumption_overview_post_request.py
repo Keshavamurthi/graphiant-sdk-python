@@ -35,24 +35,36 @@ class TestV2ExtranetSitesConsumptionOverviewPostRequest(unittest.TestCase):
         model = V2ExtranetSitesConsumptionOverviewPostRequest()
         if include_optional:
             return V2ExtranetSitesConsumptionOverviewPostRequest(
-                customer_name = 'example string',
+                customer_name = 'Customer 1',
                 flipped_view = True,
-                id = 1234567891011,
+                id = 1,
                 is_b2_b = True,
                 is_provider = True,
-                site_id = 1234567891011,
+                site_id = 1,
                 time_window = graphiant_sdk.models.statsmon_time_window.statsmonTimeWindow(
-                    bucket_size_sec = 123, 
+                    bucket_size_sec = 300, 
                     old_ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
                         nanos = 123, 
                         seconds = 1234567891011, ), 
                     recent_ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
                         nanos = 123, 
                         seconds = 1234567891011, ), ),
-                vrf_id = 1234567891011
+                vrf_id = 1
             )
         else:
             return V2ExtranetSitesConsumptionOverviewPostRequest(
+                flipped_view = True,
+                id = 1,
+                is_b2_b = True,
+                is_provider = True,
+                time_window = graphiant_sdk.models.statsmon_time_window.statsmonTimeWindow(
+                    bucket_size_sec = 300, 
+                    old_ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
+                        nanos = 123, 
+                        seconds = 1234567891011, ), 
+                    recent_ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
+                        nanos = 123, 
+                        seconds = 1234567891011, ), ),
         )
         """
 

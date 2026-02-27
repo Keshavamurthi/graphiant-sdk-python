@@ -45,8 +45,8 @@ class TestV1ExtranetsB2bPeeringConsumerMatchIdPostRequest(unittest.TestCase):
                 id = 1234567891011,
                 nat = [
                     graphiant_sdk.models.mana_v2_b2b_nat.manaV2B2bNat(
-                        outside_nat_prefix = 'example string', 
-                        prefix = 'example string', )
+                        outside_nat_prefix = '100.1.2.0/24', 
+                        prefix = '10.1.2.0/24', )
                     ],
                 policy = [
                     graphiant_sdk.models.mana_v2_b2b_extranet_peering_service_consumer_lan_segment_policy.manaV2B2bExtranetPeeringServiceConsumerLanSegmentPolicy(
@@ -118,6 +118,36 @@ class TestV1ExtranetsB2bPeeringConsumerMatchIdPostRequest(unittest.TestCase):
             )
         else:
             return V1ExtranetsB2bPeeringConsumerMatchIdPostRequest(
+                id = 1234567891011,
+                nat = [
+                    graphiant_sdk.models.mana_v2_b2b_nat.manaV2B2bNat(
+                        outside_nat_prefix = '100.1.2.0/24', 
+                        prefix = '10.1.2.0/24', )
+                    ],
+                policy = [
+                    graphiant_sdk.models.mana_v2_b2b_extranet_peering_service_consumer_lan_segment_policy.manaV2B2bExtranetPeeringServiceConsumerLanSegmentPolicy(
+                        consumer_prefixes = [
+                            'example string'
+                            ], 
+                        lan_segment = 1234567891011, )
+                    ],
+                site_information = [
+                    graphiant_sdk.models.mana_v2_b2b_site_information.manaV2B2bSiteInformation(
+                        bw_allocation_site_lists = 123, 
+                        bw_allocation_sites = 123, 
+                        policer_site_lists = graphiant_sdk.models.mana_v2_policer.manaV2Policer(
+                            burst_size = 123, 
+                            bw = 123, ), 
+                        policer_sites = graphiant_sdk.models.mana_v2_policer.manaV2Policer(
+                            burst_size = 123, 
+                            bw = 123, ), 
+                        site_lists = [
+                            1234567891011
+                            ], 
+                        sites = [
+                            1234567891011
+                            ], )
+                    ],
         )
         """
 

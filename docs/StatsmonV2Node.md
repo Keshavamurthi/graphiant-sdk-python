@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | [optional] 
 **name** | **str** |  | [optional] 
 **node_info** | [**StatsmonV2NodeDeviceInfo**](StatsmonV2NodeDeviceInfo.md) |  | [optional] 
+**preferred_region_name** | **str** |  | [optional] 
 **quality** | **str** |  | [optional] 
 **type** | **str** |  | [optional] 
 

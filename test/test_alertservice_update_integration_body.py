@@ -38,7 +38,12 @@ class TestAlertserviceUpdateIntegrationBody(unittest.TestCase):
                 details = graphiant_sdk.models.alertservice_integration_details.alertserviceIntegrationDetails(
                     opsgenie_key = 'example string', 
                     opsramp_details = 'example string', 
-                    webhook_url = 'example string', ),
+                    webhook_url = 'example string', 
+                    zendesk_details = graphiant_sdk.models.alertservice_zendesk_details.alertserviceZendeskDetails(
+                        zendesk_api_token = 'example string', 
+                        zendesk_assignee_id = 'example string', 
+                        zendesk_base_url = 'example string', 
+                        zendesk_email = 'example string', ), ),
                 enterprise = 1234567891011,
                 integration_type = 'ENUM_VALUE',
                 is_active = True,

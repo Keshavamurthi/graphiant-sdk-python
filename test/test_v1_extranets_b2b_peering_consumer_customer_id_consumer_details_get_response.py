@@ -116,6 +116,7 @@ class TestV1ExtranetsB2bPeeringConsumerCustomerIdConsumerDetailsGetResponse(unit
                         tunnel_mtu = 123, )
                     ],
                 match_details = graphiant_sdk.models.mana_v2_b2b_extranet_service_customer_match_details.manaV2B2bExtranetServiceCustomerMatchDetails(
+                    consumer_id = 1234567891011, 
                     consumer_prefixes = [
                         'example string'
                         ], 
@@ -126,6 +127,15 @@ class TestV1ExtranetsB2bPeeringConsumerCustomerIdConsumerDetailsGetResponse(unit
                             ], 
                         id = 1234567891011, 
                         num_sites = 123, ), 
+                    old_consumer_prefixes = [
+                        'example string'
+                        ], 
+                    old_service_prefixes = [
+                        graphiant_sdk.models.mana_v2_b2_b_extranet_service_customer_match_details_producer_prefix.manaV2B2BExtranetServiceCustomerMatchDetailsProducerPrefix(
+                            customer_translated_prefix = 'example string', 
+                            prefix = 'example string', 
+                            tag = 'example string', )
+                        ], 
                     service = graphiant_sdk.models.mana_v2_b2_b_extranet_service_customer_match_details_service.manaV2B2BExtranetServiceCustomerMatchDetailsService(
                         company_name = 'example string', 
                         contact_email = [

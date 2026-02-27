@@ -43,7 +43,7 @@ class TestV1ExtranetB2bMonitoringPeeringServiceConsumptionOverviewPostResponse(u
                         connections_v2 = {
                             'key' : 123.45
                             }, 
-                        name = 'example string', )
+                        name = 'Site 1', )
                     ],
                 second_level = [
                     graphiant_sdk.models.ipfix_connection_map.ipfixConnectionMap(
@@ -53,7 +53,7 @@ class TestV1ExtranetB2bMonitoringPeeringServiceConsumptionOverviewPostResponse(u
                         connections_v2 = {
                             'key' : 123.45
                             }, 
-                        name = 'example string', )
+                        name = 'Site 1', )
                     ],
                 third_level = [
                     graphiant_sdk.models.ipfix_connection_map.ipfixConnectionMap(
@@ -63,9 +63,9 @@ class TestV1ExtranetB2bMonitoringPeeringServiceConsumptionOverviewPostResponse(u
                         connections_v2 = {
                             'key' : 123.45
                             }, 
-                        name = 'example string', )
+                        name = 'Site 1', )
                     ],
-                total_usage = 123.45
+                total_usage = 1000000
             )
         else:
             return V1ExtranetB2bMonitoringPeeringServiceConsumptionOverviewPostResponse(

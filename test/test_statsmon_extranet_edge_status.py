@@ -38,11 +38,11 @@ class TestStatsmonExtranetEdgeStatus(unittest.TestCase):
                 created_at = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
                     nanos = 123, 
                     seconds = 1234567891011, ),
-                disconnected_reason = 'example string',
-                hostname = 'example string',
-                id = 1234567891011,
-                site_name = 'example string',
-                status = 'ENUM_VALUE'
+                disconnected_reason = 'No route to the server',
+                hostname = 'edge1',
+                id = 30000000001,
+                site_name = 'site1',
+                status = 'Healthy'
             )
         else:
             return StatsmonExtranetEdgeStatus(

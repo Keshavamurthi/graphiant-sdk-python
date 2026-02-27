@@ -37,15 +37,15 @@ class TestV1ExtranetB2bMonitoringPeeringServiceServiceHealthPostResponse(unittes
             return V1ExtranetB2bMonitoringPeeringServiceServiceHealthPostResponse(
                 service_health = [
                     graphiant_sdk.models.statsmon_extranet_service_health.statsmonExtranetServiceHealth(
-                        customer_name = 'example string', 
+                        customer_name = 'Customer 1', 
                         customer_prefix_health = graphiant_sdk.models.statsmon_extranet_prefix_health.statsmonExtranetPrefixHealth(
-                            health = 'ENUM_VALUE', 
+                            health = 'Impaired', 
                             missing_prefixes = [
-                                'example string'
+                                '192.168.0.0/16'
                                 ], ), 
-                        overall_health = 'ENUM_VALUE', 
+                        overall_health = 'Impaired', 
                         producer_prefix_health = graphiant_sdk.models.statsmon_extranet_prefix_health.statsmonExtranetPrefixHealth(
-                            health = 'ENUM_VALUE', ), )
+                            health = 'Impaired', ), )
                     ]
             )
         else:

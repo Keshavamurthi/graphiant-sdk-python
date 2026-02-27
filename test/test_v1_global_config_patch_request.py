@@ -68,6 +68,16 @@ class TestV1GlobalConfigPatchRequest(unittest.TestCase):
                             source_interface_name = 'example string', 
                             vrf_id = 1234567891011, ), )
                     },
+                ntps = {
+                    'key' : graphiant_sdk.models.mana_v2_nullable_ntp_config.manaV2NullableNtpConfig(
+                        config = graphiant_sdk.models.mana_v2_ntp_config.manaV2NtpConfig(
+                            domains = [
+                                'example string'
+                                ], 
+                            global_id = 1234567891011, 
+                            is_global_sync = True, 
+                            name = 'example string', ), )
+                    },
                 prefix_sets = {
                     'key' : graphiant_sdk.models.mana_v2_nullable_enterprise_prefix_set_config.manaV2NullableEnterprisePrefixSetConfig(
                         target = graphiant_sdk.models.mana_v2_enterprise_prefix_set_config.manaV2EnterprisePrefixSetConfig(

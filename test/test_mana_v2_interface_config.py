@@ -68,6 +68,7 @@ class TestManaV2InterfaceConfig(unittest.TestCase):
                             relay_servers = [
                                 'example string'
                                 ], ), ), 
+                    gw = graphiant_sdk.models.mana_v2_nullable_gateway_config.manaV2NullableGatewayConfig(), 
                     vrrp = graphiant_sdk.models.mana_v2_nullable_vrrp_group_config.manaV2NullableVrrpGroupConfig(
                         group = graphiant_sdk.models.mana_v2_vrrp_group_config.manaV2VrrpGroupConfig(
                             accept_mode = True, 
@@ -91,6 +92,7 @@ class TestManaV2InterfaceConfig(unittest.TestCase):
                             relay_servers = [
                                 'example string'
                                 ], ), ), 
+                    gw = graphiant_sdk.models.mana_v2_nullable_gateway_config.manaV2NullableGatewayConfig(), 
                     vrrp = graphiant_sdk.models.mana_v2_nullable_vrrp_group_config.manaV2NullableVrrpGroupConfig(
                         group = graphiant_sdk.models.mana_v2_vrrp_group_config.manaV2VrrpGroupConfig(
                             accept_mode = True, 
@@ -109,6 +111,7 @@ class TestManaV2InterfaceConfig(unittest.TestCase):
                 lan = 'example string',
                 lldp_enabled = True,
                 loopback = True,
+                macsec = graphiant_sdk.models.mana_v2_nullable_ma_csec_configuration.manaV2NullableMaCsecConfiguration(),
                 max_transmission_unit = 123,
                 security_zone = 'example string',
                 speed = 1234567891011,
@@ -127,6 +130,7 @@ class TestManaV2InterfaceConfig(unittest.TestCase):
                                         relay_servers = [
                                             'example string'
                                             ], ), ), 
+                                gw = graphiant_sdk.models.mana_v2_nullable_gateway_config.manaV2NullableGatewayConfig(), 
                                 vrrp = graphiant_sdk.models.mana_v2_nullable_vrrp_group_config.manaV2NullableVrrpGroupConfig(
                                     group = graphiant_sdk.models.mana_v2_vrrp_group_config.manaV2VrrpGroupConfig(
                                         accept_mode = True, 

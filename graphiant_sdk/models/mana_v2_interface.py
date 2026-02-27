@@ -42,6 +42,8 @@ class ManaV2Interface(BaseModel):
     description: Optional[StrictStr] = None
     duplex: Optional[StrictStr] = None
     enabled: Optional[StrictBool] = None
+    gateway_address_v4: Optional[StrictStr] = Field(default=None, alias="gatewayAddressV4")
+    gateway_address_v6: Optional[StrictStr] = Field(default=None, alias="gatewayAddressV6")
     id: Optional[StrictInt] = None
     ip_sec: Optional[ManaV2InterfaceIPsec] = Field(default=None, alias="ipSec")
     ipv4: Optional[ManaV2InterfaceAddress] = None
@@ -67,7 +69,7 @@ class ManaV2Interface(BaseModel):
     up: Optional[StrictBool] = None
     vrf_function_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="vrfFunctionId")
     vrf_name: Optional[StrictStr] = Field(default=None, alias="vrfName")
-    __properties: ClassVar[List[str]] = ["alias", "circuit", "circuitName", "configUpdatedAt", "configuredMaxTransmissionUnit", "description", "duplex", "enabled", "id", "ipSec", "ipv4", "ipv6", "ipv6Addresses", "lagInterface", "lan", "lldpEnabled", "macsec", "maxTransmissionUnit", "name", "operUpdatedAt", "phyAddress", "protocol", "securityZone", "sfpOpticalStrength", "speedMbps", "subinterfaces", "tcpMss", "tcpMssV4", "tcpMssV6", "type", "up", "vrfFunctionId", "vrfName"]
+    __properties: ClassVar[List[str]] = ["alias", "circuit", "circuitName", "configUpdatedAt", "configuredMaxTransmissionUnit", "description", "duplex", "enabled", "gatewayAddressV4", "gatewayAddressV6", "id", "ipSec", "ipv4", "ipv6", "ipv6Addresses", "lagInterface", "lan", "lldpEnabled", "macsec", "maxTransmissionUnit", "name", "operUpdatedAt", "phyAddress", "protocol", "securityZone", "sfpOpticalStrength", "speedMbps", "subinterfaces", "tcpMss", "tcpMssV4", "tcpMssV6", "type", "up", "vrfFunctionId", "vrfName"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -170,6 +172,8 @@ class ManaV2Interface(BaseModel):
             "description": obj.get("description"),
             "duplex": obj.get("duplex"),
             "enabled": obj.get("enabled"),
+            "gatewayAddressV4": obj.get("gatewayAddressV4"),
+            "gatewayAddressV6": obj.get("gatewayAddressV6"),
             "id": obj.get("id"),
             "ipSec": ManaV2InterfaceIPsec.from_dict(obj["ipSec"]) if obj.get("ipSec") is not None else None,
             "ipv4": ManaV2InterfaceAddress.from_dict(obj["ipv4"]) if obj.get("ipv4") is not None else None,

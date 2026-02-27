@@ -45,7 +45,8 @@ class TestV2DeviceDeviceIdTopologyPostRequest(unittest.TestCase):
                         seconds = 1234567891011, ), 
                     recent_ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
                         nanos = 123, 
-                        seconds = 1234567891011, ), )
+                        seconds = 1234567891011, ), ),
+                version = 123
             )
         else:
             return V2DeviceDeviceIdTopologyPostRequest(

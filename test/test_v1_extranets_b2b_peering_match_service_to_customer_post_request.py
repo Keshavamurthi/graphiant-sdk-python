@@ -41,18 +41,33 @@ class TestV1ExtranetsB2bPeeringMatchServiceToCustomerPostRequest(unittest.TestCa
                     lan_segment = 1234567891011, 
                     nat = [
                         graphiant_sdk.models.mana_v2_b2b_nat.manaV2B2bNat(
-                            outside_nat_prefix = 'example string', 
-                            prefix = 'example string', )
+                            outside_nat_prefix = '100.1.2.0/24', 
+                            prefix = '10.1.2.0/24', )
                         ], 
                     num_customers = 123, 
                     service_prefixes = [
                         graphiant_sdk.models.mana_v2_b2b_extranet_prefix_tag.manaV2B2bExtranetPrefixTag(
-                            prefix = 'example string', 
+                            prefix = '10.1.2.0/24', 
                             tag = 'example string', )
                         ], )
             )
         else:
             return V1ExtranetsB2bPeeringMatchServiceToCustomerPostRequest(
+                id = 1234567891011,
+                service = graphiant_sdk.models.mana_v2_b2b_extranet_match_service_to_customer.manaV2B2bExtranetMatchServiceToCustomer(
+                    id = 1234567891011, 
+                    lan_segment = 1234567891011, 
+                    nat = [
+                        graphiant_sdk.models.mana_v2_b2b_nat.manaV2B2bNat(
+                            outside_nat_prefix = '100.1.2.0/24', 
+                            prefix = '10.1.2.0/24', )
+                        ], 
+                    num_customers = 123, 
+                    service_prefixes = [
+                        graphiant_sdk.models.mana_v2_b2b_extranet_prefix_tag.manaV2B2bExtranetPrefixTag(
+                            prefix = '10.1.2.0/24', 
+                            tag = 'example string', )
+                        ], ),
         )
         """
 

@@ -35,6 +35,8 @@ class ManaV2InterfaceVlan(BaseModel):
     description: Optional[StrictStr] = None
     duplex: Optional[StrictStr] = None
     enabled: Optional[StrictBool] = None
+    gateway_address_v4: Optional[StrictStr] = Field(default=None, alias="gatewayAddressV4")
+    gateway_address_v6: Optional[StrictStr] = Field(default=None, alias="gatewayAddressV6")
     id: Optional[StrictInt] = None
     ipv4: Optional[ManaV2InterfaceAddress] = None
     ipv6: Optional[ManaV2InterfaceAddress] = None
@@ -52,7 +54,7 @@ class ManaV2InterfaceVlan(BaseModel):
     tcp_mss_v6: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="tcpMssV6")
     up: Optional[StrictBool] = None
     vlan: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    __properties: ClassVar[List[str]] = ["alias", "circuit", "configUpdatedAt", "description", "duplex", "enabled", "id", "ipv4", "ipv6", "ipv6Addresses", "lan", "macAddress", "maxTransmissionUnit", "name", "operUpdatedAt", "parentMacAddress", "securityZone", "speedMbps", "tcpMss", "tcpMssV4", "tcpMssV6", "up", "vlan"]
+    __properties: ClassVar[List[str]] = ["alias", "circuit", "configUpdatedAt", "description", "duplex", "enabled", "gatewayAddressV4", "gatewayAddressV6", "id", "ipv4", "ipv6", "ipv6Addresses", "lan", "macAddress", "maxTransmissionUnit", "name", "operUpdatedAt", "parentMacAddress", "securityZone", "speedMbps", "tcpMss", "tcpMssV4", "tcpMssV6", "up", "vlan"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -130,6 +132,8 @@ class ManaV2InterfaceVlan(BaseModel):
             "description": obj.get("description"),
             "duplex": obj.get("duplex"),
             "enabled": obj.get("enabled"),
+            "gatewayAddressV4": obj.get("gatewayAddressV4"),
+            "gatewayAddressV6": obj.get("gatewayAddressV6"),
             "id": obj.get("id"),
             "ipv4": ManaV2InterfaceAddress.from_dict(obj["ipv4"]) if obj.get("ipv4") is not None else None,
             "ipv6": ManaV2InterfaceAddress.from_dict(obj["ipv6"]) if obj.get("ipv6") is not None else None,

@@ -45,7 +45,7 @@ class TestManaV2B2bExtranetPeeringServicePolicyResponse(unittest.TestCase):
                         }, 
                     prefix_tags = [
                         graphiant_sdk.models.mana_v2_b2b_extranet_prefix_tag.manaV2B2bExtranetPrefixTag(
-                            prefix = 'example string', 
+                            prefix = '10.1.2.0/24', 
                             tag = 'example string', )
                         ], 
                     service_lan_segment = 1234567891011, 

@@ -41,6 +41,30 @@ class TestV1UsersIdGroupsGetResponse(unittest.TestCase):
                         enterprise_ids = [
                             1234567891011
                             ], 
+                        enterprise_permissions = {
+                            'key' : graphiant_sdk.models.iam_enterprise_permissions.iamEnterprisePermissions(
+                                group_type = 'ENUM_VALUE', 
+                                permissions = graphiant_sdk.models.common_permissions.commonPermissions(
+                                    asset_manager = 'ENUM_VALUE', 
+                                    b2b = 'ENUM_VALUE', 
+                                    b2b_security_profile_external = 'ENUM_VALUE', 
+                                    billing_and_invoicing = 'ENUM_VALUE', 
+                                    compliance = 'ENUM_VALUE', 
+                                    developer_tools = 'ENUM_VALUE', 
+                                    gateway = 'ENUM_VALUE', 
+                                    global_services = 'ENUM_VALUE', 
+                                    insights = 'ENUM_VALUE', 
+                                    licensing = 'ENUM_VALUE', 
+                                    logs = 'ENUM_VALUE', 
+                                    monitoring_and_troubleshooting = 'ENUM_VALUE', 
+                                    network_configuration = 'ENUM_VALUE', 
+                                    order_status = 'ENUM_VALUE', 
+                                    reports = 'ENUM_VALUE', 
+                                    safety_and_security = 'ENUM_VALUE', 
+                                    service_policies = 'ENUM_VALUE', 
+                                    support = 'ENUM_VALUE', 
+                                    user_and_tenant_management = 'ENUM_VALUE', ), )
+                            }, 
                         group_type = 'ENUM_VALUE', 
                         id = 'example string', 
                         name = 'example string', 

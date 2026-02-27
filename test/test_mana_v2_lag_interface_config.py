@@ -46,6 +46,7 @@ class TestManaV2LagInterfaceConfig(unittest.TestCase):
                             relay_servers = [
                                 'example string'
                                 ], ), ), 
+                    gw = graphiant_sdk.models.mana_v2_nullable_gateway_config.manaV2NullableGatewayConfig(), 
                     vrrp = graphiant_sdk.models.mana_v2_nullable_vrrp_group_config.manaV2NullableVrrpGroupConfig(
                         group = graphiant_sdk.models.mana_v2_vrrp_group_config.manaV2VrrpGroupConfig(
                             accept_mode = True, 
@@ -69,6 +70,7 @@ class TestManaV2LagInterfaceConfig(unittest.TestCase):
                             relay_servers = [
                                 'example string'
                                 ], ), ), 
+                    gw = graphiant_sdk.models.mana_v2_nullable_gateway_config.manaV2NullableGatewayConfig(), 
                     vrrp = graphiant_sdk.models.mana_v2_nullable_vrrp_group_config.manaV2NullableVrrpGroupConfig(
                         group = graphiant_sdk.models.mana_v2_vrrp_group_config.manaV2VrrpGroupConfig(
                             accept_mode = True, 
@@ -91,6 +93,7 @@ class TestManaV2LagInterfaceConfig(unittest.TestCase):
                     'key' : graphiant_sdk.models.mana_v2_nullable_lag_member_interface.manaV2NullableLagMemberInterface(
                         interface = 1234567891011, )
                     },
+                macsec = graphiant_sdk.models.mana_v2_nullable_ma_csec_configuration.manaV2NullableMaCsecConfiguration(),
                 minimum_members = 123,
                 mtu = 123,
                 segment = 'example string',
@@ -108,6 +111,7 @@ class TestManaV2LagInterfaceConfig(unittest.TestCase):
                                         relay_servers = [
                                             'example string'
                                             ], ), ), 
+                                gw = graphiant_sdk.models.mana_v2_nullable_gateway_config.manaV2NullableGatewayConfig(), 
                                 vrrp = graphiant_sdk.models.mana_v2_nullable_vrrp_group_config.manaV2NullableVrrpGroupConfig(
                                     group = graphiant_sdk.models.mana_v2_vrrp_group_config.manaV2VrrpGroupConfig(
                                         accept_mode = True, 

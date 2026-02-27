@@ -45,7 +45,7 @@ class TestV1ExtranetsB2bPeeringProducerPostRequest(unittest.TestCase):
                         }, 
                     prefix_tags = [
                         graphiant_sdk.models.mana_v2_b2b_extranet_prefix_tag.manaV2B2bExtranetPrefixTag(
-                            prefix = 'example string', 
+                            prefix = '10.1.2.0/24', 
                             tag = 'example string', )
                         ], 
                     service_lan_segment = 1234567891011, 
@@ -72,6 +72,39 @@ class TestV1ExtranetsB2bPeeringProducerPostRequest(unittest.TestCase):
             )
         else:
             return V1ExtranetsB2bPeeringProducerPostRequest(
+                policy = graphiant_sdk.models.mana_v2_b2b_extranet_peering_service_producer_policy.manaV2B2bExtranetPeeringServiceProducerPolicy(
+                    description = 'example string', 
+                    global_object_ops = {
+                        'key' : graphiant_sdk.models.mana_v2_global_object_service_ops.manaV2GlobalObjectServiceOps(
+                            routing_policy_ops = {
+                                'key' : 'ENUM_VALUE'
+                                }, )
+                        }, 
+                    prefix_tags = [
+                        graphiant_sdk.models.mana_v2_b2b_extranet_prefix_tag.manaV2B2bExtranetPrefixTag(
+                            prefix = '10.1.2.0/24', 
+                            tag = 'example string', )
+                        ], 
+                    service_lan_segment = 1234567891011, 
+                    site = [
+                        graphiant_sdk.models.mana_v2_b2b_site_information.manaV2B2bSiteInformation(
+                            bw_allocation_site_lists = 123, 
+                            bw_allocation_sites = 123, 
+                            policer_site_lists = graphiant_sdk.models.mana_v2_policer.manaV2Policer(
+                                burst_size = 123, 
+                                bw = 123, ), 
+                            policer_sites = graphiant_sdk.models.mana_v2_policer.manaV2Policer(
+                                burst_size = 123, 
+                                bw = 123, ), 
+                            site_lists = [
+                                1234567891011
+                                ], 
+                            sites = [
+                                1234567891011
+                                ], )
+                        ], 
+                    type = 'ENUM_VALUE', ),
+                type = 'ENUM_VALUE',
         )
         """
 

@@ -41,7 +41,7 @@ class TestIpfixConnectionMap(unittest.TestCase):
                 connections_v2 = {
                     'key' : 123.45
                     },
-                name = 'example string'
+                name = 'Site 1'
             )
         else:
             return IpfixConnectionMap(

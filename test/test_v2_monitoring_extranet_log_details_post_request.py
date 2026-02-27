@@ -35,12 +35,15 @@ class TestV2MonitoringExtranetLogDetailsPostRequest(unittest.TestCase):
         model = V2MonitoringExtranetLogDetailsPostRequest()
         if include_optional:
             return V2MonitoringExtranetLogDetailsPostRequest(
-                id = 1234567891011,
+                id = 1,
                 is_b2_b = True,
                 is_provider = True
             )
         else:
             return V2MonitoringExtranetLogDetailsPostRequest(
+                id = 1,
+                is_b2_b = True,
+                is_provider = True,
         )
         """
 

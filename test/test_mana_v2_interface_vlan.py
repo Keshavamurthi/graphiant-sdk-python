@@ -43,6 +43,8 @@ class TestManaV2InterfaceVlan(unittest.TestCase):
                 description = 'example string',
                 duplex = 'example string',
                 enabled = True,
+                gateway_address_v4 = 'example string',
+                gateway_address_v6 = 'example string',
                 id = 1234567891011,
                 ipv4 = graphiant_sdk.models.mana_v2_interface_address.manaV2InterfaceAddress(
                     address = 'example string', 

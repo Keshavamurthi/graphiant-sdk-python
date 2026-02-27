@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.mana_v2_interface_dhcp_config import ManaV2InterfaceDhcpConfig
 from graphiant_sdk.models.mana_v2_nullable_address import ManaV2NullableAddress
+from graphiant_sdk.models.mana_v2_nullable_gateway_config import ManaV2NullableGatewayConfig
 from graphiant_sdk.models.mana_v2_nullable_vrrp_group_config import ManaV2NullableVrrpGroupConfig
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,8 +32,9 @@ class ManaV2InterfaceIpConfig(BaseModel):
     """ # noqa: E501
     address: Optional[ManaV2NullableAddress] = None
     dhcp: Optional[ManaV2InterfaceDhcpConfig] = None
+    gw: Optional[ManaV2NullableGatewayConfig] = None
     vrrp: Optional[ManaV2NullableVrrpGroupConfig] = None
-    __properties: ClassVar[List[str]] = ["address", "dhcp", "vrrp"]
+    __properties: ClassVar[List[str]] = ["address", "dhcp", "gw", "vrrp"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -79,6 +81,9 @@ class ManaV2InterfaceIpConfig(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of dhcp
         if self.dhcp:
             _dict['dhcp'] = self.dhcp.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of gw
+        if self.gw:
+            _dict['gw'] = self.gw.to_dict()
         # override the default output from pydantic by calling `to_dict()` of vrrp
         if self.vrrp:
             _dict['vrrp'] = self.vrrp.to_dict()
@@ -96,6 +101,7 @@ class ManaV2InterfaceIpConfig(BaseModel):
         _obj = cls.model_validate({
             "address": ManaV2NullableAddress.from_dict(obj["address"]) if obj.get("address") is not None else None,
             "dhcp": ManaV2InterfaceDhcpConfig.from_dict(obj["dhcp"]) if obj.get("dhcp") is not None else None,
+            "gw": ManaV2NullableGatewayConfig.from_dict(obj["gw"]) if obj.get("gw") is not None else None,
             "vrrp": ManaV2NullableVrrpGroupConfig.from_dict(obj["vrrp"]) if obj.get("vrrp") is not None else None
         })
         return _obj

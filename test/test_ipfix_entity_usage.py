@@ -35,9 +35,9 @@ class TestIpfixEntityUsage(unittest.TestCase):
         model = IpfixEntityUsage()
         if include_optional:
             return IpfixEntityUsage(
-                id = 1234567891011,
-                name = 'example string',
-                usage = 123.45
+                id = 1,
+                name = 'Site 1',
+                usage = 1000000
             )
         else:
             return IpfixEntityUsage(

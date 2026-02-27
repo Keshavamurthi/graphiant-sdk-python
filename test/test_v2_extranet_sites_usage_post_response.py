@@ -35,19 +35,19 @@ class TestV2ExtranetSitesUsagePostResponse(unittest.TestCase):
         model = V2ExtranetSitesUsagePostResponse()
         if include_optional:
             return V2ExtranetSitesUsagePostResponse(
-                bw_allocation = 123,
+                bw_allocation = 1000000,
                 dl_stats = [
                     graphiant_sdk.models.ipfix_stats.ipfixStats(
-                        avg_usage = 123.45, 
-                        peak_usage = 123.45, 
+                        avg_usage = 1000000, 
+                        peak_usage = 1000000, 
                         ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
                             nanos = 123, 
                             seconds = 1234567891011, ), )
                     ],
                 ul_stats = [
                     graphiant_sdk.models.ipfix_stats.ipfixStats(
-                        avg_usage = 123.45, 
-                        peak_usage = 123.45, 
+                        avg_usage = 1000000, 
+                        peak_usage = 1000000, 
                         ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
                             nanos = 123, 
                             seconds = 1234567891011, ), )

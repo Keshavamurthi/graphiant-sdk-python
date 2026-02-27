@@ -35,7 +35,7 @@ class TestV2AssuranceDownloadUserReportGetResponse(unittest.TestCase):
         model = V2AssuranceDownloadUserReportGetResponse()
         if include_optional:
             return V2AssuranceDownloadUserReportGetResponse(
-                pdf_content = '[B@770d0ea6'
+                pdf_content = '[B@2187fff7'
             )
         else:
             return V2AssuranceDownloadUserReportGetResponse(

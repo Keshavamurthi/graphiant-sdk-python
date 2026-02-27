@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.google_protobuf_timestamp import GoogleProtobufTimestamp
 from graphiant_sdk.models.statsmon_v2_time_window import StatsmonV2TimeWindow
@@ -30,7 +30,8 @@ class V2DeviceDeviceIdTopologyPostRequest(BaseModel):
     """ # noqa: E501
     snapshot_time: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="snapshotTime")
     time_window: Optional[StatsmonV2TimeWindow] = Field(default=None, alias="timeWindow")
-    __properties: ClassVar[List[str]] = ["snapshotTime", "timeWindow"]
+    version: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["snapshotTime", "timeWindow", "version"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -90,7 +91,8 @@ class V2DeviceDeviceIdTopologyPostRequest(BaseModel):
 
         _obj = cls.model_validate({
             "snapshotTime": GoogleProtobufTimestamp.from_dict(obj["snapshotTime"]) if obj.get("snapshotTime") is not None else None,
-            "timeWindow": StatsmonV2TimeWindow.from_dict(obj["timeWindow"]) if obj.get("timeWindow") is not None else None
+            "timeWindow": StatsmonV2TimeWindow.from_dict(obj["timeWindow"]) if obj.get("timeWindow") is not None else None,
+            "version": obj.get("version")
         })
         return _obj
 

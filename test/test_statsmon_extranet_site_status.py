@@ -35,13 +35,13 @@ class TestStatsmonExtranetSiteStatus(unittest.TestCase):
         model = StatsmonExtranetSiteStatus()
         if include_optional:
             return StatsmonExtranetSiteStatus(
-                id = 1234567891011,
-                name = 'example string',
-                status = 'ENUM_VALUE',
+                id = 1,
+                name = 'site1',
+                status = 'Healthy',
                 statuses = [
                     graphiant_sdk.models.statsmon_extranet_server_status.statsmonExtranetServerStatus(
-                        address = 'example string', 
-                        status = 'ENUM_VALUE', )
+                        address = '192.168.1.1', 
+                        status = 'Healthy', )
                     ]
             )
         else:

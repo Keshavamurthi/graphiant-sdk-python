@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **description** | **str** |  | [optional] 
 **duplex** | **str** |  | [optional] 
 **enabled** | **bool** |  | [optional] 
+**gateway_address_v4** | **str** |  | [optional] 
+**gateway_address_v6** | **str** |  | [optional] 
 **id** | **int** |  | [optional] 
 **ip_sec** | [**ManaV2InterfaceIPsec**](ManaV2InterfaceIPsec.md) |  | [optional] 
 **ipv4** | [**ManaV2InterfaceAddress**](ManaV2InterfaceAddress.md) |  | [optional] 

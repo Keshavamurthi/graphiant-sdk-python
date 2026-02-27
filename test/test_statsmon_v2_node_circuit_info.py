@@ -39,6 +39,7 @@ class TestStatsmonV2NodeCircuitInfo(unittest.TestCase):
                 average_uplink_utilization = 123.45,
                 circuit_carrier = 'example string',
                 circuit_name = 'example string',
+                connected_region_name = 'example string',
                 current_downlink_utilization = 123.45,
                 current_uplink_utilization = 123.45,
                 device_id = 1234567891011,

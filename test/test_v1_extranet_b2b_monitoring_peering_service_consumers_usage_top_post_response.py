@@ -37,12 +37,12 @@ class TestV1ExtranetB2bMonitoringPeeringServiceConsumersUsageTopPostResponse(uni
             return V1ExtranetB2bMonitoringPeeringServiceConsumersUsageTopPostResponse(
                 top_consumers = [
                     graphiant_sdk.models.ipfix_entity_usage.ipfixEntityUsage(
-                        id = 1234567891011, 
-                        name = 'example string', 
-                        usage = 123.45, )
+                        id = 1, 
+                        name = 'Site 1', 
+                        usage = 1000000, )
                     ],
-                total_customers = 1234567891011,
-                total_usage = 123.45
+                total_customers = 10,
+                total_usage = 1000000
             )
         else:
             return V1ExtranetB2bMonitoringPeeringServiceConsumersUsageTopPostResponse(

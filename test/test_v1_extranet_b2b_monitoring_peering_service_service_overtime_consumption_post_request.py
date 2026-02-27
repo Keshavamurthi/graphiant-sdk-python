@@ -35,23 +35,34 @@ class TestV1ExtranetB2bMonitoringPeeringServiceServiceOvertimeConsumptionPostReq
         model = V1ExtranetB2bMonitoringPeeringServiceServiceOvertimeConsumptionPostRequest()
         if include_optional:
             return V1ExtranetB2bMonitoringPeeringServiceServiceOvertimeConsumptionPostRequest(
-                id = 1234567891011,
+                id = 1,
                 is_b2_b = True,
                 is_provider = True,
-                site_id = 1234567891011,
+                site_id = 1,
                 subscription_name = 'example string',
                 time_window = graphiant_sdk.models.statsmon_time_window.statsmonTimeWindow(
-                    bucket_size_sec = 123, 
+                    bucket_size_sec = 300, 
                     old_ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
                         nanos = 123, 
                         seconds = 1234567891011, ), 
                     recent_ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
                         nanos = 123, 
                         seconds = 1234567891011, ), ),
-                vrf_id = 1234567891011
+                vrf_id = 1
             )
         else:
             return V1ExtranetB2bMonitoringPeeringServiceServiceOvertimeConsumptionPostRequest(
+                id = 1,
+                is_b2_b = True,
+                is_provider = True,
+                time_window = graphiant_sdk.models.statsmon_time_window.statsmonTimeWindow(
+                    bucket_size_sec = 300, 
+                    old_ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
+                        nanos = 123, 
+                        seconds = 1234567891011, ), 
+                    recent_ts = graphiant_sdk.models.google_protobuf_timestamp.googleProtobufTimestamp(
+                        nanos = 123, 
+                        seconds = 1234567891011, ), ),
         )
         """
 
