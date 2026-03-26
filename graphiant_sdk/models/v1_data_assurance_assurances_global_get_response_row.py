@@ -25,6 +25,7 @@ from graphiant_sdk.models.v1_data_assurance_assurances_global_get_response_row_l
 from graphiant_sdk.models.v1_data_assurance_assurances_global_get_response_row_site_entry import V1DataAssuranceAssurancesGlobalGetResponseRowSiteEntry
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class V1DataAssuranceAssurancesGlobalGetResponseRow(BaseModel):
     """
@@ -41,7 +42,8 @@ class V1DataAssuranceAssurancesGlobalGetResponseRow(BaseModel):
     __properties: ClassVar[List[str]] = ["apps", "assuranceId", "assuranceName", "createdAt", "flexAlgo", "lans", "sites", "updatedAt"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -53,8 +55,7 @@ class V1DataAssuranceAssurancesGlobalGetResponseRow(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

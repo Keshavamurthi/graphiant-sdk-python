@@ -24,6 +24,7 @@ from graphiant_sdk.models.statsmon_v2_circuit_bandwidth_stats_selector import St
 from graphiant_sdk.models.statsmon_v2_stats_sample import StatsmonV2StatsSample
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class V2MonitoringCircuitsBandwidthPostResponseData(BaseModel):
     """
@@ -37,7 +38,8 @@ class V2MonitoringCircuitsBandwidthPostResponseData(BaseModel):
     __properties: ClassVar[List[str]] = ["carrier", "deviceId", "dlBwKbpsSamples", "selector", "ulBwKbpsSamples"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -49,8 +51,7 @@ class V2MonitoringCircuitsBandwidthPostResponseData(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

@@ -24,6 +24,7 @@ from graphiant_sdk.models.assurance_edge import AssuranceEdge
 from graphiant_sdk.models.assurance_site import AssuranceSite
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class AssuranceClientSessionEndpointDetails(BaseModel):
     """
@@ -41,7 +42,8 @@ class AssuranceClientSessionEndpointDetails(BaseModel):
     __properties: ClassVar[List[str]] = ["circuits", "edges", "isGateway", "jitter", "latency", "loss", "site", "totalDownlinkUsage", "totalUplinkUsage"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -53,8 +55,7 @@ class AssuranceClientSessionEndpointDetails(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

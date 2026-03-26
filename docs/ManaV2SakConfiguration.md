@@ -5,10 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cipher_suite** | **str** | The cipher suite (required) | [optional] 
+**cipher_suite** | **str** |  | [optional] 
 **lag_member_interface_id** | **int** | The interface ID (required for when each lag member has a different MACsec configuration - when split_sak_config_by_lag_member is true) (required) | [optional] 
-**rekey_interval** | **int** | The rekey interval in seconds. 0 means disabled | [optional] 
-**replay_protection_window_size** | **int** | The replay protection window size in seconds. 0 means disabled | [optional] 
+**nullable_rekey_interval** | [**ManaV2NullableMaCsecRekeyInterval**](ManaV2NullableMaCsecRekeyInterval.md) |  | [optional] 
+**nullable_replay_protection_window_size** | [**ManaV2NullableMaCsecReplayProtectionWindowSize**](ManaV2NullableMaCsecReplayProtectionWindowSize.md) |  | [optional] 
+**rekey_interval** | **int** |  | [optional] 
+**replay_protection_window_size** | **int** |  | [optional] 
 
 ## Example
 

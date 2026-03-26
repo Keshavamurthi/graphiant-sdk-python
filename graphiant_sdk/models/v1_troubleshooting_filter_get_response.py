@@ -26,6 +26,7 @@ from graphiant_sdk.models.statsmon_troubleshooting_region_filter import Statsmon
 from graphiant_sdk.models.statsmon_troubleshooting_site_filter import StatsmonTroubleshootingSiteFilter
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class V1TroubleshootingFilterGetResponse(BaseModel):
     """
@@ -39,7 +40,8 @@ class V1TroubleshootingFilterGetResponse(BaseModel):
     __properties: ClassVar[List[str]] = ["circuits", "devices", "lanSegments", "regions", "sites"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -51,8 +53,7 @@ class V1TroubleshootingFilterGetResponse(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

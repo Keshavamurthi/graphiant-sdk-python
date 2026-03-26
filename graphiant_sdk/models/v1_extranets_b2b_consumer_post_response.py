@@ -24,6 +24,7 @@ from graphiant_sdk.models.mana_v2_consumer_device_information import ManaV2Consu
 from graphiant_sdk.models.mana_v2_extranet_consumer_lan_segment_policy_response import ManaV2ExtranetConsumerLanSegmentPolicyResponse
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class V1ExtranetsB2bConsumerPostResponse(BaseModel):
     """
@@ -36,7 +37,8 @@ class V1ExtranetsB2bConsumerPostResponse(BaseModel):
     __properties: ClassVar[List[str]] = ["device", "id", "policy", "siteInformation"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -48,8 +50,7 @@ class V1ExtranetsB2bConsumerPostResponse(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

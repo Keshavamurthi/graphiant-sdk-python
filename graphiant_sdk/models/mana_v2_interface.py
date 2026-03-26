@@ -29,6 +29,7 @@ from graphiant_sdk.models.mana_v2_interface_vlan import ManaV2InterfaceVlan
 from graphiant_sdk.models.mana_v2_lag_interface import ManaV2LagInterface
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class ManaV2Interface(BaseModel):
     """
@@ -72,7 +73,8 @@ class ManaV2Interface(BaseModel):
     __properties: ClassVar[List[str]] = ["alias", "circuit", "circuitName", "configUpdatedAt", "configuredMaxTransmissionUnit", "description", "duplex", "enabled", "gatewayAddressV4", "gatewayAddressV6", "id", "ipSec", "ipv4", "ipv6", "ipv6Addresses", "lagInterface", "lan", "lldpEnabled", "macsec", "maxTransmissionUnit", "name", "operUpdatedAt", "phyAddress", "protocol", "securityZone", "sfpOpticalStrength", "speedMbps", "subinterfaces", "tcpMss", "tcpMssV4", "tcpMssV6", "type", "up", "vrfFunctionId", "vrfName"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -84,8 +86,7 @@ class ManaV2Interface(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

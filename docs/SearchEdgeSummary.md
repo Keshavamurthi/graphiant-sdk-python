@@ -6,6 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **assigned_on** | [**GoogleProtobufTimestamp**](GoogleProtobufTimestamp.md) |  | [optional] 
+**canary_mode** | **str** |  | [optional] 
+**connected_regions** | **List[str]** |  | [optional] 
 **device_id** | **int** |  | [optional] 
 **discovered_location** | **str** |  | [optional] 
 **enterprise_id** | **int** |  | [optional] 

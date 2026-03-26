@@ -27,6 +27,7 @@ from graphiant_sdk.models.mana_v2_nullable_lag_member_interface import ManaV2Nul
 from graphiant_sdk.models.mana_v2_nullable_ma_csec_configuration import ManaV2NullableMaCsecConfiguration
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class ManaV2LagInterfaceConfig(BaseModel):
     """
@@ -47,7 +48,8 @@ class ManaV2LagInterfaceConfig(BaseModel):
     __properties: ClassVar[List[str]] = ["adminStatus", "alias", "description", "ipv4", "ipv6", "lacp", "lagMembers", "macsec", "minimumMembers", "mtu", "segment", "subinterfaces"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -59,8 +61,7 @@ class ManaV2LagInterfaceConfig(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

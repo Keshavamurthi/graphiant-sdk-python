@@ -23,6 +23,7 @@ from graphiant_sdk.models.mana_v2_ip_firewall_policy import ManaV2IpFirewallPoli
 from graphiant_sdk.models.mana_v2_udp_flow_table import ManaV2UdpFlowTable
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class ManaV2ZoneFirewallPolicy(BaseModel):
     """
@@ -34,7 +35,8 @@ class ManaV2ZoneFirewallPolicy(BaseModel):
     __properties: ClassVar[List[str]] = ["ip", "udp", "zoneName"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -46,8 +48,7 @@ class ManaV2ZoneFirewallPolicy(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

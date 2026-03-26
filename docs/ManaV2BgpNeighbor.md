@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **bfd_neighbor** | [**ManaV2BfdNeighbor**](ManaV2BfdNeighbor.md) |  | [optional] 
 **bgp_type** | **str** |  | [optional] 
 **default_originate** | **str** | Set when default route needs to be advertised in BGP domain | [optional] 
+**dynamic_neighbor_peers** | [**List[ManaV2BgpDynamicNeighborOperPeer]**](ManaV2BgpDynamicNeighborOperPeer.md) |  | [optional] 
 **enabled** | **bool** |  | [optional] 
 **hold_timer** | **int** |  | [optional] 
 **id** | **int** |  | [optional] 

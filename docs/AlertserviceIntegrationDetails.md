@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **opsgenie_key** | **str** |  | [optional] 
 **opsramp_details** | **str** |  | [optional] 
+**pagerduty_routing_key** | **str** |  | [optional] 
 **webhook_url** | **str** |  | [optional] 
 **zendesk_details** | [**AlertserviceZendeskDetails**](AlertserviceZendeskDetails.md) |  | [optional] 
 

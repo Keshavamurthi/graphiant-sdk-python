@@ -26,6 +26,7 @@ from graphiant_sdk.models.assurance_client_session_pop_link import AssuranceClie
 from graphiant_sdk.models.google_protobuf_timestamp import GoogleProtobufTimestamp
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class AssuranceClientSession(BaseModel):
     """
@@ -55,7 +56,8 @@ class AssuranceClientSession(BaseModel):
     __properties: ClassVar[List[str]] = ["appName", "bucket", "clientEndpoint", "clientFlexAlgo", "clientIp", "clientLinks", "firstSeenTs", "lanSegment", "lastSeenTs", "localDiaLinks", "popLinks", "remoteDiaLinks", "riskStatus", "serverEndpoint", "serverFlexAlgos", "serverIp", "serverLinks", "serverPort", "sessionId", "sla", "slaClass"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -67,8 +69,7 @@ class AssuranceClientSession(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

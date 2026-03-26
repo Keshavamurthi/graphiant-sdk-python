@@ -23,9 +23,11 @@ from typing_extensions import Annotated
 from graphiant_sdk.models.google_protobuf_duration import GoogleProtobufDuration
 from graphiant_sdk.models.mana_v2_bfd_instance import ManaV2BfdInstance
 from graphiant_sdk.models.mana_v2_bfd_neighbor import ManaV2BfdNeighbor
+from graphiant_sdk.models.mana_v2_bgp_dynamic_neighbor_oper_peer import ManaV2BgpDynamicNeighborOperPeer
 from graphiant_sdk.models.mana_v2_bgp_neighbor_address_family import ManaV2BgpNeighborAddressFamily
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class ManaV2BgpNeighbor(BaseModel):
     """
@@ -38,6 +40,7 @@ class ManaV2BgpNeighbor(BaseModel):
     bfd_neighbor: Optional[ManaV2BfdNeighbor] = Field(default=None, alias="bfdNeighbor")
     bgp_type: Optional[StrictStr] = Field(default=None, alias="bgpType")
     default_originate: Optional[StrictStr] = Field(default=None, description="Set when default route needs to be advertised in BGP domain", alias="defaultOriginate")
+    dynamic_neighbor_peers: Optional[List[ManaV2BgpDynamicNeighborOperPeer]] = Field(default=None, alias="dynamicNeighborPeers")
     enabled: Optional[StrictBool] = None
     hold_timer: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="holdTimer")
     id: Optional[StrictInt] = None
@@ -54,10 +57,11 @@ class ManaV2BgpNeighbor(BaseModel):
     state: Optional[StrictStr] = None
     time_since_last_oper_change: Optional[GoogleProtobufDuration] = Field(default=None, alias="timeSinceLastOperChange")
     up: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["addressFamilies", "allowAsIn", "asOverride", "bfd", "bfdNeighbor", "bgpType", "defaultOriginate", "enabled", "holdTimer", "id", "keepaliveTimer", "localAddress", "localInterface", "maxPrefix", "md5Password", "multiHop", "peerAsn", "remoteAddress", "removePrivateAs", "sendCommunity", "state", "timeSinceLastOperChange", "up"]
+    __properties: ClassVar[List[str]] = ["addressFamilies", "allowAsIn", "asOverride", "bfd", "bfdNeighbor", "bgpType", "defaultOriginate", "dynamicNeighborPeers", "enabled", "holdTimer", "id", "keepaliveTimer", "localAddress", "localInterface", "maxPrefix", "md5Password", "multiHop", "peerAsn", "remoteAddress", "removePrivateAs", "sendCommunity", "state", "timeSinceLastOperChange", "up"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -69,8 +73,7 @@ class ManaV2BgpNeighbor(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -108,6 +111,13 @@ class ManaV2BgpNeighbor(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of bfd_neighbor
         if self.bfd_neighbor:
             _dict['bfdNeighbor'] = self.bfd_neighbor.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in dynamic_neighbor_peers (list)
+        _items = []
+        if self.dynamic_neighbor_peers:
+            for _item_dynamic_neighbor_peers in self.dynamic_neighbor_peers:
+                if _item_dynamic_neighbor_peers:
+                    _items.append(_item_dynamic_neighbor_peers.to_dict())
+            _dict['dynamicNeighborPeers'] = _items
         # override the default output from pydantic by calling `to_dict()` of time_since_last_oper_change
         if self.time_since_last_oper_change:
             _dict['timeSinceLastOperChange'] = self.time_since_last_oper_change.to_dict()
@@ -130,6 +140,7 @@ class ManaV2BgpNeighbor(BaseModel):
             "bfdNeighbor": ManaV2BfdNeighbor.from_dict(obj["bfdNeighbor"]) if obj.get("bfdNeighbor") is not None else None,
             "bgpType": obj.get("bgpType"),
             "defaultOriginate": obj.get("defaultOriginate"),
+            "dynamicNeighborPeers": [ManaV2BgpDynamicNeighborOperPeer.from_dict(_item) for _item in obj["dynamicNeighborPeers"]] if obj.get("dynamicNeighborPeers") is not None else None,
             "enabled": obj.get("enabled"),
             "holdTimer": obj.get("holdTimer"),
             "id": obj.get("id"),

@@ -22,6 +22,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.alertservice_zendesk_details import AlertserviceZendeskDetails
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class AlertserviceIntegrationDetails(BaseModel):
     """
@@ -29,12 +30,14 @@ class AlertserviceIntegrationDetails(BaseModel):
     """ # noqa: E501
     opsgenie_key: Optional[StrictStr] = Field(default=None, alias="opsgenieKey")
     opsramp_details: Optional[StrictStr] = Field(default=None, alias="opsrampDetails")
+    pagerduty_routing_key: Optional[StrictStr] = Field(default=None, alias="pagerdutyRoutingKey")
     webhook_url: Optional[StrictStr] = Field(default=None, alias="webhookUrl")
     zendesk_details: Optional[AlertserviceZendeskDetails] = Field(default=None, alias="zendeskDetails")
-    __properties: ClassVar[List[str]] = ["opsgenieKey", "opsrampDetails", "webhookUrl", "zendeskDetails"]
+    __properties: ClassVar[List[str]] = ["opsgenieKey", "opsrampDetails", "pagerdutyRoutingKey", "webhookUrl", "zendeskDetails"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -46,8 +49,7 @@ class AlertserviceIntegrationDetails(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -89,6 +91,7 @@ class AlertserviceIntegrationDetails(BaseModel):
         _obj = cls.model_validate({
             "opsgenieKey": obj.get("opsgenieKey"),
             "opsrampDetails": obj.get("opsrampDetails"),
+            "pagerdutyRoutingKey": obj.get("pagerdutyRoutingKey"),
             "webhookUrl": obj.get("webhookUrl"),
             "zendeskDetails": AlertserviceZendeskDetails.from_dict(obj["zendeskDetails"]) if obj.get("zendeskDetails") is not None else None
         })

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **app_id_key** | **str** |  | [optional] 
 **app_name** | **str** |  | [optional] 
 **app_type** | **str** |  | [optional] 
+**blocked_policy_list** | **List[str]** |  | [optional] 
 **blocked_reason_list** | **List[str]** |  | [optional] 
 **category** | **str** |  | [optional] 
 **classfication_field** | **str** |  | [optional] 

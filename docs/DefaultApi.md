@@ -6497,7 +6497,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
     device_id = 1000000 # int | Valid configured device ID > 0
-    vrf_names = ['vrf_names_example'] # List[str] | Valid configured VRF name
+    vrf_names = ['[\"management\"]'] # List[str] | Valid configured VRF name
 
     try:
         api_response = api_instance.v1_device_routing_ospfv2_statistics_get(authorization, device_id, vrf_names)
@@ -7075,7 +7075,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
     device_id = 1000000 # int | Valid configured device ID > 0
-    vrf_names = ['vrf_names_example'] # List[str] | Valid configured VRF name
+    vrf_names = ['[\"management\"]'] # List[str] | Valid configured VRF name
 
     try:
         api_response = api_instance.v1_device_routing_ospfv3_statistics_get(authorization, device_id, vrf_names)
@@ -7155,7 +7155,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
     device_id = 1000000 # int | Valid configured device ID > 0
-    vrf_name = ['vrf_name_example'] # List[str] | Valid configured VRF names
+    vrf_name = ['[\"management\"]'] # List[str] | Valid configured VRF names
     body = None # object | 
 
     try:
@@ -8359,7 +8359,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_devices_device_id_circuits_vrf_associations_get**
-> V1DevicesDeviceIdCircuitsVrfAssociationsGetResponse v1_devices_device_id_circuits_vrf_associations_get(authorization, device_id)
+> V1DevicesDeviceIdCircuitsVrfAssociationsGetResponse v1_devices_device_id_circuits_vrf_associations_get(authorization, device_id, circuit_names=circuit_names)
 
 Get the VRF, interface, &, if relevant, loopback interfaces for a list of circuits
 
@@ -8396,9 +8396,10 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
     device_id = 1234567891011 # int | 
+    circuit_names = ['[\"isp\"]'] # List[str] | Circuit name configured of wan interface (optional)
 
     try:
-        api_response = api_instance.v1_devices_device_id_circuits_vrf_associations_get(authorization, device_id)
+        api_response = api_instance.v1_devices_device_id_circuits_vrf_associations_get(authorization, device_id, circuit_names=circuit_names)
         print("The response of DefaultApi->v1_devices_device_id_circuits_vrf_associations_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -8414,6 +8415,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
  **device_id** | **int**|  | 
+ **circuit_names** | [**List[str]**](str.md)| Circuit name configured of wan interface | [optional] 
 
 ### Return type
 
@@ -9844,7 +9846,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_devices_device_id_vrf_protocols_get**
-> V1DevicesDeviceIdVrfProtocolsGetResponse v1_devices_device_id_vrf_protocols_get(authorization, device_id)
+> V1DevicesDeviceIdVrfProtocolsGetResponse v1_devices_device_id_vrf_protocols_get(authorization, device_id, vrf_name)
 
 ### Example
 
@@ -9879,9 +9881,10 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
     device_id = 1234567891011 # int | 
+    vrf_name = 'lan-1-business' # str | Valid Configured Vrf Name
 
     try:
-        api_response = api_instance.v1_devices_device_id_vrf_protocols_get(authorization, device_id)
+        api_response = api_instance.v1_devices_device_id_vrf_protocols_get(authorization, device_id, vrf_name)
         print("The response of DefaultApi->v1_devices_device_id_vrf_protocols_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -9897,6 +9900,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
  **device_id** | **int**|  | 
+ **vrf_name** | **str**| Valid Configured Vrf Name | 
 
 ### Return type
 
@@ -9920,7 +9924,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_devices_device_id_vrrp_get**
-> V1DevicesDeviceIdVrrpGetResponse v1_devices_device_id_vrrp_get(authorization, device_id)
+> V1DevicesDeviceIdVrrpGetResponse v1_devices_device_id_vrrp_get(authorization, device_id, group_id=group_id, interface_name=interface_name)
 
 Get VRRP monitoring table for a device
 
@@ -9957,9 +9961,11 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
     device_id = 1234567891011 # int | 
+    group_id = 1000000 # int | VRRP configured group id (optional)
+    interface_name = 'GigabitEthernet0/2' # str | interface name (optional)
 
     try:
-        api_response = api_instance.v1_devices_device_id_vrrp_get(authorization, device_id)
+        api_response = api_instance.v1_devices_device_id_vrrp_get(authorization, device_id, group_id=group_id, interface_name=interface_name)
         print("The response of DefaultApi->v1_devices_device_id_vrrp_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -9975,6 +9981,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
  **device_id** | **int**|  | 
+ **group_id** | **int**| VRRP configured group id | [optional] 
+ **interface_name** | **str**| interface name | [optional] 
 
 ### Return type
 
@@ -10375,7 +10383,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_devices_inventory_get**
-> V1DevicesInventoryGetResponse v1_devices_inventory_get(authorization)
+> V1DevicesInventoryGetResponse v1_devices_inventory_get(authorization, not_assigned=not_assigned)
 
 ### Example
 
@@ -10409,9 +10417,10 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    not_assigned = true # bool |  (optional)
 
     try:
-        api_response = api_instance.v1_devices_inventory_get(authorization)
+        api_response = api_instance.v1_devices_inventory_get(authorization, not_assigned=not_assigned)
         print("The response of DefaultApi->v1_devices_inventory_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -10426,6 +10435,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **not_assigned** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -10635,7 +10645,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
-    device_serials = ['device_serials_example'] # List[str] |  (optional)
+    device_serials = ['[\"example\"]'] # List[str] |  (optional)
 
     try:
         api_instance.v1_devices_inventory_serial_num_delete(authorization, device_serials=device_serials)
@@ -11031,7 +11041,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
     device_id = 1000000 # int | Valid configured device ID > 0
-    protocols = ['protocols_example'] # List[str] | List of protocols names for which route count is needed
+    protocols = ['[\"[OSPF,BGP,connected]\"]'] # List[str] | List of protocols names for which route count is needed
     vrf_name = 'management' # str | Valid configured VRF names
 
     try:
@@ -12937,7 +12947,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_diagnostic_speedtest_servers_get**
-> V1DiagnosticSpeedtestServersGetResponse v1_diagnostic_speedtest_servers_get(authorization, device_id, provider=provider, vrf_name=vrf_name)
+> V1DiagnosticSpeedtestServersGetResponse v1_diagnostic_speedtest_servers_get(authorization, device_id, provider, vrf_name)
 
 Get list of servers for a provider
 
@@ -12974,11 +12984,11 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
     device_id = 30000000555 # int | Unique identifier for a specific device
-    provider = 'Ookla' # str | supported provider for speedtest utility (optional)
-    vrf_name = 'isp-red' # str | Configured Wan Circuit Name (optional)
+    provider = 'ookla' # str | supported provider for speedtest utility
+    vrf_name = 'c-gigabitethernet1' # str | Configured Wan Circuit Name
 
     try:
-        api_response = api_instance.v1_diagnostic_speedtest_servers_get(authorization, device_id, provider=provider, vrf_name=vrf_name)
+        api_response = api_instance.v1_diagnostic_speedtest_servers_get(authorization, device_id, provider, vrf_name)
         print("The response of DefaultApi->v1_diagnostic_speedtest_servers_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -12994,8 +13004,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
  **device_id** | **int**| Unique identifier for a specific device | 
- **provider** | **str**| supported provider for speedtest utility | [optional] 
- **vrf_name** | **str**| Configured Wan Circuit Name | [optional] 
+ **provider** | **str**| supported provider for speedtest utility | 
+ **vrf_name** | **str**| Configured Wan Circuit Name | 
 
 ### Return type
 
@@ -13098,7 +13108,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_edges_hardware_assigned_get**
-> V1EdgesHardwareAssignedGetResponse v1_edges_hardware_assigned_get(authorization)
+> V1EdgesHardwareAssignedGetResponse v1_edges_hardware_assigned_get(authorization, enterprise_id=enterprise_id)
 
 ### Example
 
@@ -13132,9 +13142,10 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    enterprise_id = 1234567891011 # int |  (optional)
 
     try:
-        api_response = api_instance.v1_edges_hardware_assigned_get(authorization)
+        api_response = api_instance.v1_edges_hardware_assigned_get(authorization, enterprise_id=enterprise_id)
         print("The response of DefaultApi->v1_edges_hardware_assigned_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -13149,6 +13160,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **enterprise_id** | **int**|  | [optional] 
 
 ### Return type
 
@@ -13246,7 +13258,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_edges_summary_get**
-> V1EdgesSummaryGetResponse v1_edges_summary_get(authorization)
+> V1EdgesSummaryGetResponse v1_edges_summary_get(authorization, enterprise_id=enterprise_id, is_requested=is_requested, upgrade_summary=upgrade_summary)
 
 ### Example
 
@@ -13280,9 +13292,12 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    enterprise_id = 1234567891011 # int |  (optional)
+    is_requested = true # bool |  (optional)
+    upgrade_summary = true # bool |  (optional)
 
     try:
-        api_response = api_instance.v1_edges_summary_get(authorization)
+        api_response = api_instance.v1_edges_summary_get(authorization, enterprise_id=enterprise_id, is_requested=is_requested, upgrade_summary=upgrade_summary)
         print("The response of DefaultApi->v1_edges_summary_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -13297,6 +13312,9 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **enterprise_id** | **int**|  | [optional] 
+ **is_requested** | **bool**|  | [optional] 
+ **upgrade_summary** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -14123,7 +14141,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
-    enterprise_ids = [56] # List[int] | Lists enterprises (optional)
+    enterprise_ids = [[0]] # List[int] | Lists enterprises (optional)
 
     try:
         api_response = api_instance.v1_enterprises_get(authorization, enterprise_ids=enterprise_ids)
@@ -14201,7 +14219,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
-    type = 'ENUM_VALUE' # str | 
+    type = 'ENUM_VALUE' # str | msp or enterprise
 
     try:
         api_response = api_instance.v1_enterprises_managed_get(authorization, type)
@@ -14219,7 +14237,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
- **type** | **str**|  | 
+ **type** | **str**| msp or enterprise | 
 
 ### Return type
 
@@ -16040,7 +16058,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_extranets_b2b_peering_consumer_customer_id_consumer_details_get**
-> V1ExtranetsB2bPeeringConsumerCustomerIdConsumerDetailsGetResponse v1_extranets_b2b_peering_consumer_customer_id_consumer_details_get(authorization, customer_id)
+> V1ExtranetsB2bPeeringConsumerCustomerIdConsumerDetailsGetResponse v1_extranets_b2b_peering_consumer_customer_id_consumer_details_get(authorization, customer_id, service_id=service_id)
 
 Get details of a service subscription for a customer
 
@@ -16077,9 +16095,10 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
     customer_id = 1234567891011 # int | 
+    service_id = 1234567891011 # int |  (optional)
 
     try:
-        api_response = api_instance.v1_extranets_b2b_peering_consumer_customer_id_consumer_details_get(authorization, customer_id)
+        api_response = api_instance.v1_extranets_b2b_peering_consumer_customer_id_consumer_details_get(authorization, customer_id, service_id=service_id)
         print("The response of DefaultApi->v1_extranets_b2b_peering_consumer_customer_id_consumer_details_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -16095,6 +16114,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
  **customer_id** | **int**|  | 
+ **service_id** | **int**|  | [optional] 
 
 ### Return type
 
@@ -16671,7 +16691,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_extranets_b2b_peering_match_service_to_customer_id_get**
-> V1ExtranetsB2bPeeringMatchServiceToCustomerIdGetResponse v1_extranets_b2b_peering_match_service_to_customer_id_get(authorization, id)
+> V1ExtranetsB2bPeeringMatchServiceToCustomerIdGetResponse v1_extranets_b2b_peering_match_service_to_customer_id_get(authorization, id, customer_id)
 
 Get details for a service to customer subscription
 
@@ -16708,9 +16728,10 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
     id = 1234567891011 # int | Service id for which match details are requested
+    customer_id = 1234567891011 # int | Customer id
 
     try:
-        api_response = api_instance.v1_extranets_b2b_peering_match_service_to_customer_id_get(authorization, id)
+        api_response = api_instance.v1_extranets_b2b_peering_match_service_to_customer_id_get(authorization, id, customer_id)
         print("The response of DefaultApi->v1_extranets_b2b_peering_match_service_to_customer_id_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -16726,6 +16747,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
  **id** | **int**| Service id for which match details are requested | 
+ **customer_id** | **int**| Customer id | 
 
 ### Return type
 
@@ -17947,7 +17969,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
-    id = 1234567891011 # int |  (optional)
+    id = 800 # int | Extranet Service Id (optional)
     is_provider = true # bool |  (optional)
 
     try:
@@ -17966,7 +17988,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
- **id** | **int**|  | [optional] 
+ **id** | **int**| Extranet Service Id | [optional] 
  **is_provider** | **bool**|  | [optional] 
 
 ### Return type
@@ -17991,7 +18013,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_extranets_monitoring_nat_usage_get**
-> V1ExtranetsMonitoringNatUsageGetResponse v1_extranets_monitoring_nat_usage_get(authorization, id=id)
+> V1ExtranetsMonitoringNatUsageGetResponse v1_extranets_monitoring_nat_usage_get(authorization, id)
 
 ### Example
 
@@ -18025,10 +18047,10 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
-    id = 1234567891011 # int |  (optional)
+    id = 800 # int | Extranet Service Id
 
     try:
-        api_response = api_instance.v1_extranets_monitoring_nat_usage_get(authorization, id=id)
+        api_response = api_instance.v1_extranets_monitoring_nat_usage_get(authorization, id)
         print("The response of DefaultApi->v1_extranets_monitoring_nat_usage_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -18043,7 +18065,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
- **id** | **int**|  | [optional] 
+ **id** | **int**| Extranet Service Id | 
 
 ### Return type
 
@@ -20701,7 +20723,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_global_device_status_get**
-> V1GlobalDeviceStatusGetResponse v1_global_device_status_get(authorization, ipfix_exported_id=ipfix_exported_id, ntp_id=ntp_id, snmp_id=snmp_id, syslog_server_id=syslog_server_id, traffic_policy_id=traffic_policy_id)
+> V1GlobalDeviceStatusGetResponse v1_global_device_status_get(authorization, ipfix_exported_id=ipfix_exported_id, ntp_id=ntp_id, prefix_set_id=prefix_set_id, routing_policy_id=routing_policy_id, snmp_id=snmp_id, syslog_server_id=syslog_server_id, traffic_policy_id=traffic_policy_id)
 
 Get status on global collector attached to devices
 
@@ -20739,12 +20761,14 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
     ipfix_exported_id = 1234567891011 # int |  (optional)
     ntp_id = 1234567891011 # int |  (optional)
+    prefix_set_id = 1234567891011 # int |  (optional)
+    routing_policy_id = 1234567891011 # int |  (optional)
     snmp_id = 1234567891011 # int |  (optional)
     syslog_server_id = 1234567891011 # int |  (optional)
     traffic_policy_id = 1234567891011 # int |  (optional)
 
     try:
-        api_response = api_instance.v1_global_device_status_get(authorization, ipfix_exported_id=ipfix_exported_id, ntp_id=ntp_id, snmp_id=snmp_id, syslog_server_id=syslog_server_id, traffic_policy_id=traffic_policy_id)
+        api_response = api_instance.v1_global_device_status_get(authorization, ipfix_exported_id=ipfix_exported_id, ntp_id=ntp_id, prefix_set_id=prefix_set_id, routing_policy_id=routing_policy_id, snmp_id=snmp_id, syslog_server_id=syslog_server_id, traffic_policy_id=traffic_policy_id)
         print("The response of DefaultApi->v1_global_device_status_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -20761,6 +20785,8 @@ Name | Type | Description  | Notes
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
  **ipfix_exported_id** | **int**|  | [optional] 
  **ntp_id** | **int**|  | [optional] 
+ **prefix_set_id** | **int**|  | [optional] 
+ **routing_policy_id** | **int**|  | [optional] 
  **snmp_id** | **int**|  | [optional] 
  **syslog_server_id** | **int**|  | [optional] 
  **traffic_policy_id** | **int**|  | [optional] 
@@ -20787,7 +20813,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_global_ipfix_device_get**
-> V1GlobalIpfixDeviceGetResponse v1_global_ipfix_device_get(authorization)
+> V1GlobalIpfixDeviceGetResponse v1_global_ipfix_device_get(authorization, device_id=device_id)
 
 Get global ipfix exporters objects that failed to attach for a device
 
@@ -20823,9 +20849,10 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    device_id = 1234567891011 # int |  (optional)
 
     try:
-        api_response = api_instance.v1_global_ipfix_device_get(authorization)
+        api_response = api_instance.v1_global_ipfix_device_get(authorization, device_id=device_id)
         print("The response of DefaultApi->v1_global_ipfix_device_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -20840,6 +20867,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **device_id** | **int**|  | [optional] 
 
 ### Return type
 
@@ -21560,7 +21588,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_global_ntps_device_get**
-> V1GlobalNtpsDeviceGetResponse v1_global_ntps_device_get(authorization)
+> V1GlobalNtpsDeviceGetResponse v1_global_ntps_device_get(authorization, device_id=device_id)
 
 Get global ntp objects that failed to attach for a device
 
@@ -21596,9 +21624,10 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    device_id = 1234567891011 # int |  (optional)
 
     try:
-        api_response = api_instance.v1_global_ntps_device_get(authorization)
+        api_response = api_instance.v1_global_ntps_device_get(authorization, device_id=device_id)
         print("The response of DefaultApi->v1_global_ntps_device_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -21613,6 +21642,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **device_id** | **int**|  | [optional] 
 
 ### Return type
 
@@ -21715,7 +21745,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_global_ntps_site_get**
-> V1GlobalNtpsSiteGetResponse v1_global_ntps_site_get(authorization)
+> V1GlobalNtpsSiteGetResponse v1_global_ntps_site_get(authorization, site_id=site_id)
 
 Get configured global ntps
 
@@ -21751,9 +21781,10 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    site_id = 1234567891011 # int |  (optional)
 
     try:
-        api_response = api_instance.v1_global_ntps_site_get(authorization)
+        api_response = api_instance.v1_global_ntps_site_get(authorization, site_id=site_id)
         print("The response of DefaultApi->v1_global_ntps_site_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -21768,6 +21799,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **site_id** | **int**|  | [optional] 
 
 ### Return type
 
@@ -22416,7 +22448,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_global_site_status_get**
-> V1GlobalSiteStatusGetResponse v1_global_site_status_get(authorization, ipfix_exported_site_id=ipfix_exported_site_id, ntp_site_id=ntp_site_id, snmp_site_id=snmp_site_id, syslog_server_site_id=syslog_server_site_id)
+> V1GlobalSiteStatusGetResponse v1_global_site_status_get(authorization, ipfix_exported_site_id=ipfix_exported_site_id, ntp_site_id=ntp_site_id, prefix_set_site_id=prefix_set_site_id, routing_policy_site_id=routing_policy_site_id, snmp_site_id=snmp_site_id, syslog_server_site_id=syslog_server_site_id, traffic_policy_site_id=traffic_policy_site_id)
 
 Get status on global objects attached to a site
 
@@ -22454,11 +22486,14 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
     ipfix_exported_site_id = 1234567891011 # int |  (optional)
     ntp_site_id = 1234567891011 # int |  (optional)
+    prefix_set_site_id = 1234567891011 # int |  (optional)
+    routing_policy_site_id = 1234567891011 # int |  (optional)
     snmp_site_id = 1234567891011 # int |  (optional)
     syslog_server_site_id = 1234567891011 # int |  (optional)
+    traffic_policy_site_id = 1234567891011 # int |  (optional)
 
     try:
-        api_response = api_instance.v1_global_site_status_get(authorization, ipfix_exported_site_id=ipfix_exported_site_id, ntp_site_id=ntp_site_id, snmp_site_id=snmp_site_id, syslog_server_site_id=syslog_server_site_id)
+        api_response = api_instance.v1_global_site_status_get(authorization, ipfix_exported_site_id=ipfix_exported_site_id, ntp_site_id=ntp_site_id, prefix_set_site_id=prefix_set_site_id, routing_policy_site_id=routing_policy_site_id, snmp_site_id=snmp_site_id, syslog_server_site_id=syslog_server_site_id, traffic_policy_site_id=traffic_policy_site_id)
         print("The response of DefaultApi->v1_global_site_status_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -22475,8 +22510,11 @@ Name | Type | Description  | Notes
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
  **ipfix_exported_site_id** | **int**|  | [optional] 
  **ntp_site_id** | **int**|  | [optional] 
+ **prefix_set_site_id** | **int**|  | [optional] 
+ **routing_policy_site_id** | **int**|  | [optional] 
  **snmp_site_id** | **int**|  | [optional] 
  **syslog_server_site_id** | **int**|  | [optional] 
+ **traffic_policy_site_id** | **int**|  | [optional] 
 
 ### Return type
 
@@ -22500,7 +22538,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_global_snmps_device_get**
-> V1GlobalSnmpsDeviceGetResponse v1_global_snmps_device_get(authorization)
+> V1GlobalSnmpsDeviceGetResponse v1_global_snmps_device_get(authorization, device_id=device_id)
 
 Get global snmp objects that failed to attach for a device
 
@@ -22536,9 +22574,10 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    device_id = 1234567891011 # int |  (optional)
 
     try:
-        api_response = api_instance.v1_global_snmps_device_get(authorization)
+        api_response = api_instance.v1_global_snmps_device_get(authorization, device_id=device_id)
         print("The response of DefaultApi->v1_global_snmps_device_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -22553,6 +22592,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **device_id** | **int**|  | [optional] 
 
 ### Return type
 
@@ -22890,7 +22930,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_global_syslogs_device_get**
-> V1GlobalSyslogsDeviceGetResponse v1_global_syslogs_device_get(authorization)
+> V1GlobalSyslogsDeviceGetResponse v1_global_syslogs_device_get(authorization, device_id=device_id)
 
 Get global syslog objects that failed to attach for a device
 
@@ -22926,9 +22966,10 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    device_id = 1234567891011 # int |  (optional)
 
     try:
-        api_response = api_instance.v1_global_syslogs_device_get(authorization)
+        api_response = api_instance.v1_global_syslogs_device_get(authorization, device_id=device_id)
         print("The response of DefaultApi->v1_global_syslogs_device_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -22943,6 +22984,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **device_id** | **int**|  | [optional] 
 
 ### Return type
 
@@ -26666,7 +26708,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_software_releases_download_get**
-> V1SoftwareReleasesDownloadGetResponse v1_software_releases_download_get(authorization)
+> V1SoftwareReleasesDownloadGetResponse v1_software_releases_download_get(authorization, image_ext, version)
 
 ### Example
 
@@ -26700,9 +26742,11 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    image_ext = 'qcow2' # str | GNOS Image type (qcow2 or ova)
+    version = '9999.202406130322' # str | GNOS Image version
 
     try:
-        api_response = api_instance.v1_software_releases_download_get(authorization)
+        api_response = api_instance.v1_software_releases_download_get(authorization, image_ext, version)
         print("The response of DefaultApi->v1_software_releases_download_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -26717,6 +26761,8 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **image_ext** | **str**| GNOS Image type (qcow2 or ova) | 
+ **version** | **str**| GNOS Image version | 
 
 ### Return type
 
@@ -28084,7 +28130,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
-    id = 'example string' # str | 
+    id = 'example string' # str | userId
 
     try:
         api_response = api_instance.v1_users_id_enterprises_get(authorization, id)
@@ -28102,7 +28148,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
- **id** | **str**|  | 
+ **id** | **str**| userId | 
 
 ### Return type
 
@@ -28162,7 +28208,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
-    id = 'example string' # str | 
+    id = 'example string' # str | userId
 
     try:
         api_response = api_instance.v1_users_id_groups_enterprises_get(authorization, id)
@@ -28180,7 +28226,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
- **id** | **str**|  | 
+ **id** | **str**| userId | 
 
 ### Return type
 
@@ -28240,7 +28286,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
-    id = 'example string' # str | 
+    id = 'example string' # str | userId
 
     try:
         api_response = api_instance.v1_users_id_groups_get(authorization, id)
@@ -28258,7 +28304,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
- **id** | **str**|  | 
+ **id** | **str**| userId | 
 
 ### Return type
 
@@ -28318,7 +28364,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
-    id = 'example string' # str | 
+    id = 'example string' # str | userId
 
     try:
         api_response = api_instance.v1_users_id_groups_root_get(authorization, id)
@@ -28336,7 +28382,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
- **id** | **str**|  | 
+ **id** | **str**| userId | 
 
 ### Return type
 
@@ -30984,7 +31030,7 @@ with graphiant_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = graphiant_sdk.DefaultApi(api_client)
     authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
-    classification_entry_id_list = ['classification_entry_id_list_example'] # List[str] |  (optional)
+    classification_entry_id_list = ['[\"example\"]'] # List[str] |  (optional)
 
     try:
         api_response = api_instance.v2_assurance_deleteclassifiedapplication_delete(authorization, classification_entry_id_list=classification_entry_id_list)

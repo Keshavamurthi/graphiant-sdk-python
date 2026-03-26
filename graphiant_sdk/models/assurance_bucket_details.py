@@ -24,6 +24,7 @@ from graphiant_sdk.models.assurance_app_name_record import AssuranceAppNameRecor
 from graphiant_sdk.models.assurance_trend_value import AssuranceTrendValue
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class AssuranceBucketDetails(BaseModel):
     """
@@ -45,7 +46,8 @@ class AssuranceBucketDetails(BaseModel):
     __properties: ClassVar[List[str]] = ["appCountThreatHigh", "appCountThreatLow", "appCountThreatMedium", "appIdRecords", "appNameRecords", "bucketNameToDisplay", "description", "displayIpPort", "flowCount", "newIpHint", "recommendation", "trendValueList", "uniqueAppCount"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -57,8 +59,7 @@ class AssuranceBucketDetails(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

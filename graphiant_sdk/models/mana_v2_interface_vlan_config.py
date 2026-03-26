@@ -26,6 +26,7 @@ from graphiant_sdk.models.mana_v2_nullable_tcp_mss_v6 import ManaV2NullableTcpMs
 from graphiant_sdk.models.mana_v2_nullable_vrrp_group_config import ManaV2NullableVrrpGroupConfig
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class ManaV2InterfaceVlanConfig(BaseModel):
     """
@@ -51,7 +52,8 @@ class ManaV2InterfaceVlanConfig(BaseModel):
     __properties: ClassVar[List[str]] = ["adminStatus", "alias", "circuit", "description", "ipv4", "ipv6", "lan", "lldpEnabled", "maxTransmissionUnit", "securityZone", "tcpMss", "tcpMssV4", "tcpMssV6", "v4TcpMss", "v6TcpMss", "vlan", "vrrp"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -63,8 +65,7 @@ class ManaV2InterfaceVlanConfig(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

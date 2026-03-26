@@ -6,10 +6,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cak** | **str** | The Connection Authentication Key (CAK) | [optional] 
-**cak_cryptographic_algorithm** | **str** | The cryptographic algorithm for the CAK (required) | [optional] 
+**cak_cryptographic_algorithm** | **str** | The cryptographic algorithm for the CAK, SAK Cipher Suite is implicitly selected based on this field. (required) | [optional] 
 **ckn** | **str** | The Connection Key Name (CKN) (required) | [optional] 
 **nickname** | **str** | The nickname of the PSK (required) | [optional] 
 **start_time** | [**GoogleProtobufTimestamp**](GoogleProtobufTimestamp.md) |  | [optional] 
+**use_xpn_for_cipher_suite** | **bool** | Whether to use XPN for the cipher suite. If true, AES_128_GCM_XPN or AES_256_GCM_XPN is selected based on the cmac algorithm. If false, AES_128_GCM or AES_256_GCM is selected based on the cmac algorithm. | [optional] 
 
 ## Example
 
