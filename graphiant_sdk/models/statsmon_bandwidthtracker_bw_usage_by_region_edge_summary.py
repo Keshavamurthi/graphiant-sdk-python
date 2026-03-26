@@ -23,6 +23,7 @@ from typing_extensions import Annotated
 from graphiant_sdk.models.statsmon_bandwidthtracker_bw_usage_by_top_sites import StatsmonBandwidthtrackerBwUsageByTopSites
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class StatsmonBandwidthtrackerBwUsageByRegionEdgeSummary(BaseModel):
     """
@@ -36,7 +37,8 @@ class StatsmonBandwidthtrackerBwUsageByRegionEdgeSummary(BaseModel):
     __properties: ClassVar[List[str]] = ["bwusageTopSites", "edgeusageKbps", "percentChanged", "siteCount", "totusageKbps"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -48,8 +50,7 @@ class StatsmonBandwidthtrackerBwUsageByRegionEdgeSummary(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

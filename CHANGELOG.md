@@ -4,6 +4,71 @@ All notable changes to the Graphiant SDK Python package will be documented in th
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [26.3.1] - 2026-03-26
+
+### Added
+- **API spec:** `graphiant_api_docs_v26.3.1.json`
+- **Schemas:**
+  - `ManaV2BgpDynamicNeighborOperPeer`
+  - `ManaV2NullableMaCsecRekeyInterval`
+  - `ManaV2NullableMaCsecReplayProtectionWindowSize`
+- **API endpoints (added):** none
+
+### Changed
+- **Version:**
+  - Updated package version from 26.2.1 to 26.3.1
+  - Updated API documentation reference to `graphiant_api_docs_v26.3.1.json`
+- **API endpoints (updated):**
+  - `DELETE /v1/devices/inventory/serial-num`
+  - `DELETE /v2/assurance/deleteclassifiedapplication`
+  - `GET /v1/device/routing/ospfv2/statistics`
+  - `GET /v1/device/routing/ospfv3/statistics`
+  - `GET /v1/devices/inventory`
+  - `GET /v1/devices/routing/vrf/protocol-route-count`
+  - `GET /v1/devices/{deviceId}/circuits/vrf-associations`
+  - `GET /v1/devices/{deviceId}/vrf/protocols`
+  - `GET /v1/devices/{deviceId}/vrrp`
+  - `GET /v1/diagnostic/speedtest-servers`
+  - `GET /v1/edges-hardware/assigned`
+  - `GET /v1/edges-summary`
+  - `GET /v1/enterprises`
+  - `GET /v1/enterprises/managed`
+  - `GET /v1/extranets-b2b-peering/consumer/{customerId}/consumer-details`
+  - `GET /v1/extranets-b2b-peering/match/service-to-customer/{id}`
+  - `GET /v1/extranets-monitoring/lan-segments`
+  - `GET /v1/extranets-monitoring/nat-usage`
+  - `GET /v1/global/device-status`
+  - `GET /v1/global/ipfix/device`
+  - `GET /v1/global/ntps/device`
+  - `GET /v1/global/ntps/site`
+  - `GET /v1/global/site-status`
+  - `GET /v1/global/snmps/device`
+  - `GET /v1/global/syslogs/device`
+  - `GET /v1/software/releases/download`
+  - `GET /v1/users/{id}/enterprises`
+  - `GET /v1/users/{id}/groups`
+  - `GET /v1/users/{id}/groups/enterprises`
+  - `GET /v1/users/{id}/groups/root`
+  - `GET /v2/monitoring/extranet/edge-status`
+  - `GET /v2/monitoring/extranet/service-status`
+  - `GET /v2/monitoring/extranet/service-status/details`
+  - `GET /v2/monitoring/extranet/site-status`
+  - `GET /v2/monitoring/extranet/status-details`
+  - `POST /v1/device/routing/rib/route-count`
+- **Documentation (updated):**
+  - `AlertserviceIntegrationDetails`, `AlertserviceNotificationBody`
+  - `AssuranceAppIdRecord`
+  - `DefaultApi`
+  - `ManaV2BgpNeighbor`, `ManaV2PskConfiguration`, `ManaV2SakConfiguration`
+  - `SearchEdgeSummary`
+  - `V1DiagnosticSpeedtestReportPutResponse`
+  - `V2AssuranceCreateUserReportPostRequest`, `V2AssuranceDownloadUserReportGetResponse`
+- **SDK (generated):** refreshed generated API client, configuration, and model bindings to match the 26.3.1 spec.
+
+### Removed
+- **API spec:** removed `graphiant_api_docs_v26.2.1.json`
+- **API endpoints (removed):** none
+
 ## [26.2.1] - 2026-02-26
 
 ### Added

@@ -19,21 +19,27 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from graphiant_sdk.models.mana_v2_nullable_ma_csec_rekey_interval import ManaV2NullableMaCsecRekeyInterval
+from graphiant_sdk.models.mana_v2_nullable_ma_csec_replay_protection_window_size import ManaV2NullableMaCsecReplayProtectionWindowSize
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class ManaV2SakConfiguration(BaseModel):
     """
     ManaV2SakConfiguration
     """ # noqa: E501
-    cipher_suite: Optional[StrictStr] = Field(default=None, description="The cipher suite (required)", alias="cipherSuite")
+    cipher_suite: Optional[StrictStr] = Field(default=None, alias="cipherSuite")
     lag_member_interface_id: Optional[StrictInt] = Field(default=None, description="The interface ID (required for when each lag member has a different MACsec configuration - when split_sak_config_by_lag_member is true) (required)", alias="lagMemberInterfaceId")
-    rekey_interval: Optional[StrictInt] = Field(default=None, description="The rekey interval in seconds. 0 means disabled", alias="rekeyInterval")
-    replay_protection_window_size: Optional[StrictInt] = Field(default=None, description="The replay protection window size in seconds. 0 means disabled", alias="replayProtectionWindowSize")
-    __properties: ClassVar[List[str]] = ["cipherSuite", "lagMemberInterfaceId", "rekeyInterval", "replayProtectionWindowSize"]
+    nullable_rekey_interval: Optional[ManaV2NullableMaCsecRekeyInterval] = Field(default=None, alias="nullableRekeyInterval")
+    nullable_replay_protection_window_size: Optional[ManaV2NullableMaCsecReplayProtectionWindowSize] = Field(default=None, alias="nullableReplayProtectionWindowSize")
+    rekey_interval: Optional[StrictInt] = Field(default=None, alias="rekeyInterval")
+    replay_protection_window_size: Optional[StrictInt] = Field(default=None, alias="replayProtectionWindowSize")
+    __properties: ClassVar[List[str]] = ["cipherSuite", "lagMemberInterfaceId", "nullableRekeyInterval", "nullableReplayProtectionWindowSize", "rekeyInterval", "replayProtectionWindowSize"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -45,8 +51,7 @@ class ManaV2SakConfiguration(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -71,6 +76,12 @@ class ManaV2SakConfiguration(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of nullable_rekey_interval
+        if self.nullable_rekey_interval:
+            _dict['nullableRekeyInterval'] = self.nullable_rekey_interval.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of nullable_replay_protection_window_size
+        if self.nullable_replay_protection_window_size:
+            _dict['nullableReplayProtectionWindowSize'] = self.nullable_replay_protection_window_size.to_dict()
         return _dict
 
     @classmethod
@@ -85,6 +96,8 @@ class ManaV2SakConfiguration(BaseModel):
         _obj = cls.model_validate({
             "cipherSuite": obj.get("cipherSuite"),
             "lagMemberInterfaceId": obj.get("lagMemberInterfaceId"),
+            "nullableRekeyInterval": ManaV2NullableMaCsecRekeyInterval.from_dict(obj["nullableRekeyInterval"]) if obj.get("nullableRekeyInterval") is not None else None,
+            "nullableReplayProtectionWindowSize": ManaV2NullableMaCsecReplayProtectionWindowSize.from_dict(obj["nullableReplayProtectionWindowSize"]) if obj.get("nullableReplayProtectionWindowSize") is not None else None,
             "rekeyInterval": obj.get("rekeyInterval"),
             "replayProtectionWindowSize": obj.get("replayProtectionWindowSize")
         })

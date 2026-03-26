@@ -22,6 +22,7 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class AlertserviceNotificationBody(BaseModel):
     """
@@ -35,12 +36,14 @@ class AlertserviceNotificationBody(BaseModel):
     notification_name: Optional[StrictStr] = Field(default=None, description="Name of the notification record (required)", alias="notificationName")
     opsgenie_list: Optional[List[StrictStr]] = Field(default=None, alias="opsgenieList")
     opsramp_list: Optional[List[StrictStr]] = Field(default=None, alias="opsrampList")
+    pagerduty_list: Optional[List[StrictStr]] = Field(default=None, alias="pagerdutyList")
     recipient_list: Optional[List[StrictStr]] = Field(default=None, alias="recipientList")
     teams_list: Optional[List[StrictStr]] = Field(default=None, alias="teamsList")
-    __properties: ClassVar[List[str]] = ["description", "duration", "enabled", "frequency", "messageBody", "notificationName", "opsgenieList", "opsrampList", "recipientList", "teamsList"]
+    __properties: ClassVar[List[str]] = ["description", "duration", "enabled", "frequency", "messageBody", "notificationName", "opsgenieList", "opsrampList", "pagerdutyList", "recipientList", "teamsList"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -52,8 +55,7 @@ class AlertserviceNotificationBody(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -98,6 +100,7 @@ class AlertserviceNotificationBody(BaseModel):
             "notificationName": obj.get("notificationName"),
             "opsgenieList": obj.get("opsgenieList"),
             "opsrampList": obj.get("opsrampList"),
+            "pagerdutyList": obj.get("pagerdutyList"),
             "recipientList": obj.get("recipientList"),
             "teamsList": obj.get("teamsList")
         })

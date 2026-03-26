@@ -29,6 +29,7 @@ from graphiant_sdk.models.mana_v2_qo_s_profile import ManaV2QoSProfile
 from graphiant_sdk.models.mana_v2_static_route import ManaV2StaticRoute
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class ManaV2Circuit(BaseModel):
     """
@@ -66,7 +67,8 @@ class ManaV2Circuit(BaseModel):
     __properties: ClassVar[List[str]] = ["bgpAggregations", "bgpMultipath", "bgpNeighbors", "bgpRedistributions", "carrier", "circuitType", "connectionType", "coreLogicalInterfacesV2", "description", "diaEnabled", "diaSnmpIndex", "discoveredPublicIp", "dropMechanism", "id", "interfaceName", "label", "lastResort", "linkDownSpeedMbps", "linkUpSpeedMbps", "loopback", "name", "patAddresses", "privateIp", "profile", "qosProfile", "qosProfileType", "snmpIndex", "staticRoutes", "wanInterfaceV2"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -78,8 +80,7 @@ class ManaV2Circuit(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

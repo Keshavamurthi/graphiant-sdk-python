@@ -25,12 +25,15 @@ from graphiant_sdk.models.mana_v2_location import ManaV2Location
 from graphiant_sdk.models.upgrade_upgrade_summary import UpgradeUpgradeSummary
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class SearchEdgeSummary(BaseModel):
     """
     SearchEdgeSummary
     """ # noqa: E501
     assigned_on: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="assignedOn")
+    canary_mode: Optional[StrictStr] = Field(default=None, alias="canaryMode")
+    connected_regions: Optional[List[StrictStr]] = Field(default=None, alias="connectedRegions")
     device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
     discovered_location: Optional[StrictStr] = Field(default=None, alias="discoveredLocation")
     enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId")
@@ -58,10 +61,11 @@ class SearchEdgeSummary(BaseModel):
     sw_version: Optional[StrictStr] = Field(default=None, alias="swVersion")
     tt_conn_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="ttConnCount")
     upgrade_summary: Optional[UpgradeUpgradeSummary] = Field(default=None, alias="upgradeSummary")
-    __properties: ClassVar[List[str]] = ["assignedOn", "deviceId", "discoveredLocation", "enterpriseId", "enterpriseName", "firstAppearedOn", "hostname", "ipDetected", "isHardware", "isNew", "isRequested", "lastBootedAt", "location", "model", "overrideRegion", "parentEnterpriseName", "portalStatus", "region", "role", "serialNum", "site", "siteId", "stale", "status", "swName", "swVersion", "ttConnCount", "upgradeSummary"]
+    __properties: ClassVar[List[str]] = ["assignedOn", "canaryMode", "connectedRegions", "deviceId", "discoveredLocation", "enterpriseId", "enterpriseName", "firstAppearedOn", "hostname", "ipDetected", "isHardware", "isNew", "isRequested", "lastBootedAt", "location", "model", "overrideRegion", "parentEnterpriseName", "portalStatus", "region", "role", "serialNum", "site", "siteId", "stale", "status", "swName", "swVersion", "ttConnCount", "upgradeSummary"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -73,8 +77,7 @@ class SearchEdgeSummary(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -127,6 +130,8 @@ class SearchEdgeSummary(BaseModel):
 
         _obj = cls.model_validate({
             "assignedOn": GoogleProtobufTimestamp.from_dict(obj["assignedOn"]) if obj.get("assignedOn") is not None else None,
+            "canaryMode": obj.get("canaryMode"),
+            "connectedRegions": obj.get("connectedRegions"),
             "deviceId": obj.get("deviceId"),
             "discoveredLocation": obj.get("discoveredLocation"),
             "enterpriseId": obj.get("enterpriseId"),

@@ -23,6 +23,7 @@ from graphiant_sdk.models.assurance_exchange_service_identifier import Assurance
 from graphiant_sdk.models.assurance_flex_algo_identifier import AssuranceFlexAlgoIdentifier
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class AssuranceAppIdRecord(BaseModel):
     """
@@ -35,6 +36,7 @@ class AssuranceAppIdRecord(BaseModel):
     app_id_key: Optional[StrictStr] = Field(default=None, alias="appIdKey")
     app_name: Optional[StrictStr] = Field(default=None, alias="appName")
     app_type: Optional[StrictStr] = Field(default=None, alias="appType")
+    blocked_policy_list: Optional[List[StrictStr]] = Field(default=None, alias="blockedPolicyList")
     blocked_reason_list: Optional[List[StrictStr]] = Field(default=None, alias="blockedReasonList")
     category: Optional[StrictStr] = None
     classfication_field: Optional[StrictStr] = Field(default=None, alias="classficationField")
@@ -54,10 +56,11 @@ class AssuranceAppIdRecord(BaseModel):
     site_list: Optional[List[StrictStr]] = Field(default=None, alias="siteList")
     threat_score: Optional[StrictInt] = Field(default=None, alias="threatScore")
     vrf_list: Optional[List[StrictStr]] = Field(default=None, alias="vrfList")
-    __properties: ClassVar[List[str]] = ["affectedHosts", "affectedRegions", "affectedSites", "affectedVrfs", "appIdKey", "appName", "appType", "blockedReasonList", "category", "classficationField", "classificationField", "clients", "exchangeService", "firstSeen", "flexAlgo", "flowsAnalyzed", "lastSeen", "newIpHint", "recommendation", "regionList", "riskStatus", "serverIp", "serverPort", "siteList", "threatScore", "vrfList"]
+    __properties: ClassVar[List[str]] = ["affectedHosts", "affectedRegions", "affectedSites", "affectedVrfs", "appIdKey", "appName", "appType", "blockedPolicyList", "blockedReasonList", "category", "classficationField", "classificationField", "clients", "exchangeService", "firstSeen", "flexAlgo", "flowsAnalyzed", "lastSeen", "newIpHint", "recommendation", "regionList", "riskStatus", "serverIp", "serverPort", "siteList", "threatScore", "vrfList"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -69,8 +72,7 @@ class AssuranceAppIdRecord(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
@@ -128,6 +130,7 @@ class AssuranceAppIdRecord(BaseModel):
             "appIdKey": obj.get("appIdKey"),
             "appName": obj.get("appName"),
             "appType": obj.get("appType"),
+            "blockedPolicyList": obj.get("blockedPolicyList"),
             "blockedReasonList": obj.get("blockedReasonList"),
             "category": obj.get("category"),
             "classficationField": obj.get("classficationField"),

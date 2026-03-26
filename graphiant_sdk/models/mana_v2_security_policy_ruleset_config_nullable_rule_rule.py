@@ -24,6 +24,7 @@ from graphiant_sdk.models.mana_v2_forwarding_policy_match_config import ManaV2Fo
 from graphiant_sdk.models.mana_v2_nullable_meter_rates import ManaV2NullableMeterRates
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class ManaV2SecurityPolicyRulesetConfigNullableRuleRule(BaseModel):
     """
@@ -42,7 +43,8 @@ class ManaV2SecurityPolicyRulesetConfigNullableRuleRule(BaseModel):
     __properties: ClassVar[List[str]] = ["action", "description", "downlinkBurstRate", "downlinkPolicerRate", "logging", "match", "name", "seq", "uplinkBurstRate", "uplinkPolicerRate"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -54,8 +56,7 @@ class ManaV2SecurityPolicyRulesetConfigNullableRuleRule(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:

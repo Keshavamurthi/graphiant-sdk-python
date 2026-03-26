@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **notification_name** | **str** | Name of the notification record (required) | [optional] 
 **opsgenie_list** | **List[str]** |  | [optional] 
 **opsramp_list** | **List[str]** |  | [optional] 
+**pagerduty_list** | **List[str]** |  | [optional] 
 **recipient_list** | **List[str]** |  | [optional] 
 **teams_list** | **List[str]** |  | [optional] 
 

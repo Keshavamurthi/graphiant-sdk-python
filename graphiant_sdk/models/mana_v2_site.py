@@ -26,6 +26,7 @@ from graphiant_sdk.models.mana_v2_single_route_tag import ManaV2SingleRouteTag
 from graphiant_sdk.models.mana_v2_site_device_stub import ManaV2SiteDeviceStub
 from typing import Optional, Set
 from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class ManaV2Site(BaseModel):
     """
@@ -48,7 +49,8 @@ class ManaV2Site(BaseModel):
     __properties: ClassVar[List[str]] = ["address", "createdAt", "devices", "edgeCount", "id", "location", "name", "notes", "policyReferenceCount", "policyTag", "segmentCount", "siteListReferenceCount", "tags", "updatedAt"]
 
     model_config = ConfigDict(
-        populate_by_name=True,
+        validate_by_name=True,
+        validate_by_alias=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
@@ -60,8 +62,7 @@ class ManaV2Site(BaseModel):
 
     def to_json(self) -> str:
         """Returns the JSON representation of the model using alias"""
-        # TODO: pydantic v2: use .model_dump_json(by_alias=True, exclude_unset=True) instead
-        return json.dumps(self.to_dict())
+        return json.dumps(to_jsonable_python(self.to_dict()))
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
