@@ -13,8 +13,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - `ManaV2NullableMaCsecRekeyInterval`
   - `ManaV2NullableMaCsecReplayProtectionWindowSize`
 - **API endpoints (added):** none
+- **CLI (`graphiant`):** Bundled command-line tool (console script `graphiant` → `graphiant_cli.main:main`):
+  - Portal login via Playwright/Chromium; bearer capture from Graphiant **`/v1/`**, **`/v2/`**, and **`…/auth/refresh`** traffic, or paste full **`Authorization: Bearer …`** / raw JWT
+  - Profiles and files under **`~/.graphiant/`** (including **`env.sh`** with `GRAPHIANT_ACCESS_TOKEN`)
+  - **`graphiant configure`** (API host, portal URL), **`graphiant invoke`** / **`graphiant api list`**, **`graphiant rest`**, **`graphiant whoami`**, **`graphiant logout`**, **`graphiant version`**
+  - Optional logging via **`GRAPHIANT_LOG`** / **`graphiant login -v`**
+  - Runtime deps: **Typer**, **Rich**, **Playwright** (Chromium installed on first use when needed)
 
 ### Changed
+- **Documentation:** README rework — table of contents, documentation links table, quick start (**install → CLI sign-in → Python** with `GRAPHIANT_ACCESS_TOKEN`), expanded **Graphiant CLI** section (commands, env vars, capture/troubleshooting), clearer feature list
 - **Version:**
   - Updated package version from 26.2.1 to 26.3.1
   - Updated API documentation reference to `graphiant_api_docs_v26.3.1.json`
@@ -68,6 +75,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Removed
 - **API spec:** removed `graphiant_api_docs_v26.2.1.json`
 - **API endpoints (removed):** none
+- **Documentation:** removed the long README “Migration Guide” (25.10.2 → 25.11.1+) section; upgrade notes remain discoverable via Git history and [DefaultApi.md](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/docs/DefaultApi.md) / model docs as needed
 
 ## [26.2.1] - 2026-02-26
 
