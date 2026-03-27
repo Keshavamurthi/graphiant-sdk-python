@@ -6,187 +6,232 @@
 [![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://docs.graphiant.com/docs/graphiant-sdk-python)
 [![CI/CD](https://github.com/Graphiant-Inc/graphiant-sdk-python/actions/workflows/test.yml/badge.svg)](https://github.com/Graphiant-Inc/graphiant-sdk-python/actions)
 
-A comprehensive Python SDK for [Graphiant Network-as-a-Service (NaaS)](https://www.graphiant.com) offerings, providing seamless integration with Graphiant's network automation platform.
+A comprehensive Python SDK for [Graphiant Network-as-a-Service (NaaS)](https://www.graphiant.com), with a built-in **`graphiant`** CLI for portal login and quick API calls.
 
-Refer [Graphiant Docs](https://docs.graphiant.com) to get started with [Graphiant Network-as-a-Service (NaaS)](https://www.graphiant.com) offerings.
+More product and platform context: [Graphiant Docs](https://docs.graphiant.com).
 
-## 📚 Documentation
+## Table of contents
 
-- **Official Documentation**: [Graphiant SDK Python Guide](https://docs.graphiant.com/docs/graphiant-sdk-python) <-> [Graphiant Automation Docs](https://docs.graphiant.com/docs/automation)
-- **API Reference**: [Graphiant SDK Python API Docs](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/docs/DefaultApi.md) <-> [Graphiant Portal REST API Guide](https://docs.graphiant.com/docs/graphiant-portal-rest-api)
-- **Package**: [PyPI package - graphiant-sdk](https://pypi.org/project/graphiant-sdk)
-- **Changelog**: [CHANGELOG.md](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/CHANGELOG.md) - Detailed release notes and version history
+| Section | What you’ll find |
+|--------|-------------------|
+| [Documentation & links](#documentation--links) | Official guides, API reference, PyPI |
+| [Features](#features) | SDK + CLI at a glance |
+| [Quick start](#quick-start) | Install, sign in, minimal Python example |
+| [**Graphiant CLI**](#graphiant-cli) | Full CLI documentation (login, configure, `invoke`, `rest`, env vars) |
+| [Advanced usage](#advanced-usage) | Patterns and error handling |
+| [Development](#development) | Build, test, code generation |
+| [API reference (overview)](#api-reference) | Core classes and common endpoints |
+| [Security](#security) | Auth and environment variables |
+| [Contributing](#contributing) | PR workflow |
+| [Support](#support) | Links and contact |
 
-## ✨ Features
+## Documentation & links
 
-- **Complete API Coverage**: Full access to all Graphiant REST API endpoints
-- **Authentication**: Built-in bearer token authentication
-- **Device Management**: Comprehensive device configuration and monitoring
-- **Network Operations**: Circuit management, interface configuration, and routing
-- **Error Handling**: Robust exception handling with detailed error messages
-- **Type Safety**: Full type hints and validation using Pydantic models
-- **CLI Support**: Command-line interface for quick operations
+| Resource | Link |
+|----------|------|
+| **SDK guide** | [Graphiant SDK Python](https://docs.graphiant.com/docs/graphiant-sdk-python) |
+| **Automation** | [Graphiant Automation](https://docs.graphiant.com/docs/automation) |
+| **REST API** | [Graphiant Portal REST API](https://docs.graphiant.com/docs/graphiant-portal-rest-api) |
+| **Method index (repo)** | [DefaultApi.md](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/docs/DefaultApi.md) |
+| **PyPI** | [graphiant-sdk](https://pypi.org/project/graphiant-sdk) |
+| **Changelog** | [CHANGELOG.md](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/CHANGELOG.md) |
 
-## 🚀 Quick Start
+## Features
 
-### Installation
+- **Full REST coverage** — Generated client for all Graphiant API endpoints.
+- **Bearer authentication** — Username/password login in code, or token from the CLI / `GRAPHIANT_ACCESS_TOKEN`.
+- **Typed models** — Pydantic models and type hints.
+- **`graphiant` CLI** — Portal login (Playwright), saved profiles, `invoke` / `rest` / `whoami`.
 
-Install the package from PyPI:
+## Quick start
+
+### 1. Install
 
 ```bash
 pip install graphiant-sdk
 ```
 
-### Basic Usage
+This provides both **`graphiant_sdk`** (Python) and the **`graphiant`** executable.
+
+### 2. Sign in with the CLI
+
+Complete login in the Chromium window that opens (or paste a token when prompted). Then **load the token into your shell** (the CLI cannot set parent-shell variables by itself):
+
+```bash
+graphiant login
+source ~/.graphiant/env.sh
+# or, without opening a browser (reads saved credentials):
+eval "$(graphiant login env-export)"
+```
+
+Confirm: `echo $GRAPHIANT_ACCESS_TOKEN` should show a long token.
+
+See [**Graphiant CLI**](#graphiant-cli) for options (`--timeout`, `--no-capture`, profiles, troubleshooting).
+
+### 3. Basic Python usage
+
+If **`GRAPHIANT_ACCESS_TOKEN`** is set—e.g. after **`graphiant login`** and sourcing `env.sh`—the client uses it and skips username/password login. Otherwise the example falls back to **`POST /v1/auth/login`**.
 
 ```python
+import os
+
 import graphiant_sdk
 from graphiant_sdk.exceptions import (
-    ApiException, BadRequestException, UnauthorizedException, 
-    ForbiddenException, NotFoundException, ServiceException
+    ApiException, BadRequestException, UnauthorizedException,
+    ForbiddenException, NotFoundException, ServiceException,
 )
 
-# Create client configuration
-config = graphiant_sdk.Configuration(
-    host="https://api.graphiant.com",
-    username="your_username",
-    password="your_password"
-)
+host = os.environ.get("GRAPHIANT_API_HOST", "https://api.graphiant.com")
+access_token = os.environ.get("GRAPHIANT_ACCESS_TOKEN", "").strip()
 
-# Initialize API client
+config = graphiant_sdk.Configuration(host=host)
+
+if access_token:
+    # Use only authorization=… on each call — do not also set config.api_key for jwtAuth,
+    # or the client may send two Authorization headers and gateways (e.g. Azure) can return 400.
+    bearer_token = f"Bearer {access_token}"
+else:
+    config.username = "your_username"
+    config.password = "your_password"
+
 api_client = graphiant_sdk.ApiClient(config)
 api = graphiant_sdk.DefaultApi(api_client)
 
-# Authenticate and get bearer token
-auth_request = graphiant_sdk.V1AuthLoginPostRequest(
-    username=config.username,
-    password=config.password
-)
-
-try:
-    auth_response = api.v1_auth_login_post(v1_auth_login_post_request=auth_request)
-    bearer_token = f'Bearer {auth_response.token}'
-    print(f"Authentication successful")
-except Exception as e:
-    print(f"Authentication failed: {e}")
-    exit(1)
+if not access_token:
+    auth_request = graphiant_sdk.V1AuthLoginPostRequest(
+        username=config.username,
+        password=config.password,
+    )
+    try:
+        auth_response = api.v1_auth_login_post(v1_auth_login_post_request=auth_request)
+        bearer_token = f"Bearer {auth_response.token}"
+        print("Authentication successful")
+    except Exception as e:
+        print(f"Authentication failed: {e}")
+        exit(1)
 
 # Get device summary
 try:
     edges_summary = api.v1_edges_summary_get(authorization=bearer_token)
     print(f"Found {len(edges_summary.edges_summary)} devices")
-    
+
     for device in edges_summary.edges_summary:
         print(f"Device: {device.hostname}, Status: {device.status}")
-        
+
 except Exception as e:
     print(f"Failed to get device summary: {e}")
 ```
 
-## 🔄 Migration Guide: Upgrading from 25.10.2 to 25.11.1+
+## Graphiant CLI
 
-The 25.11.1+ API is optimized to reuse redundant schemas, which results in changes to inner class types. You may need to update your existing scripts to use the newer class names.
+The **`graphiant`** command ships with `graphiant-sdk`. Use it to log in via the [portal](https://portal.graphiant.com/), store a bearer token, and run quick API checks without writing a full Python script.
 
-### Benefits of Upgrading
+- **Version:** `graphiant version` matches **`graphiant_sdk.__version__`**.
+- **Help:** `graphiant --help`, `graphiant login --help`, etc.
+- **Python usage:** After `source ~/.graphiant/env.sh`, read `GRAPHIANT_ACCESS_TOKEN` in code — see [§3 Basic Python usage](#3-basic-python-usage).
 
-The new API specification (25.11.1+) brings significant improvements:
+### Typical workflow
 
-- **Reduced Specification Size**: The API specification file size has been reduced from **9.8M to 1.5M** (~85% reduction) through schema optimization and reuse
-- **Enhanced Documentation**: The new spec includes more comprehensive documentation for better developer experience
-- **Cleaner Class Names**: Response classes no longer include HTTP status codes, making imports and type references more intuitive
-- **Reusable Schemas**: Inner classes now use reusable schema names, meaning **common schemas share the same inner class names across different endpoints**. This reduces code duplication, improves maintainability, and allows you to reuse the same imports and type references for similar data structures
+```bash
+# 1) Log in (browser opens; paste token if prompted)
+graphiant login
 
-### Important Changes
+# 2) Load the token into *this* shell (required — see below)
+source ~/.graphiant/env.sh
 
-#### 1. Remove Status Code from Class Names
+# 3) Sanity-check session
+graphiant whoami
 
-Response class names no longer include HTTP status codes. Update your imports and type references:
-
-**Before (25.11.1):**
-```python
-from graphiant_sdk.models.v1_edges_summary_get200_response import V1EdgesSummaryGet200Response
-from graphiant_sdk.models.v1_global_summary_post200_response import V1GlobalSummaryPost200Response
-from graphiant_sdk.models.v1_devices_device_id_config_put202_response import V1DevicesDeviceIdConfigPut202Response
+# 4) Call an API (token from env or saved profile)
+graphiant invoke v1_edges_summary_get
+graphiant rest GET /v1/edges/summary
 ```
 
-**After (25.11.1):**
-```python
-from graphiant_sdk.models.v1_edges_summary_get_response import V1EdgesSummaryGetResponse
-from graphiant_sdk.models.v1_global_summary_post_response import V1GlobalSummaryPostResponse
-from graphiant_sdk.models.v1_devices_device_id_config_put_response import V1DevicesDeviceIdConfigPutResponse
+### `graphiant login`
+
+| Command / option | What it does |
+|------------------|--------------|
+| `graphiant login` | Opens Chromium (Playwright). Observes **`/v1/…`**, **`/v2/…`**, and **`…/auth/refresh`** traffic and captures **`Authorization: Bearer …`** (and refresh JSON when applicable). After first real token, loads portal **`/`** and reloads once. |
+| `--portal-url <url>` | Portal base URL for this run (default: config or `https://portal.graphiant.com/`). |
+| `-t`, `--timeout <sec>` | Wait for capture (default **90**). Then prompt to paste. **`Ctrl+C`** skips to paste. |
+| `--no-capture` | No Playwright; open portal and paste token (full **`Authorization`** value including **`Bearer`**, or raw JWT). |
+| `--no-browser` | Print portal URL only; paste when prompted. |
+| `--profile <name>` | Store token under named profile (default **`default`**). |
+| `--export` / `--no-export` | After success, also print **`export GRAPHIANT_ACCESS_TOKEN=…`** to **stdout** (default: **on**). `env.sh` is always written. |
+| `-v`, `--verbose` | Debug logging on stderr. Or **`GRAPHIANT_LOG=debug`** / **`info`** / **`warning`**. |
+| `graphiant login env-export` | Print one **`export …`** line to stdout (no browser). Use: `eval "$(graphiant login env-export)"`. |
+
+**Paste / DevTools:** If auto-capture fails, copy the **full** **`Authorization`** header from Network (including the word **`Bearer`**). The CLI does not read DevTools; it only listens inside its own Chromium session.
+
+**Why `GRAPHIANT_ACCESS_TOKEN` is empty after login:** The `graphiant` process is a **child** of your shell and **cannot** modify the parent’s environment. The token is saved under **`~/.graphiant/`** and in **`env.sh`**. Run **`source ~/.graphiant/env.sh`** (or **`eval "$(graphiant login env-export)"`**) in the terminal where you need the variable. New IDE terminals don’t inherit another tab’s `source` unless you reload it there too.
+
+### `graphiant configure`
+
+| Command | Purpose |
+|---------|---------|
+| `graphiant configure set-host <url>` | Default API base URL (e.g. `https://api.graphiant.com`). |
+| `graphiant configure set-portal-url <url>` | Default portal URL for future logins. |
+| `graphiant configure show` | Show host, portal, profile, token presence. |
+
+### Call the API from the terminal
+
+Exact method names match **`DefaultApi`** in the SDK — see [DefaultApi.md](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/docs/DefaultApi.md) or list locally:
+
+```bash
+graphiant api list --prefix v1_auth_
+graphiant invoke v1_auth_get
+graphiant api invoke v1_edges_summary_get
+graphiant invoke v1_edges_summary_get --kwargs '{"enterprise_id": 123}'
 ```
 
-**Common patterns to update:**
-- `Post200Response` → `PostResponse`
-- `Get200Response` → `GetResponse`
-- `Put202Response` → `PutResponse`
-- `Put204Response` → `PutResponse`
-- `Post201Response` → `PostResponse`
+Raw HTTP (path under configured API host):
 
-> **Note**: The vast majority of response classes have been updated. A few exceptions may remain (e.g., `V1AuthRefreshGet200Response`), but these are rare edge cases. When in doubt, check the current API file ([graphiant_sdk/api/default_api.py](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/graphiant_sdk/api/default_api.py)) or the model documentation.
-
-#### 2. Find and Rename Inner Property Class Names
-
-Inner classes have been renamed to use reusable schema names. **Because schemas are now reused, common schemas will share the same inner class names across different endpoints.** This means you can reuse the same import and type references for similar data structures.
-
-To find the new class name:
-
-1. **Step 1**: Find the top-level class name by removing the status code (if it exists) and trimming to `Response`:
-   - `V1GlobalSummaryPost200Response` → `V1GlobalSummaryPostResponse`
-
-2. **Step 2**: Check the documentation for the inner property's new class name:
-   - Open [docs/V1GlobalSummaryPostResponse.md](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/docs/V1GlobalSummaryPostResponse.md)
-   - Find the property (e.g., `summaries`)
-   - Note the new class name (e.g., `ManaV2GlobalObjectSummary`)
-
-**Key Benefit**: If multiple endpoints use the same schema structure, they will now share the same inner class name. For example, if both `V1GlobalSummaryPostResponse` and `V1EdgesSummaryGetResponse` use the same summary schema, they will both use `ManaV2GlobalObjectSummary` as the inner class type.
-
-**Example Migration:**
-
-**Before (25.11.1):**
-```python
-from graphiant_sdk.models.v1_global_summary_post200_response import V1GlobalSummaryPost200Response
-from graphiant_sdk.models.v1_global_summary_post200_response_summaries_inner import V1GlobalSummaryPost200ResponseSummariesInner
-
-response = api.v1_global_summary_post(...)
-for summary in response.summaries:
-    # summary is V1GlobalSummaryPost200ResponseSummariesInner
-    print(summary.name)
+```bash
+graphiant rest GET /v1/edges/summary
+graphiant rest POST /v1/resource --body '{"key": "value"}' --query 'a=b'
 ```
 
-**After (25.11.1):**
-```python
-from graphiant_sdk.models.v1_global_summary_post_response import V1GlobalSummaryPostResponse
-from graphiant_sdk.models.mana_v2_global_object_summary import ManaV2GlobalObjectSummary
-# or
-from graphiant_sdk.models import ManaV2GlobalObjectSummary
+| Command | Purpose |
+|---------|---------|
+| `graphiant whoami` | **`GET /v1/auth`** with current token. |
+| `graphiant logout` | Clear stored profile (see **`--profile`**). |
+| `graphiant version` | Print CLI and package version. |
 
-response = api.v1_global_summary_post(...)
-for summary in response.summaries:
-    # summary is ManaV2GlobalObjectSummary
-    print(summary.name)
-```
+### Environment variables & files
 
-#### 3. Finding Endpoint Request/Response Models
+| Path / variable | Role |
+|-----------------|------|
+| `~/.graphiant/config.json` | Default API host and portal URL. |
+| `~/.graphiant/credentials.json` | Profiles and stored access tokens. |
+| `~/.graphiant/env.sh` | `export GRAPHIANT_ACCESS_TOKEN=…` after each successful login. |
+| `GRAPHIANT_CONFIG_DIR` | Override config directory (default **`~/.graphiant`**). |
+| `GRAPHIANT_ACCESS_TOKEN` | If set, preferred over disk token for CLI/SDK in that environment. |
+| `GRAPHIANT_API_HOST` | Fallback API host when not in config. |
+| `GRAPHIANT_PROFILE` | Active profile name (default **`default`**). |
+| `GRAPHIANT_LOG` | Login log level: **`debug`**, **`info`**, **`warning`**. |
 
-To find all endpoints and their request/response models:
+### Capture behavior & troubleshooting
 
-- **API Reference**: See [graphiant_sdk/api/default_api.py](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/graphiant_sdk/api/default_api.py) or [docs/DefaultApi.md](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/docs/DefaultApi.md)
-- **Model Documentation**: Check individual model files in the [docs/](https://github.com/Graphiant-Inc/graphiant-sdk-python/tree/main/docs) directory (e.g., [docs/V1GlobalSummaryPostResponse.md](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/docs/V1GlobalSummaryPostResponse.md))
+- Listeners use Playwright’s sync driver; the wait loop uses **`page.wait_for_timeout`** so **`request` / `response`** events are processed (plain **`sleep`** can miss tokens until too late).
+- Placeholder values such as **`Bearer null`** on **`/v1/auth/login/pre`** are ignored; the CLI waits for a **real** session token.
+- If capture times out: **`graphiant login -t 180`**, complete SSO sooner, **F5** on the portal home, **`graphiant login --no-capture`**, or **`graphiant login -v`** / **`GRAPHIANT_LOG=debug`**.
 
-### Migration Checklist
+### CLI dependencies
 
-- [ ] Search and replace all `200Response`, `202Response`, `201Response`, `204Response` patterns
-- [ ] Update imports for response classes
-- [ ] Find and update inner class references (check documentation files)
-- [ ] Test all API calls with new class names
-- [ ] Update type hints and annotations
+**Typer**, **Rich**, and **Playwright** (Chromium installed on first use if missing via **`playwright install chromium`**).
 
-### Need Help?
+### Package layout (`graphiant_cli/`, for contributors)
 
-- Check the [API Reference](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/docs/DefaultApi.md) for endpoint details
-- Review model documentation in the [docs/](https://github.com/Graphiant-Inc/graphiant-sdk-python/tree/main/docs) directory
-- See [Support](#-support) section for additional resources
+| Module | Role |
+|--------|------|
+| `main.py` | Typer app: `login`, `configure`, `api`, `rest`, `whoami`, … |
+| `browser_capture.py` | Playwright session and network capture |
+| `token_parsing.py` | Headers, JSON, URL matching, token validation |
+| `login_common.py` | Save credentials, user-facing success text, stdout export |
+| `portal_login.py` | Portal URL helpers, `open_portal`, test re-exports |
+| `config_store.py` | `~/.graphiant/` persistence |
+| `cli_logging.py` | Logging (no secrets in logs) |
+| `sdk_invoke.py`, `rest_client.py` | SDK invoke and raw REST |
 
 ## 🔧 Advanced Usage
 

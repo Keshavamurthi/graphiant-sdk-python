@@ -14,7 +14,13 @@ dependencies = [
   "python-dateutil (>=2.8.2)",
   "pydantic (>=2.11)",
   "typing-extensions (>=4.7.1)",
+  "typer (>=0.9,<1)",
+  "rich (>=13,<15)",
+  "playwright (>=1.40,<2)",
 ]
+
+[project.scripts]
+graphiant = "graphiant_cli.main:main"
 
 [project.urls]
 Repository = "https://github.com/Graphiant-Inc/graphiant-sdk-python"

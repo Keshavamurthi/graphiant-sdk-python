@@ -31,6 +31,9 @@ REQUIRES = [
     "python-dateutil >= 2.8.2",
     "pydantic >= 2",
     "typing-extensions >= 4.7.1",
+    "typer >= 0.9.0, < 1.0.0",
+    "rich >= 13.0.0, < 15.0.0",
+    "playwright >= 1.40.0, < 2.0.0",
 ]
 
 setup(
@@ -51,6 +54,11 @@ setup(
          "Source Code": "https://github.com/Graphiant-Inc/graphiant-sdk-python"
     },
     license='MIT',
+    entry_points={
+        "console_scripts": [
+            "graphiant=graphiant_cli.main:main",
+        ],
+    },
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',

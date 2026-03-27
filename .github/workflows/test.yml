@@ -4,7 +4,9 @@ on:
   pull_request:
     paths:
       - 'graphiant_sdk/**'
+      - 'graphiant_cli/**'
       - 'test/**'
+      - 'tests/**'
       - '.github/workflows/test.yml'
       - 'requirements.txt'
       - 'test-requirements.txt'
@@ -15,7 +17,9 @@ on:
       - develop
     paths:
       - 'graphiant_sdk/**'
+      - 'graphiant_cli/**'
       - 'test/**'
+      - 'tests/**'
       - '.github/workflows/test.yml'
       - 'requirements.txt'
       - 'test-requirements.txt'
