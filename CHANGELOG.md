@@ -4,6 +4,20 @@ All notable changes to the Graphiant SDK Python package will be documented in th
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [26.3.2] - 2026-03-27
+
+### Changed
+- **Version:** Package **26.3.2** (same bundled OpenAPI input file as 26.3.1: `graphiant_api_docs_v26.3.1.json`).
+- **Python:** Minimum supported version is **3.10** (`requires-python`, `setup.py`, CI, and contributor docs).
+- **Dependencies:** Direct **Pygments ≥ 2.20**; dev dependency **filelock ≥ 3.20.3** in Poetry (see `pyproject.toml` / `poetry.lock`).
+
+### Security
+- **Pygments** minimum raised to mitigate known ReDoS issues in older releases.
+- **filelock** (dev, pulled in by the **tox** / **virtualenv** stack): minimum **≥ 3.20.3** to avoid vulnerable releases affected by a **time-of-check–time-of-use (TOCTOU)** race in **SoftFileLock** that could allow **symlink attacks** during lock file creation (upstream patched releases; this repo uses **Python ≥ 3.10** so **filelock** 3.20.x can be resolved).
+
+### Documentation
+- README, CONTRIBUTING, GitHub Actions workflow docs, issue template, and `.travis.yml` updated for Python **3.10+** only (removed **3.9** from test matrices and examples).
+
 ## [26.3.1] - 2026-03-26
 
 ### Added

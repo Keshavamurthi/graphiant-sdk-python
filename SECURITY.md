@@ -4,15 +4,23 @@
 
 We actively support the following versions with security updates:
 
-| Version | Supported          | Notes                    |
-| ------- | ------------------ | ------------------------ |
-| 26.3.x  | :white_check_mark: | Current stable release   |
+| Version | Supported          | Notes                                    |
+| ------- | ------------------ | ---------------------------------------- |
+| 26.3.x  | :white_check_mark: | Current stable release (latest: **26.3.2**) |
 | 26.2.x  | :white_check_mark: | Previous release         |
 | 26.1.x  | :white_check_mark: | Older supported release  |
 | 25.12.x | :white_check_mark: | Legacy release           |
 | < 25.12 | :x:                | No longer supported      |
 
 **Note:** We recommend always using the latest version to ensure you have the most recent security patches.
+
+### Pygments
+
+**Pygments** has **Regular Expression Denial of Service (ReDoS) due to Inefficient Regex for GUID Matching** in vulnerable older releases. This package declares **Pygments ≥ 2.20** as a direct dependency so installs resolve patched releases.
+
+### Development tooling (`filelock`)
+
+Tools such as **tox** and **virtualenv** depend on **filelock**. Older **filelock** versions were affected by a **time-of-check–time-of-use (TOCTOU)** issue in **SoftFileLock**, including a race that could allow **symlink attacks** during lock file creation. This package declares **Python ≥ 3.10** and **filelock ≥ 3.20.3** for Poetry dev dependencies so installs resolve **filelock** releases that include the relevant fixes.
 
 ## Reporting a Vulnerability
 
