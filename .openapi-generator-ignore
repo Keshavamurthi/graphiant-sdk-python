@@ -1,5 +1,8 @@
 # OpenAPI Generator Ignore
 LICENSE
+.travis.yml
+pyproject.toml
+requirements.txt
 setup.py
 README.md
 .gitignore

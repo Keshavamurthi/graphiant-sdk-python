@@ -24,8 +24,8 @@ SOFTWARE.
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "graphiant_sdk"
-VERSION = "26.3.1"
-PYTHON_REQUIRES = ">= 3.9"
+VERSION = "26.3.2"
+PYTHON_REQUIRES = ">= 3.10"
 REQUIRES = [
     "urllib3 >= 2.1.0, < 3.0.0",
     "python-dateutil >= 2.8.2",
@@ -33,6 +33,7 @@ REQUIRES = [
     "typing-extensions >= 4.7.1",
     "typer >= 0.9.0, < 1.0.0",
     "rich >= 13.0.0, < 15.0.0",
+    "pygments >= 2.20, < 3.0.0",
     "playwright >= 1.40.0, < 2.0.0",
 ]
 
@@ -61,6 +62,10 @@ setup(
     },
     classifiers=[
         'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],

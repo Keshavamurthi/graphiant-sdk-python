@@ -1,7 +1,7 @@
 # Graphiant SDK Python
 
 [![PyPI version](https://badge.fury.io/py/graphiant-sdk.svg)](https://badge.fury.io/py/graphiant-sdk)
-[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://docs.graphiant.com/docs/graphiant-sdk-python)
 [![CI/CD](https://github.com/Graphiant-Inc/graphiant-sdk-python/actions/workflows/test.yml/badge.svg)](https://github.com/Graphiant-Inc/graphiant-sdk-python/actions)
@@ -372,7 +372,7 @@ def get_device_info(api, bearer_token, device_id):
 
 ### Prerequisites
 
-- Python 3.9+ (3.12+ recommended)
+- Python 3.10+ (3.12+ recommended)
 - Git
 - OpenAPI Generator (for code generation)
 
@@ -381,7 +381,7 @@ def get_device_info(api, bearer_token, device_id):
 This repository uses GitHub Actions for continuous integration and deployment:
 
 - **Linting** ([lint.yml](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/.github/workflows/lint.yml)): Runs Flake8 and MyPy type checking on pull requests and pushes
-- **Testing** ([test.yml](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/.github/workflows/test.yml)): Runs pytest with coverage across Python 3.9, 3.10, 3.11, 3.12, and 3.13
+- **Testing** ([test.yml](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/.github/workflows/test.yml)): Runs pytest with coverage across Python 3.10, 3.11, 3.12, and 3.13
 - **Building** ([build.yml](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/.github/workflows/build.yml)): Builds wheel and source distributions
 - **Releasing** ([release.yml](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/.github/workflows/release.yml)): Publishes to PyPI (manual trigger, admin-only)
 
@@ -425,10 +425,10 @@ openapi-generator generate \
     --git-user-id Graphiant-Inc \
     --git-repo-id graphiant-sdk-python \
     --package-name graphiant_sdk \
-    --additional-properties=packageVersion=26.3.1
+    --additional-properties=packageVersion=26.3.2
 ```
 
-> **Note**: Latest API documentation can be downloaded from the Graphiant portal under "Support Hub" > "Developer Tools".
+> **Note:** Download the latest API bundle from the Graphiant portal under **Support Hub** → **Developer Tools**. Set **`packageVersion`** to the SDK release you are publishing (this branch: **26.3.2**). The **`-i`** filename reflects the API doc bundle version (here `graphiant_api_docs_v26.3.1.json`) and may stay the same across patch releases when the spec is unchanged.
 
 ### Testing
 
