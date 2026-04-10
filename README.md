@@ -20,7 +20,7 @@ More product and platform context: [Graphiant Docs](https://docs.graphiant.com).
 | [**Graphiant CLI**](#graphiant-cli) | Full CLI documentation (login, configure, `invoke`, `rest`, env vars) |
 | [Advanced usage](#advanced-usage) | Patterns and error handling |
 | [Development](#development) | Build, test, code generation |
-| [API reference (overview)](#api-reference) | Core classes and common endpoints |
+| [API reference (overview)](#api-reference) | Bundled OpenAPI, model docs, sample endpoints |
 | [Security](#security) | Auth and environment variables |
 | [Contributing](#contributing) | PR workflow |
 | [Support](#support) | Links and contact |
@@ -33,6 +33,8 @@ More product and platform context: [Graphiant Docs](https://docs.graphiant.com).
 | **Automation** | [Graphiant Automation](https://docs.graphiant.com/docs/automation) |
 | **REST API** | [Graphiant Portal REST API](https://docs.graphiant.com/docs/graphiant-portal-rest-api) |
 | **Method index (repo)** | [DefaultApi.md](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/docs/DefaultApi.md) |
+| **OpenAPI bundle (this build)** | [`graphiant_api_docs_v26.3.1.json`](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/graphiant_api_docs_v26.3.1.json) — source for generated paths and models |
+| **Model docs (`*.md`)** | [`docs/`](https://github.com/Graphiant-Inc/graphiant-sdk-python/tree/main/docs) (same names as Python classes, e.g. `V1EdgesSummaryGetResponse.md`) |
 | **PyPI** | [graphiant-sdk](https://pypi.org/project/graphiant-sdk) |
 | **Changelog** | [CHANGELOG.md](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/CHANGELOG.md) |
 
@@ -55,7 +57,7 @@ This provides both **`graphiant_sdk`** (Python) and the **`graphiant`** executab
 
 ### 2. Sign in with the CLI
 
-Complete login in the Chromium window that opens (or paste a token when prompted). Then **load the token into your shell** (the CLI cannot set parent-shell variables by itself):
+Complete login in the Chromium window that opens (or paste a token when prompted). Then **load the token into your shell**:
 
 ```bash
 graphiant login
@@ -130,6 +132,26 @@ The **`graphiant`** command ships with `graphiant-sdk`. Use it to log in via the
 - **Help:** `graphiant --help`, `graphiant login --help`, etc.
 - **Python usage:** After `source ~/.graphiant/env.sh`, read `GRAPHIANT_ACCESS_TOKEN` in code — see [§3 Basic Python usage](#3-basic-python-usage).
 
+### Shell completion (bash, zsh, fish)
+
+Tab completion is provided by **Typer/Click** but is **not** enabled until you install it once for your shell:
+
+```bash
+graphiant --install-completion
+```
+
+Then restart the terminal or **`source ~/.zshrc`** / **`~/.bashrc`**. After that, **`graphiant <Tab>`** completes subcommands (e.g. `login`, `rest`, `whoami`) and options.
+
+- Inspect the script without modifying your config: **`graphiant --show-completion`**
+- **zsh** must run **`compinit`** (most frameworks do this already).
+- The package depends on **`shellingham`** so **`--install-completion`** can detect your shell.
+
+If you prefer to wire **zsh** manually:
+
+```bash
+echo 'eval "$(_GRAPHIANT_COMPLETE=zsh_source graphiant)"' >> ~/.zshrc
+```
+
 ### Typical workflow
 
 ```bash
@@ -144,7 +166,7 @@ graphiant whoami
 
 # 4) Call an API (token from env or saved profile)
 graphiant invoke v1_edges_summary_get
-graphiant rest GET /v1/edges/summary
+graphiant rest GET /v1/edges-summary
 ```
 
 ### `graphiant login`
@@ -157,13 +179,13 @@ graphiant rest GET /v1/edges/summary
 | `--no-capture` | No Playwright; open portal and paste token (full **`Authorization`** value including **`Bearer`**, or raw JWT). |
 | `--no-browser` | Print portal URL only; paste when prompted. |
 | `--profile <name>` | Store token under named profile (default **`default`**). |
-| `--export` / `--no-export` | After success, also print **`export GRAPHIANT_ACCESS_TOKEN=…`** to **stdout** (default: **on**). `env.sh` is always written. |
+| `--export` / `--no-export` | After success, also print **`export GRAPHIANT_ACCESS_TOKEN=…`** to **stdout** for scripts (default: **off**, so the token is not echoed). `~/.graphiant/env.sh` is always written. |
 | `-v`, `--verbose` | Debug logging on stderr. Or **`GRAPHIANT_LOG=debug`** / **`info`** / **`warning`**. |
 | `graphiant login env-export` | Print one **`export …`** line to stdout (no browser). Use: `eval "$(graphiant login env-export)"`. |
 
 **Paste / DevTools:** If auto-capture fails, copy the **full** **`Authorization`** header from Network (including the word **`Bearer`**). The CLI does not read DevTools; it only listens inside its own Chromium session.
 
-**Why `GRAPHIANT_ACCESS_TOKEN` is empty after login:** The `graphiant` process is a **child** of your shell and **cannot** modify the parent’s environment. The token is saved under **`~/.graphiant/`** and in **`env.sh`**. Run **`source ~/.graphiant/env.sh`** (or **`eval "$(graphiant login env-export)"`**) in the terminal where you need the variable. New IDE terminals don’t inherit another tab’s `source` unless you reload it there too.
+**If `GRAPHIANT_ACCESS_TOKEN` is empty after login:** The token is saved under **`~/.graphiant/`** in **`env.sh`**. In this terminal, run **`source ~/.graphiant/env.sh`** or **`eval "$(graphiant login env-export)"`**. You can also chain: **`graphiant login && source ~/.graphiant/env.sh`** (add your usual `login` flags before `&&`). New IDE terminals don’t inherit another tab’s `source` unless you reload it there too.
 
 ### `graphiant configure`
 
@@ -178,23 +200,50 @@ graphiant rest GET /v1/edges/summary
 Exact method names match **`DefaultApi`** in the SDK — see [DefaultApi.md](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/docs/DefaultApi.md) or list locally:
 
 ```bash
-graphiant api list --prefix v1_auth_
+graphiant api list --prefix v1_auth_          # table: SDK method, HTTP, path
+graphiant apis --plain --prefix v1_auth_     # one SDK method name per line
 graphiant invoke v1_auth_get
 graphiant api invoke v1_edges_summary_get
 graphiant invoke v1_edges_summary_get --kwargs '{"enterprise_id": 123}'
 ```
 
+**`graphiant invoke`** sends a **single** **`Authorization`** header (the generated client’s **`authorization`** parameter only). It does **not** also apply **`jwtAuth`** from **`Configuration`**, so gateways that reject duplicate auth headers (for example **Azure Application Gateway**) accept the request.
+
+#### Query parameters and filters
+
+- **`graphiant invoke` / `graphiant api invoke`** — Uses the **generated `DefaultApi` method signature**. Anything that is a query string in REST becomes a **keyword argument** on that method, named in **snake_case** (OpenAPI `enterpriseId` → `enterprise_id`). Pass them inside **`--kwargs`** as JSON. You do **not** pass `authorization` manually; the CLI fills **`Bearer <token>`** for you.
+
+  ```bash
+  graphiant invoke v1_edges_summary_get --kwargs '{"enterprise_id": 123, "is_requested": true}'
+  ```
+
+  Optional arguments can be omitted. For **positional** parameters (rare), use **`--args`** with a JSON array in **parameter order**; the first slot is usually **`authorization`**, which the CLI injects if you skip it by using **`--kwargs`** only.
+
+- **POST / PATCH with a JSON body** — Bodies use the same keyword names as **`DefaultApi`** (often a single **`v1_*_post_request`** argument whose JSON matches the Pydantic model). See **`docs/<ModelName>.md`** for fields.
+
+  ```bash
+  graphiant invoke v1_edges_summary_post --kwargs '{"v1_edges_summary_post_request": {"filter": {}}}'
+  graphiant invoke v1_global_summary_post --kwargs '{"v1_global_summary_post_request": {"ntpType": true}}'
+  ```
+
+- **`graphiant rest`** — Query strings are a single **`--query`** / **`-q`** string: **`key=value`** pairs joined with **`&`**. Values are strings (URL-encode special characters in the shell if needed).
+
+  ```bash
+  graphiant rest GET /v1/edges-summary --query 'enterpriseId=123&isRequested=true'
+  ```
+
 Raw HTTP (path under configured API host):
 
 ```bash
-graphiant rest GET /v1/edges/summary
-graphiant rest POST /v1/resource --body '{"key": "value"}' --query 'a=b'
+graphiant rest GET /v1/edges-summary
+graphiant rest GET /v1/devices/1234567890123
+graphiant rest POST /v1/global/summary --body '{"ntpType": true}'
 ```
 
 | Command | Purpose |
 |---------|---------|
-| `graphiant whoami` | **`GET /v1/auth`** with current token. |
-| `graphiant logout` | Clear stored profile (see **`--profile`**). |
+| `graphiant whoami` | **`GET /v1/auth/user`** and **`GET /v1/users?id=…`**; Rich tables (session, permissions, profile). **`lastActiveAt`** (and similar protobuf timestamps) are shown in **UTC**, labeled **`(UTC)`**. |
+| `graphiant logout` | Clear stored profile (see **`--profile`**). Your shell may still export **`GRAPHIANT_ACCESS_TOKEN`** — run **`unset GRAPHIANT_ACCESS_TOKEN`** in that terminal if needed. |
 | `graphiant version` | Print CLI and package version. |
 
 ### Environment variables & files
@@ -224,7 +273,7 @@ graphiant rest POST /v1/resource --body '{"key": "value"}' --query 'a=b'
 
 | Module | Role |
 |--------|------|
-| `main.py` | Typer app: `login`, `configure`, `api`, `rest`, `whoami`, … |
+| `main.py` | Typer app: `login`, `configure`, `api`, `rest`, `whoami` (`GET /v1/auth/user`), … |
 | `browser_capture.py` | Playwright session and network capture |
 | `token_parsing.py` | Headers, JSON, URL matching, token validation |
 | `login_common.py` | Save credentials, user-facing success text, stdout export |
@@ -425,10 +474,10 @@ openapi-generator generate \
     --git-user-id Graphiant-Inc \
     --git-repo-id graphiant-sdk-python \
     --package-name graphiant_sdk \
-    --additional-properties=packageVersion=26.3.2
+    --additional-properties=packageVersion=26.3.3
 ```
 
-> **Note:** Download the latest API bundle from the Graphiant portal under **Support Hub** → **Developer Tools**. Set **`packageVersion`** to the SDK release you are publishing (this branch: **26.3.2**). The **`-i`** filename reflects the API doc bundle version (here `graphiant_api_docs_v26.3.1.json`) and may stay the same across patch releases when the spec is unchanged.
+> **Note:** Download the latest API bundle from the Graphiant portal under **Support Hub** → **Developer Tools**. Set **`packageVersion`** to the SDK release you are publishing (this branch: **26.3.3**). The **`-i`** filename reflects the API doc bundle version (here `graphiant_api_docs_v26.3.1.json`) and may stay the same across patch releases when the spec is unchanged.
 
 ### Testing
 
@@ -442,31 +491,55 @@ python -m pytest tests/ --cov=graphiant_sdk --cov-report=html
 
 ## 📖 API Reference
 
-### Core Classes
+### Source of truth (this release)
 
-- **`Configuration`**: Client configuration with authentication
-- **`ApiClient`**: HTTP client for API requests
-- **`DefaultApi`**: Main API interface with all endpoints
+Operations and schemas are generated from **`graphiant_api_docs_v26.3.1.json`** (repo root and PyPI wheel). For a newer portal/API, download the current bundle (Support Hub → Developer Tools) and diff paths before relying on URLs here.
 
-### Key Models
+| How to explore | Where |
+|----------------|-------|
+| **Every operation** (method, path, parameters) | [`docs/DefaultApi.md`](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/docs/DefaultApi.md) |
+| **CLI: SDK name + HTTP + path** | `graphiant api list` or `graphiant apis --prefix v1_` |
+| **Request/response field lists** | [`docs/*.md`](https://github.com/Graphiant-Inc/graphiant-sdk-python/tree/main/docs) — file basename matches the Python model (e.g. `V1EdgesSummaryGetResponse.md`) |
+| **Python imports** | `from graphiant_sdk import …` or `graphiant_sdk.models` |
 
-- **`V1AuthLoginPostRequest`**: Authentication request
-- **`V1AuthLoginPostResponse`**: Authentication response
-- **`V1EdgesSummaryGetResponse`**: Device summary response
-- **`V1DevicesDeviceIdConfigPutRequest`**: Device configuration request
-- **`V1DevicesDeviceIdConfigPutResponse`**: Device configuration response
-- **`V1GlobalSummaryPostResponse`**: Global summary response (uses `ManaV2GlobalObjectSummary` for inner items)
+REST query parameters use **camelCase** in URLs (`enterpriseId`). Generated Python kwargs use **snake_case** (`enterprise_id`, `device_id`). Path templates below follow OpenAPI (`{deviceId}`).
 
-### Common Endpoints
+### Core classes
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/v1/auth/login` | POST | Authenticate and get bearer token |
-| `/v1/edges/summary` | GET | Get all device summaries |
-| `/v1/devices/{device_id}` | GET | Get device details |
-| `/v1/devices/{device_id}/config` | PUT | Update device configuration |
-| `/v1/circuits` | GET | List circuits |
-| `/v1/alarms` | GET | Get system alarms |
+- **`Configuration`** — API host, timeouts; do **not** set **`api_key["jwtAuth"]`** when every call passes **`authorization=`** (avoids duplicate **`Authorization`** headers on strict gateways).
+- **`ApiClient`** — HTTP client used by **`DefaultApi`**.
+- **`DefaultApi`** — one method per operation (e.g. **`v1_edges_summary_get`** → **GET** **`/v1/edges-summary`**).
+
+### Example SDK models (verified in this package)
+
+| Model (`import graphiant_sdk` or `graphiant_sdk.models`) | Typical operation |
+|----------------------------------------------------------|-------------------|
+| **`V1AuthLoginPostRequest`**, **`V1AuthLoginPostResponse`** | **`POST /v1/auth/login`** |
+| **`V1AuthUserGetResponse`** | **`GET /v1/auth/user`** |
+| **`V1EdgesSummaryGetResponse`** | **`GET /v1/edges-summary`** |
+| **`V1EdgesSummaryPostRequest`** (optional **`filter`**) | **`POST /v1/edges-summary`** |
+| **`V1DevicesDeviceIdGetResponse`** | **`GET /v1/devices/{deviceId}`** |
+| **`V1DevicesDeviceIdConfigPutRequest`**, **`V1DevicesDeviceIdConfigPutResponse`** | **`PUT /v1/devices/{deviceId}/config`** (job accepted; **no GET** on **`…/config`** in this spec) |
+| **`ManaV2EdgeDeviceConfig`** | Nested **`edge`** object inside **`V1DevicesDeviceIdConfigPutRequest`** |
+| **`V1GlobalSummaryPostRequest`**, **`V1GlobalSummaryPostResponse`** | **`POST /v1/global/summary`** |
+| **`V2ParentalertlistPostRequest`**, **`V2ParentalertlistPostResponse`** | **`POST /v2/parentalertlist`** |
+
+### Sample HTTP endpoints (from `graphiant_api_docs_v26.3.1.json`)
+
+The API surface is large; this table lists **real** paths from the bundled spec. For the full set, use **`graphiant api list`** or **`DefaultApi.md`**.
+
+| Endpoint | Method | Example `DefaultApi` method | Notes |
+|----------|--------|----------------------------|-------|
+| `/v1/auth/login` | POST | `v1_auth_login_post` | Body: **`V1AuthLoginPostRequest`** |
+| `/v1/auth/user` | GET | `v1_auth_user_get` | Session user |
+| `/v1/users` | GET | `v1_users_get` | e.g. **`id`** query (see **`graphiant whoami`**) |
+| `/v1/edges-summary` | GET | `v1_edges_summary_get` | Queries e.g. **`enterpriseId`**, **`isRequested`** |
+| `/v1/edges-summary` | POST | `v1_edges_summary_post` | Body: **`V1EdgesSummaryPostRequest`** |
+| `/v1/devices/{deviceId}` | GET | `v1_devices_device_id_get` | Device detail |
+| `/v1/devices/{deviceId}/config` | PUT | `v1_devices_device_id_config_put` | Body: **`V1DevicesDeviceIdConfigPutRequest`** |
+| `/v1/global/summary` | POST | `v1_global_summary_post` | Body: **`V1GlobalSummaryPostRequest`** |
+| `/v1/sites/{siteId}/circuits` | GET | `v1_sites_site_id_circuits_get` | Circuits for a site |
+| `/v2/parentalertlist` | POST | `v2_parentalertlist_post` | Body: **`V2ParentalertlistPostRequest`** |
 
 ## 🔐 Security
 

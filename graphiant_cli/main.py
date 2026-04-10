@@ -5,12 +5,14 @@ from __future__ import annotations
 import json
 import os
 import sys
-from typing import Optional
+from datetime import datetime, timezone
+from typing import Any, Optional
 
 import click
 import typer
 from rich.console import Console
 from rich.json import JSON
+from rich.table import Table
 
 from graphiant_cli import __version__
 from graphiant_cli.cli_logging import configure_logging, get_logger
@@ -37,7 +39,8 @@ from graphiant_cli.portal_login import (
     portal_url_from_config,
 )
 from graphiant_cli.rest_client import request as rest_request
-from graphiant_cli.sdk_invoke import invoke_method, list_api_methods
+from graphiant_cli.sdk_invoke import invoke_method, list_api_method_rows, list_api_methods
+from graphiant_sdk.exceptions import ApiException
 
 login_logger = get_logger("login")
 
@@ -45,6 +48,7 @@ app = typer.Typer(
     name="graphiant",
     help="Graphiant CLI — portal login, SDK API calls, and raw REST.",
     no_args_is_help=True,
+    add_completion=True,
 )
 configure_app = typer.Typer(help="Default API host and portal URL.")
 login_app = typer.Typer(
@@ -57,6 +61,40 @@ app.add_typer(login_app, name="login")
 app.add_typer(api_app, name="api")
 
 console = Console(stderr=True)
+
+
+def _is_token_expired_api_response(status: int, text: str) -> bool:
+    """True when the API returns the portal-style JSON (e.g. displayError: Token Expired)."""
+    if status != 403:
+        return False
+    try:
+        obj = json.loads((text or "").strip() or "{}")
+    except json.JSONDecodeError:
+        return False
+    if not isinstance(obj, dict):
+        return False
+    if obj.get("displayError") == "Token Expired":
+        return True
+    if obj.get("message") == "Token Expired":
+        return True
+    return False
+
+
+def _print_token_expired_relogin_hint() -> None:
+    console.print("[red]Your session token has expired.[/red]")
+    console.print(
+        "Run [bold]graphiant login[/bold], then load the new token into this shell, for example:\n"
+        "  [cyan]source ~/.graphiant/env.sh[/cyan]\n"
+        "Then retry your command."
+    )
+
+
+def _handle_cli_http_error(status: int, text: str) -> None:
+    """Print a friendly message for token expiry, else raw HTTP error."""
+    if _is_token_expired_api_response(status, text):
+        _print_token_expired_relogin_hint()
+    else:
+        console.print(f"[red]HTTP {status}[/red]\n{text}")
 
 
 def _default_host() -> str:
@@ -136,9 +174,10 @@ def login_callback(
         help="Seconds to wait for API bearer capture after opening the browser (default 90; then paste prompt)",
     ),
     export_shell: bool = typer.Option(
-        True,
+        False,
         "--export/--no-export",
-        help="After success, print 'export GRAPHIANT_ACCESS_TOKEN=…' to stdout (for eval) and keep ~/.graphiant/env.sh",
+        help="After success, also print 'export GRAPHIANT_ACCESS_TOKEN=…' to stdout (for scripts/eval). "
+        "Default off so the token is not echoed to the terminal; ~/.graphiant/env.sh is always written.",
     ),
     verbose: bool = typer.Option(
         False,
@@ -266,7 +305,12 @@ def login_env_export(profile: Optional[str] = typer.Option(None, "--profile", "-
 def logout_cmd(profile: Optional[str] = typer.Option(None, "--profile", "-p")) -> None:
     name = profile or os.environ.get("GRAPHIANT_PROFILE", DEFAULT_PROFILE)
     clear_profile(name)
+    login_logger.info("Logged out profile %s (clear shell with unset GRAPHIANT_ACCESS_TOKEN if needed)", name)
     console.print(f"[green]Logged out[/green] profile [bold]{name}[/bold]")
+    console.print(
+        "[dim]If this terminal still has a token exported, run:[/dim] "
+        "[cyan]unset GRAPHIANT_ACCESS_TOKEN[/cyan]"
+    )
 
 
 def _print_sdk_result(result: object) -> None:
@@ -291,6 +335,14 @@ def _run_api_invoke(
     try:
         out = invoke_method(host, token, method_name, args_json, kwargs_json)
         _print_sdk_result(out)
+    except ApiException as e:
+        body = getattr(e, "body", None) or ""
+        st = getattr(e, "status", None)
+        if st is not None and _is_token_expired_api_response(int(st), str(body)):
+            _print_token_expired_relogin_hint()
+        else:
+            console.print(f"[red]{e}[/red]")
+        raise typer.Exit(1) from e
     except Exception as e:
         console.print(f"[red]{e}[/red]")
         raise typer.Exit(1) from e
@@ -331,20 +383,41 @@ def invoke_alias_cmd(
     _run_api_invoke(method_name, args_json, kwargs_json, profile)
 
 
+def _print_api_list(prefix: str, plain: bool) -> None:
+    if plain:
+        for m in list_api_methods(prefix):
+            console.print(m)
+        return
+    t = Table(title="DefaultApi operations", show_header=True, header_style="bold")
+    t.add_column("SDK method", style="cyan", overflow="fold")
+    t.add_column("HTTP", style="green", no_wrap=True)
+    t.add_column("Path", overflow="fold")
+    for name, verb, path in list_api_method_rows(prefix):
+        t.add_row(name, verb, path)
+    console.print(t)
+
+
 @api_app.command("list")
 def api_list_cmd(
     prefix: str = typer.Option("", "--prefix", help="Only methods starting with this prefix (e.g. v1_edges)"),
+    plain: bool = typer.Option(
+        False,
+        "--plain",
+        "-1",
+        help="Print one SDK method name per line (no HTTP/path table)",
+    ),
 ) -> None:
-    """List DefaultApi method names (for use with graphiant api invoke)."""
-    for m in list_api_methods(prefix):
-        console.print(m)
+    """List DefaultApi method names and raw HTTP path (for graphiant api invoke / graphiant rest)."""
+    _print_api_list(prefix, plain)
 
 
 @app.command("apis")
-def apis_alias_cmd(prefix: str = typer.Option("", "--prefix")) -> None:
+def apis_alias_cmd(
+    prefix: str = typer.Option("", "--prefix"),
+    plain: bool = typer.Option(False, "--plain", "-1", help="SDK method names only, one per line"),
+) -> None:
     """Shorthand for [cyan]graphiant api list[/cyan]."""
-    for m in list_api_methods(prefix):
-        console.print(m)
+    _print_api_list(prefix, plain)
 
 
 @app.command("rest")
@@ -384,28 +457,220 @@ def rest_cmd(
         except json.JSONDecodeError:
             console.print(text)
     else:
-        console.print(f"[red]HTTP {status}[/red]\n{text}")
+        _handle_cli_http_error(status, text)
         raise typer.Exit(1)
+
+
+def _whoami_key_is_last_active(key: str) -> bool:
+    return str(key).replace("-", "_").lower() in ("lastactiveat", "last_active_at")
+
+
+def _whoami_row_keys(data: dict[str, Any]) -> list[str]:
+    """Alphabetical property order, with lastActiveAt (any casing) as the final row(s)."""
+    last_active = sorted(k for k in data if _whoami_key_is_last_active(k))
+    rest = sorted(k for k in data if k not in set(last_active))
+    return rest + last_active
+
+
+def _parse_unix_timestamp_value(val: Any) -> float | None:
+    """Coerce protobuf JSON, JSON string, epoch int/float/str → Unix seconds (fractional)."""
+    if isinstance(val, str):
+        s = val.strip()
+        if s.startswith("{") and "seconds" in s:
+            try:
+                val = json.loads(s)
+            except json.JSONDecodeError:
+                return None
+    if isinstance(val, dict):
+        raw_s = val.get("seconds")
+        if raw_s is None:
+            return None
+        try:
+            ts = float(raw_s)
+        except (TypeError, ValueError):
+            return None
+        nanos = val.get("nanos", 0)
+        try:
+            ts += float(nanos) / 1e9
+        except (TypeError, ValueError):
+            pass
+        return ts
+    if isinstance(val, (int, float)):
+        ts = float(val)
+        if ts > 1e12:
+            ts /= 1000.0
+        return ts
+    if isinstance(val, str):
+        s = val.strip()
+        if not s:
+            return None
+        try:
+            ts = float(s)
+        except ValueError:
+            return None
+        if ts > 1e12:
+            ts /= 1000.0
+        return ts
+    return None
+
+
+def _format_utc_time_human(val: Any) -> str | None:
+    """Readable instant in UTC (Unix / protobuf timestamps are UTC-based)."""
+    ts = _parse_unix_timestamp_value(val)
+    if ts is None:
+        return None
+    try:
+        dt = datetime.fromtimestamp(ts, tz=timezone.utc)
+    except (OSError, ValueError, OverflowError):
+        return None
+    base = dt.strftime("%B %d, %Y at %I:%M:%S %p")
+    return f"{base} (UTC)"
+
+
+def _user_display_name(user: dict[str, Any]) -> str:
+    fn = (user.get("firstName") or "").strip()
+    ln = (user.get("lastName") or "").strip()
+    full = f"{fn} {ln}".strip()
+    if full:
+        return full
+    email = (user.get("email") or "").strip()
+    return email or "—"
+
+
+def _whoami_value_cell(key: str, val: Any) -> str:
+    if _whoami_key_is_last_active(key):
+        human = _format_utc_time_human(val)
+        if human is not None:
+            return human
+    if isinstance(val, dict) and "seconds" in val and set(val.keys()) <= {"seconds", "nanos"}:
+        human = _format_utc_time_human(val)
+        if human is not None:
+            return human
+    if isinstance(val, (dict, list)):
+        return json.dumps(val, default=str)
+    return str(val)
+
+
+def _whoami_table_from_dict(title: str, caption: str, data: dict[str, Any]) -> Table:
+    t = Table(title=title, caption=caption, show_header=True, header_style="bold")
+    t.add_column("Property", style="cyan", overflow="fold")
+    t.add_column("Value", overflow="fold")
+    for key in _whoami_row_keys(data):
+        t.add_row(str(key), _whoami_value_cell(key, data[key]))
+    return t
+
+
+def _print_whoami_tables(
+    host: str,
+    raw_token: str,
+    auth: dict[str, Any],
+) -> None:
+    """Tabular output: session, permissions, and user profile (no raw JSON dump)."""
+    user_id = auth.get("userId")
+    ent_id = auth.get("enterpriseId")
+
+    user_note = "—"
+    user_obj: dict[str, Any] | None = None
+    if user_id is not None and str(user_id).strip():
+        st_u, body_u, _ = rest_request(
+            host,
+            "GET",
+            "/v1/users",
+            raw_token,
+            body=None,
+            query={"id": str(user_id)},
+        )
+        if 200 <= st_u < 300:
+            try:
+                uj = json.loads(body_u)
+                users = uj.get("users") if isinstance(uj, dict) else None
+                if isinstance(users, list) and users and isinstance(users[0], dict):
+                    user_obj = users[0]
+                    user_note = _user_display_name(user_obj)
+                else:
+                    user_note = f"(no users in response, HTTP {st_u})"
+            except (json.JSONDecodeError, TypeError):
+                user_note = f"(invalid JSON, HTTP {st_u})"
+        else:
+            user_note = f"(lookup failed HTTP {st_u})"
+
+    extra_auth = {k: v for k, v in auth.items() if k not in ("permissions",)}
+    slim = {k: v for k, v in extra_auth.items() if k not in ("userId", "enterpriseId", "timeZone")}
+
+    session = Table(
+        title="[bold]Session[/bold]",
+        caption="[dim]GET /v1/auth/user (+ /v1/users for your display name)[/dim]",
+        show_header=True,
+        header_style="bold",
+    )
+    session.add_column("Property", style="cyan", no_wrap=True)
+    session.add_column("Value", overflow="fold")
+    session.add_row("userId", str(user_id) if user_id is not None else "—")
+    session.add_row("User name", user_note)
+    session.add_row("enterpriseId", str(ent_id) if ent_id is not None else "—")
+    session.add_row("timeZone", str(auth.get("timeZone", "—")))
+    for key in _whoami_row_keys(slim):
+        session.add_row(str(key), _whoami_value_cell(key, slim[key]))
+    console.print()
+    console.print(session)
+
+    perms = auth.get("permissions")
+    if isinstance(perms, dict) and perms:
+        pt = Table(
+            title="[bold]Permissions[/bold]",
+            caption="[dim]From GET /v1/auth/user[/dim]",
+            show_header=True,
+            header_style="bold",
+        )
+        pt.add_column("Permission", style="cyan")
+        pt.add_column("Level")
+        for pk in sorted(perms.keys()):
+            pv = perms[pk]
+            pt.add_row(str(pk), "—" if pv is None or pv == "" else str(pv))
+        console.print()
+        console.print(pt)
+
+    if user_obj is not None:
+        console.print()
+        console.print(
+            _whoami_table_from_dict(
+                "[bold]Profile[/bold]",
+                f"[dim]GET /v1/users?id={user_id}[/dim]",
+                user_obj,
+            )
+        )
 
 
 @app.command("whoami")
 def whoami_cmd(profile: Optional[str] = typer.Option(None, "--profile", "-p")) -> None:
-    """Call /v1/auth with the current bearer token."""
+    """Show who you are: session, permissions, and profile (GET /v1/auth/user + /v1/users).
+
+    Uses the raw REST client with a single Authorization header. The OpenAPI client
+    would also apply jwtAuth (duplicate authorization header keys), which some
+    gateways (e.g. Azure Application Gateway) reject with 400.
+    """
     token, host = _token_for_profile(profile)
     if not token:
         console.print("[red]Not logged in. Run [bold]graphiant login[/bold][/red]")
         raise typer.Exit(1)
-    from graphiant_sdk import ApiClient, Configuration, DefaultApi
-
-    cfg = Configuration(host=host)
-    cfg.api_key["jwtAuth"] = token
-    cfg.api_key_prefix["jwtAuth"] = "Bearer"
-    auth = f"Bearer {token}"
+    raw_tok = token[7:].strip() if token.lower().startswith("bearer ") else token
     try:
-        with ApiClient(cfg) as client:
-            api = DefaultApi(client)
-            r = api.v1_auth_get(authorization=auth)
-            console.print(JSON(json.dumps(r.to_dict(), default=str)))
+        status, text, _ = rest_request(host, "GET", "/v1/auth/user", raw_tok, body=None, query=None)
+        if 200 <= status < 300:
+            try:
+                payload = json.loads(text)
+            except json.JSONDecodeError:
+                console.print(text)
+                return
+            if isinstance(payload, dict):
+                _print_whoami_tables(host, raw_tok, payload)
+            else:
+                console.print(JSON(json.dumps(payload, indent=2, default=str)))
+        else:
+            _handle_cli_http_error(status, text)
+            raise typer.Exit(1)
+    except typer.Exit:
+        raise
     except Exception as e:
         console.print(f"[red]{e}[/red]")
         raise typer.Exit(1) from e
@@ -417,7 +682,8 @@ def version_cmd() -> None:
 
 
 def main() -> None:
-    app()
+    # Stable prog name for Click/Typer shell completion (_GRAPHIANT_COMPLETE, --install-completion).
+    app(prog_name="graphiant")
 
 
 if __name__ == "__main__":

@@ -4,6 +4,20 @@ All notable changes to the Graphiant SDK Python package will be documented in th
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [26.3.3] - 2026-04-10
+
+### Changed
+- **Version:** Package **26.3.3** (same bundled OpenAPI input file as **26.3.2**: `graphiant_api_docs_v26.3.1.json`).
+- **CLI:** **`strip_bearer_prefix`** in **`rest_client`** avoids **`Authorization: Bearer Bearer …`** when **`GRAPHIANT_ACCESS_TOKEN`** or stored credentials already include the **`Bearer `** prefix; **`graphiant rest`** and **`graphiant invoke`** use it.
+- **CLI (shell completion):** Declare **`add_completion=True`**, call **`app(prog_name="graphiant")`** so Click/Typer completion uses **`_GRAPHIANT_COMPLETE`**. Add runtime dependency **`shellingham`** (Typer uses it for **`graphiant --install-completion`**). Document setup in the README.
+- **CLI:** On **HTTP 403** with API JSON **`displayError`: `Token Expired`** (e.g. from **`graphiant rest`** or **`graphiant whoami`**), print a short **re-login** hint instead of only the raw body; **`graphiant invoke`** treats matching **`ApiException`** bodies the same way.
+- **CLI (`graphiant api list` / `graphiant apis`):** Prints a **Rich table** with **SDK method**, **HTTP verb**, and **path** (parsed from the generated client) next to each operation. Use **`--plain`** / **`-1`** for one method name per line (previous behavior).
+- **CLI (`graphiant invoke` / `graphiant api invoke`):** The OpenAPI client no longer sets **`Configuration.api_key["jwtAuth"]`** for CLI invokes. Operations already send **`Authorization`** from the **`authorization`** parameter; combining both produced **two** auth headers (e.g. **`Authorization`** and **`authorization`**), which **Microsoft Azure Application Gateway** rejects with **400 Bad Request**.
+- **CLI (`graphiant whoami`):** Calls **`GET /v1/auth/user`** and **`GET /v1/users?id=…`** to resolve **user** display name; **Rich tables** for session, permissions, and profile (no **`/v1/enterprises`** lookup). **`lastActiveAt`** and protobuf **`{seconds,nanos}`** values are formatted as human-readable **UTC** with an explicit **`(UTC)`** label; trailing raw auth **JSON** dump removed.
+- **CLI (`graphiant login`):** Default is **`--no-export`** so the bearer token is **not** printed to **stdout** after login (avoids echoing credentials in the terminal). Token is still written to **`~/.graphiant/env.sh`**; use **`graphiant login --export`** or **`graphiant login env-export`** when a shell export line on stdout is required.
+- **CLI:** After **`graphiant logout`**, the CLI reminds you to run **`unset GRAPHIANT_ACCESS_TOKEN`** when the shell still exports the old token. README **`graphiant logout`** row updated.
+- **Documentation:** README API reference sample endpoints, **`graphiant rest`** / **`invoke`** examples, and related fixes (e.g. **`/v1/edges-summary`** path).
+
 ## [26.3.2] - 2026-03-27
 
 ### Changed
