@@ -130,14 +130,14 @@ def test_url_ignored_for_bearer_capture_login_pre() -> None:
 
 def test_eligible_capture_combines_plausible_and_url() -> None:
     assert not _eligible_capture("null", "https://api.graphiant.com/v1/auth/login/pre")
-    assert not _eligible_capture("null", "https://api.graphiant.com/v1/edges/summary")
+    assert not _eligible_capture("null", "https://api.graphiant.com/v1/edges-summary")
     tok = "gr-auth-" + "x" * 40
-    assert _eligible_capture(tok, "https://api.graphiant.com/v1/edges/summary")
+    assert _eligible_capture(tok, "https://api.graphiant.com/v1/edges-summary")
     assert not _eligible_capture(tok, "https://api.graphiant.com/v1/auth/login/pre")
 
 
 def test_is_graphiant_api_url() -> None:
-    assert _is_graphiant_api_url("https://api.graphiant.com/v1/edges/summary")
+    assert _is_graphiant_api_url("https://api.graphiant.com/v1/edges-summary")
     assert _is_graphiant_api_url("https://api.graphiant.com/v2/edges/summary")
     assert _is_graphiant_api_url("https://api.graphiant.com/v1/auth/refresh?x=1")
     assert _is_graphiant_api_url("https://reg.example.com/api/v1/auth/refresh")
@@ -150,7 +150,7 @@ def test_extract_token_from_graphiant_api_response_headers_only() -> None:
         headers = {"authorization": "Bearer tok-from-req"}
 
     class _Resp:
-        url = "https://api.graphiant.com/v1/edges/summary"
+        url = "https://api.graphiant.com/v1/edges-summary"
         status = 200
         headers: dict[str, str] = {}
         request = _Req()

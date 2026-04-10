@@ -24,7 +24,7 @@ SOFTWARE.
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "graphiant_sdk"
-VERSION = "26.3.2"
+VERSION = "26.3.3"
 PYTHON_REQUIRES = ">= 3.10"
 REQUIRES = [
     "urllib3 >= 2.1.0, < 3.0.0",
@@ -32,6 +32,7 @@ REQUIRES = [
     "pydantic >= 2",
     "typing-extensions >= 4.7.1",
     "typer >= 0.9.0, < 1.0.0",
+    "shellingham >= 1.3.0",
     "rich >= 13.0.0, < 15.0.0",
     "pygments >= 2.20, < 3.0.0",
     "playwright >= 1.40.0, < 2.0.0",

@@ -42,20 +42,25 @@ def print_login_success(
     env_file: Path | None = None,
     verbose: bool = False,
 ) -> None:
-    """Post-login instructions. Default is short; ``verbose`` adds child-process and stdout details."""
+    """Post-login instructions. Short by default; ``verbose`` adds stdout / file hints."""
     env_path = str(env_file or ENV_EXPORT_FILE)
     console.print("\n[bold green]Login saved.[/bold green]")
-    console.print(f"Run [cyan]source {env_path}[/cyan] in this terminal to set [bold]GRAPHIANT_ACCESS_TOKEN[/bold].")
+    console.print(
+        f"Run [cyan]source {env_path}[/cyan] in this terminal to set "
+        f"[bold]GRAPHIANT_ACCESS_TOKEN[/bold]."
+    )
+    console.print(
+        f"[dim]Or in one line next time:[/dim] "
+        f"[cyan]graphiant login && source {env_path}[/cyan]"
+    )
     if verbose:
         console.print(
-            "[dim]Why: a child process cannot change your shell’s environment; the token is in the file above.[/dim]"
-        )
-        console.print(
-            f"[dim]Alternative (no browser): [cyan]eval \"$(graphiant login env-export)\"[/cyan][/dim]"
+            "[dim]Alternative:[/dim] [cyan]eval \"$(graphiant login env-export)\"[/cyan]"
         )
         if export_shell:
             console.print(
-                "[dim]An [cyan]export GRAPHIANT_ACCESS_TOKEN=…[/cyan] line was also sent to **stdout** for scripts.[/dim]"
+                "[dim]An [cyan]export GRAPHIANT_ACCESS_TOKEN=…[/cyan] line was printed to "
+                "**stdout** (--export).[/dim]"
             )
         console.print(f"[dim]Credentials file:[/dim] [cyan]{env_path}[/cyan]")
 

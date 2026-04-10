@@ -4,11 +4,33 @@ from __future__ import annotations
 
 import inspect
 import json
+import re
+from functools import lru_cache
+from pathlib import Path
 from typing import Annotated, Any, Optional, get_args, get_origin
 
 from pydantic import BaseModel
 
+from graphiant_cli.rest_client import strip_bearer_prefix
 from graphiant_sdk import ApiClient, Configuration, DefaultApi
+
+_ROUTE_FROM_SERIALIZE = re.compile(
+    r"def _(v[0-9]+_[a-z0-9_]+)_serialize\("
+    r"[\s\S]*?"
+    r"return self\.api_client\.param_serialize\(\s*"
+    r"method='([A-Z]+)',\s*"
+    r"resource_path='([^']+)'",
+    re.MULTILINE,
+)
+
+
+@lru_cache(maxsize=1)
+def _default_api_route_index() -> dict[str, tuple[str, str]]:
+    """Map DefaultApi operation name → (HTTP verb, path) from generated client source."""
+    import graphiant_sdk.api.default_api as mod
+
+    text = Path(mod.__file__).read_text(encoding="utf-8")
+    return {m: (verb, path) for m, verb, path in _ROUTE_FROM_SERIALIZE.findall(text)}
 
 
 def list_api_methods(prefix: str = "") -> list[str]:
@@ -26,6 +48,16 @@ def list_api_methods(prefix: str = "") -> list[str]:
             continue
         out.append(name)
     return out
+
+
+def list_api_method_rows(prefix: str = "") -> list[tuple[str, str, str]]:
+    """(sdk_method_name, http_verb, path) for each operation, sorted by method name."""
+    routes = _default_api_route_index()
+    rows: list[tuple[str, str, str]] = []
+    for name in list_api_methods(prefix):
+        verb, path = routes.get(name, ("—", "—"))
+        rows.append((name, verb, path))
+    return rows
 
 
 def _unwrap_annotated(annotation: Any) -> Any:
@@ -56,8 +88,9 @@ def invoke_method(
     kwargs_json: Optional[str],
 ) -> Any:
     cfg = Configuration(host=host)
-    cfg.api_key["jwtAuth"] = token
-    cfg.api_key_prefix["jwtAuth"] = "Bearer"
+    # Do not set api_key["jwtAuth"]: operations already send Authorization from the
+    # `authorization` argument. jwtAuth would add a second header (lowercase key
+    # "authorization"), which Azure Application Gateway rejects with 400.
 
     with ApiClient(cfg) as client:
         api = DefaultApi(client)
@@ -81,7 +114,7 @@ def invoke_method(
                 ai += 1
                 continue
             if p.name == "authorization":
-                merged["authorization"] = f"Bearer {token}"
+                merged["authorization"] = f"Bearer {strip_bearer_prefix(token)}"
 
         for name, param in sig.parameters.items():
             if name.startswith("_"):
