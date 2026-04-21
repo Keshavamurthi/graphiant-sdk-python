@@ -4,6 +4,11 @@ All notable changes to the Graphiant SDK Python package will be documented in th
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased]
+
+### Security
+- **pytest** (dev / CI): require **≥ 9.0.3** for **CVE-2025-71176** (insecure **`/tmp/pytest-of-{user}`** handling on UNIX; local users could cause **denial of service** or possibly **gain privileges**). See [pytest PR #14279](https://github.com/pytest-dev/pytest/pull/14279).
+
 ## [26.3.3] - 2026-04-10
 
 ### Changed
