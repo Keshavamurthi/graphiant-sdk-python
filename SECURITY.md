@@ -22,6 +22,10 @@ We actively support the following versions with security updates:
 
 Tools such as **tox** and **virtualenv** depend on **filelock**. Older **filelock** versions were affected by a **time-of-check–time-of-use (TOCTOU)** issue in **SoftFileLock**, including a race that could allow **symlink attacks** during lock file creation. This package declares **Python ≥ 3.10** and **filelock ≥ 3.20.3** for Poetry dev dependencies so installs resolve **filelock** releases that include the relevant fixes.
 
+### Development tooling (`pytest`)
+
+**pytest** through **9.0.2** on UNIX used predictable **`/tmp/pytest-of-{user}`** paths in ways that allowed **local symlink / TOCTOU attacks**, leading to **denial of service** or possible **privilege escalation** (**CVE-2025-71176**, CVSS 6.8). This repository requires **pytest ≥ 9.0.3** in dev / test requirements and **Poetry** lockfile so CI and contributors resolve a patched release. Upstream references: [pytest PR #14279](https://github.com/pytest-dev/pytest/pull/14279), [CVE-2025-71176](https://www.cve.org/CVERecord?id=CVE-2025-71176).
+
 ## Reporting a Vulnerability
 
 We take security vulnerabilities seriously. If you discover a security vulnerability, please follow these steps:
