@@ -31,7 +31,9 @@ class UpgradeUpgradeOccurrence(BaseModel):
     hour: Optional[StrictInt] = None
     minute: Optional[StrictInt] = None
     occurrence_in_month: Optional[StrictInt] = Field(default=None, alias="occurrenceInMonth")
-    __properties: ClassVar[List[str]] = ["dayOfWeek", "hour", "minute", "occurrenceInMonth"]
+    ordinal: Optional[StrictStr] = None
+    weekday: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["dayOfWeek", "hour", "minute", "occurrenceInMonth", "ordinal", "weekday"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -87,7 +89,9 @@ class UpgradeUpgradeOccurrence(BaseModel):
             "dayOfWeek": obj.get("dayOfWeek"),
             "hour": obj.get("hour"),
             "minute": obj.get("minute"),
-            "occurrenceInMonth": obj.get("occurrenceInMonth")
+            "occurrenceInMonth": obj.get("occurrenceInMonth"),
+            "ordinal": obj.get("ordinal"),
+            "weekday": obj.get("weekday")
         })
         return _obj
 

@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "26.3.3"
+__version__ = "26.4.1"
 
 # Define package exports
 __all__ = [
@@ -243,6 +243,7 @@ __all__ = [
     "ManaV2DnsServers",
     "ManaV2DnsipAddress",
     "ManaV2DnsipAddresses",
+    "ManaV2DomainCategory",
     "ManaV2DomainListMatchConfig",
     "ManaV2DpiApplicationConfig",
     "ManaV2DpiCustomApplication",
@@ -277,6 +278,8 @@ __all__ = [
     "ManaV2GlobalAppConfig",
     "ManaV2GlobalAppPortRange",
     "ManaV2GlobalBandwidthConsumptionSummary",
+    "ManaV2GlobalContentFilterConfig",
+    "ManaV2GlobalContentFilterRule",
     "ManaV2GlobalObjectDeviceStatus",
     "ManaV2GlobalObjectOperationConfig",
     "ManaV2GlobalObjectServiceOps",
@@ -486,6 +489,7 @@ __all__ = [
     "ManaV2QoSProfile",
     "ManaV2QoSProfileQueue",
     "ManaV2Region",
+    "ManaV2RegionCoordinates",
     "ManaV2RegionalAllocation",
     "ManaV2RegionalBandwidthConsumptionSummary",
     "ManaV2RouteTag",
@@ -709,13 +713,20 @@ __all__ = [
     "UpgradeGcsReleaseCategory",
     "UpgradeGcsReleaseDetails",
     "UpgradeInventoryKey",
+    "UpgradeMonthlyRecurrence",
+    "UpgradeRecurringSchedule",
     "UpgradeReleaseSummary",
+    "UpgradeRollout",
+    "UpgradeRolloutConfig",
+    "UpgradeRolloutDevice",
     "UpgradeRunningSwVersion",
     "UpgradeSchedule",
     "UpgradeSwVersion",
     "UpgradeUpgradeCanaryProfile",
     "UpgradeUpgradeOccurrence",
     "UpgradeUpgradeSummary",
+    "UpgradeWeeklyRecurrence",
+    "UpgradeYearlyRecurrence",
     "V1AccountEmailPatchRequest",
     "V1AccountInfoPatchRequest",
     "V1AccountMfaConfirmationPostRequest",
@@ -1084,7 +1095,17 @@ __all__ = [
     "V1GlobalAttachedEdgesPostResponse",
     "V1GlobalConfigPatchRequest",
     "V1GlobalConfigPatchResponse",
+    "V1GlobalContentFiltersGetResponse",
+    "V1GlobalContentFiltersGetResponseRow",
+    "V1GlobalContentFiltersGetResponseRowLanEntry",
+    "V1GlobalContentFiltersGetResponseRowRuleEntry",
+    "V1GlobalContentFiltersGetResponseRowSiteEntry",
+    "V1GlobalContentFiltersGlobalContentFilterIdGetResponse",
+    "V1GlobalContentFiltersGlobalContentFilterIdPutRequest",
+    "V1GlobalContentFiltersPostRequest",
+    "V1GlobalContentFiltersPostResponse",
     "V1GlobalDeviceStatusGetResponse",
+    "V1GlobalDomainCategoriesGetResponse",
     "V1GlobalIpfixDeviceGetResponse",
     "V1GlobalIpfixPostRequest",
     "V1GlobalIpfixPostResponse",
@@ -1179,6 +1200,12 @@ __all__ = [
     "V1SoftwareGcsreleaseUploadNotesPostRequest",
     "V1SoftwareReleasesDownloadGetResponse",
     "V1SoftwareReleasesSummaryGetResponse",
+    "V1SoftwareRolloutsGetResponse",
+    "V1SoftwareRolloutsIdGetResponse",
+    "V1SoftwareRolloutsPostRequest",
+    "V1SoftwareRolloutsPostResponse",
+    "V1SoftwareRolloutsPutRequest",
+    "V1SoftwareRolloutsSchedulePostRequest",
     "V1SoftwareRunningDetailsGetResponse",
     "V1SoftwareRunningDetailsGetResponseDevice",
     "V1SoftwareRunningSummaryGetResponse",
@@ -1214,6 +1241,8 @@ __all__ = [
     "V1VersionPostRequest",
     "V1VersionPostResponse",
     "V1ZonesGetResponse",
+    "V1ZtagentBindingsGetResponse",
+    "V1ZtagentBindingsPutRequest",
     "V2AckCreateupdatePostRequest",
     "V2AggregatedNotificationEnableDisablePostRequest",
     "V2AggregatedNotificationGetStateGetResponse",
@@ -1343,6 +1372,8 @@ __all__ = [
     "V2MonitoringIpsecPostRequest",
     "V2MonitoringIpsecPostResponse",
     "V2MonitoringIpsecPostResponseData",
+    "V2MonitoringMacsecDeviceIdStatusGetResponse",
+    "V2MonitoringMacsecDeviceIdStatusGetResponseMaCsecStatus",
     "V2MonitoringPolicyPostRequest",
     "V2MonitoringPolicyPostResponse",
     "V2MonitoringPolicyPostResponseData",
@@ -1613,6 +1644,7 @@ from graphiant_sdk.models.mana_v2_dns_config import ManaV2DnsConfig as ManaV2Dns
 from graphiant_sdk.models.mana_v2_dns_servers import ManaV2DnsServers as ManaV2DnsServers
 from graphiant_sdk.models.mana_v2_dnsip_address import ManaV2DnsipAddress as ManaV2DnsipAddress
 from graphiant_sdk.models.mana_v2_dnsip_addresses import ManaV2DnsipAddresses as ManaV2DnsipAddresses
+from graphiant_sdk.models.mana_v2_domain_category import ManaV2DomainCategory as ManaV2DomainCategory
 from graphiant_sdk.models.mana_v2_domain_list_match_config import ManaV2DomainListMatchConfig as ManaV2DomainListMatchConfig
 from graphiant_sdk.models.mana_v2_dpi_application_config import ManaV2DpiApplicationConfig as ManaV2DpiApplicationConfig
 from graphiant_sdk.models.mana_v2_dpi_custom_application import ManaV2DpiCustomApplication as ManaV2DpiCustomApplication
@@ -1647,6 +1679,8 @@ from graphiant_sdk.models.mana_v2_gcp_gateway_details import ManaV2GcpGatewayDet
 from graphiant_sdk.models.mana_v2_global_app_config import ManaV2GlobalAppConfig as ManaV2GlobalAppConfig
 from graphiant_sdk.models.mana_v2_global_app_port_range import ManaV2GlobalAppPortRange as ManaV2GlobalAppPortRange
 from graphiant_sdk.models.mana_v2_global_bandwidth_consumption_summary import ManaV2GlobalBandwidthConsumptionSummary as ManaV2GlobalBandwidthConsumptionSummary
+from graphiant_sdk.models.mana_v2_global_content_filter_config import ManaV2GlobalContentFilterConfig as ManaV2GlobalContentFilterConfig
+from graphiant_sdk.models.mana_v2_global_content_filter_rule import ManaV2GlobalContentFilterRule as ManaV2GlobalContentFilterRule
 from graphiant_sdk.models.mana_v2_global_object_device_status import ManaV2GlobalObjectDeviceStatus as ManaV2GlobalObjectDeviceStatus
 from graphiant_sdk.models.mana_v2_global_object_operation_config import ManaV2GlobalObjectOperationConfig as ManaV2GlobalObjectOperationConfig
 from graphiant_sdk.models.mana_v2_global_object_service_ops import ManaV2GlobalObjectServiceOps as ManaV2GlobalObjectServiceOps
@@ -1856,6 +1890,7 @@ from graphiant_sdk.models.mana_v2_psk_configuration import ManaV2PskConfiguratio
 from graphiant_sdk.models.mana_v2_qo_s_profile import ManaV2QoSProfile as ManaV2QoSProfile
 from graphiant_sdk.models.mana_v2_qo_s_profile_queue import ManaV2QoSProfileQueue as ManaV2QoSProfileQueue
 from graphiant_sdk.models.mana_v2_region import ManaV2Region as ManaV2Region
+from graphiant_sdk.models.mana_v2_region_coordinates import ManaV2RegionCoordinates as ManaV2RegionCoordinates
 from graphiant_sdk.models.mana_v2_regional_allocation import ManaV2RegionalAllocation as ManaV2RegionalAllocation
 from graphiant_sdk.models.mana_v2_regional_bandwidth_consumption_summary import ManaV2RegionalBandwidthConsumptionSummary as ManaV2RegionalBandwidthConsumptionSummary
 from graphiant_sdk.models.mana_v2_route_tag import ManaV2RouteTag as ManaV2RouteTag
@@ -2079,13 +2114,20 @@ from graphiant_sdk.models.syslogmon_syslogs_selector import SyslogmonSyslogsSele
 from graphiant_sdk.models.upgrade_gcs_release_category import UpgradeGcsReleaseCategory as UpgradeGcsReleaseCategory
 from graphiant_sdk.models.upgrade_gcs_release_details import UpgradeGcsReleaseDetails as UpgradeGcsReleaseDetails
 from graphiant_sdk.models.upgrade_inventory_key import UpgradeInventoryKey as UpgradeInventoryKey
+from graphiant_sdk.models.upgrade_monthly_recurrence import UpgradeMonthlyRecurrence as UpgradeMonthlyRecurrence
+from graphiant_sdk.models.upgrade_recurring_schedule import UpgradeRecurringSchedule as UpgradeRecurringSchedule
 from graphiant_sdk.models.upgrade_release_summary import UpgradeReleaseSummary as UpgradeReleaseSummary
+from graphiant_sdk.models.upgrade_rollout import UpgradeRollout as UpgradeRollout
+from graphiant_sdk.models.upgrade_rollout_config import UpgradeRolloutConfig as UpgradeRolloutConfig
+from graphiant_sdk.models.upgrade_rollout_device import UpgradeRolloutDevice as UpgradeRolloutDevice
 from graphiant_sdk.models.upgrade_running_sw_version import UpgradeRunningSwVersion as UpgradeRunningSwVersion
 from graphiant_sdk.models.upgrade_schedule import UpgradeSchedule as UpgradeSchedule
 from graphiant_sdk.models.upgrade_sw_version import UpgradeSwVersion as UpgradeSwVersion
 from graphiant_sdk.models.upgrade_upgrade_canary_profile import UpgradeUpgradeCanaryProfile as UpgradeUpgradeCanaryProfile
 from graphiant_sdk.models.upgrade_upgrade_occurrence import UpgradeUpgradeOccurrence as UpgradeUpgradeOccurrence
 from graphiant_sdk.models.upgrade_upgrade_summary import UpgradeUpgradeSummary as UpgradeUpgradeSummary
+from graphiant_sdk.models.upgrade_weekly_recurrence import UpgradeWeeklyRecurrence as UpgradeWeeklyRecurrence
+from graphiant_sdk.models.upgrade_yearly_recurrence import UpgradeYearlyRecurrence as UpgradeYearlyRecurrence
 from graphiant_sdk.models.v1_account_email_patch_request import V1AccountEmailPatchRequest as V1AccountEmailPatchRequest
 from graphiant_sdk.models.v1_account_info_patch_request import V1AccountInfoPatchRequest as V1AccountInfoPatchRequest
 from graphiant_sdk.models.v1_account_mfa_confirmation_post_request import V1AccountMfaConfirmationPostRequest as V1AccountMfaConfirmationPostRequest
@@ -2454,7 +2496,17 @@ from graphiant_sdk.models.v1_global_attached_edges_post_request import V1GlobalA
 from graphiant_sdk.models.v1_global_attached_edges_post_response import V1GlobalAttachedEdgesPostResponse as V1GlobalAttachedEdgesPostResponse
 from graphiant_sdk.models.v1_global_config_patch_request import V1GlobalConfigPatchRequest as V1GlobalConfigPatchRequest
 from graphiant_sdk.models.v1_global_config_patch_response import V1GlobalConfigPatchResponse as V1GlobalConfigPatchResponse
+from graphiant_sdk.models.v1_global_content_filters_get_response import V1GlobalContentFiltersGetResponse as V1GlobalContentFiltersGetResponse
+from graphiant_sdk.models.v1_global_content_filters_get_response_row import V1GlobalContentFiltersGetResponseRow as V1GlobalContentFiltersGetResponseRow
+from graphiant_sdk.models.v1_global_content_filters_get_response_row_lan_entry import V1GlobalContentFiltersGetResponseRowLanEntry as V1GlobalContentFiltersGetResponseRowLanEntry
+from graphiant_sdk.models.v1_global_content_filters_get_response_row_rule_entry import V1GlobalContentFiltersGetResponseRowRuleEntry as V1GlobalContentFiltersGetResponseRowRuleEntry
+from graphiant_sdk.models.v1_global_content_filters_get_response_row_site_entry import V1GlobalContentFiltersGetResponseRowSiteEntry as V1GlobalContentFiltersGetResponseRowSiteEntry
+from graphiant_sdk.models.v1_global_content_filters_global_content_filter_id_get_response import V1GlobalContentFiltersGlobalContentFilterIdGetResponse as V1GlobalContentFiltersGlobalContentFilterIdGetResponse
+from graphiant_sdk.models.v1_global_content_filters_global_content_filter_id_put_request import V1GlobalContentFiltersGlobalContentFilterIdPutRequest as V1GlobalContentFiltersGlobalContentFilterIdPutRequest
+from graphiant_sdk.models.v1_global_content_filters_post_request import V1GlobalContentFiltersPostRequest as V1GlobalContentFiltersPostRequest
+from graphiant_sdk.models.v1_global_content_filters_post_response import V1GlobalContentFiltersPostResponse as V1GlobalContentFiltersPostResponse
 from graphiant_sdk.models.v1_global_device_status_get_response import V1GlobalDeviceStatusGetResponse as V1GlobalDeviceStatusGetResponse
+from graphiant_sdk.models.v1_global_domain_categories_get_response import V1GlobalDomainCategoriesGetResponse as V1GlobalDomainCategoriesGetResponse
 from graphiant_sdk.models.v1_global_ipfix_device_get_response import V1GlobalIpfixDeviceGetResponse as V1GlobalIpfixDeviceGetResponse
 from graphiant_sdk.models.v1_global_ipfix_post_request import V1GlobalIpfixPostRequest as V1GlobalIpfixPostRequest
 from graphiant_sdk.models.v1_global_ipfix_post_response import V1GlobalIpfixPostResponse as V1GlobalIpfixPostResponse
@@ -2549,6 +2601,12 @@ from graphiant_sdk.models.v1_software_auto_upgrade_default_put_request import V1
 from graphiant_sdk.models.v1_software_gcsrelease_upload_notes_post_request import V1SoftwareGcsreleaseUploadNotesPostRequest as V1SoftwareGcsreleaseUploadNotesPostRequest
 from graphiant_sdk.models.v1_software_releases_download_get_response import V1SoftwareReleasesDownloadGetResponse as V1SoftwareReleasesDownloadGetResponse
 from graphiant_sdk.models.v1_software_releases_summary_get_response import V1SoftwareReleasesSummaryGetResponse as V1SoftwareReleasesSummaryGetResponse
+from graphiant_sdk.models.v1_software_rollouts_get_response import V1SoftwareRolloutsGetResponse as V1SoftwareRolloutsGetResponse
+from graphiant_sdk.models.v1_software_rollouts_id_get_response import V1SoftwareRolloutsIdGetResponse as V1SoftwareRolloutsIdGetResponse
+from graphiant_sdk.models.v1_software_rollouts_post_request import V1SoftwareRolloutsPostRequest as V1SoftwareRolloutsPostRequest
+from graphiant_sdk.models.v1_software_rollouts_post_response import V1SoftwareRolloutsPostResponse as V1SoftwareRolloutsPostResponse
+from graphiant_sdk.models.v1_software_rollouts_put_request import V1SoftwareRolloutsPutRequest as V1SoftwareRolloutsPutRequest
+from graphiant_sdk.models.v1_software_rollouts_schedule_post_request import V1SoftwareRolloutsSchedulePostRequest as V1SoftwareRolloutsSchedulePostRequest
 from graphiant_sdk.models.v1_software_running_details_get_response import V1SoftwareRunningDetailsGetResponse as V1SoftwareRunningDetailsGetResponse
 from graphiant_sdk.models.v1_software_running_details_get_response_device import V1SoftwareRunningDetailsGetResponseDevice as V1SoftwareRunningDetailsGetResponseDevice
 from graphiant_sdk.models.v1_software_running_summary_get_response import V1SoftwareRunningSummaryGetResponse as V1SoftwareRunningSummaryGetResponse
@@ -2584,6 +2642,8 @@ from graphiant_sdk.models.v1_users_put_request import V1UsersPutRequest as V1Use
 from graphiant_sdk.models.v1_version_post_request import V1VersionPostRequest as V1VersionPostRequest
 from graphiant_sdk.models.v1_version_post_response import V1VersionPostResponse as V1VersionPostResponse
 from graphiant_sdk.models.v1_zones_get_response import V1ZonesGetResponse as V1ZonesGetResponse
+from graphiant_sdk.models.v1_ztagent_bindings_get_response import V1ZtagentBindingsGetResponse as V1ZtagentBindingsGetResponse
+from graphiant_sdk.models.v1_ztagent_bindings_put_request import V1ZtagentBindingsPutRequest as V1ZtagentBindingsPutRequest
 from graphiant_sdk.models.v2_ack_createupdate_post_request import V2AckCreateupdatePostRequest as V2AckCreateupdatePostRequest
 from graphiant_sdk.models.v2_aggregated_notification_enable_disable_post_request import V2AggregatedNotificationEnableDisablePostRequest as V2AggregatedNotificationEnableDisablePostRequest
 from graphiant_sdk.models.v2_aggregated_notification_get_state_get_response import V2AggregatedNotificationGetStateGetResponse as V2AggregatedNotificationGetStateGetResponse
@@ -2713,6 +2773,8 @@ from graphiant_sdk.models.v2_monitoring_interface_post_response_data import V2Mo
 from graphiant_sdk.models.v2_monitoring_ipsec_post_request import V2MonitoringIpsecPostRequest as V2MonitoringIpsecPostRequest
 from graphiant_sdk.models.v2_monitoring_ipsec_post_response import V2MonitoringIpsecPostResponse as V2MonitoringIpsecPostResponse
 from graphiant_sdk.models.v2_monitoring_ipsec_post_response_data import V2MonitoringIpsecPostResponseData as V2MonitoringIpsecPostResponseData
+from graphiant_sdk.models.v2_monitoring_macsec_device_id_status_get_response import V2MonitoringMacsecDeviceIdStatusGetResponse as V2MonitoringMacsecDeviceIdStatusGetResponse
+from graphiant_sdk.models.v2_monitoring_macsec_device_id_status_get_response_ma_csec_status import V2MonitoringMacsecDeviceIdStatusGetResponseMaCsecStatus as V2MonitoringMacsecDeviceIdStatusGetResponseMaCsecStatus
 from graphiant_sdk.models.v2_monitoring_policy_post_request import V2MonitoringPolicyPostRequest as V2MonitoringPolicyPostRequest
 from graphiant_sdk.models.v2_monitoring_policy_post_response import V2MonitoringPolicyPostResponse as V2MonitoringPolicyPostResponse
 from graphiant_sdk.models.v2_monitoring_policy_post_response_data import V2MonitoringPolicyPostResponseData as V2MonitoringPolicyPostResponseData

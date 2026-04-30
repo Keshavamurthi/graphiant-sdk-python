@@ -36,10 +36,12 @@ class UpgradeUpgradeSummary(BaseModel):
     last_running_version: Optional[UpgradeSwVersion] = Field(default=None, alias="lastRunningVersion")
     last_upgrade_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="lastUpgradeTs")
     ready_for_activation_version: Optional[UpgradeSwVersion] = Field(default=None, alias="readyForActivationVersion")
+    rollout_id: Optional[StrictInt] = Field(default=None, alias="rolloutId")
+    rollout_name: Optional[StrictStr] = Field(default=None, alias="rolloutName")
     running_version: Optional[UpgradeSwVersion] = Field(default=None, alias="runningVersion")
     schedule: Optional[UpgradeSchedule] = None
     status: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["deviceId", "endOfLife", "lastDiscoveredTs", "lastRunningVersion", "lastUpgradeTs", "readyForActivationVersion", "runningVersion", "schedule", "status"]
+    __properties: ClassVar[List[str]] = ["deviceId", "endOfLife", "lastDiscoveredTs", "lastRunningVersion", "lastUpgradeTs", "readyForActivationVersion", "rolloutId", "rolloutName", "runningVersion", "schedule", "status"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -116,6 +118,8 @@ class UpgradeUpgradeSummary(BaseModel):
             "lastRunningVersion": UpgradeSwVersion.from_dict(obj["lastRunningVersion"]) if obj.get("lastRunningVersion") is not None else None,
             "lastUpgradeTs": GoogleProtobufTimestamp.from_dict(obj["lastUpgradeTs"]) if obj.get("lastUpgradeTs") is not None else None,
             "readyForActivationVersion": UpgradeSwVersion.from_dict(obj["readyForActivationVersion"]) if obj.get("readyForActivationVersion") is not None else None,
+            "rolloutId": obj.get("rolloutId"),
+            "rolloutName": obj.get("rolloutName"),
             "runningVersion": UpgradeSwVersion.from_dict(obj["runningVersion"]) if obj.get("runningVersion") is not None else None,
             "schedule": UpgradeSchedule.from_dict(obj["schedule"]) if obj.get("schedule") is not None else None,
             "status": obj.get("status")

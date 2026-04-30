@@ -11,6 +11,8 @@ Name | Type | Description | Notes
 **last_running_version** | [**UpgradeSwVersion**](UpgradeSwVersion.md) |  | [optional] 
 **last_upgrade_ts** | [**GoogleProtobufTimestamp**](GoogleProtobufTimestamp.md) |  | [optional] 
 **ready_for_activation_version** | [**UpgradeSwVersion**](UpgradeSwVersion.md) |  | [optional] 
+**rollout_id** | **int** |  | [optional] 
+**rollout_name** | **str** |  | [optional] 
 **running_version** | [**UpgradeSwVersion**](UpgradeSwVersion.md) |  | [optional] 
 **schedule** | [**UpgradeSchedule**](UpgradeSchedule.md) |  | [optional] 
 **status** | **str** |  | [optional] 

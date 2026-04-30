@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **app_server_key** | **str** |  | [optional] 
 **client_ip** | **str** |  | [optional] 
+**client_username** | **str** |  | [optional] 
 **lan_segments** | **List[str]** |  | [optional] 
 **server_ip** | **str** |  | [optional] 
 **server_port** | **int** |  | [optional] 

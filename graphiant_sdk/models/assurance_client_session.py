@@ -38,6 +38,7 @@ class AssuranceClientSession(BaseModel):
     client_flex_algo: Optional[StrictStr] = Field(default=None, alias="clientFlexAlgo")
     client_ip: Optional[StrictStr] = Field(default=None, alias="clientIp")
     client_links: Optional[List[AssuranceClientSessionEndpointLink]] = Field(default=None, alias="clientLinks")
+    client_username: Optional[StrictStr] = Field(default=None, alias="clientUsername")
     first_seen_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="firstSeenTs")
     lan_segment: Optional[List[StrictStr]] = Field(default=None, alias="lanSegment")
     last_seen_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="lastSeenTs")
@@ -53,7 +54,7 @@ class AssuranceClientSession(BaseModel):
     session_id: Optional[StrictStr] = Field(default=None, alias="sessionId")
     sla: Optional[StrictStr] = None
     sla_class: Optional[StrictStr] = Field(default=None, alias="slaClass")
-    __properties: ClassVar[List[str]] = ["appName", "bucket", "clientEndpoint", "clientFlexAlgo", "clientIp", "clientLinks", "firstSeenTs", "lanSegment", "lastSeenTs", "localDiaLinks", "popLinks", "remoteDiaLinks", "riskStatus", "serverEndpoint", "serverFlexAlgos", "serverIp", "serverLinks", "serverPort", "sessionId", "sla", "slaClass"]
+    __properties: ClassVar[List[str]] = ["appName", "bucket", "clientEndpoint", "clientFlexAlgo", "clientIp", "clientLinks", "clientUsername", "firstSeenTs", "lanSegment", "lastSeenTs", "localDiaLinks", "popLinks", "remoteDiaLinks", "riskStatus", "serverEndpoint", "serverFlexAlgos", "serverIp", "serverLinks", "serverPort", "sessionId", "sla", "slaClass"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -159,6 +160,7 @@ class AssuranceClientSession(BaseModel):
             "clientFlexAlgo": obj.get("clientFlexAlgo"),
             "clientIp": obj.get("clientIp"),
             "clientLinks": [AssuranceClientSessionEndpointLink.from_dict(_item) for _item in obj["clientLinks"]] if obj.get("clientLinks") is not None else None,
+            "clientUsername": obj.get("clientUsername"),
             "firstSeenTs": GoogleProtobufTimestamp.from_dict(obj["firstSeenTs"]) if obj.get("firstSeenTs") is not None else None,
             "lanSegment": obj.get("lanSegment"),
             "lastSeenTs": GoogleProtobufTimestamp.from_dict(obj["lastSeenTs"]) if obj.get("lastSeenTs") is not None else None,

@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **region_id** | **int** |  | [optional] 
+**region_iso_code** | **str** |  | [optional] 
 **region_name** | **str** |  | [optional] 
 
 ## Example

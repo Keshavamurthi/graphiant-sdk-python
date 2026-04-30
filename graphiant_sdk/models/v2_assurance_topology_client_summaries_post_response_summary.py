@@ -29,12 +29,13 @@ class V2AssuranceTopologyClientSummariesPostResponseSummary(BaseModel):
     """ # noqa: E501
     app_server_key: Optional[StrictStr] = Field(default=None, alias="appServerKey")
     client_ip: Optional[StrictStr] = Field(default=None, alias="clientIp")
+    client_username: Optional[StrictStr] = Field(default=None, alias="clientUsername")
     lan_segments: Optional[List[StrictStr]] = Field(default=None, alias="lanSegments")
     server_ip: Optional[StrictStr] = Field(default=None, alias="serverIp")
     server_port: Optional[StrictInt] = Field(default=None, alias="serverPort")
     server_site_name: Optional[StrictStr] = Field(default=None, alias="serverSiteName")
     session_count: Optional[StrictInt] = Field(default=None, alias="sessionCount")
-    __properties: ClassVar[List[str]] = ["appServerKey", "clientIp", "lanSegments", "serverIp", "serverPort", "serverSiteName", "sessionCount"]
+    __properties: ClassVar[List[str]] = ["appServerKey", "clientIp", "clientUsername", "lanSegments", "serverIp", "serverPort", "serverSiteName", "sessionCount"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -89,6 +90,7 @@ class V2AssuranceTopologyClientSummariesPostResponseSummary(BaseModel):
         _obj = cls.model_validate({
             "appServerKey": obj.get("appServerKey"),
             "clientIp": obj.get("clientIp"),
+            "clientUsername": obj.get("clientUsername"),
             "lanSegments": obj.get("lanSegments"),
             "serverIp": obj.get("serverIp"),
             "serverPort": obj.get("serverPort"),

@@ -5,8 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**coordinates** | [**ManaV2RegionCoordinates**](ManaV2RegionCoordinates.md) |  | [optional] 
 **id** | **int** |  | [optional] 
 **name** | **str** |  | [optional] 
+**region_iso_code** | **str** |  | [optional] 
 **unavailable** | **bool** |  | [optional] 
 
 ## Example

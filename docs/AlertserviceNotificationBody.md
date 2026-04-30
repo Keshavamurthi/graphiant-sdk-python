@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **pagerduty_list** | **List[str]** |  | [optional] 
 **recipient_list** | **List[str]** |  | [optional] 
 **teams_list** | **List[str]** |  | [optional] 
+**webhook_url_list** | **List[str]** |  | [optional] 
 
 ## Example
 

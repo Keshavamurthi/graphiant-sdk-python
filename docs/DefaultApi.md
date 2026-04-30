@@ -264,7 +264,13 @@ Method | HTTP request | Description
 [**v1_global_apps_graphiant_get**](DefaultApi.md#v1_global_apps_graphiant_get) | **GET** /v1/global/apps/graphiant | 
 [**v1_global_attached_edges_post**](DefaultApi.md#v1_global_attached_edges_post) | **POST** /v1/global/attached-edges | 
 [**v1_global_config_patch**](DefaultApi.md#v1_global_config_patch) | **PATCH** /v1/global/config | 
+[**v1_global_content_filters_get**](DefaultApi.md#v1_global_content_filters_get) | **GET** /v1/global/content-filters | 
+[**v1_global_content_filters_global_content_filter_id_delete**](DefaultApi.md#v1_global_content_filters_global_content_filter_id_delete) | **DELETE** /v1/global/content-filters/{globalContentFilterId} | 
+[**v1_global_content_filters_global_content_filter_id_get**](DefaultApi.md#v1_global_content_filters_global_content_filter_id_get) | **GET** /v1/global/content-filters/{globalContentFilterId} | 
+[**v1_global_content_filters_global_content_filter_id_put**](DefaultApi.md#v1_global_content_filters_global_content_filter_id_put) | **PUT** /v1/global/content-filters/{globalContentFilterId} | 
+[**v1_global_content_filters_post**](DefaultApi.md#v1_global_content_filters_post) | **POST** /v1/global/content-filters | 
 [**v1_global_device_status_get**](DefaultApi.md#v1_global_device_status_get) | **GET** /v1/global/device-status | 
+[**v1_global_domain_categories_get**](DefaultApi.md#v1_global_domain_categories_get) | **GET** /v1/global/domain-categories | 
 [**v1_global_ipfix_device_get**](DefaultApi.md#v1_global_ipfix_device_get) | **GET** /v1/global/ipfix/device | 
 [**v1_global_ipfix_post**](DefaultApi.md#v1_global_ipfix_post) | **POST** /v1/global/ipfix | 
 [**v1_global_ipfix_site_get**](DefaultApi.md#v1_global_ipfix_site_get) | **GET** /v1/global/ipfix/site | 
@@ -343,6 +349,12 @@ Method | HTTP request | Description
 [**v1_software_gcsrelease_upload_notes_post**](DefaultApi.md#v1_software_gcsrelease_upload_notes_post) | **POST** /v1/software/gcsrelease/upload/notes | 
 [**v1_software_releases_download_get**](DefaultApi.md#v1_software_releases_download_get) | **GET** /v1/software/releases/download | 
 [**v1_software_releases_summary_get**](DefaultApi.md#v1_software_releases_summary_get) | **GET** /v1/software/releases/summary | 
+[**v1_software_rollouts_get**](DefaultApi.md#v1_software_rollouts_get) | **GET** /v1/software/rollouts | 
+[**v1_software_rollouts_id_delete**](DefaultApi.md#v1_software_rollouts_id_delete) | **DELETE** /v1/software/rollouts/{id} | 
+[**v1_software_rollouts_id_get**](DefaultApi.md#v1_software_rollouts_id_get) | **GET** /v1/software/rollouts/{id} | 
+[**v1_software_rollouts_post**](DefaultApi.md#v1_software_rollouts_post) | **POST** /v1/software/rollouts | 
+[**v1_software_rollouts_put**](DefaultApi.md#v1_software_rollouts_put) | **PUT** /v1/software/rollouts | 
+[**v1_software_rollouts_schedule_post**](DefaultApi.md#v1_software_rollouts_schedule_post) | **POST** /v1/software/rollouts/schedule | 
 [**v1_software_running_details_get**](DefaultApi.md#v1_software_running_details_get) | **GET** /v1/software/running/details | 
 [**v1_software_running_summary_get**](DefaultApi.md#v1_software_running_summary_get) | **GET** /v1/software/running/summary | 
 [**v1_talkers_device_device_id_top_post**](DefaultApi.md#v1_talkers_device_device_id_top_post) | **POST** /v1/talkers/device/{deviceId}/top | 
@@ -368,6 +380,8 @@ Method | HTTP request | Description
 [**v1_users_put**](DefaultApi.md#v1_users_put) | **PUT** /v1/users | 
 [**v1_version_post**](DefaultApi.md#v1_version_post) | **POST** /v1/version | 
 [**v1_zones_get**](DefaultApi.md#v1_zones_get) | **GET** /v1/zones | 
+[**v1_ztagent_bindings_get**](DefaultApi.md#v1_ztagent_bindings_get) | **GET** /v1/ztagent/bindings | 
+[**v1_ztagent_bindings_put**](DefaultApi.md#v1_ztagent_bindings_put) | **PUT** /v1/ztagent/bindings | 
 [**v2_ack_createupdate_post**](DefaultApi.md#v2_ack_createupdate_post) | **POST** /v2/ack/createupdate | 
 [**v2_aggregated_notification_enable_disable_post**](DefaultApi.md#v2_aggregated_notification_enable_disable_post) | **POST** /v2/aggregated-notification/enable-disable | 
 [**v2_aggregated_notification_get_state_get**](DefaultApi.md#v2_aggregated_notification_get_state_get) | **GET** /v2/aggregated-notification/get-state | 
@@ -445,6 +459,7 @@ Method | HTTP request | Description
 [**v2_monitoring_ike_error_history_post**](DefaultApi.md#v2_monitoring_ike_error_history_post) | **POST** /v2/monitoring/ike-error-history | 
 [**v2_monitoring_interface_post**](DefaultApi.md#v2_monitoring_interface_post) | **POST** /v2/monitoring/interface | 
 [**v2_monitoring_ipsec_post**](DefaultApi.md#v2_monitoring_ipsec_post) | **POST** /v2/monitoring/ipsec | 
+[**v2_monitoring_macsec_device_id_status_get**](DefaultApi.md#v2_monitoring_macsec_device_id_status_get) | **GET** /v2/monitoring/macsec/{deviceId}/status | 
 [**v2_monitoring_policy_post**](DefaultApi.md#v2_monitoring_policy_post) | **POST** /v2/monitoring/policy | 
 [**v2_monitoring_queue_instant_post**](DefaultApi.md#v2_monitoring_queue_instant_post) | **POST** /v2/monitoring/queue-instant | 
 [**v2_monitoring_segment_route_counts_post**](DefaultApi.md#v2_monitoring_segment_route_counts_post) | **POST** /v2/monitoring/segment-route-counts | 
@@ -20722,6 +20737,396 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **v1_global_content_filters_get**
+> V1GlobalContentFiltersGetResponse v1_global_content_filters_get(authorization)
+
+Get basic details for all content filter under the current enterprise
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_global_content_filters_get_response import V1GlobalContentFiltersGetResponse
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+
+    try:
+        api_response = api_instance.v1_global_content_filters_get(authorization)
+        print("The response of DefaultApi->v1_global_content_filters_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_global_content_filters_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+
+### Return type
+
+[**V1GlobalContentFiltersGetResponse**](V1GlobalContentFiltersGetResponse.md)
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_global_content_filters_global_content_filter_id_delete**
+> object v1_global_content_filters_global_content_filter_id_delete(authorization, global_content_filter_id)
+
+Delete a content filter under the current enterprise
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    global_content_filter_id = 1234567891011 # int | ID of the global content filter to remove.
+
+    try:
+        api_response = api_instance.v1_global_content_filters_global_content_filter_id_delete(authorization, global_content_filter_id)
+        print("The response of DefaultApi->v1_global_content_filters_global_content_filter_id_delete:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_global_content_filters_global_content_filter_id_delete: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **global_content_filter_id** | **int**| ID of the global content filter to remove. | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_global_content_filters_global_content_filter_id_get**
+> V1GlobalContentFiltersGlobalContentFilterIdGetResponse v1_global_content_filters_global_content_filter_id_get(authorization, global_content_filter_id)
+
+Get the config for a content filter under the current enterprise
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_global_content_filters_global_content_filter_id_get_response import V1GlobalContentFiltersGlobalContentFilterIdGetResponse
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    global_content_filter_id = 1234567891011 # int | ID of the global content filter whose configuration should be returned.
+
+    try:
+        api_response = api_instance.v1_global_content_filters_global_content_filter_id_get(authorization, global_content_filter_id)
+        print("The response of DefaultApi->v1_global_content_filters_global_content_filter_id_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_global_content_filters_global_content_filter_id_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **global_content_filter_id** | **int**| ID of the global content filter whose configuration should be returned. | 
+
+### Return type
+
+[**V1GlobalContentFiltersGlobalContentFilterIdGetResponse**](V1GlobalContentFiltersGlobalContentFilterIdGetResponse.md)
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_global_content_filters_global_content_filter_id_put**
+> object v1_global_content_filters_global_content_filter_id_put(authorization, global_content_filter_id, v1_global_content_filters_global_content_filter_id_put_request)
+
+Overwrite a pre-existing content filter under the current enterprise
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_global_content_filters_global_content_filter_id_put_request import V1GlobalContentFiltersGlobalContentFilterIdPutRequest
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    global_content_filter_id = 1234567891011 # int | ID of the global content filter to replace with the supplied configuration.
+    v1_global_content_filters_global_content_filter_id_put_request = graphiant_sdk.V1GlobalContentFiltersGlobalContentFilterIdPutRequest() # V1GlobalContentFiltersGlobalContentFilterIdPutRequest | 
+
+    try:
+        api_response = api_instance.v1_global_content_filters_global_content_filter_id_put(authorization, global_content_filter_id, v1_global_content_filters_global_content_filter_id_put_request)
+        print("The response of DefaultApi->v1_global_content_filters_global_content_filter_id_put:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_global_content_filters_global_content_filter_id_put: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **global_content_filter_id** | **int**| ID of the global content filter to replace with the supplied configuration. | 
+ **v1_global_content_filters_global_content_filter_id_put_request** | [**V1GlobalContentFiltersGlobalContentFilterIdPutRequest**](V1GlobalContentFiltersGlobalContentFilterIdPutRequest.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_global_content_filters_post**
+> V1GlobalContentFiltersPostResponse v1_global_content_filters_post(authorization, v1_global_content_filters_post_request)
+
+Configure a new content filter under the current enterprise
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_global_content_filters_post_request import V1GlobalContentFiltersPostRequest
+from graphiant_sdk.models.v1_global_content_filters_post_response import V1GlobalContentFiltersPostResponse
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    v1_global_content_filters_post_request = graphiant_sdk.V1GlobalContentFiltersPostRequest() # V1GlobalContentFiltersPostRequest | 
+
+    try:
+        api_response = api_instance.v1_global_content_filters_post(authorization, v1_global_content_filters_post_request)
+        print("The response of DefaultApi->v1_global_content_filters_post:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_global_content_filters_post: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **v1_global_content_filters_post_request** | [**V1GlobalContentFiltersPostRequest**](V1GlobalContentFiltersPostRequest.md)|  | 
+
+### Return type
+
+[**V1GlobalContentFiltersPostResponse**](V1GlobalContentFiltersPostResponse.md)
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **v1_global_device_status_get**
 > V1GlobalDeviceStatusGetResponse v1_global_device_status_get(authorization, ipfix_exported_id=ipfix_exported_id, ntp_id=ntp_id, prefix_set_id=prefix_set_id, routing_policy_id=routing_policy_id, snmp_id=snmp_id, syslog_server_id=syslog_server_id, traffic_policy_id=traffic_policy_id)
 
@@ -20794,6 +21199,82 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1GlobalDeviceStatusGetResponse**](V1GlobalDeviceStatusGetResponse.md)
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_global_domain_categories_get**
+> V1GlobalDomainCategoriesGetResponse v1_global_domain_categories_get(authorization)
+
+Get all domain categories from the DPI engine
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_global_domain_categories_get_response import V1GlobalDomainCategoriesGetResponse
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+
+    try:
+        api_response = api_instance.v1_global_domain_categories_get(authorization)
+        print("The response of DefaultApi->v1_global_domain_categories_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_global_domain_categories_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+
+### Return type
+
+[**V1GlobalDomainCategoriesGetResponse**](V1GlobalDomainCategoriesGetResponse.md)
 
 ### Authorization
 
@@ -26859,6 +27340,472 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **v1_software_rollouts_get**
+> V1SoftwareRolloutsGetResponse v1_software_rollouts_get(authorization)
+
+Returns all the configured upgrade rollouts
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_software_rollouts_get_response import V1SoftwareRolloutsGetResponse
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+
+    try:
+        api_response = api_instance.v1_software_rollouts_get(authorization)
+        print("The response of DefaultApi->v1_software_rollouts_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_software_rollouts_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+
+### Return type
+
+[**V1SoftwareRolloutsGetResponse**](V1SoftwareRolloutsGetResponse.md)
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_software_rollouts_id_delete**
+> object v1_software_rollouts_id_delete(authorization, id)
+
+Delete given upgrade rollout
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    id = 42 # int | Rollout identifier to delete.
+
+    try:
+        api_response = api_instance.v1_software_rollouts_id_delete(authorization, id)
+        print("The response of DefaultApi->v1_software_rollouts_id_delete:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_software_rollouts_id_delete: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **id** | **int**| Rollout identifier to delete. | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_software_rollouts_id_get**
+> V1SoftwareRolloutsIdGetResponse v1_software_rollouts_id_get(authorization, id)
+
+Returns details about given upgrade rollout
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_software_rollouts_id_get_response import V1SoftwareRolloutsIdGetResponse
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    id = 42 # int | Rollout identifier to fetch.
+
+    try:
+        api_response = api_instance.v1_software_rollouts_id_get(authorization, id)
+        print("The response of DefaultApi->v1_software_rollouts_id_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_software_rollouts_id_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **id** | **int**| Rollout identifier to fetch. | 
+
+### Return type
+
+[**V1SoftwareRolloutsIdGetResponse**](V1SoftwareRolloutsIdGetResponse.md)
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_software_rollouts_post**
+> V1SoftwareRolloutsPostResponse v1_software_rollouts_post(authorization, v1_software_rollouts_post_request)
+
+Create upgrade rollout and returns rollout identifier
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_software_rollouts_post_request import V1SoftwareRolloutsPostRequest
+from graphiant_sdk.models.v1_software_rollouts_post_response import V1SoftwareRolloutsPostResponse
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    v1_software_rollouts_post_request = graphiant_sdk.V1SoftwareRolloutsPostRequest() # V1SoftwareRolloutsPostRequest | 
+
+    try:
+        api_response = api_instance.v1_software_rollouts_post(authorization, v1_software_rollouts_post_request)
+        print("The response of DefaultApi->v1_software_rollouts_post:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_software_rollouts_post: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **v1_software_rollouts_post_request** | [**V1SoftwareRolloutsPostRequest**](V1SoftwareRolloutsPostRequest.md)|  | 
+
+### Return type
+
+[**V1SoftwareRolloutsPostResponse**](V1SoftwareRolloutsPostResponse.md)
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_software_rollouts_put**
+> object v1_software_rollouts_put(authorization, v1_software_rollouts_put_request)
+
+Modify update rollout
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_software_rollouts_put_request import V1SoftwareRolloutsPutRequest
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    v1_software_rollouts_put_request = graphiant_sdk.V1SoftwareRolloutsPutRequest() # V1SoftwareRolloutsPutRequest | 
+
+    try:
+        api_response = api_instance.v1_software_rollouts_put(authorization, v1_software_rollouts_put_request)
+        print("The response of DefaultApi->v1_software_rollouts_put:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_software_rollouts_put: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **v1_software_rollouts_put_request** | [**V1SoftwareRolloutsPutRequest**](V1SoftwareRolloutsPutRequest.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_software_rollouts_schedule_post**
+> object v1_software_rollouts_schedule_post(authorization, v1_software_rollouts_schedule_post_request)
+
+Schedule rollout to upgrade now, later or user-triggered
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_software_rollouts_schedule_post_request import V1SoftwareRolloutsSchedulePostRequest
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    v1_software_rollouts_schedule_post_request = graphiant_sdk.V1SoftwareRolloutsSchedulePostRequest() # V1SoftwareRolloutsSchedulePostRequest | 
+
+    try:
+        api_response = api_instance.v1_software_rollouts_schedule_post(authorization, v1_software_rollouts_schedule_post_request)
+        print("The response of DefaultApi->v1_software_rollouts_schedule_post:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_software_rollouts_schedule_post: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **v1_software_rollouts_schedule_post_request** | [**V1SoftwareRolloutsSchedulePostRequest**](V1SoftwareRolloutsSchedulePostRequest.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **v1_software_running_details_get**
 > V1SoftwareRunningDetailsGetResponse v1_software_running_details_get(authorization, running_version=running_version)
 
@@ -28782,6 +29729,162 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_ztagent_bindings_get**
+> V1ZtagentBindingsGetResponse v1_ztagent_bindings_get(authorization, enterprise_id=enterprise_id)
+
+Return the ZTAgent integration binding for an enterprise.
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_ztagent_bindings_get_response import V1ZtagentBindingsGetResponse
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    enterprise_id = 1234567891011 # int |  (optional)
+
+    try:
+        api_response = api_instance.v1_ztagent_bindings_get(authorization, enterprise_id=enterprise_id)
+        print("The response of DefaultApi->v1_ztagent_bindings_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_ztagent_bindings_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **enterprise_id** | **int**|  | [optional] 
+
+### Return type
+
+[**V1ZtagentBindingsGetResponse**](V1ZtagentBindingsGetResponse.md)
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_ztagent_bindings_put**
+> object v1_ztagent_bindings_put(authorization, v1_ztagent_bindings_put_request)
+
+Create or replace the ZTAgent integration binding for an enterprise (site and customer identifiers).
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_ztagent_bindings_put_request import V1ZtagentBindingsPutRequest
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    v1_ztagent_bindings_put_request = graphiant_sdk.V1ZtagentBindingsPutRequest() # V1ZtagentBindingsPutRequest | 
+
+    try:
+        api_response = api_instance.v1_ztagent_bindings_put(authorization, v1_ztagent_bindings_put_request)
+        print("The response of DefaultApi->v1_ztagent_bindings_put:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_ztagent_bindings_put: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **v1_ztagent_bindings_put_request** | [**V1ZtagentBindingsPutRequest**](V1ZtagentBindingsPutRequest.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -34707,6 +35810,84 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v2_monitoring_macsec_device_id_status_get**
+> V2MonitoringMacsecDeviceIdStatusGetResponse v2_monitoring_macsec_device_id_status_get(authorization, device_id)
+
+Returns the MACsec status for all interfaces on a device
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v2_monitoring_macsec_device_id_status_get_response import V2MonitoringMacsecDeviceIdStatusGetResponse
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    device_id = 1234567891011 # int | 
+
+    try:
+        api_response = api_instance.v2_monitoring_macsec_device_id_status_get(authorization, device_id)
+        print("The response of DefaultApi->v2_monitoring_macsec_device_id_status_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v2_monitoring_macsec_device_id_status_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **device_id** | **int**|  | 
+
+### Return type
+
+[**V2MonitoringMacsecDeviceIdStatusGetResponse**](V2MonitoringMacsecDeviceIdStatusGetResponse.md)
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
