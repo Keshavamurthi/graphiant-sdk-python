@@ -5,9 +5,10 @@ from __future__ import annotations
 import inspect
 import json
 import re
+import types
 from functools import lru_cache
 from pathlib import Path
-from typing import Annotated, Any, Optional, get_args, get_origin
+from typing import Annotated, Any, Optional, Union, get_args, get_origin
 
 from pydantic import BaseModel
 
@@ -71,10 +72,45 @@ def _unwrap_annotated(annotation: Any) -> Any:
     return annotation
 
 
+def _is_union_origin(origin: Any) -> bool:
+    if origin is Union:
+        return True
+    ut = getattr(types, "UnionType", None)
+    return ut is not None and origin is ut
+
+
 def _coerce_value(value: Any, annotation: Any) -> Any:
     if annotation is None or annotation is inspect.Parameter.empty:
         return value
     inner = _unwrap_annotated(annotation)
+    origin = get_origin(inner)
+    args = get_args(inner)
+
+    if _is_union_origin(origin):
+        non_none = [a for a in args if a is not type(None)]
+        if value is None:
+            return None
+        if len(non_none) == 1:
+            return _coerce_value(value, non_none[0])
+        return value
+
+    if origin is list:
+        if not isinstance(value, list) or len(args) != 1:
+            return value
+        elt_ann = _unwrap_annotated(args[0])
+        elt_origin = get_origin(elt_ann)
+        elt_args = get_args(elt_ann)
+        if _is_union_origin(elt_origin):
+            nn = [a for a in elt_args if a is not type(None)]
+            if len(nn) == 1:
+                elt_ann = nn[0]
+        if isinstance(elt_ann, type) and issubclass(elt_ann, BaseModel):
+            return [
+                elt_ann.model_validate(item) if isinstance(item, dict) else item
+                for item in value
+            ]
+        return value
+
     if isinstance(value, dict) and isinstance(inner, type) and issubclass(inner, BaseModel):
         return inner.model_validate(value)
     return value
