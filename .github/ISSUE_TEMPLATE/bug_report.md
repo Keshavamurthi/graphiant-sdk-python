@@ -26,7 +26,7 @@ If applicable, add screenshots to help explain your problem.
 **Environment (please complete the following information):**
  - OS: [e.g. macOS, Linux, Windows]
  - Python version: [e.g. 3.10, 3.11, 3.12, 3.13]
- - SDK version: [e.g. 26.3.3] (run `python -c "import graphiant_sdk; print(graphiant_sdk.__version__)"` to check)
+ - SDK version: [e.g. 26.4.0] (run `python -c "import graphiant_sdk; print(graphiant_sdk.__version__)"` to check)
  - Installation method: [e.g. pip, from source]
 
 **Additional context**

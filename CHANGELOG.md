@@ -9,10 +9,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Security
 - **pytest** (dev / CI): require **≥ 9.0.3** for **CVE-2025-71176** (insecure **`/tmp/pytest-of-{user}`** handling on UNIX; local users could cause **denial of service** or possibly **gain privileges**). See [pytest PR #14279](https://github.com/pytest-dev/pytest/pull/14279).
 
-## [26.4.1] - 2026-04-30
+## [26.4.0] - 2026-04-30
 
 ### Added
-- **API spec:** `graphiant_api_docs_v26.4.1.json`
+- **API spec:** `graphiant_api_docs_v26.4.0.json`
 - **Global content filters:** CRUD-style operations under **`/v1/global/content-filters`** and **`/v1/global/content-filters/{globalContentFilterId}`**; models including **`V1GlobalContentFilters*`** row/rule/site/lan entry types and **`ManaV2GlobalContentFilterConfig`**, **`ManaV2GlobalContentFilterRule`**
 - **Domain categories:** **`GET /v1/global/domain-categories`** with **`V1GlobalDomainCategoriesGetResponse`** and **`ManaV2DomainCategory`**
 - **Software upgrade rollouts:** **`GET`/`POST`/`PUT /v1/software/rollouts`**, **`GET`/`DELETE /v1/software/rollouts/{id}`**, **`POST /v1/software/rollouts/schedule`**; models **`UpgradeRollout`**, **`UpgradeRolloutConfig`**, **`UpgradeRolloutDevice`**, **`UpgradeRecurringSchedule`**, **`UpgradeMonthlyRecurrence`**, **`UpgradeWeeklyRecurrence`**, **`UpgradeYearlyRecurrence`**, plus related **`V1SoftwareRollouts*`** request/response types
@@ -21,12 +21,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **Mana:** **`ManaV2RegionCoordinates`**; **`ManaV2Region`** updated in spec
 
 ### Changed
-- **Version:** Package **26.4.1**; OpenAPI bundle **`graphiant_api_docs_v26.4.1.json`** (replaces **26.3.1** bundle in-repo).
+- **Version:** Package **26.4.0**; OpenAPI bundle **`graphiant_api_docs_v26.4.0.json`** (replaces **26.3.1** bundle in-repo).
 - **Schemas / docs (updated):** **`AlertserviceNotificationBody`**, **`AssuranceClientSession`**, **`AssuranceRegion`**, **`UpgradeUpgradeOccurrence`**, **`UpgradeUpgradeSummary`**, **`V2AssuranceTopologyClientSummariesPostResponseSummary`**, **`DefaultApi`**, README and generated **`docs/`** model pages.
-- **SDK (generated):** Refreshed **`default_api`**, **`api_client`**, **`configuration`**, and model exports to match the **26.4.1** spec.
+- **SDK (generated):** Refreshed **`default_api`**, **`api_client`**, **`configuration`**, and model exports to match the **26.4.0** spec.
 
 ### Removed
-- **API spec:** removed **`graphiant_api_docs_v26.3.1.json`** (superseded by **26.4.1** bundle).
+- **API spec:** removed **`graphiant_api_docs_v26.3.1.json`** (superseded by **26.4.0** bundle).
 
 ## [26.3.3] - 2026-04-10
 

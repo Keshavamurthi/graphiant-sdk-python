@@ -33,7 +33,7 @@ More product and platform context: [Graphiant Docs](https://docs.graphiant.com).
 | **Automation** | [Graphiant Automation](https://docs.graphiant.com/docs/automation) |
 | **REST API** | [Graphiant Portal REST API](https://docs.graphiant.com/docs/graphiant-portal-rest-api) |
 | **Method index (repo)** | [DefaultApi.md](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/docs/DefaultApi.md) |
-| **OpenAPI bundle (this build)** | [`graphiant_api_docs_v26.4.1.json`](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/graphiant_api_docs_v26.4.1.json) — source for generated paths and models |
+| **OpenAPI bundle (this build)** | [`graphiant_api_docs_v26.4.0.json`](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/graphiant_api_docs_v26.4.0.json) — source for generated paths and models |
 | **Model docs (`*.md`)** | [`docs/`](https://github.com/Graphiant-Inc/graphiant-sdk-python/tree/main/docs) (same names as Python classes, e.g. `V1EdgesSummaryGetResponse.md`) |
 | **PyPI** | [graphiant-sdk](https://pypi.org/project/graphiant-sdk) |
 | **Changelog** | [CHANGELOG.md](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/CHANGELOG.md) |
@@ -469,15 +469,15 @@ brew install openapi-generator  # macOS
 
 # Generate SDK
 openapi-generator generate \
-    -i graphiant_api_docs_v26.4.1.json \
+    -i graphiant_api_docs_v26.4.0.json \
     -g python \
     --git-user-id Graphiant-Inc \
     --git-repo-id graphiant-sdk-python \
     --package-name graphiant_sdk \
-    --additional-properties=packageVersion=26.4.1
+    --additional-properties=packageVersion=26.4.0
 ```
 
-> **Note:** Download the latest API bundle from the Graphiant portal under **Support Hub** → **Developer Tools**. Set **`packageVersion`** to the SDK release you are publishing (this branch: **26.4.1**). The **`-i`** filename reflects the API doc bundle version (here `graphiant_api_docs_v26.4.1.json`) and may stay the same across patch releases when the spec is unchanged.
+> **Note:** Download the latest API bundle from the Graphiant portal under **Support Hub** → **Developer Tools**. Set **`packageVersion`** to the SDK release you are publishing (this branch: **26.4.0**). The **`-i`** filename reflects the API doc bundle version (here `graphiant_api_docs_v26.4.0.json`) and may stay the same across patch releases when the spec is unchanged.
 
 ### Testing
 
@@ -493,7 +493,7 @@ python -m pytest tests/ --cov=graphiant_sdk --cov-report=html
 
 ### Source of truth (this release)
 
-Operations and schemas are generated from **`graphiant_api_docs_v26.3.1.json`** (repo root and PyPI wheel). For a newer portal/API, download the current bundle (Support Hub → Developer Tools) and diff paths before relying on URLs here.
+Operations and schemas are generated from **`graphiant_api_docs_v26.4.0.json`** (repo root and PyPI wheel). For a newer portal/API, download the current bundle (Support Hub → Developer Tools) and diff paths before relying on URLs here.
 
 | How to explore | Where |
 |----------------|-------|
@@ -524,7 +524,7 @@ REST query parameters use **camelCase** in URLs (`enterpriseId`). Generated Pyth
 | **`V1GlobalSummaryPostRequest`**, **`V1GlobalSummaryPostResponse`** | **`POST /v1/global/summary`** |
 | **`V2ParentalertlistPostRequest`**, **`V2ParentalertlistPostResponse`** | **`POST /v2/parentalertlist`** |
 
-### Sample HTTP endpoints (from `graphiant_api_docs_v26.3.1.json`)
+### Sample HTTP endpoints (from `graphiant_api_docs_v26.4.0.json`)
 
 The API surface is large; this table lists **real** paths from the bundled spec. For the full set, use **`graphiant api list`** or **`DefaultApi.md`**.
 
