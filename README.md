@@ -224,6 +224,8 @@ graphiant invoke v1_edges_summary_get --kwargs '{"enterprise_id": 123}'
   ```bash
   graphiant invoke v1_edges_summary_post --kwargs '{"v1_edges_summary_post_request": {"filter": {}}}'
   graphiant invoke v1_global_summary_post --kwargs '{"v1_global_summary_post_request": {"ntpType": true}}'
+  graphiant invoke v1_global_content_filters_get
+  graphiant invoke v1_global_domain_categories_get
   ```
 
 - **`graphiant rest`** — Query strings are a single **`--query`** / **`-q`** string: **`key=value`** pairs joined with **`&`**. Values are strings (URL-encode special characters in the shell if needed).
