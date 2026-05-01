@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **hour** | **int** |  | [optional] 
 **minute** | **int** |  | [optional] 
 **occurrence_in_month** | **int** |  | [optional] 
+**ordinal** | **str** |  | [optional] 
+**weekday** | **str** |  | [optional] 
 
 ## Example
 

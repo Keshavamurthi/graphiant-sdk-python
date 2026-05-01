@@ -28,8 +28,9 @@ class AssuranceRegion(BaseModel):
     AssuranceRegion
     """ # noqa: E501
     region_id: Optional[StrictInt] = Field(default=None, alias="regionId")
+    region_iso_code: Optional[StrictStr] = Field(default=None, alias="regionIsoCode")
     region_name: Optional[StrictStr] = Field(default=None, alias="regionName")
-    __properties: ClassVar[List[str]] = ["regionId", "regionName"]
+    __properties: ClassVar[List[str]] = ["regionId", "regionIsoCode", "regionName"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -83,6 +84,7 @@ class AssuranceRegion(BaseModel):
 
         _obj = cls.model_validate({
             "regionId": obj.get("regionId"),
+            "regionIsoCode": obj.get("regionIsoCode"),
             "regionName": obj.get("regionName")
         })
         return _obj

@@ -39,7 +39,8 @@ class AlertserviceNotificationBody(BaseModel):
     pagerduty_list: Optional[List[StrictStr]] = Field(default=None, alias="pagerdutyList")
     recipient_list: Optional[List[StrictStr]] = Field(default=None, alias="recipientList")
     teams_list: Optional[List[StrictStr]] = Field(default=None, alias="teamsList")
-    __properties: ClassVar[List[str]] = ["description", "duration", "enabled", "frequency", "messageBody", "notificationName", "opsgenieList", "opsrampList", "pagerdutyList", "recipientList", "teamsList"]
+    webhook_url_list: Optional[List[StrictStr]] = Field(default=None, alias="webhookUrlList")
+    __properties: ClassVar[List[str]] = ["description", "duration", "enabled", "frequency", "messageBody", "notificationName", "opsgenieList", "opsrampList", "pagerdutyList", "recipientList", "teamsList", "webhookUrlList"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -102,7 +103,8 @@ class AlertserviceNotificationBody(BaseModel):
             "opsrampList": obj.get("opsrampList"),
             "pagerdutyList": obj.get("pagerdutyList"),
             "recipientList": obj.get("recipientList"),
-            "teamsList": obj.get("teamsList")
+            "teamsList": obj.get("teamsList"),
+            "webhookUrlList": obj.get("webhookUrlList")
         })
         return _obj
 

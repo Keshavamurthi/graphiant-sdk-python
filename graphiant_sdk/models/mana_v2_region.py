@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from graphiant_sdk.models.mana_v2_region_coordinates import ManaV2RegionCoordinates
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,10 +28,12 @@ class ManaV2Region(BaseModel):
     """
     ManaV2Region
     """ # noqa: E501
+    coordinates: Optional[ManaV2RegionCoordinates] = None
     id: Optional[StrictInt] = None
     name: Optional[StrictStr] = None
+    region_iso_code: Optional[StrictStr] = Field(default=None, alias="regionIsoCode")
     unavailable: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "unavailable"]
+    __properties: ClassVar[List[str]] = ["coordinates", "id", "name", "regionIsoCode", "unavailable"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -71,6 +74,9 @@ class ManaV2Region(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of coordinates
+        if self.coordinates:
+            _dict['coordinates'] = self.coordinates.to_dict()
         return _dict
 
     @classmethod
@@ -83,8 +89,10 @@ class ManaV2Region(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "coordinates": ManaV2RegionCoordinates.from_dict(obj["coordinates"]) if obj.get("coordinates") is not None else None,
             "id": obj.get("id"),
             "name": obj.get("name"),
+            "regionIsoCode": obj.get("regionIsoCode"),
             "unavailable": obj.get("unavailable")
         })
         return _obj

@@ -33,7 +33,7 @@ More product and platform context: [Graphiant Docs](https://docs.graphiant.com).
 | **Automation** | [Graphiant Automation](https://docs.graphiant.com/docs/automation) |
 | **REST API** | [Graphiant Portal REST API](https://docs.graphiant.com/docs/graphiant-portal-rest-api) |
 | **Method index (repo)** | [DefaultApi.md](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/docs/DefaultApi.md) |
-| **OpenAPI bundle (this build)** | [`graphiant_api_docs_v26.3.1.json`](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/graphiant_api_docs_v26.3.1.json) — source for generated paths and models |
+| **OpenAPI bundle (this build)** | [`graphiant_api_docs_v26.4.1.json`](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/graphiant_api_docs_v26.4.1.json) — source for generated paths and models |
 | **Model docs (`*.md`)** | [`docs/`](https://github.com/Graphiant-Inc/graphiant-sdk-python/tree/main/docs) (same names as Python classes, e.g. `V1EdgesSummaryGetResponse.md`) |
 | **PyPI** | [graphiant-sdk](https://pypi.org/project/graphiant-sdk) |
 | **Changelog** | [CHANGELOG.md](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/CHANGELOG.md) |
@@ -469,15 +469,15 @@ brew install openapi-generator  # macOS
 
 # Generate SDK
 openapi-generator generate \
-    -i graphiant_api_docs_v26.3.1.json \
+    -i graphiant_api_docs_v26.4.1.json \
     -g python \
     --git-user-id Graphiant-Inc \
     --git-repo-id graphiant-sdk-python \
     --package-name graphiant_sdk \
-    --additional-properties=packageVersion=26.3.3
+    --additional-properties=packageVersion=26.4.1
 ```
 
-> **Note:** Download the latest API bundle from the Graphiant portal under **Support Hub** → **Developer Tools**. Set **`packageVersion`** to the SDK release you are publishing (this branch: **26.3.3**). The **`-i`** filename reflects the API doc bundle version (here `graphiant_api_docs_v26.3.1.json`) and may stay the same across patch releases when the spec is unchanged.
+> **Note:** Download the latest API bundle from the Graphiant portal under **Support Hub** → **Developer Tools**. Set **`packageVersion`** to the SDK release you are publishing (this branch: **26.4.1**). The **`-i`** filename reflects the API doc bundle version (here `graphiant_api_docs_v26.4.1.json`) and may stay the same across patch releases when the spec is unchanged.
 
 ### Testing
 

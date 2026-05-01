@@ -214,7 +214,7 @@ conf = graphiant_sdk.Configuration(
         server_operation_variables: Optional[Dict[int, ServerVariablesT]]=None,
         ignore_operation_servers: bool=False,
         ssl_ca_cert: Optional[str]=None,
-        retries: Optional[Union[int, Any]] = None,
+        retries: Optional[Union[int, urllib3.util.retry.Retry]] = None,
         ca_cert_data: Optional[Union[str, bytes]] = None,
         cert_file: Optional[str]=None,
         key_file: Optional[str]=None,
@@ -554,7 +554,7 @@ conf = graphiant_sdk.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 1.0.0\n"\
-               "SDK Package Version: 26.3.3".\
+               "SDK Package Version: 26.4.1".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self) -> List[HostSetting]:
