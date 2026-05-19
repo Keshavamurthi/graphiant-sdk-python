@@ -7,7 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Security
-- **pytest** (dev / CI): require **≥ 9.0.3** for **CVE-2025-71176** (insecure **`/tmp/pytest-of-{user}`** handling on UNIX; local users could cause **denial of service** or possibly **gain privileges**). See [pytest PR #14279](https://github.com/pytest-dev/pytest/pull/14279).
+- **urllib3**: lock **2.7.0** in **Poetry** to pick up fixes for decompression-bomb resource-exhaustion issues in parts of the streaming API and sensitive-header forwarding across origins in proxied low-level redirects. The declared runtime range already allows the patched release.
 
 ## [26.4.0] - 2026-04-30
 
@@ -27,6 +27,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Removed
 - **API spec:** removed **`graphiant_api_docs_v26.3.1.json`** (superseded by **26.4.0** bundle).
+
+### Security
+- **pytest** (dev / CI): require **≥ 9.0.3** for **CVE-2025-71176** (insecure **`/tmp/pytest-of-{user}`** handling on UNIX; local users could cause **denial of service** or possibly **gain privileges**). See [pytest PR #14279](https://github.com/pytest-dev/pytest/pull/14279).
 
 ## [26.3.3] - 2026-04-10
 

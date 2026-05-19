@@ -27,6 +27,15 @@ Tools such as **tox** and **virtualenv** depend on **filelock**. Older **fileloc
 
 **pytest** through **9.0.2** on UNIX used predictable **`/tmp/pytest-of-{user}`** paths in ways that allowed **local symlink / TOCTOU attacks**, leading to **denial of service** or possible **privilege escalation** (**CVE-2025-71176**, CVSS 6.8). This repository requires **pytest ≥ 9.0.3** in dev / test requirements and **Poetry** lockfile so CI and contributors resolve a patched release. Upstream references: [pytest PR #14279](https://github.com/pytest-dev/pytest/pull/14279), [CVE-2025-71176](https://www.cve.org/CVERecord?id=CVE-2025-71176).
 
+### HTTP client (`urllib3`)
+
+**urllib3** versions before **2.7.0** were affected by two issues relevant to clients that consume untrusted compressed responses or follow proxied low-level redirects:
+
+- Parts of the streaming API could bypass decompression-bomb safeguards and fully decode highly compressed responses during Brotli reads or `HTTPResponse.drain_conn()`, causing excessive CPU or memory use.
+- Sensitive headers such as `Authorization`, `Cookie`, and `Proxy-Authorization` could be forwarded across origins when redirects were followed through low-level proxied `urlopen(..., assert_same_host=False)` flows.
+
+The **Poetry** lockfile is updated to **urllib3 2.7.0** for repository development and reproducible installs. The package runtime dependency range already allows **urllib3 2.7.0**; downstream applications should ensure their environment resolves **urllib3 ≥ 2.7.0** when using the SDK.
+
 ## Reporting a Vulnerability
 
 We take security vulnerabilities seriously. If you discover a security vulnerability, please follow these steps:
