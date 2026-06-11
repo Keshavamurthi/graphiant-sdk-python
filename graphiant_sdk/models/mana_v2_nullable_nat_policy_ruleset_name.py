@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,7 +27,7 @@ class ManaV2NullableNatPolicyRulesetName(BaseModel):
     """
     ManaV2NullableNatPolicyRulesetName
     """ # noqa: E501
-    ruleset: Optional[StrictStr] = None
+    ruleset: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["ruleset"]
 
     model_config = ConfigDict(

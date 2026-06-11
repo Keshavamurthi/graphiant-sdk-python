@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.mana_v2_nullable_snmp_vacm_group_access_value import ManaV2NullableSnmpVacmGroupAccessValue
 from graphiant_sdk.models.mana_v2_nullable_snmp_vacm_group_member_value import ManaV2NullableSnmpVacmGroupMemberValue
@@ -31,7 +31,7 @@ class ManaV2VacmGroupConfig(BaseModel):
     """ # noqa: E501
     accesses: Optional[Dict[str, ManaV2NullableSnmpVacmGroupAccessValue]] = None
     members: Optional[Dict[str, ManaV2NullableSnmpVacmGroupMemberValue]] = None
-    name: Optional[StrictStr] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["accesses", "members", "name"]
 
     model_config = ConfigDict(

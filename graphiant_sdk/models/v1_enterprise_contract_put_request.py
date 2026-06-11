@@ -28,7 +28,7 @@ class V1EnterpriseContractPutRequest(BaseModel):
     """
     V1EnterpriseContractPutRequest
     """ # noqa: E501
-    contracted_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Amount of credits billed for a contract term or monthly if no expiration date is provided", alias="contractedCredits")
+    contracted_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Amount of credits billed for a contract term or per month when no expiration is provided. For an MSP tenant, this is the total credits in the MSP billing pool (from which credits are allocated to managed enterprises).", alias="contractedCredits", json_schema_extra={"examples": [12.34]})
     expiration_date: Optional[ManaV2TimePeriod] = Field(default=None, alias="expirationDate")
     __properties: ClassVar[List[str]] = ["contractedCredits", "expirationDate"]
 

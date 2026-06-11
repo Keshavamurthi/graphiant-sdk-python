@@ -27,8 +27,8 @@ class AssuranceClassifiedApplication(BaseModel):
     """
     AssuranceClassifiedApplication
     """ # noqa: E501
-    app_name: Optional[StrictStr] = Field(default=None, alias="appName")
-    classification_entry_id: Optional[StrictStr] = Field(default=None, alias="classificationEntryId")
+    app_name: Optional[StrictStr] = Field(default=None, alias="appName", json_schema_extra={"examples": ["example string"]})
+    classification_entry_id: Optional[StrictStr] = Field(default=None, alias="classificationEntryId", json_schema_extra={"examples": ["example string"]})
     ip_prefix_list: Optional[List[StrictStr]] = Field(default=None, alias="ipPrefixList")
     port_list: Optional[List[StrictStr]] = Field(default=None, alias="portList")
     protocol_list: Optional[List[StrictStr]] = Field(default=None, alias="protocolList")

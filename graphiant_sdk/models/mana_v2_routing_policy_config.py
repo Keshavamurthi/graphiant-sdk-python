@@ -28,12 +28,12 @@ class ManaV2RoutingPolicyConfig(BaseModel):
     """
     ManaV2RoutingPolicyConfig
     """ # noqa: E501
-    attach_point: Optional[StrictStr] = Field(default=None, alias="attachPoint")
-    default_action: Optional[StrictStr] = Field(default=None, alias="defaultAction")
-    description: Optional[StrictStr] = None
-    global_id: Optional[StrictInt] = Field(default=None, alias="globalId")
-    is_global_sync: Optional[StrictBool] = Field(default=None, alias="isGlobalSync")
-    name: Optional[StrictStr] = None
+    attach_point: Optional[StrictStr] = Field(default=None, alias="attachPoint", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    default_action: Optional[StrictStr] = Field(default=None, alias="defaultAction", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    global_id: Optional[StrictInt] = Field(default=None, alias="globalId", json_schema_extra={"examples": [1234567891011]})
+    is_global_sync: Optional[StrictBool] = Field(default=None, alias="isGlobalSync", json_schema_extra={"examples": [True]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     statements: Optional[Dict[str, ManaV2RoutingPolicyConfigNullableStatement]] = None
     __properties: ClassVar[List[str]] = ["attachPoint", "defaultAction", "description", "globalId", "isGlobalSync", "name", "statements"]
 

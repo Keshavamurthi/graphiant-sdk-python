@@ -28,8 +28,8 @@ class ManaV2FirewallZonePair(BaseModel):
     """
     ManaV2FirewallZonePair
     """ # noqa: E501
-    inside: Optional[StrictStr] = None
-    outside: Optional[StrictStr] = None
+    inside: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    outside: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     security_rulesets: Optional[List[ManaV2SecurityPolicyRuleset]] = Field(default=None, alias="securityRulesets")
     __properties: ClassVar[List[str]] = ["inside", "outside", "securityRulesets"]
 

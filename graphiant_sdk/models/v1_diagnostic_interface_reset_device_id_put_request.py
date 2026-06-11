@@ -27,7 +27,7 @@ class V1DiagnosticInterfaceResetDeviceIdPutRequest(BaseModel):
     """
     V1DiagnosticInterfaceResetDeviceIdPutRequest
     """ # noqa: E501
-    interface: Optional[StrictStr] = Field(default=None, description="interface name")
+    interface: Optional[StrictStr] = Field(default=None, description="interface name", json_schema_extra={"examples": ["GigabitEthernet0/2"]})
     __properties: ClassVar[List[str]] = ["interface"]
 
     model_config = ConfigDict(

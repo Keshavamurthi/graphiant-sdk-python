@@ -27,9 +27,9 @@ class StatsmonTroubleshootingEdgeStatus(BaseModel):
     """
     StatsmonTroubleshootingEdgeStatus
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName")
-    device_status: Optional[StrictStr] = Field(default=None, alias="deviceStatus")
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName", json_schema_extra={"examples": ["example string"]})
+    device_status: Optional[StrictStr] = Field(default=None, alias="deviceStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["deviceId", "deviceName", "deviceStatus"]
 
     model_config = ConfigDict(

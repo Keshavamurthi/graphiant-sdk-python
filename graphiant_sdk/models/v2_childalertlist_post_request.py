@@ -27,7 +27,7 @@ class V2ChildalertlistPostRequest(BaseModel):
     """
     V2ChildalertlistPostRequest
     """ # noqa: E501
-    alert_id: StrictStr = Field(description="Alert id of the parent alert (required)", alias="alertId")
+    alert_id: StrictStr = Field(description="Alert id of the parent alert (required)", alias="alertId", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["alertId"]
 
     model_config = ConfigDict(

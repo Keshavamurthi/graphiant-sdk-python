@@ -34,13 +34,13 @@ class ManaV2GatewayDetails(BaseModel):
     """ # noqa: E501
     aws: Optional[ManaV2AwsGatewayDetails] = None
     azure: Optional[ManaV2AzureGatewayDetails] = None
-    description: Optional[StrictStr] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     gcp: Optional[ManaV2GcpGatewayDetails] = None
     ipsec_gateway: Optional[ManaV2IPsecGatewayDetails] = Field(default=None, alias="ipsecGateway")
     oci: Optional[ManaV2OciGatewayDetails] = None
-    region_id: Optional[StrictInt] = Field(default=None, alias="regionId")
-    speed: Optional[StrictStr] = None
-    vrf_id: Optional[StrictInt] = Field(default=None, alias="vrfId")
+    region_id: Optional[StrictInt] = Field(default=None, alias="regionId", json_schema_extra={"examples": [123]})
+    speed: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    vrf_id: Optional[StrictInt] = Field(default=None, alias="vrfId", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["aws", "azure", "description", "gcp", "ipsecGateway", "oci", "regionId", "speed", "vrfId"]
 
     model_config = ConfigDict(

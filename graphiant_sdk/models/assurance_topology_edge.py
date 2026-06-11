@@ -28,9 +28,9 @@ class AssuranceTopologyEdge(BaseModel):
     """
     AssuranceTopologyEdge
     """ # noqa: E501
-    destination_node_id: Optional[StrictStr] = Field(default=None, alias="destinationNodeId")
+    destination_node_id: Optional[StrictStr] = Field(default=None, alias="destinationNodeId", json_schema_extra={"examples": ["example string"]})
     performance: Optional[List[AssuranceTopologyEdgeLinkPerformance]] = None
-    source_node_id: Optional[StrictStr] = Field(default=None, alias="sourceNodeId")
+    source_node_id: Optional[StrictStr] = Field(default=None, alias="sourceNodeId", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["destinationNodeId", "performance", "sourceNodeId"]
 
     model_config = ConfigDict(

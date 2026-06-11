@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **lan_segments** | **List[str]** |  | [optional] 
 **server_ip** | **str** |  | [optional] 
 **server_port** | **int** |  | [optional] 
+**server_site_enterprise_name** | **str** |  | [optional] 
 **server_site_name** | **str** |  | [optional] 
 **session_count** | **int** |  | [optional] 
 

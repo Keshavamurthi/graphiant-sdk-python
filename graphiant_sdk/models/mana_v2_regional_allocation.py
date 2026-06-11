@@ -27,13 +27,13 @@ class ManaV2RegionalAllocation(BaseModel):
     """
     ManaV2RegionalAllocation
     """ # noqa: E501
-    allocation_core: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Gigabytes per second allowed for core network connections on this region", alias="allocationCore")
-    allocation_gw: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Gigabytes per second allowed for gateway connections on this region", alias="allocationGw")
-    allocation_internet: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Gigabytes per second allowed for dia gateway internet access on this region. Must be 0, 10, or 100", alias="allocationInternet")
-    credit_core: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="creditCore")
-    credit_gw: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="creditGw")
-    region_id: Optional[StrictInt] = Field(default=None, alias="regionId")
-    region_name: Optional[StrictStr] = Field(default=None, alias="regionName")
+    allocation_core: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Gigabytes per second allowed for core network connections on this region", alias="allocationCore", json_schema_extra={"examples": [12.34]})
+    allocation_gw: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Gigabytes per second allowed for gateway connections on this region", alias="allocationGw", json_schema_extra={"examples": [12.34]})
+    allocation_internet: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Gigabytes per second allowed for dia gateway internet access on this region. Must be 0, 10, or 100", alias="allocationInternet", json_schema_extra={"examples": [12.34]})
+    credit_core: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="creditCore", json_schema_extra={"examples": [12.34]})
+    credit_gw: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="creditGw", json_schema_extra={"examples": [12.34]})
+    region_id: Optional[StrictInt] = Field(default=None, alias="regionId", json_schema_extra={"examples": [123]})
+    region_name: Optional[StrictStr] = Field(default=None, alias="regionName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["allocationCore", "allocationGw", "allocationInternet", "creditCore", "creditGw", "regionId", "regionName"]
 
     model_config = ConfigDict(

@@ -30,11 +30,11 @@ class ManaV2BgpDynamicNeighborOperPeer(BaseModel):
     ManaV2BgpDynamicNeighborOperPeer
     """ # noqa: E501
     last_oper_status_change: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="lastOperStatusChange")
-    local_address: Optional[StrictStr] = Field(default=None, description="Local address used for this peer session, if known from oper", alias="localAddress")
-    oper_status: Optional[StrictBool] = Field(default=None, description="True when the BGP session to this peer is operationally up (e.g. established)", alias="operStatus")
-    peer_asn: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Peer ASN from oper, if reported", alias="peerAsn")
-    remote_address: Optional[StrictStr] = Field(default=None, description="Peer address from device oper state (IPv4/IPv6; may include IPv6 zone id)", alias="remoteAddress")
-    state: Optional[StrictStr] = Field(default=None, description="BGP FSM state for this peer session")
+    local_address: Optional[StrictStr] = Field(default=None, description="Local address used for this peer session, if known from oper", alias="localAddress", json_schema_extra={"examples": ["example string"]})
+    oper_status: Optional[StrictBool] = Field(default=None, description="True when the BGP session to this peer is operationally up (e.g. established)", alias="operStatus", json_schema_extra={"examples": [True]})
+    peer_asn: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Peer ASN from oper, if reported", alias="peerAsn", json_schema_extra={"examples": [123]})
+    remote_address: Optional[StrictStr] = Field(default=None, description="Peer address from device oper state (IPv4/IPv6; may include IPv6 zone id)", alias="remoteAddress", json_schema_extra={"examples": ["example string"]})
+    state: Optional[StrictStr] = Field(default=None, description="BGP FSM state for this peer session", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["lastOperStatusChange", "localAddress", "operStatus", "peerAsn", "remoteAddress", "state"]
 
     model_config = ConfigDict(

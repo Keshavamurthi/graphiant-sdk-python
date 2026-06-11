@@ -27,8 +27,8 @@ class V1DeviceRoutingVrfBgpRouteCountPostResponseRouteCount(BaseModel):
     """
     V1DeviceRoutingVrfBgpRouteCountPostResponseRouteCount
     """ # noqa: E501
-    route_count: Optional[StrictInt] = Field(default=None, description="total route count in a vrf (required)", alias="routeCount")
-    vrf_name: Optional[StrictStr] = Field(default=None, description="Valid configured VRF name (required)", alias="vrfName")
+    route_count: Optional[StrictInt] = Field(default=None, description="total route count in a vrf (required)", alias="routeCount", json_schema_extra={"examples": [1234]})
+    vrf_name: Optional[StrictStr] = Field(default=None, description="Valid configured VRF name (required)", alias="vrfName", json_schema_extra={"examples": ["management"]})
     __properties: ClassVar[List[str]] = ["routeCount", "vrfName"]
 
     model_config = ConfigDict(

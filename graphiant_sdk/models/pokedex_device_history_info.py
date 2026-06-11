@@ -29,12 +29,12 @@ class PokedexDeviceHistoryInfo(BaseModel):
     """
     PokedexDeviceHistoryInfo
     """ # noqa: E501
-    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId")
-    enterprise_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="enterpriseId")
-    event: Optional[StrictStr] = None
+    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [12345678910]})
+    enterprise_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="enterpriseId", json_schema_extra={"examples": [12345678910]})
+    event: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     event_time: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="eventTime")
-    ipaddress: Optional[StrictStr] = None
-    tt_identity: Optional[StrictStr] = Field(default=None, alias="ttIdentity")
+    ipaddress: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    tt_identity: Optional[StrictStr] = Field(default=None, alias="ttIdentity", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["deviceId", "enterpriseId", "event", "eventTime", "ipaddress", "ttIdentity"]
 
     model_config = ConfigDict(

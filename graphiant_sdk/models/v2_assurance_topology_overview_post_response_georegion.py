@@ -28,7 +28,7 @@ class V2AssuranceTopologyOverviewPostResponseGeoregion(BaseModel):
     """
     V2AssuranceTopologyOverviewPostResponseGeoregion
     """ # noqa: E501
-    num_sites: Optional[StrictInt] = Field(default=None, alias="numSites")
+    num_sites: Optional[StrictInt] = Field(default=None, alias="numSites", json_schema_extra={"examples": [123]})
     region: Optional[AssuranceRegion] = None
     __properties: ClassVar[List[str]] = ["numSites", "region"]
 

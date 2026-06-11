@@ -28,8 +28,8 @@ class UpgradeWeeklyRecurrence(BaseModel):
     """
     UpgradeWeeklyRecurrence
     """ # noqa: E501
-    interval: Annotated[int, Field(strict=True, ge=0)] = Field(description="Which occurrence of the weekday in the month applies for weekly-style recurrence (1–52, aligned with schedule validation). (required)")
-    weekday: StrictStr = Field(description="Day of week for the weekly recurrence. (required)")
+    interval: Annotated[int, Field(strict=True, ge=0)] = Field(description="Which occurrence of the weekday in the month applies for weekly-style recurrence (1–52, aligned with schedule validation). (required)", json_schema_extra={"examples": [2]})
+    weekday: StrictStr = Field(description="Day of week for the weekly recurrence. (required)", json_schema_extra={"examples": ["Monday"]})
     __properties: ClassVar[List[str]] = ["interval", "weekday"]
 
     model_config = ConfigDict(

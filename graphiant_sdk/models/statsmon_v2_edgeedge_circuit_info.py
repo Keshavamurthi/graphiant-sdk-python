@@ -28,15 +28,15 @@ class StatsmonV2EdgeedgeCircuitInfo(BaseModel):
     """
     StatsmonV2EdgeedgeCircuitInfo
     """ # noqa: E501
-    circuit_carrier: Optional[StrictStr] = Field(default=None, alias="circuitCarrier")
-    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName")
-    device_hostname: Optional[StrictStr] = Field(default=None, alias="deviceHostname")
-    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName")
-    label: Optional[StrictStr] = None
-    last_resort_circuit: Optional[StrictBool] = Field(default=None, alias="lastResortCircuit")
-    quality: Optional[StrictStr] = None
-    source_ip: Optional[StrictStr] = Field(default=None, alias="sourceIp")
-    source_public_ip: Optional[StrictStr] = Field(default=None, alias="sourcePublicIp")
+    circuit_carrier: Optional[StrictStr] = Field(default=None, alias="circuitCarrier", json_schema_extra={"examples": ["example string"]})
+    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName", json_schema_extra={"examples": ["example string"]})
+    device_hostname: Optional[StrictStr] = Field(default=None, alias="deviceHostname", json_schema_extra={"examples": ["example string"]})
+    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName", json_schema_extra={"examples": ["example string"]})
+    label: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    last_resort_circuit: Optional[StrictBool] = Field(default=None, alias="lastResortCircuit", json_schema_extra={"examples": [True]})
+    quality: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    source_ip: Optional[StrictStr] = Field(default=None, alias="sourceIp", json_schema_extra={"examples": ["example string"]})
+    source_public_ip: Optional[StrictStr] = Field(default=None, alias="sourcePublicIp", json_schema_extra={"examples": ["example string"]})
     uptime: Optional[GoogleProtobufTimestamp] = None
     __properties: ClassVar[List[str]] = ["circuitCarrier", "circuitName", "deviceHostname", "interfaceName", "label", "lastResortCircuit", "quality", "sourceIp", "sourcePublicIp", "uptime"]
 

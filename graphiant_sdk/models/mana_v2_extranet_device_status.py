@@ -27,10 +27,10 @@ class ManaV2ExtranetDeviceStatus(BaseModel):
     """
     ManaV2ExtranetDeviceStatus
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName")
-    site_name: Optional[StrictStr] = Field(default=None, alias="siteName")
-    status: Optional[StrictStr] = None
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName", json_schema_extra={"examples": ["example string"]})
+    site_name: Optional[StrictStr] = Field(default=None, alias="siteName", json_schema_extra={"examples": ["example string"]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["deviceId", "deviceName", "siteName", "status"]
 
     model_config = ConfigDict(

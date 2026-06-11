@@ -28,7 +28,7 @@ class V2AckCreateupdatePostRequest(BaseModel):
     V2AckCreateupdatePostRequest
     """ # noqa: E501
     alert_id_list: List[StrictStr] = Field(alias="alertIdList")
-    reason: Optional[StrictStr] = Field(default=None, description="Optional triage message in acknowledgement")
+    reason: Optional[StrictStr] = Field(default=None, description="Optional triage message in acknowledgement", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["alertIdList", "reason"]
 
     model_config = ConfigDict(

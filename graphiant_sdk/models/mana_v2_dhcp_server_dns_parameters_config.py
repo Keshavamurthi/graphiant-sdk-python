@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +27,8 @@ class ManaV2DhcpServerDnsParametersConfig(BaseModel):
     """
     ManaV2DhcpServerDnsParametersConfig
     """ # noqa: E501
-    primary: Optional[StrictStr] = None
-    secondary: Optional[StrictStr] = None
+    primary: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    secondary: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["primary", "secondary"]
 
     model_config = ConfigDict(

@@ -27,9 +27,9 @@ class ManaV2RouteTag(BaseModel):
     """
     ManaV2RouteTag
     """ # noqa: E501
-    level_one: Optional[StrictStr] = Field(default=None, alias="levelOne")
-    level_two: Optional[StrictStr] = Field(default=None, alias="levelTwo")
-    level_zero: Optional[StrictStr] = Field(default=None, alias="levelZero")
+    level_one: Optional[StrictStr] = Field(default=None, alias="levelOne", json_schema_extra={"examples": ["example string"]})
+    level_two: Optional[StrictStr] = Field(default=None, alias="levelTwo", json_schema_extra={"examples": ["example string"]})
+    level_zero: Optional[StrictStr] = Field(default=None, alias="levelZero", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["levelOne", "levelTwo", "levelZero"]
 
     model_config = ConfigDict(

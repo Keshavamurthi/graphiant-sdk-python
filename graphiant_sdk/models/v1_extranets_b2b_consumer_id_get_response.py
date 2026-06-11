@@ -29,9 +29,9 @@ class V1ExtranetsB2bConsumerIdGetResponse(BaseModel):
     """
     V1ExtranetsB2bConsumerIdGetResponse
     """ # noqa: E501
-    consumer_id: Optional[StrictInt] = Field(default=None, alias="consumerId")
+    consumer_id: Optional[StrictInt] = Field(default=None, alias="consumerId", json_schema_extra={"examples": [1234567891011]})
     policy: Optional[List[ManaV2ExtranetConsumerLanSegmentPolicyResponse]] = None
-    service_name: Optional[StrictStr] = Field(default=None, alias="serviceName")
+    service_name: Optional[StrictStr] = Field(default=None, alias="serviceName", json_schema_extra={"examples": ["example string"]})
     site_information: Optional[List[ManaV2B2bSiteInformation]] = Field(default=None, alias="siteInformation")
     __properties: ClassVar[List[str]] = ["consumerId", "policy", "serviceName", "siteInformation"]
 

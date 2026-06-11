@@ -29,13 +29,13 @@ class AlertserviceNotificationRecord(BaseModel):
     """
     AlertserviceNotificationRecord
     """ # noqa: E501
-    alert_type: Optional[StrictStr] = Field(default=None, description="Type of the alert underlying the notification (required)", alias="alertType")
-    mute_count: Optional[StrictInt] = Field(default=None, description="Number of entities notificated muted (required)", alias="muteCount")
-    name: Optional[StrictStr] = Field(default=None, description="Name given to the notification record (required)")
+    alert_type: Optional[StrictStr] = Field(default=None, description="Type of the alert underlying the notification (required)", alias="alertType", json_schema_extra={"examples": ["example string"]})
+    mute_count: Optional[StrictInt] = Field(default=None, description="Number of entities notificated muted (required)", alias="muteCount", json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, description="Name given to the notification record (required)", json_schema_extra={"examples": ["example string"]})
     notification_body: Optional[AlertserviceNotificationBody] = Field(default=None, alias="notificationBody")
-    notification_id: Optional[StrictStr] = Field(default=None, description="Unique id for the notification record (required)", alias="notificationId")
-    rule_id: Optional[StrictStr] = Field(default=None, description="The id of the rule on which notification is created (required)", alias="ruleId")
-    times_triggered: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Number of times notification was triggered for the same alert (required)", alias="timesTriggered")
+    notification_id: Optional[StrictStr] = Field(default=None, description="Unique id for the notification record (required)", alias="notificationId", json_schema_extra={"examples": ["example string"]})
+    rule_id: Optional[StrictStr] = Field(default=None, description="The id of the rule on which notification is created (required)", alias="ruleId", json_schema_extra={"examples": ["example string"]})
+    times_triggered: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Number of times notification was triggered for the same alert (required)", alias="timesTriggered", json_schema_extra={"examples": [12345678910]})
     __properties: ClassVar[List[str]] = ["alertType", "muteCount", "name", "notificationBody", "notificationId", "ruleId", "timesTriggered"]
 
     model_config = ConfigDict(

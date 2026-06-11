@@ -27,7 +27,7 @@ class V1SoftwareReleasesDownloadGetResponse(BaseModel):
     """
     V1SoftwareReleasesDownloadGetResponse
     """ # noqa: E501
-    image_link: Optional[StrictStr] = Field(default=None, alias="imageLink")
+    image_link: Optional[StrictStr] = Field(default=None, alias="imageLink", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["imageLink"]
 
     model_config = ConfigDict(

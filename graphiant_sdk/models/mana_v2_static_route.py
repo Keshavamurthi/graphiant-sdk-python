@@ -29,12 +29,12 @@ class ManaV2StaticRoute(BaseModel):
     """
     ManaV2StaticRoute
     """ # noqa: E501
-    administrative_distance: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="administrativeDistance")
-    description: Optional[StrictStr] = None
-    id: Optional[StrictInt] = None
+    administrative_distance: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="administrativeDistance", json_schema_extra={"examples": [123]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     next_hop: Optional[ManaV2StaticRouteNexthop] = Field(default=None, alias="nextHop")
     next_hops: Optional[List[ManaV2StaticRouteNexthop]] = Field(default=None, alias="nextHops")
-    prefix: Optional[StrictStr] = None
+    prefix: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["administrativeDistance", "description", "id", "nextHop", "nextHops", "prefix"]
 
     model_config = ConfigDict(

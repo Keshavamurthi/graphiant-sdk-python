@@ -30,8 +30,8 @@ class V2MonitoringSiteTwampSiteIdPostResponseData(BaseModel):
     """
     V2MonitoringSiteTwampSiteIdPostResponseData
     """ # noqa: E501
-    carrier: Optional[StrictStr] = None
-    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId")
+    carrier: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [12345678910]})
     samples: Optional[List[StatsmonV2StatsSample]] = None
     selector: Optional[StatsmonV2TwampStatsSelector] = None
     __properties: ClassVar[List[str]] = ["carrier", "deviceId", "samples", "selector"]

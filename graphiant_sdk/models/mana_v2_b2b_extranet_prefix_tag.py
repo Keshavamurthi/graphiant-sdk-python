@@ -27,8 +27,8 @@ class ManaV2B2bExtranetPrefixTag(BaseModel):
     """
     ManaV2B2bExtranetPrefixTag
     """ # noqa: E501
-    prefix: StrictStr = Field(description="Prefix advertised by the service (required)")
-    tag: Optional[StrictStr] = Field(default=None, description="Tag for the prefix")
+    prefix: StrictStr = Field(description="Prefix advertised by the service (required)", json_schema_extra={"examples": ["10.1.2.0/24"]})
+    tag: Optional[StrictStr] = Field(default=None, description="Tag for the prefix", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["prefix", "tag"]
 
     model_config = ConfigDict(

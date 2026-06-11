@@ -28,8 +28,8 @@ class RoutingOspflsaTosMetric(BaseModel):
     """
     RoutingOspflsaTosMetric
     """ # noqa: E501
-    tos: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    tos_metric: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="tosMetric")
+    tos: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    tos_metric: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="tosMetric", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["tos", "tosMetric"]
 
     model_config = ConfigDict(

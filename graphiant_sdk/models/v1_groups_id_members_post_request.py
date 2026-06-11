@@ -28,7 +28,7 @@ class V1GroupsIdMembersPostRequest(BaseModel):
     V1GroupsIdMembersPostRequest
     """ # noqa: E501
     member_ids: List[StrictStr] = Field(alias="memberIds")
-    replace_existing: Optional[StrictBool] = Field(default=None, alias="replaceExisting")
+    replace_existing: Optional[StrictBool] = Field(default=None, alias="replaceExisting", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["memberIds", "replaceExisting"]
 
     model_config = ConfigDict(

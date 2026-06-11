@@ -30,19 +30,19 @@ class ManaV2BfdNeighbor(BaseModel):
     """
     ManaV2BfdNeighbor
     """ # noqa: E501
-    desired_minimum_tx_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="desiredMinimumTxInterval")
-    if_index: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="ifIndex")
-    interface: Optional[StrictStr] = None
+    desired_minimum_tx_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="desiredMinimumTxInterval", json_schema_extra={"examples": [123]})
+    if_index: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="ifIndex", json_schema_extra={"examples": [123]})
+    interface: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     last_updated: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="lastUpdated")
-    local_diag: Optional[StrictStr] = Field(default=None, alias="localDiag")
-    peer_address: Optional[StrictStr] = Field(default=None, alias="peerAddress")
-    remote_diag: Optional[StrictStr] = Field(default=None, alias="remoteDiag")
-    required_minimum_rx_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="requiredMinimumRxInterval")
-    segment_name: Optional[StrictStr] = Field(default=None, alias="segmentName")
-    source_address: Optional[StrictStr] = Field(default=None, alias="sourceAddress")
-    state: Optional[StrictStr] = None
+    local_diag: Optional[StrictStr] = Field(default=None, alias="localDiag", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    peer_address: Optional[StrictStr] = Field(default=None, alias="peerAddress", json_schema_extra={"examples": ["example string"]})
+    remote_diag: Optional[StrictStr] = Field(default=None, alias="remoteDiag", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    required_minimum_rx_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="requiredMinimumRxInterval", json_schema_extra={"examples": [123]})
+    segment_name: Optional[StrictStr] = Field(default=None, alias="segmentName", json_schema_extra={"examples": ["example string"]})
+    source_address: Optional[StrictStr] = Field(default=None, alias="sourceAddress", json_schema_extra={"examples": ["example string"]})
+    state: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     time_in_state: Optional[GoogleProtobufDuration] = Field(default=None, alias="timeInState")
-    up: Optional[StrictBool] = None
+    up: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["desiredMinimumTxInterval", "ifIndex", "interface", "lastUpdated", "localDiag", "peerAddress", "remoteDiag", "requiredMinimumRxInterval", "segmentName", "sourceAddress", "state", "timeInState", "up"]
 
     model_config = ConfigDict(

@@ -28,25 +28,25 @@ class ManaV2InterfaceIPsecConfig(BaseModel):
     """
     ManaV2InterfaceIPsecConfig
     """ # noqa: E501
-    anti_replay_window_size: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="antiReplayWindowSize")
-    dh_group: Optional[StrictStr] = Field(default=None, alias="dhGroup")
-    dpd_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="dpdInterval")
-    encryption_alg: Optional[StrictStr] = Field(default=None, alias="encryptionAlg")
-    esn: Optional[StrictBool] = None
-    ike_integrity: Optional[StrictStr] = Field(default=None, alias="ikeIntegrity")
-    initiator: Optional[StrictBool] = None
-    ipsec_encryption_alg: Optional[StrictStr] = Field(default=None, alias="ipsecEncryptionAlg")
-    ipsec_integrity: Optional[StrictStr] = Field(default=None, alias="ipsecIntegrity")
-    label: Optional[StrictStr] = None
-    local_address: Optional[StrictStr] = Field(default=None, alias="localAddress")
-    local_circuit: Optional[StrictStr] = Field(default=None, alias="localCircuit")
-    local_ike_peer_identity: Optional[StrictStr] = Field(default=None, alias="localIkePeerIdentity")
-    perfect_forward_secrecy: Optional[StrictStr] = Field(default=None, alias="perfectForwardSecrecy")
-    preshared_key: Optional[StrictStr] = Field(default=None, alias="presharedKey")
-    reauth_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="reauthInterval")
-    rekey_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="rekeyInterval")
-    remote_address: Optional[StrictStr] = Field(default=None, alias="remoteAddress")
-    remote_ike_peer_identity: Optional[StrictStr] = Field(default=None, alias="remoteIkePeerIdentity")
+    anti_replay_window_size: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="antiReplayWindowSize", json_schema_extra={"examples": [123]})
+    dh_group: Optional[StrictStr] = Field(default=None, alias="dhGroup", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    dpd_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="dpdInterval", json_schema_extra={"examples": [123]})
+    encryption_alg: Optional[StrictStr] = Field(default=None, alias="encryptionAlg", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    esn: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    ike_integrity: Optional[StrictStr] = Field(default=None, alias="ikeIntegrity", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    initiator: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    ipsec_encryption_alg: Optional[StrictStr] = Field(default=None, alias="ipsecEncryptionAlg", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    ipsec_integrity: Optional[StrictStr] = Field(default=None, alias="ipsecIntegrity", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    label: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    local_address: Optional[StrictStr] = Field(default=None, alias="localAddress", json_schema_extra={"examples": ["example string"]})
+    local_circuit: Optional[StrictStr] = Field(default=None, alias="localCircuit", json_schema_extra={"examples": ["example string"]})
+    local_ike_peer_identity: Optional[StrictStr] = Field(default=None, alias="localIkePeerIdentity", json_schema_extra={"examples": ["example string"]})
+    perfect_forward_secrecy: Optional[StrictStr] = Field(default=None, alias="perfectForwardSecrecy", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    preshared_key: Optional[StrictStr] = Field(default=None, alias="presharedKey", json_schema_extra={"examples": ["example string"]})
+    reauth_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="reauthInterval", json_schema_extra={"examples": [123]})
+    rekey_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="rekeyInterval", json_schema_extra={"examples": [123]})
+    remote_address: Optional[StrictStr] = Field(default=None, alias="remoteAddress", json_schema_extra={"examples": ["example string"]})
+    remote_ike_peer_identity: Optional[StrictStr] = Field(default=None, alias="remoteIkePeerIdentity", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["antiReplayWindowSize", "dhGroup", "dpdInterval", "encryptionAlg", "esn", "ikeIntegrity", "initiator", "ipsecEncryptionAlg", "ipsecIntegrity", "label", "localAddress", "localCircuit", "localIkePeerIdentity", "perfectForwardSecrecy", "presharedKey", "reauthInterval", "rekeyInterval", "remoteAddress", "remoteIkePeerIdentity"]
 
     model_config = ConfigDict(

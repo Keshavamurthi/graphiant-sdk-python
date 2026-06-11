@@ -27,12 +27,12 @@ class AssuranceEnterpriseSummary(BaseModel):
     """
     AssuranceEnterpriseSummary
     """ # noqa: E501
-    flows_analyzed: Optional[StrictInt] = Field(default=None, alias="flowsAnalyzed")
-    gap_score: Optional[StrictInt] = Field(default=None, alias="gapScore")
-    prev_gap_score: Optional[StrictInt] = Field(default=None, alias="prevGapScore")
-    risk_bin: Optional[StrictInt] = Field(default=None, alias="riskBin")
-    threat_count: Optional[StrictInt] = Field(default=None, alias="threatCount")
-    unique_apps_count: Optional[StrictInt] = Field(default=None, alias="uniqueAppsCount")
+    flows_analyzed: Optional[StrictInt] = Field(default=None, alias="flowsAnalyzed", json_schema_extra={"examples": [1234567891011]})
+    gap_score: Optional[StrictInt] = Field(default=None, alias="gapScore", json_schema_extra={"examples": [1234567891011]})
+    prev_gap_score: Optional[StrictInt] = Field(default=None, alias="prevGapScore", json_schema_extra={"examples": [1234567891011]})
+    risk_bin: Optional[StrictInt] = Field(default=None, alias="riskBin", json_schema_extra={"examples": [1234567891011]})
+    threat_count: Optional[StrictInt] = Field(default=None, alias="threatCount", json_schema_extra={"examples": [1234567891011]})
+    unique_apps_count: Optional[StrictInt] = Field(default=None, alias="uniqueAppsCount", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["flowsAnalyzed", "gapScore", "prevGapScore", "riskBin", "threatCount", "uniqueAppsCount"]
 
     model_config = ConfigDict(

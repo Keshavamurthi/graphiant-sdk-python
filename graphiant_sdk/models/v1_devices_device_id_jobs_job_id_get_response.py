@@ -28,7 +28,7 @@ class V1DevicesDeviceIdJobsJobIdGetResponse(BaseModel):
     """
     V1DevicesDeviceIdJobsJobIdGetResponse
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
     job_status: Optional[ConfigWorkerJobStatus] = Field(default=None, alias="jobStatus")
     __properties: ClassVar[List[str]] = ["deviceId", "jobStatus"]
 

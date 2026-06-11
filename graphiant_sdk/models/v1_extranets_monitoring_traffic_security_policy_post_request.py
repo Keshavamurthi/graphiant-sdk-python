@@ -27,8 +27,8 @@ class V1ExtranetsMonitoringTrafficSecurityPolicyPostRequest(BaseModel):
     """
     V1ExtranetsMonitoringTrafficSecurityPolicyPostRequest
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    is_provider: Optional[StrictBool] = Field(default=None, alias="isProvider")
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    is_provider: Optional[StrictBool] = Field(default=None, alias="isProvider", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["id", "isProvider"]
 
     model_config = ConfigDict(

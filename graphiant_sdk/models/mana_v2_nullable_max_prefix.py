@@ -28,7 +28,7 @@ class ManaV2NullableMaxPrefix(BaseModel):
     """
     ManaV2NullableMaxPrefix
     """ # noqa: E501
-    max_prefix: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="maxPrefix")
+    max_prefix: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="maxPrefix", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["maxPrefix"]
 
     model_config = ConfigDict(

@@ -27,7 +27,7 @@ class V2AssuranceDownloadUserReportGetResponse(BaseModel):
     """
     V2AssuranceDownloadUserReportGetResponse
     """ # noqa: E501
-    pdf_content: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="pdfContent")
+    pdf_content: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="pdfContent", json_schema_extra={"examples": ["WW5sMFpYTT0="]})
     __properties: ClassVar[List[str]] = ["pdfContent"]
 
     model_config = ConfigDict(

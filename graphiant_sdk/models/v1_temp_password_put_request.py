@@ -27,10 +27,10 @@ class V1TempPasswordPutRequest(BaseModel):
     """
     V1TempPasswordPutRequest
     """ # noqa: E501
-    customer_name: Optional[StrictStr] = Field(default=None, alias="customerName")
+    customer_name: Optional[StrictStr] = Field(default=None, alias="customerName", json_schema_extra={"examples": ["example string"]})
     emails: List[StrictStr]
-    match_id: Optional[StrictInt] = Field(default=None, alias="matchId")
-    service_name: Optional[StrictStr] = Field(default=None, alias="serviceName")
+    match_id: Optional[StrictInt] = Field(default=None, alias="matchId", json_schema_extra={"examples": [1234567891011]})
+    service_name: Optional[StrictStr] = Field(default=None, alias="serviceName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["customerName", "emails", "matchId", "serviceName"]
 
     model_config = ConfigDict(

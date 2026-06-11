@@ -28,12 +28,12 @@ class ManaV2GlobalObjectDeviceStatus(BaseModel):
     """
     ManaV2GlobalObjectDeviceStatus
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    error_message: Optional[StrictStr] = Field(default=None, alias="errorMessage")
-    hostname: Optional[StrictStr] = None
-    internal_state: Optional[StrictStr] = Field(default=None, alias="internalState")
-    site_name: Optional[StrictStr] = Field(default=None, alias="siteName")
-    status: Optional[StrictStr] = None
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    error_message: Optional[StrictStr] = Field(default=None, alias="errorMessage", json_schema_extra={"examples": ["example string"]})
+    hostname: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    internal_state: Optional[StrictStr] = Field(default=None, alias="internalState", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    site_name: Optional[StrictStr] = Field(default=None, alias="siteName", json_schema_extra={"examples": ["example string"]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     status_since: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="statusSince")
     __properties: ClassVar[List[str]] = ["deviceId", "errorMessage", "hostname", "internalState", "siteName", "status", "statusSince"]
 

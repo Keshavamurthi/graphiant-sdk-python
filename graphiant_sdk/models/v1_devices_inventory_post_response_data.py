@@ -27,8 +27,8 @@ class V1DevicesInventoryPostResponseData(BaseModel):
     """
     V1DevicesInventoryPostResponseData
     """ # noqa: E501
-    device_serial: Optional[StrictStr] = Field(default=None, alias="deviceSerial")
-    uuid: Optional[StrictStr] = None
+    device_serial: Optional[StrictStr] = Field(default=None, alias="deviceSerial", json_schema_extra={"examples": ["example string"]})
+    uuid: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["deviceSerial", "uuid"]
 
     model_config = ConfigDict(

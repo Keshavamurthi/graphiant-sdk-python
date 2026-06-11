@@ -28,10 +28,10 @@ class StatsmonV2TwampStatsSelector(BaseModel):
     """
     StatsmonV2TwampStatsSelector
     """ # noqa: E501
-    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName")
-    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId")
-    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName")
-    type: Optional[StrictStr] = None
+    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName", json_schema_extra={"examples": ["example string"]})
+    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [12345678910]})
+    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName", json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["circuitName", "deviceId", "interfaceName", "type"]
 
     model_config = ConfigDict(

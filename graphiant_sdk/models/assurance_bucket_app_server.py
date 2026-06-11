@@ -27,11 +27,11 @@ class AssuranceBucketAppServer(BaseModel):
     """
     AssuranceBucketAppServer
     """ # noqa: E501
-    app_name: Optional[StrictStr] = Field(default=None, alias="appName")
-    app_server_key: Optional[StrictStr] = Field(default=None, alias="appServerKey")
-    server_ip: Optional[StrictStr] = Field(default=None, alias="serverIp")
-    server_port: Optional[StrictStr] = Field(default=None, alias="serverPort")
-    server_protocol: Optional[StrictStr] = Field(default=None, alias="serverProtocol")
+    app_name: Optional[StrictStr] = Field(default=None, alias="appName", json_schema_extra={"examples": ["example string"]})
+    app_server_key: Optional[StrictStr] = Field(default=None, alias="appServerKey", json_schema_extra={"examples": ["example string"]})
+    server_ip: Optional[StrictStr] = Field(default=None, alias="serverIp", json_schema_extra={"examples": ["example string"]})
+    server_port: Optional[StrictStr] = Field(default=None, alias="serverPort", json_schema_extra={"examples": ["example string"]})
+    server_protocol: Optional[StrictStr] = Field(default=None, alias="serverProtocol", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["appName", "appServerKey", "serverIp", "serverPort", "serverProtocol"]
 
     model_config = ConfigDict(

@@ -28,9 +28,9 @@ class IpfixAppBandwidthStats(BaseModel):
     """
     IpfixAppBandwidthStats
     """ # noqa: E501
-    dl_bw: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Bandwidth in kilo bits per second", alias="dlBw")
+    dl_bw: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Bandwidth in kilo bits per second", alias="dlBw", json_schema_extra={"examples": [123.45]})
     ts: Optional[GoogleProtobufTimestamp] = None
-    ul_bw: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Bandwidth in kilo bits per second", alias="ulBw")
+    ul_bw: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Bandwidth in kilo bits per second", alias="ulBw", json_schema_extra={"examples": [123.45]})
     __properties: ClassVar[List[str]] = ["dlBw", "ts", "ulBw"]
 
     model_config = ConfigDict(

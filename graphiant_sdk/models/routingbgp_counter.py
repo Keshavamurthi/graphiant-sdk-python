@@ -28,12 +28,12 @@ class RoutingbgpCounter(BaseModel):
     """
     RoutingbgpCounter
     """ # noqa: E501
-    graceful_restart: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="gracefulRestart")
-    local_as_number: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="localAsNumber")
-    local_ip_address: Optional[StrictStr] = Field(default=None, alias="localIpAddress")
-    local_router_id: Optional[StrictStr] = Field(default=None, alias="localRouterId")
-    peer_router_id: Optional[StrictStr] = Field(default=None, alias="peerRouterId")
-    up_time: Optional[StrictStr] = Field(default=None, alias="upTime")
+    graceful_restart: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="gracefulRestart", json_schema_extra={"examples": [123]})
+    local_as_number: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="localAsNumber", json_schema_extra={"examples": [123]})
+    local_ip_address: Optional[StrictStr] = Field(default=None, alias="localIpAddress", json_schema_extra={"examples": ["example string"]})
+    local_router_id: Optional[StrictStr] = Field(default=None, alias="localRouterId", json_schema_extra={"examples": ["example string"]})
+    peer_router_id: Optional[StrictStr] = Field(default=None, alias="peerRouterId", json_schema_extra={"examples": ["example string"]})
+    up_time: Optional[StrictStr] = Field(default=None, alias="upTime", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["gracefulRestart", "localAsNumber", "localIpAddress", "localRouterId", "peerRouterId", "upTime"]
 
     model_config = ConfigDict(

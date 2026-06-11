@@ -28,12 +28,12 @@ class ManaV2PolicyMatch(BaseModel):
     """
     ManaV2PolicyMatch
     """ # noqa: E501
-    destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destinationPort")
-    destination_prefix: Optional[StrictStr] = Field(default=None, alias="destinationPrefix")
-    icmp_type: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="icmpType")
-    protocol: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    source_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="sourcePort")
-    source_prefix: Optional[StrictStr] = Field(default=None, alias="sourcePrefix")
+    destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destinationPort", json_schema_extra={"examples": [123]})
+    destination_prefix: Optional[StrictStr] = Field(default=None, alias="destinationPrefix", json_schema_extra={"examples": ["example string"]})
+    icmp_type: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="icmpType", json_schema_extra={"examples": [123]})
+    protocol: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    source_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="sourcePort", json_schema_extra={"examples": [123]})
+    source_prefix: Optional[StrictStr] = Field(default=None, alias="sourcePrefix", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["destinationPort", "destinationPrefix", "icmpType", "protocol", "sourcePort", "sourcePrefix"]
 
     model_config = ConfigDict(

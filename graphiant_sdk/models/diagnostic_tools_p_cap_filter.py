@@ -30,8 +30,8 @@ class DiagnosticToolsPCapFilter(BaseModel):
     DiagnosticToolsPCapFilter
     """ # noqa: E501
     destination: Optional[DiagnosticToolsPrefixPort] = None
-    dscp: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Filters the packet capture for the specified DSCP field")
-    protocol: Optional[StrictStr] = Field(default=None, description="Filters the packet capture for the specified protocol")
+    dscp: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Filters the packet capture for the specified DSCP field", json_schema_extra={"examples": [80]})
+    protocol: Optional[StrictStr] = Field(default=None, description="Filters the packet capture for the specified protocol", json_schema_extra={"examples": ["Tcp"]})
     source: Optional[DiagnosticToolsPrefixPort] = None
     __properties: ClassVar[List[str]] = ["destination", "dscp", "protocol", "source"]
 

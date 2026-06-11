@@ -29,8 +29,8 @@ class V1DevicesSummaryGetResponseSiteSummary(BaseModel):
     V1DevicesSummaryGetResponseSiteSummary
     """ # noqa: E501
     devices: Optional[List[V1DevicesSummaryGetResponseSiteSummaryDeviceSummary]] = None
-    site_id: Optional[StrictInt] = Field(default=None, alias="siteId")
-    site_name: Optional[StrictStr] = Field(default=None, alias="siteName")
+    site_id: Optional[StrictInt] = Field(default=None, alias="siteId", json_schema_extra={"examples": [1234567891011]})
+    site_name: Optional[StrictStr] = Field(default=None, alias="siteName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["devices", "siteId", "siteName"]
 
     model_config = ConfigDict(

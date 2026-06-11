@@ -39,7 +39,7 @@ class ManaV2RoutingPolicyConfigNullableStatementStatementNullableMatchMatch(Base
     prefix_set: Optional[ManaV2NullablePrefixSet] = Field(default=None, alias="prefixSet")
     protocol_route_type: Optional[ManaV2NullableProtocolRouteType] = Field(default=None, alias="protocolRouteType")
     route_tag: Optional[ManaV2NullableRouteTagSet] = Field(default=None, alias="routeTag")
-    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     source_interface: Optional[ManaV2NullableInterfaceName] = Field(default=None, alias="sourceInterface")
     source_protocol: Optional[ManaV2NullableRoutingProtocol] = Field(default=None, alias="sourceProtocol")
     stale: Optional[ManaV2NullableStalePurge] = None

@@ -27,9 +27,9 @@ class V1ZtagentBindingsGetResponse(BaseModel):
     """
     V1ZtagentBindingsGetResponse
     """ # noqa: E501
-    customer_id: Optional[StrictStr] = Field(default=None, alias="customerId")
-    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId")
-    site_id: Optional[StrictStr] = Field(default=None, alias="siteId")
+    customer_id: Optional[StrictStr] = Field(default=None, alias="customerId", json_schema_extra={"examples": ["example string"]})
+    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId", json_schema_extra={"examples": [1234567891011]})
+    site_id: Optional[StrictStr] = Field(default=None, alias="siteId", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["customerId", "enterpriseId", "siteId"]
 
     model_config = ConfigDict(

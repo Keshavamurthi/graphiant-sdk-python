@@ -27,11 +27,11 @@ class V1UsersPutRequest(BaseModel):
     """
     V1UsersPutRequest
     """ # noqa: E501
-    email: StrictStr = Field(description=" (required)")
-    first_name: StrictStr = Field(description=" (required)", alias="firstName")
-    group_id: Optional[StrictStr] = Field(default=None, alias="groupId")
-    last_name: StrictStr = Field(description=" (required)", alias="lastName")
-    time_zone: Optional[StrictStr] = Field(default=None, alias="timeZone")
+    email: StrictStr = Field(description=" (required)", json_schema_extra={"examples": ["example string"]})
+    first_name: StrictStr = Field(description=" (required)", alias="firstName", json_schema_extra={"examples": ["example string"]})
+    group_id: Optional[StrictStr] = Field(default=None, alias="groupId", json_schema_extra={"examples": ["example string"]})
+    last_name: StrictStr = Field(description=" (required)", alias="lastName", json_schema_extra={"examples": ["example string"]})
+    time_zone: Optional[StrictStr] = Field(default=None, alias="timeZone", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["email", "firstName", "groupId", "lastName", "timeZone"]
 
     model_config = ConfigDict(

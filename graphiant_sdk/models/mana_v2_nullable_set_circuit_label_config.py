@@ -27,8 +27,8 @@ class ManaV2NullableSetCircuitLabelConfig(BaseModel):
     """
     ManaV2NullableSetCircuitLabelConfig
     """ # noqa: E501
-    ipsec_label: Optional[StrictStr] = Field(default=None, alias="ipsecLabel")
-    label: Optional[StrictStr] = None
+    ipsec_label: Optional[StrictStr] = Field(default=None, alias="ipsecLabel", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    label: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["ipsecLabel", "label"]
 
     model_config = ConfigDict(

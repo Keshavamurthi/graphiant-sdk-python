@@ -28,7 +28,7 @@ class V1DevicesInventoryEnterprisePutRequest(BaseModel):
     V1DevicesInventoryEnterprisePutRequest
     """ # noqa: E501
     device_serials: Optional[List[StrictStr]] = Field(default=None, alias="deviceSerials")
-    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId")
+    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["deviceSerials", "enterpriseId"]
 
     model_config = ConfigDict(

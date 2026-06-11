@@ -29,8 +29,8 @@ class V1VersionPostRequest(BaseModel):
     V1VersionPostRequest
     """ # noqa: E501
     configuration_metadata: Optional[ManaV2ConfigurationMetadata] = Field(default=None, alias="configurationMetadata")
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    version: Optional[StrictInt] = None
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    version: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["configurationMetadata", "deviceId", "version"]
 
     model_config = ConfigDict(

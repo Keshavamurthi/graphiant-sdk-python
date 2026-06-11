@@ -29,14 +29,14 @@ class ManaV2SecurityPolicyRuleset(BaseModel):
     """
     ManaV2SecurityPolicyRuleset
     """ # noqa: E501
-    description: Optional[StrictStr] = None
-    error_message: Optional[StrictStr] = Field(default=None, alias="errorMessage")
-    global_id: Optional[StrictInt] = Field(default=None, alias="globalId")
-    id: Optional[StrictInt] = None
-    index: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    name: Optional[StrictStr] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    error_message: Optional[StrictStr] = Field(default=None, alias="errorMessage", json_schema_extra={"examples": ["example string"]})
+    global_id: Optional[StrictInt] = Field(default=None, alias="globalId", json_schema_extra={"examples": [1234567891011]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    index: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     rules: Optional[List[ManaV2SecurityPolicyRulesetRule]] = None
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["description", "errorMessage", "globalId", "id", "index", "name", "rules", "status"]
 
     model_config = ConfigDict(

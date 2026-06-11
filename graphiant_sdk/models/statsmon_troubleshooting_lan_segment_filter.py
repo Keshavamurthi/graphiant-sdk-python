@@ -27,7 +27,7 @@ class StatsmonTroubleshootingLanSegmentFilter(BaseModel):
     """
     StatsmonTroubleshootingLanSegmentFilter
     """ # noqa: E501
-    lan_segment: Optional[StrictStr] = Field(default=None, alias="lanSegment")
+    lan_segment: Optional[StrictStr] = Field(default=None, alias="lanSegment", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["lanSegment"]
 
     model_config = ConfigDict(

@@ -34,11 +34,11 @@ class StatsmonBandwidthtrackerBwUsageByEnterpriseSummary(BaseModel):
     bwusage_role_summary: Optional[List[StatsmonBandwidthtrackerBwUsageByRoleSummary]] = Field(default=None, alias="bwusageRoleSummary")
     bwusage_top_regions: Optional[List[StatsmonBandwidthtrackerBwUsageByTopRegions]] = Field(default=None, alias="bwusageTopRegions")
     min_time: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="minTime")
-    percent_changed: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="percentChanged")
-    provider_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="providerCount")
-    region_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="regionCount")
-    site_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="siteCount")
-    usage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usageKbps")
+    percent_changed: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="percentChanged", json_schema_extra={"examples": [123.45]})
+    provider_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="providerCount", json_schema_extra={"examples": [12345678910]})
+    region_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="regionCount", json_schema_extra={"examples": [12345678910]})
+    site_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="siteCount", json_schema_extra={"examples": [12345678910]})
+    usage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usageKbps", json_schema_extra={"examples": [123.45]})
     __properties: ClassVar[List[str]] = ["bwusageRoleSummary", "bwusageTopRegions", "minTime", "percentChanged", "providerCount", "regionCount", "siteCount", "usageKbps"]
 
     model_config = ConfigDict(

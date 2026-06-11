@@ -27,10 +27,10 @@ class V1AuthPatchRequest(BaseModel):
     """
     V1AuthPatchRequest
     """ # noqa: E501
-    cert: StrictStr = Field(description=" (required)")
-    entry_point: StrictStr = Field(description=" (required)", alias="entryPoint")
-    iam_type: StrictStr = Field(description=" (required)", alias="iamType")
-    issuer: StrictStr = Field(description=" (required)")
+    cert: StrictStr = Field(description=" (required)", json_schema_extra={"examples": ["example string"]})
+    entry_point: StrictStr = Field(description=" (required)", alias="entryPoint", json_schema_extra={"examples": ["example string"]})
+    iam_type: StrictStr = Field(description=" (required)", alias="iamType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    issuer: StrictStr = Field(description=" (required)", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["cert", "entryPoint", "iamType", "issuer"]
 
     model_config = ConfigDict(

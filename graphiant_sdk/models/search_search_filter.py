@@ -27,9 +27,9 @@ class SearchSearchFilter(BaseModel):
     """
     SearchSearchFilter
     """ # noqa: E501
-    role: Optional[StrictStr] = None
-    site_name: Optional[StrictStr] = Field(default=None, alias="siteName")
-    status: StrictStr = Field(description="Status of the device, valid values are staging, active, inactive (required)")
+    role: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    site_name: Optional[StrictStr] = Field(default=None, alias="siteName", json_schema_extra={"examples": ["example string"]})
+    status: StrictStr = Field(description="Status of the device, valid values are staging, active, inactive (required)", json_schema_extra={"examples": ["active"]})
     __properties: ClassVar[List[str]] = ["role", "siteName", "status"]
 
     model_config = ConfigDict(

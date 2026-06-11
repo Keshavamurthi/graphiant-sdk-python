@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.statsmon_troubleshooting_system_stat import StatsmonTroubleshootingSystemStat
 from typing import Optional, Set
@@ -28,7 +28,7 @@ class StatsmonBackbonehealthTransitions(BaseModel):
     """
     StatsmonBackbonehealthTransitions
     """ # noqa: E501
-    name: Optional[StrictStr] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     transitions: Optional[List[StatsmonTroubleshootingSystemStat]] = None
     __properties: ClassVar[List[str]] = ["name", "transitions"]
 

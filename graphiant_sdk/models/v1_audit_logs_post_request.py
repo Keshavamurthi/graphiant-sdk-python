@@ -30,9 +30,9 @@ class V1AuditLogsPostRequest(BaseModel):
     """
     V1AuditLogsPostRequest
     """ # noqa: E501
-    cursor_ref: Optional[StrictStr] = Field(default=None, alias="cursorRef")
-    histogram_bucket_size_sec: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="histogramBucketSizeSec")
-    num_logs: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="numLogs")
+    cursor_ref: Optional[StrictStr] = Field(default=None, alias="cursorRef", json_schema_extra={"examples": ["example string"]})
+    histogram_bucket_size_sec: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="histogramBucketSizeSec", json_schema_extra={"examples": [123]})
+    num_logs: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="numLogs", json_schema_extra={"examples": [123]})
     old_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="oldTs")
     recent_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="recentTs")
     selectors: Optional[List[AuditmonSelector]] = None

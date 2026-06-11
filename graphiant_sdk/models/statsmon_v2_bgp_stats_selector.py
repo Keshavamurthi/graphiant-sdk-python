@@ -27,9 +27,9 @@ class StatsmonV2BgpStatsSelector(BaseModel):
     """
     StatsmonV2BgpStatsSelector
     """ # noqa: E501
-    peer_address: Optional[StrictStr] = Field(default=None, alias="peerAddress")
-    type: Optional[StrictStr] = None
-    vrf: Optional[StrictStr] = None
+    peer_address: Optional[StrictStr] = Field(default=None, alias="peerAddress", json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    vrf: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["peerAddress", "type", "vrf"]
 
     model_config = ConfigDict(

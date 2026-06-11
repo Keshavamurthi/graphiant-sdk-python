@@ -28,7 +28,7 @@ class V1ExtranetsB2bPeeringMatchServiceToCustomerPostRequest(BaseModel):
     """
     V1ExtranetsB2bPeeringMatchServiceToCustomerPostRequest
     """ # noqa: E501
-    id: StrictInt = Field(description="ID of the customer (required)")
+    id: StrictInt = Field(description="ID of the customer (required)", json_schema_extra={"examples": [1234567891011]})
     service: ManaV2B2bExtranetMatchServiceToCustomer
     __properties: ClassVar[List[str]] = ["id", "service"]
 

@@ -27,7 +27,7 @@ class ManaV2CommunityType(BaseModel):
     """
     ManaV2CommunityType
     """ # noqa: E501
-    additive: Optional[StrictBool] = None
+    additive: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     community_list: Optional[List[StrictStr]] = Field(default=None, alias="communityList")
     __properties: ClassVar[List[str]] = ["additive", "communityList"]
 

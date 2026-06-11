@@ -30,10 +30,10 @@ class V1AuditLogsPostResponse(BaseModel):
     """
     V1AuditLogsPostResponse
     """ # noqa: E501
-    cursor_ref: Optional[StrictStr] = Field(default=None, alias="cursorRef")
+    cursor_ref: Optional[StrictStr] = Field(default=None, alias="cursorRef", json_schema_extra={"examples": ["example string"]})
     histogram: Optional[List[AuditmonHistogram]] = None
     logs: Optional[List[AuditAuditEntry]] = None
-    total_logs: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="totalLogs")
+    total_logs: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="totalLogs", json_schema_extra={"examples": [12345678910]})
     __properties: ClassVar[List[str]] = ["cursorRef", "histogram", "logs", "totalLogs"]
 
     model_config = ConfigDict(

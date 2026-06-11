@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.mana_v2_nat_policy_ruleset_rule import ManaV2NATPolicyRulesetRule
 from typing import Optional, Set
@@ -28,9 +28,9 @@ class ManaV2NatPolicyRuleset(BaseModel):
     """
     ManaV2NatPolicyRuleset
     """ # noqa: E501
-    description: Optional[StrictStr] = None
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     rules: Optional[List[ManaV2NATPolicyRulesetRule]] = None
     __properties: ClassVar[List[str]] = ["description", "id", "name", "rules"]
 

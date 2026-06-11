@@ -27,9 +27,9 @@ class V1DevicesOauthPostResponse(BaseModel):
     """
     V1DevicesOauthPostResponse
     """ # noqa: E501
-    access_token: Optional[StrictStr] = Field(default=None, description="OAuth access token")
-    expires_in: Optional[StrictInt] = Field(default=None, description="Token expiration time in seconds")
-    token_type: Optional[StrictStr] = Field(default=None, description="Token type")
+    access_token: Optional[StrictStr] = Field(default=None, description="OAuth access token", json_schema_extra={"examples": ["access-token-12345"]})
+    expires_in: Optional[StrictInt] = Field(default=None, description="Token expiration time in seconds", json_schema_extra={"examples": [3600]})
+    token_type: Optional[StrictStr] = Field(default=None, description="Token type", json_schema_extra={"examples": ["Bearer"]})
     __properties: ClassVar[List[str]] = ["access_token", "expires_in", "token_type"]
 
     model_config = ConfigDict(

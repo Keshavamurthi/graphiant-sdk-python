@@ -30,10 +30,10 @@ class OnboardingCloudInitToken(BaseModel):
     OnboardingCloudInitToken
     """ # noqa: E501
     cloudinit_config: Optional[OnboardingCloudInitConfiguration] = Field(default=None, alias="cloudinitConfig")
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    device_serial: Optional[StrictStr] = Field(default=None, alias="deviceSerial")
-    name: Optional[StrictStr] = None
-    role: Optional[StrictStr] = None
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    device_serial: Optional[StrictStr] = Field(default=None, alias="deviceSerial", json_schema_extra={"examples": ["example string"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    role: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     token: Optional[OnboardingCloudInitTokenToken] = None
     __properties: ClassVar[List[str]] = ["cloudinitConfig", "deviceId", "deviceSerial", "name", "role", "token"]
 

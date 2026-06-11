@@ -27,20 +27,20 @@ class V1BackboneHealthOverviewPostRequestDimensions(BaseModel):
     """
     V1BackboneHealthOverviewPostRequestDimensions
     """ # noqa: E501
-    certificate_expiry: Optional[StrictBool] = Field(default=None, alias="certificateExpiry")
-    core_connectivity: Optional[StrictBool] = Field(default=None, alias="coreConnectivity")
-    core_core_sla_performance: Optional[StrictBool] = Field(default=None, alias="coreCoreSlaPerformance")
-    core_wan_performance: Optional[StrictBool] = Field(default=None, alias="coreWanPerformance")
-    cpu: Optional[StrictBool] = None
-    crashes: Optional[StrictBool] = None
-    credit_expiry: Optional[StrictBool] = Field(default=None, alias="creditExpiry")
-    disk: Optional[StrictBool] = None
-    fan_speed: Optional[StrictBool] = Field(default=None, alias="fanSpeed")
-    license_expiry: Optional[StrictBool] = Field(default=None, alias="licenseExpiry")
-    memory: Optional[StrictBool] = None
-    odp_connectivity: Optional[StrictBool] = Field(default=None, alias="odpConnectivity")
-    t2_connectivity: Optional[StrictBool] = Field(default=None, alias="t2Connectivity")
-    temperature: Optional[StrictBool] = None
+    certificate_expiry: Optional[StrictBool] = Field(default=None, alias="certificateExpiry", json_schema_extra={"examples": [True]})
+    core_connectivity: Optional[StrictBool] = Field(default=None, alias="coreConnectivity", json_schema_extra={"examples": [True]})
+    core_core_sla_performance: Optional[StrictBool] = Field(default=None, alias="coreCoreSlaPerformance", json_schema_extra={"examples": [True]})
+    core_wan_performance: Optional[StrictBool] = Field(default=None, alias="coreWanPerformance", json_schema_extra={"examples": [True]})
+    cpu: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    crashes: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    credit_expiry: Optional[StrictBool] = Field(default=None, alias="creditExpiry", json_schema_extra={"examples": [True]})
+    disk: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    fan_speed: Optional[StrictBool] = Field(default=None, alias="fanSpeed", json_schema_extra={"examples": [True]})
+    license_expiry: Optional[StrictBool] = Field(default=None, alias="licenseExpiry", json_schema_extra={"examples": [True]})
+    memory: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    odp_connectivity: Optional[StrictBool] = Field(default=None, alias="odpConnectivity", json_schema_extra={"examples": [True]})
+    t2_connectivity: Optional[StrictBool] = Field(default=None, alias="t2Connectivity", json_schema_extra={"examples": [True]})
+    temperature: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["certificateExpiry", "coreConnectivity", "coreCoreSlaPerformance", "coreWanPerformance", "cpu", "crashes", "creditExpiry", "disk", "fanSpeed", "licenseExpiry", "memory", "odpConnectivity", "t2Connectivity", "temperature"]
 
     model_config = ConfigDict(

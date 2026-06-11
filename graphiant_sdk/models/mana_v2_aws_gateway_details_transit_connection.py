@@ -31,9 +31,9 @@ class ManaV2AWSGatewayDetailsTransitConnection(BaseModel):
     ManaV2AWSGatewayDetailsTransitConnection
     """ # noqa: E501
     credentials: Optional[ManaV2AwsCredentials] = None
-    customer_asn: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="customerAsn")
+    customer_asn: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="customerAsn", json_schema_extra={"examples": [123]})
     gateway: Optional[ManaV2AwsDirectConnectGateway] = None
-    region: Optional[StrictStr] = None
+    region: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["credentials", "customerAsn", "gateway", "region"]
 
     model_config = ConfigDict(

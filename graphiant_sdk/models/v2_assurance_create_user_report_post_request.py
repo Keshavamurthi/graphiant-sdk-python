@@ -27,13 +27,13 @@ class V2AssuranceCreateUserReportPostRequest(BaseModel):
     """
     V2AssuranceCreateUserReportPostRequest
     """ # noqa: E501
-    created_on: Optional[StrictInt] = Field(default=None, alias="createdOn")
+    created_on: Optional[StrictInt] = Field(default=None, alias="createdOn", json_schema_extra={"examples": [1234567891011]})
     email_list: Optional[List[StrictStr]] = Field(default=None, alias="emailList")
-    pdf_content: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="pdfContent")
+    pdf_content: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, alias="pdfContent", json_schema_extra={"examples": ["WW5sMFpYTT0="]})
     raw_content: Optional[List[Union[StrictBytes, StrictStr]]] = Field(default=None, alias="rawContent")
-    report_name: Optional[StrictStr] = Field(default=None, alias="reportName")
-    report_type: Optional[StrictStr] = Field(default=None, alias="reportType")
-    time_period: Optional[StrictStr] = Field(default=None, alias="timePeriod")
+    report_name: Optional[StrictStr] = Field(default=None, alias="reportName", json_schema_extra={"examples": ["example string"]})
+    report_type: Optional[StrictStr] = Field(default=None, alias="reportType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    time_period: Optional[StrictStr] = Field(default=None, alias="timePeriod", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["createdOn", "emailList", "pdfContent", "rawContent", "reportName", "reportType", "timePeriod"]
 
     model_config = ConfigDict(

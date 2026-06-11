@@ -27,7 +27,7 @@ class V1GlobalContentFiltersPostResponse(BaseModel):
     """
     V1GlobalContentFiltersPostResponse
     """ # noqa: E501
-    global_content_filter_id: Optional[StrictInt] = Field(default=None, description="Server-assigned ID for the newly created global content filter.", alias="globalContentFilterId")
+    global_content_filter_id: Optional[StrictInt] = Field(default=None, description="Server-assigned ID for the newly created global content filter.", alias="globalContentFilterId", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["globalContentFilterId"]
 
     model_config = ConfigDict(

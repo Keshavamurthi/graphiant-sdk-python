@@ -27,9 +27,9 @@ class DiagnosticToolsRouteLookupResult(BaseModel):
     """
     DiagnosticToolsRouteLookupResult
     """ # noqa: E501
-    nexthop_address: Optional[StrictStr] = Field(default=None, description="IPv4 or IPv6 gateway address (required)", alias="nexthopAddress")
-    outgoing_interface: Optional[StrictStr] = Field(default=None, description="Interface name (required)", alias="outgoingInterface")
-    prefix: Optional[StrictStr] = Field(default=None, description="IPv4 or IPv6 longest matching prefix (required)")
+    nexthop_address: Optional[StrictStr] = Field(default=None, description="IPv4 or IPv6 gateway address (required)", alias="nexthopAddress", json_schema_extra={"examples": ["1213:1::6451"]})
+    outgoing_interface: Optional[StrictStr] = Field(default=None, description="Interface name (required)", alias="outgoingInterface", json_schema_extra={"examples": ["Ethernet0/1"]})
+    prefix: Optional[StrictStr] = Field(default=None, description="IPv4 or IPv6 longest matching prefix (required)", json_schema_extra={"examples": ["1213:1::6451"]})
     __properties: ClassVar[List[str]] = ["nexthopAddress", "outgoingInterface", "prefix"]
 
     model_config = ConfigDict(

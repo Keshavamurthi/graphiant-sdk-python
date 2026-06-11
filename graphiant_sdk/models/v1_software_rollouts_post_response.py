@@ -27,7 +27,7 @@ class V1SoftwareRolloutsPostResponse(BaseModel):
     """
     V1SoftwareRolloutsPostResponse
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="Identifier of the created rollout. (required)")
+    id: Optional[StrictInt] = Field(default=None, description="Identifier of the created rollout. (required)", json_schema_extra={"examples": [42]})
     __properties: ClassVar[List[str]] = ["id"]
 
     model_config = ConfigDict(

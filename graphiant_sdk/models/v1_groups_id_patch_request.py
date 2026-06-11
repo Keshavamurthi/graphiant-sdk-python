@@ -28,12 +28,12 @@ class V1GroupsIdPatchRequest(BaseModel):
     """
     V1GroupsIdPatchRequest
     """ # noqa: E501
-    description: Optional[StrictStr] = None
-    display_name: Optional[StrictStr] = Field(default=None, alias="displayName")
-    group_type: Optional[StrictStr] = Field(default=None, alias="groupType")
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    display_name: Optional[StrictStr] = Field(default=None, alias="displayName", json_schema_extra={"examples": ["example string"]})
+    group_type: Optional[StrictStr] = Field(default=None, alias="groupType", json_schema_extra={"examples": ["ENUM_VALUE"]})
     permissions: Optional[CommonPermissions] = None
-    time_window_end: Optional[StrictInt] = Field(default=None, alias="timeWindowEnd")
-    time_window_start: Optional[StrictInt] = Field(default=None, alias="timeWindowStart")
+    time_window_end: Optional[StrictInt] = Field(default=None, alias="timeWindowEnd", json_schema_extra={"examples": [1234567891011]})
+    time_window_start: Optional[StrictInt] = Field(default=None, alias="timeWindowStart", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["description", "displayName", "groupType", "permissions", "timeWindowEnd", "timeWindowStart"]
 
     model_config = ConfigDict(

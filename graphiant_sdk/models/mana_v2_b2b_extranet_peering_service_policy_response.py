@@ -29,7 +29,7 @@ class ManaV2B2bExtranetPeeringServicePolicyResponse(BaseModel):
     ManaV2B2bExtranetPeeringServicePolicyResponse
     """ # noqa: E501
     policy: Optional[ManaV2B2bExtranetPeeringServiceProducerPolicy] = None
-    service_name: Optional[StrictStr] = Field(default=None, alias="serviceName")
+    service_name: Optional[StrictStr] = Field(default=None, alias="serviceName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["policy", "serviceName"]
 
     model_config = ConfigDict(

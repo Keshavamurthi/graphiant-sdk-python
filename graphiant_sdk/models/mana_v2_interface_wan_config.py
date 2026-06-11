@@ -29,8 +29,8 @@ class ManaV2InterfaceWanConfig(BaseModel):
     ManaV2InterfaceWanConfig
     """ # noqa: E501
     gw: Optional[ManaV2NullableInterfaceIpConfig] = None
-    type: Optional[StrictStr] = None
-    vrf_name: Optional[StrictStr] = Field(default=None, alias="vrfName")
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    vrf_name: Optional[StrictStr] = Field(default=None, alias="vrfName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["gw", "type", "vrfName"]
 
     model_config = ConfigDict(

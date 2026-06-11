@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.mana_v2_subnet import ManaV2Subnet
 from typing import Optional, Set
@@ -28,7 +28,7 @@ class ManaV2AWSTransitGatewayVpc(BaseModel):
     """
     ManaV2AWSTransitGatewayVpc
     """ # noqa: E501
-    id: Optional[StrictStr] = None
+    id: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     subnets: Optional[List[ManaV2Subnet]] = None
     __properties: ClassVar[List[str]] = ["id", "subnets"]
 

@@ -27,8 +27,8 @@ class ManaV2Policer(BaseModel):
     """
     ManaV2Policer
     """ # noqa: E501
-    burst_size: StrictInt = Field(description="Burst size for the policer (required)", alias="burstSize")
-    bw: StrictInt = Field(description="Bandwidth for the policer (required)")
+    burst_size: StrictInt = Field(description="Burst size for the policer (required)", alias="burstSize", json_schema_extra={"examples": [123]})
+    bw: StrictInt = Field(description="Bandwidth for the policer (required)", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["burstSize", "bw"]
 
     model_config = ConfigDict(

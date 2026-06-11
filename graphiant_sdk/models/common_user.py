@@ -28,16 +28,16 @@ class CommonUser(BaseModel):
     """
     CommonUser
     """ # noqa: E501
-    email: Optional[StrictStr] = None
-    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId")
-    first_name: Optional[StrictStr] = Field(default=None, alias="firstName")
+    email: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId", json_schema_extra={"examples": [1234567891011]})
+    first_name: Optional[StrictStr] = Field(default=None, alias="firstName", json_schema_extra={"examples": ["example string"]})
     last_active_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="lastActiveAt")
-    last_name: Optional[StrictStr] = Field(default=None, alias="lastName")
-    mfa_factor: Optional[StrictStr] = Field(default=None, alias="mfaFactor")
-    phone_number: Optional[StrictStr] = Field(default=None, alias="phoneNumber")
-    time_zone: Optional[StrictStr] = Field(default=None, alias="timeZone")
-    user_id: Optional[StrictStr] = Field(default=None, alias="userId")
-    verified: Optional[StrictBool] = None
+    last_name: Optional[StrictStr] = Field(default=None, alias="lastName", json_schema_extra={"examples": ["example string"]})
+    mfa_factor: Optional[StrictStr] = Field(default=None, alias="mfaFactor", json_schema_extra={"examples": ["example string"]})
+    phone_number: Optional[StrictStr] = Field(default=None, alias="phoneNumber", json_schema_extra={"examples": ["example string"]})
+    time_zone: Optional[StrictStr] = Field(default=None, alias="timeZone", json_schema_extra={"examples": ["example string"]})
+    user_id: Optional[StrictStr] = Field(default=None, alias="userId", json_schema_extra={"examples": ["example string"]})
+    verified: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["email", "enterpriseId", "firstName", "lastActiveAt", "lastName", "mfaFactor", "phoneNumber", "timeZone", "userId", "verified"]
 
     model_config = ConfigDict(

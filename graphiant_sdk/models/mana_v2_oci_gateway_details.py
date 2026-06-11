@@ -27,9 +27,9 @@ class ManaV2OciGatewayDetails(BaseModel):
     """
     ManaV2OciGatewayDetails
     """ # noqa: E501
-    description: Optional[StrictStr] = None
-    fast_connect_ocid: Optional[StrictStr] = Field(default=None, alias="fastConnectOcid")
-    routing_policy: Optional[StrictStr] = Field(default=None, alias="routingPolicy")
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    fast_connect_ocid: Optional[StrictStr] = Field(default=None, alias="fastConnectOcid", json_schema_extra={"examples": ["example string"]})
+    routing_policy: Optional[StrictStr] = Field(default=None, alias="routingPolicy", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["description", "fastConnectOcid", "routingPolicy"]
 
     model_config = ConfigDict(

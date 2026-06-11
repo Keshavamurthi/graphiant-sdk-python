@@ -28,11 +28,11 @@ class ManaV2B2bExtranetApplicationInvite(BaseModel):
     """
     ManaV2B2bExtranetApplicationInvite
     """ # noqa: E501
-    admin_email: StrictStr = Field(description="Admin email of the customer (required)", alias="adminEmail")
-    consumer_burst_size: Annotated[int, Field(strict=True, ge=0)] = Field(description="Maximum Burst size per site for the customer (required)", alias="consumerBurstSize")
-    consumer_bw_site: Annotated[int, Field(strict=True, ge=0)] = Field(description="Maximum Bandwidth allocation per site for the customer (required)", alias="consumerBwSite")
-    enterprise_id: StrictInt = Field(description="Enterprise ID of the customer (required)", alias="enterpriseId")
-    maximum_site_count: Annotated[int, Field(strict=True, ge=0)] = Field(description="Maximum number of sites for the customer (required)", alias="maximumSiteCount")
+    admin_email: StrictStr = Field(description="Admin email of the customer (required)", alias="adminEmail", json_schema_extra={"examples": ["example string"]})
+    consumer_burst_size: Annotated[int, Field(strict=True, ge=0)] = Field(description="Maximum Burst size per site for the customer (required)", alias="consumerBurstSize", json_schema_extra={"examples": [123]})
+    consumer_bw_site: Annotated[int, Field(strict=True, ge=0)] = Field(description="Maximum Bandwidth allocation per site for the customer (required)", alias="consumerBwSite", json_schema_extra={"examples": [123]})
+    enterprise_id: StrictInt = Field(description="Enterprise ID of the customer (required)", alias="enterpriseId", json_schema_extra={"examples": [1234567891011]})
+    maximum_site_count: Annotated[int, Field(strict=True, ge=0)] = Field(description="Maximum number of sites for the customer (required)", alias="maximumSiteCount", json_schema_extra={"examples": [123]})
     service_prefixes: Optional[List[StrictStr]] = Field(default=None, alias="servicePrefixes")
     __properties: ClassVar[List[str]] = ["adminEmail", "consumerBurstSize", "consumerBwSite", "enterpriseId", "maximumSiteCount", "servicePrefixes"]
 

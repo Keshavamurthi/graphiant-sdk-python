@@ -29,13 +29,13 @@ class ManaV2InterfaceLagvlanConfig(BaseModel):
     """
     ManaV2InterfaceLagvlanConfig
     """ # noqa: E501
-    admin_status: Optional[StrictBool] = Field(default=None, alias="adminStatus")
-    alias: Optional[StrictStr] = None
-    description: Optional[StrictStr] = None
+    admin_status: Optional[StrictBool] = Field(default=None, alias="adminStatus", json_schema_extra={"examples": [True]})
+    alias: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     ipv4: Optional[ManaV2InterfaceIpConfig] = None
     ipv6: Optional[ManaV2InterfaceIpConfig] = None
-    segment: Optional[StrictStr] = None
-    vlan: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    segment: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    vlan: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["adminStatus", "alias", "description", "ipv4", "ipv6", "segment", "vlan"]
 
     model_config = ConfigDict(

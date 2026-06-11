@@ -28,13 +28,13 @@ class AssuranceUserReport(BaseModel):
     AssuranceUserReport
     """ # noqa: E501
     created_by: Optional[List[StrictStr]] = Field(default=None, alias="createdBy")
-    created_on: Optional[StrictInt] = Field(default=None, alias="createdOn")
+    created_on: Optional[StrictInt] = Field(default=None, alias="createdOn", json_schema_extra={"examples": [1234567891011]})
     email_list: Optional[List[StrictStr]] = Field(default=None, alias="emailList")
-    enterprise_id: Optional[StrictStr] = Field(default=None, alias="enterpriseId")
-    report_id: Optional[StrictInt] = Field(default=None, alias="reportId")
-    report_name: Optional[StrictStr] = Field(default=None, alias="reportName")
-    report_type: Optional[StrictStr] = Field(default=None, alias="reportType")
-    time_period: Optional[StrictStr] = Field(default=None, alias="timePeriod")
+    enterprise_id: Optional[StrictStr] = Field(default=None, alias="enterpriseId", json_schema_extra={"examples": ["example string"]})
+    report_id: Optional[StrictInt] = Field(default=None, alias="reportId", json_schema_extra={"examples": [1234567891011]})
+    report_name: Optional[StrictStr] = Field(default=None, alias="reportName", json_schema_extra={"examples": ["example string"]})
+    report_type: Optional[StrictStr] = Field(default=None, alias="reportType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    time_period: Optional[StrictStr] = Field(default=None, alias="timePeriod", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["createdBy", "createdOn", "emailList", "enterpriseId", "reportId", "reportName", "reportType", "timePeriod"]
 
     model_config = ConfigDict(

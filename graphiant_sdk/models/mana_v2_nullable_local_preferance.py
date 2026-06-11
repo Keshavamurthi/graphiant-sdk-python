@@ -28,7 +28,7 @@ class ManaV2NullableLocalPreferance(BaseModel):
     """
     ManaV2NullableLocalPreferance
     """ # noqa: E501
-    local_pref: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="localPref")
+    local_pref: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="localPref", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["localPref"]
 
     model_config = ConfigDict(

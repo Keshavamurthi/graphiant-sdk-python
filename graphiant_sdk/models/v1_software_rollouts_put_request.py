@@ -28,7 +28,7 @@ class V1SoftwareRolloutsPutRequest(BaseModel):
     """
     V1SoftwareRolloutsPutRequest
     """ # noqa: E501
-    id: StrictInt = Field(description="Rollout identifier to update. (required)")
+    id: StrictInt = Field(description="Rollout identifier to update. (required)", json_schema_extra={"examples": [42]})
     rollout_config: UpgradeRolloutConfig = Field(alias="rolloutConfig")
     __properties: ClassVar[List[str]] = ["id", "rolloutConfig"]
 

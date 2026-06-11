@@ -27,17 +27,17 @@ class ManaV2SnmpTarget(BaseModel):
     """
     ManaV2SnmpTarget
     """ # noqa: E501
-    community: Optional[StrictStr] = None
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
-    notify_filter_profile: Optional[StrictStr] = Field(default=None, alias="notifyFilterProfile")
-    notify_type: Optional[StrictStr] = Field(default=None, alias="notifyType")
-    source_ip: Optional[StrictStr] = Field(default=None, alias="sourceIp")
-    target_ip: Optional[StrictStr] = Field(default=None, alias="targetIp")
-    target_type: Optional[StrictStr] = Field(default=None, alias="targetType")
-    usm_security_level: Optional[StrictStr] = Field(default=None, alias="usmSecurityLevel")
-    usm_user_name: Optional[StrictStr] = Field(default=None, alias="usmUserName")
-    vrf_name: Optional[StrictStr] = Field(default=None, alias="vrfName")
+    community: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    notify_filter_profile: Optional[StrictStr] = Field(default=None, alias="notifyFilterProfile", json_schema_extra={"examples": ["example string"]})
+    notify_type: Optional[StrictStr] = Field(default=None, alias="notifyType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    source_ip: Optional[StrictStr] = Field(default=None, alias="sourceIp", json_schema_extra={"examples": ["example string"]})
+    target_ip: Optional[StrictStr] = Field(default=None, alias="targetIp", json_schema_extra={"examples": ["example string"]})
+    target_type: Optional[StrictStr] = Field(default=None, alias="targetType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    usm_security_level: Optional[StrictStr] = Field(default=None, alias="usmSecurityLevel", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    usm_user_name: Optional[StrictStr] = Field(default=None, alias="usmUserName", json_schema_extra={"examples": ["example string"]})
+    vrf_name: Optional[StrictStr] = Field(default=None, alias="vrfName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["community", "id", "name", "notifyFilterProfile", "notifyType", "sourceIp", "targetIp", "targetType", "usmSecurityLevel", "usmUserName", "vrfName"]
 
     model_config = ConfigDict(

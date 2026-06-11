@@ -28,7 +28,7 @@ class ManaV2NullableAsPathPrepend(BaseModel):
     """
     ManaV2NullableAsPathPrepend
     """ # noqa: E501
-    repeat: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    repeat: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["repeat"]
 
     model_config = ConfigDict(

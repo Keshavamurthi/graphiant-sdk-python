@@ -28,12 +28,12 @@ class ManaV2PskConfiguration(BaseModel):
     """
     ManaV2PskConfiguration
     """ # noqa: E501
-    cak: Optional[StrictStr] = Field(default=None, description="The Connection Authentication Key (CAK)")
-    cak_cryptographic_algorithm: Optional[StrictStr] = Field(default=None, description="The cryptographic algorithm for the CAK, SAK Cipher Suite is implicitly selected based on this field. (required)", alias="cakCryptographicAlgorithm")
-    ckn: Optional[StrictStr] = Field(default=None, description="The Connection Key Name (CKN) (required)")
-    nickname: Optional[StrictStr] = Field(default=None, description="The nickname of the PSK (required)")
+    cak: Optional[StrictStr] = Field(default=None, description="The Connection Authentication Key (CAK)", json_schema_extra={"examples": ["1234567890abcdef1234567890abcdef"]})
+    cak_cryptographic_algorithm: Optional[StrictStr] = Field(default=None, description="The cryptographic algorithm for the CAK, SAK Cipher Suite is implicitly selected based on this field. (required)", alias="cakCryptographicAlgorithm", json_schema_extra={"examples": ["AES_128_CMAC"]})
+    ckn: Optional[StrictStr] = Field(default=None, description="The Connection Key Name (CKN) (required)", json_schema_extra={"examples": ["Corp-MACsec-CKN"]})
+    nickname: Optional[StrictStr] = Field(default=None, description="The nickname of the PSK (required)", json_schema_extra={"examples": ["PSK1"]})
     start_time: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="startTime")
-    use_xpn_for_cipher_suite: Optional[StrictBool] = Field(default=None, description="Whether to use XPN for the cipher suite. If true, AES_128_GCM_XPN or AES_256_GCM_XPN is selected based on the cmac algorithm. If false, AES_128_GCM or AES_256_GCM is selected based on the cmac algorithm.", alias="useXpnForCipherSuite")
+    use_xpn_for_cipher_suite: Optional[StrictBool] = Field(default=None, description="Whether to use XPN for the cipher suite. If true, AES_128_GCM_XPN or AES_256_GCM_XPN is selected based on the cmac algorithm. If false, AES_128_GCM or AES_256_GCM is selected based on the cmac algorithm.", alias="useXpnForCipherSuite", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["cak", "cakCryptographicAlgorithm", "ckn", "nickname", "startTime", "useXpnForCipherSuite"]
 
     model_config = ConfigDict(

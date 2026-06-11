@@ -28,11 +28,11 @@ class StatsmonBandwidthtrackerBwUsageBySiteEdgeProvider(BaseModel):
     """
     StatsmonBandwidthtrackerBwUsageBySiteEdgeProvider
     """ # noqa: E501
-    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId")
-    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName")
-    provider_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="providerId")
-    provider_name: Optional[StrictStr] = Field(default=None, alias="providerName")
-    usage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usageKbps")
+    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [12345678910]})
+    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName", json_schema_extra={"examples": ["example string"]})
+    provider_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="providerId", json_schema_extra={"examples": [12345678910]})
+    provider_name: Optional[StrictStr] = Field(default=None, alias="providerName", json_schema_extra={"examples": ["example string"]})
+    usage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usageKbps", json_schema_extra={"examples": [123.45]})
     __properties: ClassVar[List[str]] = ["deviceId", "deviceName", "providerId", "providerName", "usageKbps"]
 
     model_config = ConfigDict(

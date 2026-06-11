@@ -29,7 +29,7 @@ class ManaV2AwsGatewayDetails(BaseModel):
     """
     ManaV2AwsGatewayDetails
     """ # noqa: E501
-    account_id: Optional[StrictStr] = Field(default=None, alias="accountId")
+    account_id: Optional[StrictStr] = Field(default=None, alias="accountId", json_schema_extra={"examples": ["example string"]})
     advance_settings: Optional[ManaV2AwsAdvanceSettings] = Field(default=None, alias="advanceSettings")
     transit_connection: Optional[ManaV2AWSGatewayDetailsTransitConnection] = Field(default=None, alias="transitConnection")
     __properties: ClassVar[List[str]] = ["accountId", "advanceSettings", "transitConnection"]

@@ -27,9 +27,9 @@ class ManaV2ConfigurationMetadata(BaseModel):
     """
     ManaV2ConfigurationMetadata
     """ # noqa: E501
-    commit_confirm: Optional[StrictBool] = Field(default=None, alias="commitConfirm")
-    description: Optional[StrictStr] = None
-    name: Optional[StrictStr] = None
+    commit_confirm: Optional[StrictBool] = Field(default=None, alias="commitConfirm", json_schema_extra={"examples": [True]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["commitConfirm", "description", "name"]
 
     model_config = ConfigDict(

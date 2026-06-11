@@ -28,20 +28,20 @@ class V1BackboneHealthEtetSlaMatrixGetResponseSlaSummary(BaseModel):
     """
     V1BackboneHealthEtetSlaMatrixGetResponseSlaSummary
     """ # noqa: E501
-    delay_status: Optional[StrictStr] = Field(default=None, alias="delayStatus")
-    delay_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="delayValue")
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName")
-    jitter_status: Optional[StrictStr] = Field(default=None, alias="jitterStatus")
-    jitter_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="jitterValue")
-    loss_status: Optional[StrictStr] = Field(default=None, alias="lossStatus")
-    loss_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="lossValue")
-    mos_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="mosValue")
-    peer_device_id: Optional[StrictInt] = Field(default=None, alias="peerDeviceId")
-    peer_device_name: Optional[StrictStr] = Field(default=None, alias="peerDeviceName")
+    delay_status: Optional[StrictStr] = Field(default=None, alias="delayStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    delay_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="delayValue", json_schema_extra={"examples": [12.34]})
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName", json_schema_extra={"examples": ["example string"]})
+    jitter_status: Optional[StrictStr] = Field(default=None, alias="jitterStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    jitter_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="jitterValue", json_schema_extra={"examples": [12.34]})
+    loss_status: Optional[StrictStr] = Field(default=None, alias="lossStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    loss_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="lossValue", json_schema_extra={"examples": [12.34]})
+    mos_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="mosValue", json_schema_extra={"examples": [12.34]})
+    peer_device_id: Optional[StrictInt] = Field(default=None, alias="peerDeviceId", json_schema_extra={"examples": [1234567891011]})
+    peer_device_name: Optional[StrictStr] = Field(default=None, alias="peerDeviceName", json_schema_extra={"examples": ["example string"]})
     peer_region: Optional[StatsmonTroubleshootingRegion] = Field(default=None, alias="peerRegion")
     region: Optional[StatsmonTroubleshootingRegion] = None
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["delayStatus", "delayValue", "deviceId", "deviceName", "jitterStatus", "jitterValue", "lossStatus", "lossValue", "mosValue", "peerDeviceId", "peerDeviceName", "peerRegion", "region", "status"]
 
     model_config = ConfigDict(

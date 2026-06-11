@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from graphiant_sdk.models.common_billing_contract import CommonBillingContract
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,19 +28,20 @@ class V1EnterprisesPutRequest(BaseModel):
     """
     V1EnterprisesPutRequest
     """ # noqa: E501
-    account_type: StrictStr = Field(description=" (required)", alias="accountType")
-    admin_email: Optional[StrictStr] = Field(default=None, alias="adminEmail")
-    admin_first_name: Optional[StrictStr] = Field(default=None, alias="adminFirstName")
-    admin_last_name: Optional[StrictStr] = Field(default=None, alias="adminLastName")
-    admin_time_zone: Optional[StrictStr] = Field(default=None, alias="adminTimeZone")
-    cloud_provider: Optional[StrictStr] = Field(default=None, alias="cloudProvider")
-    company_name: StrictStr = Field(description=" (required)", alias="companyName")
-    credit_limit: Optional[StrictInt] = Field(default=None, alias="creditLimit")
-    description: Optional[StrictStr] = None
-    logo: Optional[StrictStr] = None
-    marketplace_id: Optional[StrictStr] = Field(default=None, alias="marketplaceId")
-    small_logo: Optional[StrictStr] = Field(default=None, alias="smallLogo")
-    __properties: ClassVar[List[str]] = ["accountType", "adminEmail", "adminFirstName", "adminLastName", "adminTimeZone", "cloudProvider", "companyName", "creditLimit", "description", "logo", "marketplaceId", "smallLogo"]
+    account_type: StrictStr = Field(description=" (required)", alias="accountType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    admin_email: Optional[StrictStr] = Field(default=None, alias="adminEmail", json_schema_extra={"examples": ["example string"]})
+    admin_first_name: Optional[StrictStr] = Field(default=None, alias="adminFirstName", json_schema_extra={"examples": ["example string"]})
+    admin_last_name: Optional[StrictStr] = Field(default=None, alias="adminLastName", json_schema_extra={"examples": ["example string"]})
+    admin_time_zone: Optional[StrictStr] = Field(default=None, alias="adminTimeZone", json_schema_extra={"examples": ["example string"]})
+    cloud_provider: Optional[StrictStr] = Field(default=None, alias="cloudProvider", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    company_name: StrictStr = Field(description=" (required)", alias="companyName", json_schema_extra={"examples": ["example string"]})
+    credit_limit: Optional[StrictInt] = Field(default=None, alias="creditLimit", json_schema_extra={"examples": [123]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    enterprise_contract: CommonBillingContract = Field(alias="enterpriseContract")
+    logo: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    marketplace_id: Optional[StrictStr] = Field(default=None, alias="marketplaceId", json_schema_extra={"examples": ["example string"]})
+    small_logo: Optional[StrictStr] = Field(default=None, alias="smallLogo", json_schema_extra={"examples": ["example string"]})
+    __properties: ClassVar[List[str]] = ["accountType", "adminEmail", "adminFirstName", "adminLastName", "adminTimeZone", "cloudProvider", "companyName", "creditLimit", "description", "enterpriseContract", "logo", "marketplaceId", "smallLogo"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -80,6 +82,9 @@ class V1EnterprisesPutRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of enterprise_contract
+        if self.enterprise_contract:
+            _dict['enterpriseContract'] = self.enterprise_contract.to_dict()
         return _dict
 
     @classmethod
@@ -101,6 +106,7 @@ class V1EnterprisesPutRequest(BaseModel):
             "companyName": obj.get("companyName"),
             "creditLimit": obj.get("creditLimit"),
             "description": obj.get("description"),
+            "enterpriseContract": CommonBillingContract.from_dict(obj["enterpriseContract"]) if obj.get("enterpriseContract") is not None else None,
             "logo": obj.get("logo"),
             "marketplaceId": obj.get("marketplaceId"),
             "smallLogo": obj.get("smallLogo")

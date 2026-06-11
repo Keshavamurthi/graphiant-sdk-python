@@ -28,21 +28,21 @@ class StatsmonV2NodeDeviceInfo(BaseModel):
     """
     StatsmonV2NodeDeviceInfo
     """ # noqa: E501
-    control_quality: Optional[StrictStr] = Field(default=None, alias="controlQuality")
-    cpu: Optional[Union[StrictFloat, StrictInt]] = None
-    data_quality: Optional[StrictStr] = Field(default=None, alias="dataQuality")
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    hostname: Optional[StrictStr] = None
-    location: Optional[StrictStr] = None
-    maintenance_mode: Optional[StrictBool] = Field(default=None, alias="maintenanceMode")
-    memory: Optional[Union[StrictFloat, StrictInt]] = None
-    mgmt_ip: Optional[StrictStr] = Field(default=None, alias="mgmtIp")
-    model: Optional[StrictStr] = None
-    portal_quality: Optional[StrictStr] = Field(default=None, alias="portalQuality")
-    serial_number: Optional[StrictStr] = Field(default=None, alias="serialNumber")
-    software_version: Optional[StrictStr] = Field(default=None, alias="softwareVersion")
-    staging_mode: Optional[StrictBool] = Field(default=None, alias="stagingMode")
-    temperature: Optional[Union[StrictFloat, StrictInt]] = None
+    control_quality: Optional[StrictStr] = Field(default=None, alias="controlQuality", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    cpu: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [12.34]})
+    data_quality: Optional[StrictStr] = Field(default=None, alias="dataQuality", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    hostname: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    location: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    maintenance_mode: Optional[StrictBool] = Field(default=None, alias="maintenanceMode", json_schema_extra={"examples": [True]})
+    memory: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [12.34]})
+    mgmt_ip: Optional[StrictStr] = Field(default=None, alias="mgmtIp", json_schema_extra={"examples": ["example string"]})
+    model: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    portal_quality: Optional[StrictStr] = Field(default=None, alias="portalQuality", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    serial_number: Optional[StrictStr] = Field(default=None, alias="serialNumber", json_schema_extra={"examples": ["example string"]})
+    software_version: Optional[StrictStr] = Field(default=None, alias="softwareVersion", json_schema_extra={"examples": ["example string"]})
+    staging_mode: Optional[StrictBool] = Field(default=None, alias="stagingMode", json_schema_extra={"examples": [True]})
+    temperature: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [12.34]})
     uptime: Optional[GoogleProtobufDuration] = None
     __properties: ClassVar[List[str]] = ["controlQuality", "cpu", "dataQuality", "deviceId", "hostname", "location", "maintenanceMode", "memory", "mgmtIp", "model", "portalQuality", "serialNumber", "softwareVersion", "stagingMode", "temperature", "uptime"]
 

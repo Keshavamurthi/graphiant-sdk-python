@@ -28,9 +28,9 @@ class ManaV2NetworkSlice(BaseModel):
     """
     ManaV2NetworkSlice
     """ # noqa: E501
-    id: Optional[StrictInt] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [123]})
     peers: Optional[List[ManaV2NetworkSlicePeer]] = None
-    slice_index: Optional[StrictInt] = Field(default=None, alias="sliceIndex")
+    slice_index: Optional[StrictInt] = Field(default=None, alias="sliceIndex", json_schema_extra={"examples": [123]})
     tags: Optional[List[StrictStr]] = None
     __properties: ClassVar[List[str]] = ["id", "peers", "sliceIndex", "tags"]
 

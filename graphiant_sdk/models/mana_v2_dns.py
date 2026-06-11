@@ -33,7 +33,7 @@ class ManaV2Dns(BaseModel):
     cloudflare_servers: Optional[List[ManaV2DnsipAddress]] = Field(default=None, alias="cloudflareServers")
     dynamic_servers: Optional[List[ManaV2DnsipAddress]] = Field(default=None, alias="dynamicServers")
     dynamic_servers_v2: Optional[ManaV2DynamicDnsServers] = Field(default=None, alias="dynamicServersV2")
-    mode: Optional[StrictStr] = None
+    mode: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     static_servers: Optional[List[ManaV2DnsipAddress]] = Field(default=None, alias="staticServers")
     static_servers_v2: Optional[ManaV2StaticDnsServers] = Field(default=None, alias="staticServersV2")
     __properties: ClassVar[List[str]] = ["cloudflareServers", "dynamicServers", "dynamicServersV2", "mode", "staticServers", "staticServersV2"]

@@ -30,14 +30,14 @@ class ManaV2RoutingPolicyStatementMatch(BaseModel):
     ManaV2RoutingPolicyStatementMatch
     """ # noqa: E501
     community: Optional[List[StrictStr]] = None
-    id: Optional[StrictInt] = None
-    prefix_set: Optional[StrictStr] = Field(default=None, alias="prefixSet")
-    protocol_route_type: Optional[StrictStr] = Field(default=None, alias="protocolRouteType")
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    prefix_set: Optional[StrictStr] = Field(default=None, alias="prefixSet", json_schema_extra={"examples": ["example string"]})
+    protocol_route_type: Optional[StrictStr] = Field(default=None, alias="protocolRouteType", json_schema_extra={"examples": ["ENUM_VALUE"]})
     route_tag: Optional[ManaV2RouteTag] = Field(default=None, alias="routeTag")
-    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    source_interface: Optional[StrictStr] = Field(default=None, alias="sourceInterface")
-    source_protocol: Optional[StrictStr] = Field(default=None, alias="sourceProtocol")
-    stale_purge: Optional[StrictBool] = Field(default=None, alias="stalePurge")
+    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    source_interface: Optional[StrictStr] = Field(default=None, alias="sourceInterface", json_schema_extra={"examples": ["example string"]})
+    source_protocol: Optional[StrictStr] = Field(default=None, alias="sourceProtocol", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    stale_purge: Optional[StrictBool] = Field(default=None, alias="stalePurge", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["community", "id", "prefixSet", "protocolRouteType", "routeTag", "seq", "sourceInterface", "sourceProtocol", "stalePurge"]
 
     model_config = ConfigDict(

@@ -28,10 +28,10 @@ class ManaV2TrafficPolicyRulesetConfig(BaseModel):
     """
     ManaV2TrafficPolicyRulesetConfig
     """ # noqa: E501
-    description: Optional[StrictStr] = None
-    global_id: Optional[StrictInt] = Field(default=None, alias="globalId")
-    is_global_sync: Optional[StrictBool] = Field(default=None, alias="isGlobalSync")
-    name: Optional[StrictStr] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    global_id: Optional[StrictInt] = Field(default=None, alias="globalId", json_schema_extra={"examples": [1234567891011]})
+    is_global_sync: Optional[StrictBool] = Field(default=None, alias="isGlobalSync", json_schema_extra={"examples": [True]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     rules: Optional[Dict[str, ManaV2TrafficPolicyRulesetConfigNullableRule]] = None
     __properties: ClassVar[List[str]] = ["description", "globalId", "isGlobalSync", "name", "rules"]
 

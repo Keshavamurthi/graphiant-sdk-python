@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +27,8 @@ class GoogleProtobufDuration(BaseModel):
     """
     GoogleProtobufDuration
     """ # noqa: E501
-    nanos: Optional[StrictInt] = None
-    seconds: Optional[StrictInt] = None
+    nanos: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [123]})
+    seconds: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["nanos", "seconds"]
 
     model_config = ConfigDict(

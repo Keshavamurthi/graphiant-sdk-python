@@ -27,8 +27,8 @@ class RoutingAfiRouteCount(BaseModel):
     """
     RoutingAfiRouteCount
     """ # noqa: E501
-    ipv4: Optional[StrictInt] = Field(default=None, description="IPv4 route count")
-    ipv6: Optional[StrictInt] = Field(default=None, description="IPv6 route count")
+    ipv4: Optional[StrictInt] = Field(default=None, description="IPv4 route count", json_schema_extra={"examples": [32]})
+    ipv6: Optional[StrictInt] = Field(default=None, description="IPv6 route count", json_schema_extra={"examples": [6532]})
     __properties: ClassVar[List[str]] = ["ipv4", "ipv6"]
 
     model_config = ConfigDict(

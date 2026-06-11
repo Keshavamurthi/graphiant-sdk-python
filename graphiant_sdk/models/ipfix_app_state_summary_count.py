@@ -33,8 +33,8 @@ class IpfixAppStateSummaryCount(BaseModel):
     """ # noqa: E501
     app_health: Optional[Dict[str, Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, alias="appHealth")
     app_incidents: Optional[IpfixAppIncidents] = Field(default=None, alias="appIncidents")
-    apps_on_device_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="appsOnDeviceCount")
-    average_qoe: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="averageQoe")
+    apps_on_device_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="appsOnDeviceCount", json_schema_extra={"examples": [123]})
+    average_qoe: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="averageQoe", json_schema_extra={"examples": [123.45]})
     circuits_incidents: Optional[List[StatsmonCircuitsIncidents]] = Field(default=None, alias="circuitsIncidents")
     circuits_incidentsv2: Optional[List[StatsmonV2CircuitIncidents]] = Field(default=None, alias="circuitsIncidentsv2")
     __properties: ClassVar[List[str]] = ["appHealth", "appIncidents", "appsOnDeviceCount", "averageQoe", "circuitsIncidents", "circuitsIncidentsv2"]

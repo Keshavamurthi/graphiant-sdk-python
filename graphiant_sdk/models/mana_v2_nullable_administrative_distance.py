@@ -28,7 +28,7 @@ class ManaV2NullableAdministrativeDistance(BaseModel):
     """
     ManaV2NullableAdministrativeDistance
     """ # noqa: E501
-    distance: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    distance: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["distance"]
 
     model_config = ConfigDict(

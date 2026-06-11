@@ -28,9 +28,9 @@ class V1UsersPasswordsExpirePostResponse(BaseModel):
     """
     V1UsersPasswordsExpirePostResponse
     """ # noqa: E501
-    failed_count: Optional[StrictInt] = Field(default=None, alias="failedCount")
+    failed_count: Optional[StrictInt] = Field(default=None, alias="failedCount", json_schema_extra={"examples": [123]})
     failed_users: Optional[List[IamFailedUser]] = Field(default=None, alias="failedUsers")
-    success_count: Optional[StrictInt] = Field(default=None, alias="successCount")
+    success_count: Optional[StrictInt] = Field(default=None, alias="successCount", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["failedCount", "failedUsers", "successCount"]
 
     model_config = ConfigDict(

@@ -29,12 +29,12 @@ class ManaV2IpsecConnection(BaseModel):
     """
     ManaV2IpsecConnection
     """ # noqa: E501
-    dest_ip: Optional[StrictStr] = Field(default=None, alias="destIp")
-    dest_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destPort")
+    dest_ip: Optional[StrictStr] = Field(default=None, alias="destIp", json_schema_extra={"examples": ["example string"]})
+    dest_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destPort", json_schema_extra={"examples": [123]})
     last_established_time: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="lastEstablishedTime")
-    quality: Optional[StrictStr] = None
-    source_ip: Optional[StrictStr] = Field(default=None, alias="sourceIp")
-    source_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="sourcePort")
+    quality: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    source_ip: Optional[StrictStr] = Field(default=None, alias="sourceIp", json_schema_extra={"examples": ["example string"]})
+    source_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="sourcePort", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["destIp", "destPort", "lastEstablishedTime", "quality", "sourceIp", "sourcePort"]
 
     model_config = ConfigDict(

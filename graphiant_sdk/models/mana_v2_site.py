@@ -32,18 +32,18 @@ class ManaV2Site(BaseModel):
     """
     ManaV2Site
     """ # noqa: E501
-    address: Optional[StrictStr] = None
+    address: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     created_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="createdAt")
     devices: Optional[List[ManaV2SiteDeviceStub]] = None
-    edge_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="edgeCount")
-    id: Optional[StrictInt] = None
+    edge_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="edgeCount", json_schema_extra={"examples": [123]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     location: Optional[ManaV2Location] = None
-    name: Optional[StrictStr] = None
-    notes: Optional[StrictStr] = None
-    policy_reference_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="policyReferenceCount")
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    notes: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    policy_reference_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="policyReferenceCount", json_schema_extra={"examples": [123]})
     policy_tag: Optional[ManaV2SingleRouteTag] = Field(default=None, alias="policyTag")
-    segment_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="segmentCount")
-    site_list_reference_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="siteListReferenceCount")
+    segment_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="segmentCount", json_schema_extra={"examples": [123]})
+    site_list_reference_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="siteListReferenceCount", json_schema_extra={"examples": [123]})
     tags: Optional[List[StrictStr]] = None
     updated_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="updatedAt")
     __properties: ClassVar[List[str]] = ["address", "createdAt", "devices", "edgeCount", "id", "location", "name", "notes", "policyReferenceCount", "policyTag", "segmentCount", "siteListReferenceCount", "tags", "updatedAt"]

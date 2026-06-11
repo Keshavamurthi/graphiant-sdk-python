@@ -27,22 +27,22 @@ class V1TroubleshootingEnterprisePostRequestDimensions(BaseModel):
     """
     V1TroubleshootingEnterprisePostRequestDimensions
     """ # noqa: E501
-    certificate_expiry: Optional[StrictBool] = Field(default=None, alias="certificateExpiry")
-    core_connectivity: Optional[StrictBool] = Field(default=None, alias="coreConnectivity")
-    core_transitions: Optional[StrictBool] = Field(default=None, alias="coreTransitions")
-    cpu: Optional[StrictBool] = None
-    crashes: Optional[StrictBool] = None
-    credit_expiry: Optional[StrictBool] = Field(default=None, alias="creditExpiry")
-    disk: Optional[StrictBool] = None
-    fan_speed: Optional[StrictBool] = Field(default=None, alias="fanSpeed")
-    license_expiry: Optional[StrictBool] = Field(default=None, alias="licenseExpiry")
-    memory: Optional[StrictBool] = None
-    odp_connectivity: Optional[StrictBool] = Field(default=None, alias="odpConnectivity")
-    odp_transitions: Optional[StrictBool] = Field(default=None, alias="odpTransitions")
-    sla_performance: Optional[StrictBool] = Field(default=None, alias="slaPerformance")
-    t2_connectivity: Optional[StrictBool] = Field(default=None, alias="t2Connectivity")
-    t2_transitions: Optional[StrictBool] = Field(default=None, alias="t2Transitions")
-    temperature: Optional[StrictBool] = None
+    certificate_expiry: Optional[StrictBool] = Field(default=None, alias="certificateExpiry", json_schema_extra={"examples": [True]})
+    core_connectivity: Optional[StrictBool] = Field(default=None, alias="coreConnectivity", json_schema_extra={"examples": [True]})
+    core_transitions: Optional[StrictBool] = Field(default=None, alias="coreTransitions", json_schema_extra={"examples": [True]})
+    cpu: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    crashes: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    credit_expiry: Optional[StrictBool] = Field(default=None, alias="creditExpiry", json_schema_extra={"examples": [True]})
+    disk: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    fan_speed: Optional[StrictBool] = Field(default=None, alias="fanSpeed", json_schema_extra={"examples": [True]})
+    license_expiry: Optional[StrictBool] = Field(default=None, alias="licenseExpiry", json_schema_extra={"examples": [True]})
+    memory: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    odp_connectivity: Optional[StrictBool] = Field(default=None, alias="odpConnectivity", json_schema_extra={"examples": [True]})
+    odp_transitions: Optional[StrictBool] = Field(default=None, alias="odpTransitions", json_schema_extra={"examples": [True]})
+    sla_performance: Optional[StrictBool] = Field(default=None, alias="slaPerformance", json_schema_extra={"examples": [True]})
+    t2_connectivity: Optional[StrictBool] = Field(default=None, alias="t2Connectivity", json_schema_extra={"examples": [True]})
+    t2_transitions: Optional[StrictBool] = Field(default=None, alias="t2Transitions", json_schema_extra={"examples": [True]})
+    temperature: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["certificateExpiry", "coreConnectivity", "coreTransitions", "cpu", "crashes", "creditExpiry", "disk", "fanSpeed", "licenseExpiry", "memory", "odpConnectivity", "odpTransitions", "slaPerformance", "t2Connectivity", "t2Transitions", "temperature"]
 
     model_config = ConfigDict(

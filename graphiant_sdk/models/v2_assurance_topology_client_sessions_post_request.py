@@ -29,15 +29,16 @@ class V2AssuranceTopologyClientSessionsPostRequest(BaseModel):
     """
     V2AssuranceTopologyClientSessionsPostRequest
     """ # noqa: E501
-    app_name: Optional[StrictStr] = Field(default=None, alias="appName")
-    app_server_key: Optional[StrictStr] = Field(default=None, alias="appServerKey")
-    bucket_id: Optional[StrictStr] = Field(default=None, alias="bucketId")
-    client_ip: Optional[StrictStr] = Field(default=None, alias="clientIp")
+    app_name: Optional[StrictStr] = Field(default=None, alias="appName", json_schema_extra={"examples": ["example string"]})
+    app_server_key: Optional[StrictStr] = Field(default=None, alias="appServerKey", json_schema_extra={"examples": ["example string"]})
+    bucket_id: Optional[StrictStr] = Field(default=None, alias="bucketId", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    client_ip: Optional[StrictStr] = Field(default=None, alias="clientIp", json_schema_extra={"examples": ["example string"]})
+    exchange_service_id: Optional[StrictInt] = Field(default=None, alias="exchangeServiceId", json_schema_extra={"examples": [1234567891011]})
     filter: Optional[AssuranceTopologyFilter] = None
-    flex_algo_id: Optional[StrictInt] = Field(default=None, alias="flexAlgoId")
-    site_id: Optional[StrictInt] = Field(default=None, alias="siteId")
+    flex_algo_id: Optional[StrictInt] = Field(default=None, alias="flexAlgoId", json_schema_extra={"examples": [1234567891011]})
+    site_id: Optional[StrictInt] = Field(default=None, alias="siteId", json_schema_extra={"examples": [1234567891011]})
     time_window: Optional[AssuranceTimeWindow] = Field(default=None, alias="timeWindow")
-    __properties: ClassVar[List[str]] = ["appName", "appServerKey", "bucketId", "clientIp", "filter", "flexAlgoId", "siteId", "timeWindow"]
+    __properties: ClassVar[List[str]] = ["appName", "appServerKey", "bucketId", "clientIp", "exchangeServiceId", "filter", "flexAlgoId", "siteId", "timeWindow"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -100,6 +101,7 @@ class V2AssuranceTopologyClientSessionsPostRequest(BaseModel):
             "appServerKey": obj.get("appServerKey"),
             "bucketId": obj.get("bucketId"),
             "clientIp": obj.get("clientIp"),
+            "exchangeServiceId": obj.get("exchangeServiceId"),
             "filter": AssuranceTopologyFilter.from_dict(obj["filter"]) if obj.get("filter") is not None else None,
             "flexAlgoId": obj.get("flexAlgoId"),
             "siteId": obj.get("siteId"),

@@ -28,13 +28,13 @@ class StatsmonBandwidthtrackerBwUsageCsvRecord(BaseModel):
     """
     StatsmonBandwidthtrackerBwUsageCsvRecord
     """ # noqa: E501
-    cloud_provider_name: Optional[StrictStr] = Field(default=None, alias="cloudProviderName")
-    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId")
-    enterprise_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="enterpriseId")
-    region_name: Optional[StrictStr] = Field(default=None, alias="regionName")
-    service_type: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="serviceType")
-    site_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="siteId")
-    usage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usageKbps")
+    cloud_provider_name: Optional[StrictStr] = Field(default=None, alias="cloudProviderName", json_schema_extra={"examples": ["example string"]})
+    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [12345678910]})
+    enterprise_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="enterpriseId", json_schema_extra={"examples": [12345678910]})
+    region_name: Optional[StrictStr] = Field(default=None, alias="regionName", json_schema_extra={"examples": ["example string"]})
+    service_type: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="serviceType", json_schema_extra={"examples": [12345678910]})
+    site_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="siteId", json_schema_extra={"examples": [12345678910]})
+    usage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usageKbps", json_schema_extra={"examples": [123.45]})
     __properties: ClassVar[List[str]] = ["cloudProviderName", "deviceId", "enterpriseId", "regionName", "serviceType", "siteId", "usageKbps"]
 
     model_config = ConfigDict(

@@ -28,17 +28,17 @@ class ManaV2NATPolicyRulesetRule(BaseModel):
     """
     ManaV2NATPolicyRulesetRule
     """ # noqa: E501
-    advertise_pre_nat_prefixes: Optional[StrictBool] = Field(default=None, alias="advertisePreNatPrefixes")
-    description: Optional[StrictStr] = None
-    id: Optional[StrictInt] = None
-    index: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    name: Optional[StrictStr] = None
-    original_dst_ip_prefix: Optional[StrictStr] = Field(default=None, alias="originalDstIpPrefix")
-    original_src_ip_prefix: Optional[StrictStr] = Field(default=None, alias="originalSrcIpPrefix")
-    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    translated_dst_ip_prefix: Optional[StrictStr] = Field(default=None, alias="translatedDstIpPrefix")
-    translated_src_ip_prefix: Optional[StrictStr] = Field(default=None, alias="translatedSrcIpPrefix")
-    type: Optional[StrictStr] = None
+    advertise_pre_nat_prefixes: Optional[StrictBool] = Field(default=None, alias="advertisePreNatPrefixes", json_schema_extra={"examples": [True]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    index: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    original_dst_ip_prefix: Optional[StrictStr] = Field(default=None, alias="originalDstIpPrefix", json_schema_extra={"examples": ["example string"]})
+    original_src_ip_prefix: Optional[StrictStr] = Field(default=None, alias="originalSrcIpPrefix", json_schema_extra={"examples": ["example string"]})
+    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    translated_dst_ip_prefix: Optional[StrictStr] = Field(default=None, alias="translatedDstIpPrefix", json_schema_extra={"examples": ["example string"]})
+    translated_src_ip_prefix: Optional[StrictStr] = Field(default=None, alias="translatedSrcIpPrefix", json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["advertisePreNatPrefixes", "description", "id", "index", "name", "originalDstIpPrefix", "originalSrcIpPrefix", "seq", "translatedDstIpPrefix", "translatedSrcIpPrefix", "type"]
 
     model_config = ConfigDict(

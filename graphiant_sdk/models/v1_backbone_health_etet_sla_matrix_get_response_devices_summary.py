@@ -28,8 +28,8 @@ class V1BackboneHealthEtetSlaMatrixGetResponseDevicesSummary(BaseModel):
     """
     V1BackboneHealthEtetSlaMatrixGetResponseDevicesSummary
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName")
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName", json_schema_extra={"examples": ["example string"]})
     region: Optional[StatsmonTroubleshootingRegion] = None
     __properties: ClassVar[List[str]] = ["deviceId", "deviceName", "region"]
 

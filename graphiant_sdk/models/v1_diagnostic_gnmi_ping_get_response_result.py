@@ -28,10 +28,10 @@ class V1DiagnosticGnmiPingGetResponseResult(BaseModel):
     """
     V1DiagnosticGnmiPingGetResponseResult
     """ # noqa: E501
-    address: Optional[StrictStr] = Field(default=None, description="Address of the device on which the test was performed")
-    error: Optional[StrictStr] = Field(default=None, description="If error is empty, the ping is success")
+    address: Optional[StrictStr] = Field(default=None, description="Address of the device on which the test was performed", json_schema_extra={"examples": ["12001:0db8:85a3:0000:0000:8a2e:0370:7334"]})
+    error: Optional[StrictStr] = Field(default=None, description="If error is empty, the ping is success", json_schema_extra={"examples": ["device offline"]})
     rtt: Optional[GoogleProtobufDuration] = None
-    tt_device_id: Optional[StrictInt] = Field(default=None, alias="ttDeviceId")
+    tt_device_id: Optional[StrictInt] = Field(default=None, alias="ttDeviceId", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["address", "error", "rtt", "ttDeviceId"]
 
     model_config = ConfigDict(

@@ -28,9 +28,9 @@ class UpgradeMonthlyRecurrence(BaseModel):
     """
     UpgradeMonthlyRecurrence
     """ # noqa: E501
-    var_date: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Calendar day of month (1–31) for fixed-date monthly recurrence; optional if ordinal and weekday are set.", alias="date")
-    ordinal: Optional[StrictStr] = Field(default=None, description="For nth-weekday-of-month style recurrence; use together with weekday, or use date instead.")
-    weekday: Optional[StrictStr] = Field(default=None, description="Weekday paired with ordinal for monthly nth-weekday recurrence; optional if date is set.")
+    var_date: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Calendar day of month (1–31) for fixed-date monthly recurrence; optional if ordinal and weekday are set.", alias="date", json_schema_extra={"examples": [15]})
+    ordinal: Optional[StrictStr] = Field(default=None, description="For nth-weekday-of-month style recurrence; use together with weekday, or use date instead.", json_schema_extra={"examples": ["Second"]})
+    weekday: Optional[StrictStr] = Field(default=None, description="Weekday paired with ordinal for monthly nth-weekday recurrence; optional if date is set.", json_schema_extra={"examples": ["Tuesday"]})
     __properties: ClassVar[List[str]] = ["date", "ordinal", "weekday"]
 
     model_config = ConfigDict(

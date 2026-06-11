@@ -28,13 +28,13 @@ class StatsmonBackbonehealthGetQOEMatrixResponseQoeSessionSummaryQoeSessionBox(B
     """
     StatsmonBackbonehealthGetQOEMatrixResponseQoeSessionSummaryQoeSessionBox
     """ # noqa: E501
-    delay_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="delayValue")
+    delay_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="delayValue", json_schema_extra={"examples": [123.45]})
     end_time: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="endTime")
-    jitter_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="jitterValue")
-    loss_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="lossValue")
+    jitter_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="jitterValue", json_schema_extra={"examples": [123.45]})
+    loss_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="lossValue", json_schema_extra={"examples": [123.45]})
     start_time: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="startTime")
-    status: Optional[StrictStr] = None
-    value: Optional[Union[StrictFloat, StrictInt]] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [123.45]})
     __properties: ClassVar[List[str]] = ["delayValue", "endTime", "jitterValue", "lossValue", "startTime", "status", "value"]
 
     model_config = ConfigDict(

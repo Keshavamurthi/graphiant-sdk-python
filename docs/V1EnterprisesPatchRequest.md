@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **company_name** | **str** |  | [optional] 
 **credit_limit** | **int** |  | [optional] 
 **description** | **str** |  | [optional] 
+**enterprise_contract** | [**CommonBillingContract**](CommonBillingContract.md) |  | [optional] 
 **enterprise_id** | **int** |  (required) | 
 **impersonation_enabled** | **bool** |  | [optional] 
 **logo** | **str** |  | [optional] 

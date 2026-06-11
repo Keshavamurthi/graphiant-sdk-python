@@ -28,13 +28,13 @@ class IpfixNatEntryFilter(BaseModel):
     """
     IpfixNatEntryFilter
     """ # noqa: E501
-    destination_ip: Optional[StrictStr] = Field(default=None, alias="destinationIp")
-    destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destinationPort")
-    inside_local_ip: Optional[StrictStr] = Field(default=None, alias="insideLocalIp")
-    inside_local_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="insideLocalPort")
-    nat_type: Optional[StrictStr] = Field(default=None, alias="natType")
-    outside_global_ip: Optional[StrictStr] = Field(default=None, alias="outsideGlobalIp")
-    outside_global_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="outsideGlobalPort")
+    destination_ip: Optional[StrictStr] = Field(default=None, alias="destinationIp", json_schema_extra={"examples": ["example string"]})
+    destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destinationPort", json_schema_extra={"examples": [123]})
+    inside_local_ip: Optional[StrictStr] = Field(default=None, alias="insideLocalIp", json_schema_extra={"examples": ["example string"]})
+    inside_local_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="insideLocalPort", json_schema_extra={"examples": [123]})
+    nat_type: Optional[StrictStr] = Field(default=None, alias="natType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    outside_global_ip: Optional[StrictStr] = Field(default=None, alias="outsideGlobalIp", json_schema_extra={"examples": ["example string"]})
+    outside_global_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="outsideGlobalPort", json_schema_extra={"examples": [123]})
     vrf_ids: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, alias="vrfIds")
     __properties: ClassVar[List[str]] = ["destinationIp", "destinationPort", "insideLocalIp", "insideLocalPort", "natType", "outsideGlobalIp", "outsideGlobalPort", "vrfIds"]
 

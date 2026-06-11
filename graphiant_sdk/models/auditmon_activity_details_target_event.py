@@ -28,9 +28,9 @@ class AuditmonActivityDetailsTargetEvent(BaseModel):
     """
     AuditmonActivityDetailsTargetEvent
     """ # noqa: E501
-    state: Optional[StrictStr] = None
-    state_id: Optional[StrictInt] = Field(default=None, alias="stateId")
-    trace_session_id: Optional[StrictStr] = Field(default=None, alias="traceSessionId")
+    state: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    state_id: Optional[StrictInt] = Field(default=None, alias="stateId", json_schema_extra={"examples": [123]})
+    trace_session_id: Optional[StrictStr] = Field(default=None, alias="traceSessionId", json_schema_extra={"examples": ["example string"]})
     ts: Optional[GoogleProtobufTimestamp] = None
     __properties: ClassVar[List[str]] = ["state", "stateId", "traceSessionId", "ts"]
 

@@ -27,15 +27,15 @@ class ManaV2VRRPGroupMember(BaseModel):
     """
     ManaV2VRRPGroupMember
     """ # noqa: E501
-    circuit: Optional[StrictStr] = None
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    effective_priority: Optional[StrictInt] = Field(default=None, alias="effectivePriority")
-    hostname: Optional[StrictStr] = None
-    interface: Optional[StrictStr] = None
-    lan: Optional[StrictStr] = None
-    local_ip_address: Optional[StrictStr] = Field(default=None, alias="localIpAddress")
-    priority: Optional[StrictInt] = None
-    state: Optional[StrictStr] = None
+    circuit: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    effective_priority: Optional[StrictInt] = Field(default=None, alias="effectivePriority", json_schema_extra={"examples": [123]})
+    hostname: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    interface: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    lan: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    local_ip_address: Optional[StrictStr] = Field(default=None, alias="localIpAddress", json_schema_extra={"examples": ["example string"]})
+    priority: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [123]})
+    state: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["circuit", "deviceId", "effectivePriority", "hostname", "interface", "lan", "localIpAddress", "priority", "state"]
 
     model_config = ConfigDict(

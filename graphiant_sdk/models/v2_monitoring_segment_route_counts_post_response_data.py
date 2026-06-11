@@ -29,10 +29,10 @@ class V2MonitoringSegmentRouteCountsPostResponseData(BaseModel):
     """
     V2MonitoringSegmentRouteCountsPostResponseData
     """ # noqa: E501
-    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId")
+    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [12345678910]})
     ipv4_route_count: Optional[StatsmonV2StatsSample] = Field(default=None, alias="ipv4RouteCount")
     ipv6_route_count: Optional[StatsmonV2StatsSample] = Field(default=None, alias="ipv6RouteCount")
-    segment_name: Optional[StrictStr] = Field(default=None, alias="segmentName")
+    segment_name: Optional[StrictStr] = Field(default=None, alias="segmentName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["deviceId", "ipv4RouteCount", "ipv6RouteCount", "segmentName"]
 
     model_config = ConfigDict(

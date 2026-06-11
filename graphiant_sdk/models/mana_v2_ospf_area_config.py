@@ -28,10 +28,10 @@ class ManaV2OspfAreaConfig(BaseModel):
     """
     ManaV2OspfAreaConfig
     """ # noqa: E501
-    area_id: Optional[StrictStr] = Field(default=None, alias="areaId")
+    area_id: Optional[StrictStr] = Field(default=None, alias="areaId", json_schema_extra={"examples": ["example string"]})
     interfaces: Optional[Dict[str, ManaV2NullableOspfInterfaceConfig]] = None
-    name: Optional[StrictStr] = None
-    type: Optional[StrictStr] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["areaId", "interfaces", "name", "type"]
 
     model_config = ConfigDict(

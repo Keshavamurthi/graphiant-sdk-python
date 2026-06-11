@@ -27,7 +27,7 @@ class V1EnterprisesEnterpriseIdAdminGetResponse(BaseModel):
     """
     V1EnterprisesEnterpriseIdAdminGetResponse
     """ # noqa: E501
-    admin_email: Optional[StrictStr] = Field(default=None, alias="adminEmail")
+    admin_email: Optional[StrictStr] = Field(default=None, alias="adminEmail", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["adminEmail"]
 
     model_config = ConfigDict(

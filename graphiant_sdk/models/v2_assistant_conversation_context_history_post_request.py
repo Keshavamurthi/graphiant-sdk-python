@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,7 +27,7 @@ class V2AssistantConversationContextHistoryPostRequest(BaseModel):
     """
     V2AssistantConversationContextHistoryPostRequest
     """ # noqa: E501
-    enable: Optional[StrictBool] = None
+    enable: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["enable"]
 
     model_config = ConfigDict(

@@ -30,8 +30,8 @@ class V2MonitoringExtranetStatusDetailsGetResponse(BaseModel):
     V2MonitoringExtranetStatusDetailsGetResponse
     """ # noqa: E501
     edge_statuses: Optional[List[StatsmonExtranetEdgeStatus]] = Field(default=None, alias="edgeStatuses")
-    location: Optional[StrictStr] = Field(default=None, description="the location of the site")
-    region: Optional[StrictStr] = Field(default=None, description="the region of the site")
+    location: Optional[StrictStr] = Field(default=None, description="the location of the site", json_schema_extra={"examples": ["Location 1"]})
+    region: Optional[StrictStr] = Field(default=None, description="the region of the site", json_schema_extra={"examples": ["Region 1"]})
     site_status: Optional[StatsmonExtranetSiteStatus] = Field(default=None, alias="siteStatus")
     __properties: ClassVar[List[str]] = ["edgeStatuses", "location", "region", "siteStatus"]
 

@@ -28,9 +28,9 @@ class V1DevicesBringupTokenPostRequest(BaseModel):
     """
     V1DevicesBringupTokenPostRequest
     """ # noqa: E501
-    role: Optional[StrictStr] = None
+    role: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     valid_till_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="validTillTs")
-    validity_sec: Optional[StrictInt] = Field(default=None, alias="validitySec")
+    validity_sec: Optional[StrictInt] = Field(default=None, alias="validitySec", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["role", "validTillTs", "validitySec"]
 
     model_config = ConfigDict(

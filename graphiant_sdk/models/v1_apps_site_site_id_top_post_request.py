@@ -29,7 +29,7 @@ class V1AppsSiteSiteIdTopPostRequest(BaseModel):
     """
     V1AppsSiteSiteIdTopPostRequest
     """ # noqa: E501
-    num_apps: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The maximum number of apps to return (100 if left empty)", alias="numApps")
+    num_apps: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The maximum number of apps to return (100 if left empty)", alias="numApps", json_schema_extra={"examples": [22]})
     time_window: Optional[IpfixTimeWindow] = Field(default=None, alias="timeWindow")
     __properties: ClassVar[List[str]] = ["numApps", "timeWindow"]
 

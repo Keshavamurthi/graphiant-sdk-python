@@ -27,10 +27,10 @@ class V1AuthGetResponse(BaseModel):
     """
     V1AuthGetResponse
     """ # noqa: E501
-    cert: Optional[StrictStr] = None
-    entry_point: Optional[StrictStr] = Field(default=None, alias="entryPoint")
-    iam_type: Optional[StrictStr] = Field(default=None, alias="iamType")
-    issuer: Optional[StrictStr] = None
+    cert: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    entry_point: Optional[StrictStr] = Field(default=None, alias="entryPoint", json_schema_extra={"examples": ["example string"]})
+    iam_type: Optional[StrictStr] = Field(default=None, alias="iamType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    issuer: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["cert", "entryPoint", "iamType", "issuer"]
 
     model_config = ConfigDict(

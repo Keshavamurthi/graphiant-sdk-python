@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.mana_v2_assurance_config import ManaV2AssuranceConfig
 from typing import Optional, Set
@@ -29,7 +29,7 @@ class V1DataAssuranceAssurancesApplicationsBucketAppNameGetResponseAssurance(Bas
     V1DataAssuranceAssurancesApplicationsBucketAppNameGetResponseAssurance
     """ # noqa: E501
     configs: Optional[ManaV2AssuranceConfig] = None
-    id: Optional[StrictInt] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["configs", "id"]
 
     model_config = ConfigDict(

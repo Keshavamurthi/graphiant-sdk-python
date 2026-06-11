@@ -27,7 +27,7 @@ class V1DiagnosticArchiveCreateDeviceIdPostResponse(BaseModel):
     """
     V1DiagnosticArchiveCreateDeviceIdPostResponse
     """ # noqa: E501
-    archive_id: Optional[StrictInt] = Field(default=None, description="Unique identifier for a specific archive", alias="archiveId")
+    archive_id: Optional[StrictInt] = Field(default=None, description="Unique identifier for a specific archive", alias="archiveId", json_schema_extra={"examples": [1000000]})
     __properties: ClassVar[List[str]] = ["archiveId"]
 
     model_config = ConfigDict(

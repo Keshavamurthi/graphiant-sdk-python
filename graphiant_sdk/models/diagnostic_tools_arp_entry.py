@@ -29,8 +29,8 @@ class DiagnosticToolsArpEntry(BaseModel):
     DiagnosticToolsArpEntry
     """ # noqa: E501
     address: Optional[DiagnosticToolsArpEntryAddress] = None
-    all_entry: Optional[StrictBool] = Field(default=None, description="All IPv4 addresses", alias="allEntry")
-    interface_name: Optional[StrictStr] = Field(default=None, description="Interface Name", alias="interfaceName")
+    all_entry: Optional[StrictBool] = Field(default=None, description="All IPv4 addresses", alias="allEntry", json_schema_extra={"examples": [True]})
+    interface_name: Optional[StrictStr] = Field(default=None, description="Interface Name", alias="interfaceName", json_schema_extra={"examples": ["GigabitEthernet0/2"]})
     __properties: ClassVar[List[str]] = ["address", "allEntry", "interfaceName"]
 
     model_config = ConfigDict(

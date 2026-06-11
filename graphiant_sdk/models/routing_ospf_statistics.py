@@ -28,8 +28,8 @@ class RoutingOspfStatistics(BaseModel):
     """
     RoutingOspfStatistics
     """ # noqa: E501
-    discontinuity_time: Optional[StrictStr] = Field(default=None, alias="discontinuityTime")
-    route_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="routeCount")
+    discontinuity_time: Optional[StrictStr] = Field(default=None, alias="discontinuityTime", json_schema_extra={"examples": ["example string"]})
+    route_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="routeCount", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["discontinuityTime", "routeCount"]
 
     model_config = ConfigDict(

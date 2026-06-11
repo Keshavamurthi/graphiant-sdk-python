@@ -30,10 +30,10 @@ class StatsmonBandwidthtrackerBwUsageByRegionEdgeSummary(BaseModel):
     StatsmonBandwidthtrackerBwUsageByRegionEdgeSummary
     """ # noqa: E501
     bwusage_top_sites: Optional[List[StatsmonBandwidthtrackerBwUsageByTopSites]] = Field(default=None, alias="bwusageTopSites")
-    edgeusage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="edgeusageKbps")
-    percent_changed: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="percentChanged")
-    site_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="siteCount")
-    totusage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="totusageKbps")
+    edgeusage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="edgeusageKbps", json_schema_extra={"examples": [123.45]})
+    percent_changed: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="percentChanged", json_schema_extra={"examples": [123.45]})
+    site_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="siteCount", json_schema_extra={"examples": [12345678910]})
+    totusage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="totusageKbps", json_schema_extra={"examples": [123.45]})
     __properties: ClassVar[List[str]] = ["bwusageTopSites", "edgeusageKbps", "percentChanged", "siteCount", "totusageKbps"]
 
     model_config = ConfigDict(

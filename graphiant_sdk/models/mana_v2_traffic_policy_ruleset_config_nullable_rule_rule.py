@@ -31,10 +31,10 @@ class ManaV2TrafficPolicyRulesetConfigNullableRuleRule(BaseModel):
     ManaV2TrafficPolicyRulesetConfigNullableRuleRule
     """ # noqa: E501
     action: Optional[ManaV2TrafficPolicyRulesetConfigNullableRuleRuleAction] = None
-    description: Optional[StrictStr] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     match: Optional[ManaV2ForwardingPolicyMatchConfig] = None
-    name: Optional[StrictStr] = None
-    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["action", "description", "match", "name", "seq"]
 
     model_config = ConfigDict(

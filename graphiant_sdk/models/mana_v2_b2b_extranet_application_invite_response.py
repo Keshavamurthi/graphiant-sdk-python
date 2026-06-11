@@ -28,12 +28,12 @@ class ManaV2B2bExtranetApplicationInviteResponse(BaseModel):
     """
     ManaV2B2bExtranetApplicationInviteResponse
     """ # noqa: E501
-    admin_email: Optional[StrictStr] = Field(default=None, alias="adminEmail")
-    consumer_burst_size: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="consumerBurstSize")
-    consumer_bw_site: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="consumerBwSite")
-    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId")
-    id: Optional[StrictInt] = None
-    maximum_site_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="maximumSiteCount")
+    admin_email: Optional[StrictStr] = Field(default=None, alias="adminEmail", json_schema_extra={"examples": ["example string"]})
+    consumer_burst_size: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="consumerBurstSize", json_schema_extra={"examples": [123]})
+    consumer_bw_site: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="consumerBwSite", json_schema_extra={"examples": [123]})
+    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId", json_schema_extra={"examples": [1234567891011]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    maximum_site_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="maximumSiteCount", json_schema_extra={"examples": [123]})
     service_prefixes: Optional[List[StrictStr]] = Field(default=None, alias="servicePrefixes")
     __properties: ClassVar[List[str]] = ["adminEmail", "consumerBurstSize", "consumerBwSite", "enterpriseId", "id", "maximumSiteCount", "servicePrefixes"]
 

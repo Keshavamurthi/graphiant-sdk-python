@@ -29,7 +29,7 @@ class V2AssistantGetConversationsPostResponse(BaseModel):
     V2AssistantGetConversationsPostResponse
     """ # noqa: E501
     conversation_list: Optional[List[AssistantAssistantConversation]] = Field(default=None, alias="conversationList")
-    enable_context_history: Optional[StrictBool] = Field(default=None, alias="enableContextHistory")
+    enable_context_history: Optional[StrictBool] = Field(default=None, alias="enableContextHistory", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["conversationList", "enableContextHistory"]
 
     model_config = ConfigDict(

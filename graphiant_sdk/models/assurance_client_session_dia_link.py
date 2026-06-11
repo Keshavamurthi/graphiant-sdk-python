@@ -27,7 +27,7 @@ class AssuranceClientSessionDiaLink(BaseModel):
     """
     AssuranceClientSessionDiaLink
     """ # noqa: E501
-    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName")
+    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["circuitName"]
 
     model_config = ConfigDict(

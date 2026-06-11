@@ -30,11 +30,11 @@ class ManaV2ConnectivityGraphNode(BaseModel):
     ManaV2ConnectivityGraphNode
     """ # noqa: E501
     connections: Optional[ManaV2GraphiantConnections] = None
-    id: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    name: Optional[StrictStr] = None
-    override_region: Optional[StrictStr] = Field(default=None, alias="overrideRegion")
-    region: Optional[StrictStr] = None
-    type: Optional[StrictStr] = None
+    id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    override_region: Optional[StrictStr] = Field(default=None, alias="overrideRegion", json_schema_extra={"examples": ["example string"]})
+    region: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["connections", "id", "name", "overrideRegion", "region", "type"]
 
     model_config = ConfigDict(

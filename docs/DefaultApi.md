@@ -189,6 +189,12 @@ Method | HTTP request | Description
 [**v1_extranet_b2b_monitoring_peering_service_service_customer_list_post**](DefaultApi.md#v1_extranet_b2b_monitoring_peering_service_service_customer_list_post) | **POST** /v1/extranet-b2b-monitoring/peering-service/service-customer-list | 
 [**v1_extranet_b2b_monitoring_peering_service_service_health_post**](DefaultApi.md#v1_extranet_b2b_monitoring_peering_service_service_health_post) | **POST** /v1/extranet-b2b-monitoring/peering-service/service-health | 
 [**v1_extranet_b2b_monitoring_peering_service_service_overtime_consumption_post**](DefaultApi.md#v1_extranet_b2b_monitoring_peering_service_service_overtime_consumption_post) | **POST** /v1/extranet-b2b-monitoring/peering-service/service-overtime-consumption | 
+[**v1_extranet_public_vif_check_post**](DefaultApi.md#v1_extranet_public_vif_check_post) | **POST** /v1/extranet-public-vif/check | 
+[**v1_extranet_public_vif_get**](DefaultApi.md#v1_extranet_public_vif_get) | **GET** /v1/extranet-public-vif | 
+[**v1_extranet_public_vif_id_delete**](DefaultApi.md#v1_extranet_public_vif_id_delete) | **DELETE** /v1/extranet-public-vif/{id} | 
+[**v1_extranet_public_vif_id_get**](DefaultApi.md#v1_extranet_public_vif_id_get) | **GET** /v1/extranet-public-vif/{id} | 
+[**v1_extranet_public_vif_id_put**](DefaultApi.md#v1_extranet_public_vif_id_put) | **PUT** /v1/extranet-public-vif/{id} | 
+[**v1_extranet_public_vif_post**](DefaultApi.md#v1_extranet_public_vif_post) | **POST** /v1/extranet-public-vif | 
 [**v1_extranet_sites_usage_top_post**](DefaultApi.md#v1_extranet_sites_usage_top_post) | **POST** /v1/extranet/sites-usage/top | 
 [**v1_extranets_b2b_consumer_device_status_id_get**](DefaultApi.md#v1_extranets_b2b_consumer_device_status_id_get) | **GET** /v1/extranets-b2b/consumer-device-status/{id} | 
 [**v1_extranets_b2b_consumer_id_delete**](DefaultApi.md#v1_extranets_b2b_consumer_id_delete) | **DELETE** /v1/extranets-b2b/consumer/{id} | 
@@ -320,6 +326,7 @@ Method | HTTP request | Description
 [**v1_lldp_interface_id_summary_get**](DefaultApi.md#v1_lldp_interface_id_summary_get) | **GET** /v1/lldp/{interfaceId}/summary | 
 [**v1_lldp_interface_id_vendors_get**](DefaultApi.md#v1_lldp_interface_id_vendors_get) | **GET** /v1/lldp/{interfaceId}/vendors | 
 [**v1_logs_post**](DefaultApi.md#v1_logs_post) | **POST** /v1/logs | 
+[**v1_msp_managed_enterprise_contract_info_get**](DefaultApi.md#v1_msp_managed_enterprise_contract_info_get) | **GET** /v1/msp/managed-enterprise-contract-info | 
 [**v1_nat_entries_device_id_get**](DefaultApi.md#v1_nat_entries_device_id_get) | **GET** /v1/nat/entries/{deviceId} | 
 [**v1_nat_utilization_device_id_get**](DefaultApi.md#v1_nat_utilization_device_id_get) | **GET** /v1/nat/utilization/{deviceId} | 
 [**v1_onboarding_cloudinit_delete**](DefaultApi.md#v1_onboarding_cloudinit_delete) | **DELETE** /v1/onboarding/cloudinit | 
@@ -339,6 +346,7 @@ Method | HTTP request | Description
 [**v1_site_id_details_interfaces_get**](DefaultApi.md#v1_site_id_details_interfaces_get) | **GET** /v1/site/{id}/details/interfaces | 
 [**v1_sites_details_get**](DefaultApi.md#v1_sites_details_get) | **GET** /v1/sites/details | 
 [**v1_sites_get**](DefaultApi.md#v1_sites_get) | **GET** /v1/sites | 
+[**v1_sites_map_details_get**](DefaultApi.md#v1_sites_map_details_get) | **GET** /v1/sites/map/details | 
 [**v1_sites_post**](DefaultApi.md#v1_sites_post) | **POST** /v1/sites | 
 [**v1_sites_site_id_circuits_get**](DefaultApi.md#v1_sites_site_id_circuits_get) | **GET** /v1/sites/{siteId}/circuits | 
 [**v1_sites_site_id_delete**](DefaultApi.md#v1_sites_site_id_delete) | **DELETE** /v1/sites/{siteId} | 
@@ -13662,7 +13670,7 @@ Name | Type | Description  | Notes
 # **v1_enterprise_contract_put**
 > object v1_enterprise_contract_put(authorization, v1_enterprise_contract_put_request)
 
-Update an enterprise to use a new monthly or term-based contract
+Update an enterprise (or MSP tenant) to use a new monthly or term-based contract. For MSPs, sets total pool credits and contract shape; per-managed-enterprise allocations are set via IAM CreateEnterprise / UpdateEnterprise.
 
 ### Example
 
@@ -14200,7 +14208,7 @@ Name | Type | Description  | Notes
 # **v1_enterprises_managed_get**
 > V1EnterprisesManagedGetResponse v1_enterprises_managed_get(authorization, type)
 
-Get enterprises managed by your tenant, filtered by enterprise type.
+Get enterprises managed by your tenant, filtered by enterprise type. For MSP-managed enterprises, responses include MSP pool fields such as allocated_credits and credit_allocation_contract_expiration when applicable.
 
 ### Example
 
@@ -14354,7 +14362,7 @@ void (empty response body)
 # **v1_enterprises_put**
 > v1_enterprises_put(authorization, v1_enterprises_put_request)
 
-Create a new enterprise with company details, account type, and admin user.
+Create a new enterprise with company details, account type, and admin user. MSP callers creating a managed enterprise supply pool credit allocation fields (allocated_credits and optional term end).
 
 ### Example
 
@@ -14883,6 +14891,476 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1ExtranetB2bMonitoringPeeringServiceServiceOvertimeConsumptionPostResponse**](V1ExtranetB2bMonitoringPeeringServiceServiceOvertimeConsumptionPostResponse.md)
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_extranet_public_vif_check_post**
+> V1ExtranetPublicVifCheckPostResponse v1_extranet_public_vif_check_post(authorization, v1_extranet_public_vif_check_post_request)
+
+Check Public Vif service
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_extranet_public_vif_check_post_request import V1ExtranetPublicVifCheckPostRequest
+from graphiant_sdk.models.v1_extranet_public_vif_check_post_response import V1ExtranetPublicVifCheckPostResponse
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    v1_extranet_public_vif_check_post_request = graphiant_sdk.V1ExtranetPublicVifCheckPostRequest() # V1ExtranetPublicVifCheckPostRequest | 
+
+    try:
+        api_response = api_instance.v1_extranet_public_vif_check_post(authorization, v1_extranet_public_vif_check_post_request)
+        print("The response of DefaultApi->v1_extranet_public_vif_check_post:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_extranet_public_vif_check_post: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **v1_extranet_public_vif_check_post_request** | [**V1ExtranetPublicVifCheckPostRequest**](V1ExtranetPublicVifCheckPostRequest.md)|  | 
+
+### Return type
+
+[**V1ExtranetPublicVifCheckPostResponse**](V1ExtranetPublicVifCheckPostResponse.md)
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_extranet_public_vif_get**
+> V1ExtranetPublicVifGetResponse v1_extranet_public_vif_get(authorization)
+
+Get Public Vif summary
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_extranet_public_vif_get_response import V1ExtranetPublicVifGetResponse
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+
+    try:
+        api_response = api_instance.v1_extranet_public_vif_get(authorization)
+        print("The response of DefaultApi->v1_extranet_public_vif_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_extranet_public_vif_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+
+### Return type
+
+[**V1ExtranetPublicVifGetResponse**](V1ExtranetPublicVifGetResponse.md)
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_extranet_public_vif_id_delete**
+> object v1_extranet_public_vif_id_delete(authorization, id)
+
+Delete Public Vif service
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    id = 1234567891011 # int | 
+
+    try:
+        api_response = api_instance.v1_extranet_public_vif_id_delete(authorization, id)
+        print("The response of DefaultApi->v1_extranet_public_vif_id_delete:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_extranet_public_vif_id_delete: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **id** | **int**|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_extranet_public_vif_id_get**
+> V1ExtranetPublicVifIdGetResponse v1_extranet_public_vif_id_get(authorization, id)
+
+Get Public Vif service
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_extranet_public_vif_id_get_response import V1ExtranetPublicVifIdGetResponse
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    id = 1234567891011 # int | Public VIF producer policy
+
+    try:
+        api_response = api_instance.v1_extranet_public_vif_id_get(authorization, id)
+        print("The response of DefaultApi->v1_extranet_public_vif_id_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_extranet_public_vif_id_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **id** | **int**| Public VIF producer policy | 
+
+### Return type
+
+[**V1ExtranetPublicVifIdGetResponse**](V1ExtranetPublicVifIdGetResponse.md)
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_extranet_public_vif_id_put**
+> V1ExtranetPublicVifIdPutResponse v1_extranet_public_vif_id_put(authorization, id, v1_extranet_public_vif_id_put_request)
+
+Update Public Vif service
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_extranet_public_vif_id_put_request import V1ExtranetPublicVifIdPutRequest
+from graphiant_sdk.models.v1_extranet_public_vif_id_put_response import V1ExtranetPublicVifIdPutResponse
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    id = 1234567891011 # int | Public VIF producer service id
+    v1_extranet_public_vif_id_put_request = graphiant_sdk.V1ExtranetPublicVifIdPutRequest() # V1ExtranetPublicVifIdPutRequest | 
+
+    try:
+        api_response = api_instance.v1_extranet_public_vif_id_put(authorization, id, v1_extranet_public_vif_id_put_request)
+        print("The response of DefaultApi->v1_extranet_public_vif_id_put:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_extranet_public_vif_id_put: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **id** | **int**| Public VIF producer service id | 
+ **v1_extranet_public_vif_id_put_request** | [**V1ExtranetPublicVifIdPutRequest**](V1ExtranetPublicVifIdPutRequest.md)|  | 
+
+### Return type
+
+[**V1ExtranetPublicVifIdPutResponse**](V1ExtranetPublicVifIdPutResponse.md)
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_extranet_public_vif_post**
+> V1ExtranetPublicVifPostResponse v1_extranet_public_vif_post(authorization, v1_extranet_public_vif_post_request)
+
+Create Public Vif service
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_extranet_public_vif_post_request import V1ExtranetPublicVifPostRequest
+from graphiant_sdk.models.v1_extranet_public_vif_post_response import V1ExtranetPublicVifPostResponse
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    v1_extranet_public_vif_post_request = graphiant_sdk.V1ExtranetPublicVifPostRequest() # V1ExtranetPublicVifPostRequest | 
+
+    try:
+        api_response = api_instance.v1_extranet_public_vif_post(authorization, v1_extranet_public_vif_post_request)
+        print("The response of DefaultApi->v1_extranet_public_vif_post:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_extranet_public_vif_post: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **v1_extranet_public_vif_post_request** | [**V1ExtranetPublicVifPostRequest**](V1ExtranetPublicVifPostRequest.md)|  | 
+
+### Return type
+
+[**V1ExtranetPublicVifPostResponse**](V1ExtranetPublicVifPostResponse.md)
 
 ### Authorization
 
@@ -25112,6 +25590,82 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **v1_msp_managed_enterprise_contract_info_get**
+> V1MspManagedEnterpriseContractInfoGetResponse v1_msp_managed_enterprise_contract_info_get(authorization)
+
+Managed enterprises under the MSP with contract and credit allocation details for the requested month
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_msp_managed_enterprise_contract_info_get_response import V1MspManagedEnterpriseContractInfoGetResponse
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+
+    try:
+        api_response = api_instance.v1_msp_managed_enterprise_contract_info_get(authorization)
+        print("The response of DefaultApi->v1_msp_managed_enterprise_contract_info_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_msp_managed_enterprise_contract_info_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+
+### Return type
+
+[**V1MspManagedEnterpriseContractInfoGetResponse**](V1MspManagedEnterpriseContractInfoGetResponse.md)
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **v1_nat_entries_device_id_get**
 > V1NatEntriesDeviceIdGetResponse v1_nat_entries_device_id_get(authorization, device_id)
 
@@ -26555,6 +27109,88 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**V1SitesGetResponse**](V1SitesGetResponse.md)
+
+### Authorization
+
+[jwtAuth](../README.md#jwtAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_sites_map_details_get**
+> V1SitesMapDetailsGetResponse v1_sites_map_details_get(authorization, lan_segment_ids=lan_segment_ids, site_ids=site_ids, site_list_ids=site_list_ids)
+
+Per LAN segment (VRF), sites touched by that segment and device lists with/without the segment on each site
+
+### Example
+
+* Api Key Authentication (jwtAuth):
+
+```python
+import graphiant_sdk
+from graphiant_sdk.models.v1_sites_map_details_get_response import V1SitesMapDetailsGetResponse
+from graphiant_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.graphiant.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = graphiant_sdk.Configuration(
+    host = "https://api.graphiant.com"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: jwtAuth
+configuration.api_key['jwtAuth'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['jwtAuth'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with graphiant_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = graphiant_sdk.DefaultApi(api_client)
+    authorization = 'authorization_example' # str | Bearer token. Format: Bearer <your_token_here>
+    lan_segment_ids = [[0]] # List[int] |  (optional)
+    site_ids = [[0]] # List[int] |  (optional)
+    site_list_ids = [[0]] # List[int] |  (optional)
+
+    try:
+        api_response = api_instance.v1_sites_map_details_get(authorization, lan_segment_ids=lan_segment_ids, site_ids=site_ids, site_list_ids=site_list_ids)
+        print("The response of DefaultApi->v1_sites_map_details_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling DefaultApi->v1_sites_map_details_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **str**| Bearer token. Format: Bearer &lt;your_token_here&gt; | 
+ **lan_segment_ids** | [**List[int]**](int.md)|  | [optional] 
+ **site_ids** | [**List[int]**](int.md)|  | [optional] 
+ **site_list_ids** | [**List[int]**](int.md)|  | [optional] 
+
+### Return type
+
+[**V1SitesMapDetailsGetResponse**](V1SitesMapDetailsGetResponse.md)
 
 ### Authorization
 

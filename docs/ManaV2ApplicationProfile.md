@@ -5,6 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**port_range** | **str** | Port Range | [optional] 
 **ports** | **List[int]** |  | 
 **protocol** | **int** | Protocol for the application profile (required) | 
 

@@ -31,8 +31,8 @@ class V1GlobalAppsCustomGetResponseEntry(BaseModel):
     """ # noqa: E501
     app: Optional[ManaV2App] = None
     app_config: Optional[ManaV2GlobalAppConfig] = Field(default=None, alias="appConfig")
-    app_list_reference_count: Optional[StrictInt] = Field(default=None, alias="appListReferenceCount")
-    policy_reference_count: Optional[StrictInt] = Field(default=None, alias="policyReferenceCount")
+    app_list_reference_count: Optional[StrictInt] = Field(default=None, alias="appListReferenceCount", json_schema_extra={"examples": [123]})
+    policy_reference_count: Optional[StrictInt] = Field(default=None, alias="policyReferenceCount", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["app", "appConfig", "appListReferenceCount", "policyReferenceCount"]
 
     model_config = ConfigDict(

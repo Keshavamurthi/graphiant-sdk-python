@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **app_name** | **str** |  | [optional] 
 **app_server_key** | **str** |  | [optional] 
 **bucket_id** | **str** |  | [optional] 
+**exchange_service_id** | **int** |  | [optional] 
 **filter** | [**AssuranceTopologyFilter**](AssuranceTopologyFilter.md) |  | [optional] 
 **flex_algo_id** | **int** |  | [optional] 
 **site_id** | **int** |  | [optional] 

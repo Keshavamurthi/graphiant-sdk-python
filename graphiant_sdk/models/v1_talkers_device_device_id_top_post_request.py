@@ -29,7 +29,7 @@ class V1TalkersDeviceDeviceIdTopPostRequest(BaseModel):
     """
     V1TalkersDeviceDeviceIdTopPostRequest
     """ # noqa: E501
-    num_clients: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The maximum number of client usage info to be returned (10 if left empty)", alias="numClients")
+    num_clients: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="The maximum number of client usage info to be returned (10 if left empty)", alias="numClients", json_schema_extra={"examples": [10]})
     time_window: Optional[IpfixTimeWindow] = Field(default=None, alias="timeWindow")
     __properties: ClassVar[List[str]] = ["numClients", "timeWindow"]
 

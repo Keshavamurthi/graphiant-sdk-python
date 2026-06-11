@@ -27,9 +27,9 @@ class OnboardingIp(BaseModel):
     """
     OnboardingIp
     """ # noqa: E501
-    gateway_addr: Optional[StrictStr] = Field(default=None, alias="gatewayAddr")
-    ip_addr: Optional[StrictStr] = Field(default=None, alias="ipAddr")
-    type: Optional[StrictStr] = None
+    gateway_addr: Optional[StrictStr] = Field(default=None, alias="gatewayAddr", json_schema_extra={"examples": ["example string"]})
+    ip_addr: Optional[StrictStr] = Field(default=None, alias="ipAddr", json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["gatewayAddr", "ipAddr", "type"]
 
     model_config = ConfigDict(

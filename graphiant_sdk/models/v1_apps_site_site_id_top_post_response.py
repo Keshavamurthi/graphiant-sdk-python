@@ -29,7 +29,7 @@ class V1AppsSiteSiteIdTopPostResponse(BaseModel):
     V1AppsSiteSiteIdTopPostResponse
     """ # noqa: E501
     apps_utilization: Optional[List[IpfixAppUtilizationSummary]] = Field(default=None, alias="appsUtilization")
-    total_count: Optional[StrictInt] = Field(default=None, alias="totalCount")
+    total_count: Optional[StrictInt] = Field(default=None, alias="totalCount", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["appsUtilization", "totalCount"]
 
     model_config = ConfigDict(

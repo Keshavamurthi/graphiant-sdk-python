@@ -27,11 +27,11 @@ class ManaV2BandwidthInfo(BaseModel):
     """
     ManaV2BandwidthInfo
     """ # noqa: E501
-    combined_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Sum of the credits associated with cloud and gateway networks", alias="combinedCredits")
-    core_bandwidth: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Soft-upper-bounded max speed in gigabytes per second associated with core network connections", alias="coreBandwidth")
-    core_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Credits derived from bandwidth on core network connections", alias="coreCredits")
-    gw_bandwidth: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Soft-upper-bounded max speed in gigabytes per second associated with gateway connections", alias="gwBandwidth")
-    gw_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Credits derived from bandwidth on gateway network connections", alias="gwCredits")
+    combined_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Sum of the credits associated with cloud and gateway networks", alias="combinedCredits", json_schema_extra={"examples": [12.34]})
+    core_bandwidth: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Soft-upper-bounded max speed in gigabytes per second associated with core network connections", alias="coreBandwidth", json_schema_extra={"examples": [12.34]})
+    core_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Credits derived from bandwidth on core network connections", alias="coreCredits", json_schema_extra={"examples": [12.34]})
+    gw_bandwidth: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Soft-upper-bounded max speed in gigabytes per second associated with gateway connections", alias="gwBandwidth", json_schema_extra={"examples": [12.34]})
+    gw_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Credits derived from bandwidth on gateway network connections", alias="gwCredits", json_schema_extra={"examples": [12.34]})
     __properties: ClassVar[List[str]] = ["combinedCredits", "coreBandwidth", "coreCredits", "gwBandwidth", "gwCredits"]
 
     model_config = ConfigDict(

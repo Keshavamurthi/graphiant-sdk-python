@@ -28,11 +28,11 @@ class CommonPageRequest(BaseModel):
     """
     CommonPageRequest
     """ # noqa: E501
-    after: Optional[StrictStr] = None
-    before: Optional[StrictStr] = None
-    first: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    last: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    token: Optional[StrictStr] = None
+    after: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    before: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    first: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    last: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    token: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["after", "before", "first", "last", "token"]
 
     model_config = ConfigDict(

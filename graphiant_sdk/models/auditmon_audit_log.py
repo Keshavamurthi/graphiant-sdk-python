@@ -29,14 +29,14 @@ class AuditmonAuditLog(BaseModel):
     """
     AuditmonAuditLog
     """ # noqa: E501
-    action: Optional[StrictStr] = None
-    activity_id: Optional[StrictStr] = Field(default=None, alias="activityId")
-    category: Optional[StrictStr] = None
+    action: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    activity_id: Optional[StrictStr] = Field(default=None, alias="activityId", json_schema_extra={"examples": ["example string"]})
+    category: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     entity: Optional[AuditActivityItem] = None
-    job_type: Optional[StrictStr] = Field(default=None, alias="jobType")
+    job_type: Optional[StrictStr] = Field(default=None, alias="jobType", json_schema_extra={"examples": ["ENUM_VALUE"]})
     target: Optional[AuditActivityItem] = None
     ts: Optional[GoogleProtobufTimestamp] = None
-    user: Optional[StrictStr] = None
+    user: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["action", "activityId", "category", "entity", "jobType", "target", "ts", "user"]
 
     model_config = ConfigDict(

@@ -29,10 +29,10 @@ class ManaV2Region(BaseModel):
     ManaV2Region
     """ # noqa: E501
     coordinates: Optional[ManaV2RegionCoordinates] = None
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
-    region_iso_code: Optional[StrictStr] = Field(default=None, alias="regionIsoCode")
-    unavailable: Optional[StrictBool] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [123]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    region_iso_code: Optional[StrictStr] = Field(default=None, alias="regionIsoCode", json_schema_extra={"examples": ["example string"]})
+    unavailable: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["coordinates", "id", "name", "regionIsoCode", "unavailable"]
 
     model_config = ConfigDict(

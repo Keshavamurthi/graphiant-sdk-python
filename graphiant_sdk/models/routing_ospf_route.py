@@ -28,7 +28,7 @@ class RoutingOspfRoute(BaseModel):
     """
     RoutingOspfRoute
     """ # noqa: E501
-    ip_prefix: Optional[StrictStr] = Field(default=None, description="IPv4 or IPv6 Prefix (required)", alias="ipPrefix")
+    ip_prefix: Optional[StrictStr] = Field(default=None, description="IPv4 or IPv6 Prefix (required)", alias="ipPrefix", json_schema_extra={"examples": ["131.1.0.0/16"]})
     path: Optional[List[RoutingOspfNextHop]] = None
     __properties: ClassVar[List[str]] = ["ipPrefix", "path"]
 

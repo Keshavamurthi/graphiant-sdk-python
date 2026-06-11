@@ -28,11 +28,11 @@ class OnboardingCloudInitConfiguration(BaseModel):
     """
     OnboardingCloudInitConfiguration
     """ # noqa: E501
-    device_type: Optional[StrictStr] = Field(default=None, alias="deviceType")
-    dns_servers: Optional[StrictStr] = Field(default=None, alias="dnsServers")
-    hostname: Optional[StrictStr] = None
+    device_type: Optional[StrictStr] = Field(default=None, alias="deviceType", json_schema_extra={"examples": ["example string"]})
+    dns_servers: Optional[StrictStr] = Field(default=None, alias="dnsServers", json_schema_extra={"examples": ["example string"]})
+    hostname: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     interfaces: Optional[List[OnboardingInterface]] = None
-    local_web_password: Optional[StrictStr] = Field(default=None, alias="localWebPassword")
+    local_web_password: Optional[StrictStr] = Field(default=None, alias="localWebPassword", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["deviceType", "dnsServers", "hostname", "interfaces", "localWebPassword"]
 
     model_config = ConfigDict(

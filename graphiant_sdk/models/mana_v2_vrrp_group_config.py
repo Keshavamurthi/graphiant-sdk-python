@@ -29,15 +29,15 @@ class ManaV2VrrpGroupConfig(BaseModel):
     """
     ManaV2VrrpGroupConfig
     """ # noqa: E501
-    accept_mode: Optional[StrictBool] = Field(default=None, alias="acceptMode")
-    allow_inter_operability: Optional[StrictBool] = Field(default=None, alias="allowInterOperability")
-    description: Optional[StrictStr] = None
-    enabled: Optional[StrictBool] = None
-    preempt: Optional[StrictBool] = None
-    priority: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    accept_mode: Optional[StrictBool] = Field(default=None, alias="acceptMode", json_schema_extra={"examples": [True]})
+    allow_inter_operability: Optional[StrictBool] = Field(default=None, alias="allowInterOperability", json_schema_extra={"examples": [True]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    enabled: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    preempt: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    priority: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     tracked_interfaces: Optional[List[ManaV2NullableInterfacePriorityDecrement]] = Field(default=None, alias="trackedInterfaces")
-    virtual_ip: Optional[StrictStr] = Field(default=None, alias="virtualIp")
-    virtual_router_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="virtualRouterId")
+    virtual_ip: Optional[StrictStr] = Field(default=None, alias="virtualIp", json_schema_extra={"examples": ["example string"]})
+    virtual_router_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="virtualRouterId", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["acceptMode", "allowInterOperability", "description", "enabled", "preempt", "priority", "trackedInterfaces", "virtualIp", "virtualRouterId"]
 
     model_config = ConfigDict(

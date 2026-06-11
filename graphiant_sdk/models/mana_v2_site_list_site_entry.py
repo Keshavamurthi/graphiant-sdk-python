@@ -30,8 +30,8 @@ class ManaV2SiteListSiteEntry(BaseModel):
     ManaV2SiteListSiteEntry
     """ # noqa: E501
     created_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="createdAt")
-    edge_references: Optional[StrictInt] = Field(default=None, alias="edgeReferences")
-    site_name: Optional[StrictStr] = Field(default=None, alias="siteName")
+    edge_references: Optional[StrictInt] = Field(default=None, alias="edgeReferences", json_schema_extra={"examples": [123]})
+    site_name: Optional[StrictStr] = Field(default=None, alias="siteName", json_schema_extra={"examples": ["example string"]})
     tag: Optional[List[ManaV2RouteTagId]] = None
     __properties: ClassVar[List[str]] = ["createdAt", "edgeReferences", "siteName", "tag"]
 

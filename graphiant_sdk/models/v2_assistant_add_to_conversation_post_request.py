@@ -28,7 +28,7 @@ class V2AssistantAddToConversationPostRequest(BaseModel):
     """
     V2AssistantAddToConversationPostRequest
     """ # noqa: E501
-    conversation_id: Optional[StrictStr] = Field(default=None, alias="conversationId")
+    conversation_id: Optional[StrictStr] = Field(default=None, alias="conversationId", json_schema_extra={"examples": ["example string"]})
     question: Optional[AssistantAssistantQuestion] = None
     __properties: ClassVar[List[str]] = ["conversationId", "question"]
 

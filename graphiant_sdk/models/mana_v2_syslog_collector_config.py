@@ -28,16 +28,16 @@ class ManaV2SyslogCollectorConfig(BaseModel):
     """
     ManaV2SyslogCollectorConfig
     """ # noqa: E501
-    enabled: Optional[StrictBool] = None
-    global_id: Optional[StrictInt] = Field(default=None, alias="globalId")
-    host: Optional[StrictStr] = None
-    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName")
-    is_global_sync: Optional[StrictBool] = Field(default=None, alias="isGlobalSync")
-    name: Optional[StrictStr] = None
-    port: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    severity: Optional[StrictStr] = None
-    transport: Optional[StrictStr] = None
-    vrf_id: Optional[StrictInt] = Field(default=None, alias="vrfId")
+    enabled: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    global_id: Optional[StrictInt] = Field(default=None, alias="globalId", json_schema_extra={"examples": [1234567891011]})
+    host: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName", json_schema_extra={"examples": ["example string"]})
+    is_global_sync: Optional[StrictBool] = Field(default=None, alias="isGlobalSync", json_schema_extra={"examples": [True]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    severity: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    transport: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    vrf_id: Optional[StrictInt] = Field(default=None, alias="vrfId", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["enabled", "globalId", "host", "interfaceName", "isGlobalSync", "name", "port", "severity", "transport", "vrfId"]
 
     model_config = ConfigDict(

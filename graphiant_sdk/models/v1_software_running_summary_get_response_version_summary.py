@@ -28,9 +28,9 @@ class V1SoftwareRunningSummaryGetResponseVersionSummary(BaseModel):
     """
     V1SoftwareRunningSummaryGetResponseVersionSummary
     """ # noqa: E501
-    count: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    name: Optional[StrictStr] = None
-    version: Optional[StrictStr] = None
+    count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    version: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["count", "name", "version"]
 
     model_config = ConfigDict(

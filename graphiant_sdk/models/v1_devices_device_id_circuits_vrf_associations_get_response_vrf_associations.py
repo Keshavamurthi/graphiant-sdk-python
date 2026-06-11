@@ -27,9 +27,9 @@ class V1DevicesDeviceIdCircuitsVrfAssociationsGetResponseVrfAssociations(BaseMod
     """
     V1DevicesDeviceIdCircuitsVrfAssociationsGetResponseVrfAssociations
     """ # noqa: E501
-    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName")
-    loopback_interface_name: Optional[StrictStr] = Field(default=None, alias="loopbackInterfaceName")
-    vrf_name: Optional[StrictStr] = Field(default=None, alias="vrfName")
+    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName", json_schema_extra={"examples": ["example string"]})
+    loopback_interface_name: Optional[StrictStr] = Field(default=None, alias="loopbackInterfaceName", json_schema_extra={"examples": ["example string"]})
+    vrf_name: Optional[StrictStr] = Field(default=None, alias="vrfName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["interfaceName", "loopbackInterfaceName", "vrfName"]
 
     model_config = ConfigDict(

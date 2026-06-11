@@ -29,7 +29,7 @@ class SyslogmonHistogram(BaseModel):
     """
     SyslogmonHistogram
     """ # noqa: E501
-    count: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     ts: Optional[GoogleProtobufTimestamp] = None
     __properties: ClassVar[List[str]] = ["count", "ts"]
 

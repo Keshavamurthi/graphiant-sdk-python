@@ -38,21 +38,21 @@ class ManaV2CircuitConfig(BaseModel):
     bgp_multipath: Optional[ManaV2NullableBgpMultipathConfig] = Field(default=None, alias="bgpMultipath")
     bgp_neighbors: Optional[Dict[str, ManaV2NullableBgpNeighborConfig]] = Field(default=None, alias="bgpNeighbors")
     bgp_redistribution: Optional[Dict[str, ManaV2NullableBgpRedistributeProtocolConfig]] = Field(default=None, alias="bgpRedistribution")
-    carrier: Optional[StrictStr] = None
-    circuit_type: Optional[StrictStr] = Field(default=None, alias="circuitType")
-    connection_type: Optional[StrictStr] = Field(default=None, alias="connectionType")
-    description: Optional[StrictStr] = None
-    dia_enabled: Optional[StrictBool] = Field(default=None, alias="diaEnabled")
-    drop_mechanism: Optional[StrictStr] = Field(default=None, alias="dropMechanism")
-    label: Optional[StrictStr] = None
-    last_resort: Optional[StrictBool] = Field(default=None, alias="lastResort")
-    link_down_speed_mbps: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="linkDownSpeedMbps")
-    link_up_speed_mbps: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="linkUpSpeedMbps")
-    loopback: Optional[StrictBool] = None
-    name: Optional[StrictStr] = None
+    carrier: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    circuit_type: Optional[StrictStr] = Field(default=None, alias="circuitType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    connection_type: Optional[StrictStr] = Field(default=None, alias="connectionType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    dia_enabled: Optional[StrictBool] = Field(default=None, alias="diaEnabled", json_schema_extra={"examples": [True]})
+    drop_mechanism: Optional[StrictStr] = Field(default=None, alias="dropMechanism", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    label: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    last_resort: Optional[StrictBool] = Field(default=None, alias="lastResort", json_schema_extra={"examples": [True]})
+    link_down_speed_mbps: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="linkDownSpeedMbps", json_schema_extra={"examples": [123]})
+    link_up_speed_mbps: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="linkUpSpeedMbps", json_schema_extra={"examples": [123]})
+    loopback: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     pat_addresses: Optional[ManaV2NullableIpList] = Field(default=None, alias="patAddresses")
-    qos_profile: Optional[StrictStr] = Field(default=None, alias="qosProfile")
-    qos_profile_type: Optional[StrictStr] = Field(default=None, alias="qosProfileType")
+    qos_profile: Optional[StrictStr] = Field(default=None, alias="qosProfile", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    qos_profile_type: Optional[StrictStr] = Field(default=None, alias="qosProfileType", json_schema_extra={"examples": ["ENUM_VALUE"]})
     static_routes: Optional[Dict[str, ManaV2NullableStaticRouteConfig]] = Field(default=None, alias="staticRoutes")
     __properties: ClassVar[List[str]] = ["bgpAggregations", "bgpMultipath", "bgpNeighbors", "bgpRedistribution", "carrier", "circuitType", "connectionType", "description", "diaEnabled", "dropMechanism", "label", "lastResort", "linkDownSpeedMbps", "linkUpSpeedMbps", "loopback", "name", "patAddresses", "qosProfile", "qosProfileType", "staticRoutes"]
 

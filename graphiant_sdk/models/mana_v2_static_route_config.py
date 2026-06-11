@@ -30,11 +30,11 @@ class ManaV2StaticRouteConfig(BaseModel):
     """
     ManaV2StaticRouteConfig
     """ # noqa: E501
-    admin_distance: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="adminDistance")
+    admin_distance: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="adminDistance", json_schema_extra={"examples": [123]})
     administrative_distance: Optional[ManaV2NullableAdministrativeDistance] = Field(default=None, alias="administrativeDistance")
-    description: Optional[StrictStr] = None
-    destination_prefix: Optional[StrictStr] = Field(default=None, alias="destinationPrefix")
-    ip_version: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="ipVersion")
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    destination_prefix: Optional[StrictStr] = Field(default=None, alias="destinationPrefix", json_schema_extra={"examples": ["example string"]})
+    ip_version: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="ipVersion", json_schema_extra={"examples": [123]})
     next_hop: Optional[ManaV2StaticRouteNexthopConfig] = Field(default=None, alias="nextHop")
     next_hops: Optional[List[ManaV2StaticRouteNexthopConfig]] = Field(default=None, alias="nextHops")
     __properties: ClassVar[List[str]] = ["adminDistance", "administrativeDistance", "description", "destinationPrefix", "ipVersion", "nextHop", "nextHops"]

@@ -27,9 +27,9 @@ class V2MonitoringExtranetLogDetailsPostRequest(BaseModel):
     """
     V2MonitoringExtranetLogDetailsPostRequest
     """ # noqa: E501
-    id: StrictInt = Field(description="the id associated with an entity - consumer_id for consumer, and service_id for the producer/service (required)")
-    is_b2_b: StrictBool = Field(description="whether the entity is a b2b entity (true for b2b entity, false for local extranet entity) (required)", alias="isB2B")
-    is_provider: StrictBool = Field(description="whether the entity is a provider or consumer (required)", alias="isProvider")
+    id: StrictInt = Field(description="the id associated with an entity - consumer_id for consumer, and service_id for the producer/service (required)", json_schema_extra={"examples": [1]})
+    is_b2_b: StrictBool = Field(description="whether the entity is a b2b entity (true for b2b entity, false for local extranet entity) (required)", alias="isB2B", json_schema_extra={"examples": [True]})
+    is_provider: StrictBool = Field(description="whether the entity is a provider or consumer (required)", alias="isProvider", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["id", "isB2B", "isProvider"]
 
     model_config = ConfigDict(

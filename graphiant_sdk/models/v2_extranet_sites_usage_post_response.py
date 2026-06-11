@@ -28,7 +28,7 @@ class V2ExtranetSitesUsagePostResponse(BaseModel):
     """
     V2ExtranetSitesUsagePostResponse
     """ # noqa: E501
-    bw_allocation: Optional[StrictInt] = Field(default=None, description="the bandwidth allocation for the entity in kbps", alias="bwAllocation")
+    bw_allocation: Optional[StrictInt] = Field(default=None, description="the bandwidth allocation for the entity in kbps", alias="bwAllocation", json_schema_extra={"examples": [1000000]})
     dl_stats: Optional[List[IpfixStats]] = Field(default=None, alias="dlStats")
     ul_stats: Optional[List[IpfixStats]] = Field(default=None, alias="ulStats")
     __properties: ClassVar[List[str]] = ["bwAllocation", "dlStats", "ulStats"]

@@ -27,8 +27,8 @@ class V1ExtranetsB2bPeeringMatchServiceToCustomerServiceStatusPutRequest(BaseMod
     """
     V1ExtranetsB2bPeeringMatchServiceToCustomerServiceStatusPutRequest
     """ # noqa: E501
-    id: StrictInt = Field(description="match ID for the customer's service subscription (required)")
-    status: StrictStr = Field(description="Customer’s service status: Paused or Active (required)")
+    id: StrictInt = Field(description="match ID for the customer's service subscription (required)", json_schema_extra={"examples": [1234567891011]})
+    status: StrictStr = Field(description="Customer’s service status: Paused or Active (required)", json_schema_extra={"examples": ["B2B_PEERING_SERVICE_STATUS_PAUSED"]})
     __properties: ClassVar[List[str]] = ["id", "status"]
 
     model_config = ConfigDict(

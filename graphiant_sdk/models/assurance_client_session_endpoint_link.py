@@ -27,11 +27,11 @@ class AssuranceClientSessionEndpointLink(BaseModel):
     """
     AssuranceClientSessionEndpointLink
     """ # noqa: E501
-    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName")
-    jitter: Optional[Union[StrictFloat, StrictInt]] = None
-    latency: Optional[Union[StrictFloat, StrictInt]] = None
-    loss: Optional[Union[StrictFloat, StrictInt]] = None
-    pop_name: Optional[StrictStr] = Field(default=None, alias="popName")
+    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName", json_schema_extra={"examples": ["example string"]})
+    jitter: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [12.34]})
+    latency: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [12.34]})
+    loss: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [12.34]})
+    pop_name: Optional[StrictStr] = Field(default=None, alias="popName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["circuitName", "jitter", "latency", "loss", "popName"]
 
     model_config = ConfigDict(

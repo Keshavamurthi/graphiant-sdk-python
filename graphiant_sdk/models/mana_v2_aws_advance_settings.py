@@ -27,12 +27,12 @@ class ManaV2AwsAdvanceSettings(BaseModel):
     """
     ManaV2AwsAdvanceSettings
     """ # noqa: E501
-    address_family: Optional[StrictStr] = Field(default=None, alias="addressFamily")
+    address_family: Optional[StrictStr] = Field(default=None, alias="addressFamily", json_schema_extra={"examples": ["ENUM_VALUE"]})
     allowed_prefixes: Optional[List[StrictStr]] = Field(default=None, alias="allowedPrefixes")
-    amazon_bgp_router_ip: Optional[StrictStr] = Field(default=None, alias="amazonBgpRouterIp")
-    bgp_auth_key: Optional[StrictStr] = Field(default=None, alias="bgpAuthKey")
-    customer_bgp_router_ip: Optional[StrictStr] = Field(default=None, alias="customerBgpRouterIp")
-    is_jumbo: Optional[StrictBool] = Field(default=None, alias="isJumbo")
+    amazon_bgp_router_ip: Optional[StrictStr] = Field(default=None, alias="amazonBgpRouterIp", json_schema_extra={"examples": ["example string"]})
+    bgp_auth_key: Optional[StrictStr] = Field(default=None, alias="bgpAuthKey", json_schema_extra={"examples": ["example string"]})
+    customer_bgp_router_ip: Optional[StrictStr] = Field(default=None, alias="customerBgpRouterIp", json_schema_extra={"examples": ["example string"]})
+    is_jumbo: Optional[StrictBool] = Field(default=None, alias="isJumbo", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["addressFamily", "allowedPrefixes", "amazonBgpRouterIp", "bgpAuthKey", "customerBgpRouterIp", "isJumbo"]
 
     model_config = ConfigDict(

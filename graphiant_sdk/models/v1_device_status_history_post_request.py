@@ -29,7 +29,7 @@ class V1DeviceStatusHistoryPostRequest(BaseModel):
     V1DeviceStatusHistoryPostRequest
     """ # noqa: E501
     device_ids: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, alias="deviceIds")
-    role: Optional[StrictStr] = None
+    role: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["deviceIds", "role"]
 
     model_config = ConfigDict(

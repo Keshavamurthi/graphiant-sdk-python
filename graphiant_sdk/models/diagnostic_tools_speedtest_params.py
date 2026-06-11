@@ -28,10 +28,10 @@ class DiagnosticToolsSpeedtestParams(BaseModel):
     """
     DiagnosticToolsSpeedtestParams
     """ # noqa: E501
-    provider: StrictStr = Field(description="Speedtest provider name (required)")
-    server_id: Optional[StrictStr] = Field(default=None, description="This is fetched using GetSpeedtestServers API", alias="serverId")
+    provider: StrictStr = Field(description="Speedtest provider name (required)", json_schema_extra={"examples": ["ookla"]})
+    server_id: Optional[StrictStr] = Field(default=None, description="This is fetched using GetSpeedtestServers API", alias="serverId", json_schema_extra={"examples": ["234123"]})
     target: DiagnosticToolsTargetType
-    token: Optional[StrictStr] = Field(default=None, description="Token to be sent in subsequent lookup")
+    token: Optional[StrictStr] = Field(default=None, description="Token to be sent in subsequent lookup", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["provider", "serverId", "target", "token"]
 
     model_config = ConfigDict(

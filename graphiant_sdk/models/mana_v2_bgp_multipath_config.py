@@ -27,8 +27,8 @@ class ManaV2BgpMultipathConfig(BaseModel):
     """
     ManaV2BgpMultipathConfig
     """ # noqa: E501
-    enabled: Optional[StrictBool] = None
-    vrf_id: Optional[StrictInt] = Field(default=None, alias="vrfId")
+    enabled: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    vrf_id: Optional[StrictInt] = Field(default=None, alias="vrfId", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["enabled", "vrfId"]
 
     model_config = ConfigDict(

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.onboarding_ip import OnboardingIp
 from typing import Optional, Set
@@ -30,8 +30,8 @@ class OnboardingInterface(BaseModel):
     """ # noqa: E501
     ipv4: Optional[OnboardingIp] = None
     ipv6: Optional[OnboardingIp] = None
-    name: Optional[StrictStr] = None
-    type: Optional[StrictStr] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["ipv4", "ipv6", "name", "type"]
 
     model_config = ConfigDict(

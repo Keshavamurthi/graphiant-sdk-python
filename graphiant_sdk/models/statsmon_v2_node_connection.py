@@ -28,16 +28,16 @@ class StatsmonV2NodeConnection(BaseModel):
     """
     StatsmonV2NodeConnection
     """ # noqa: E501
-    active: Optional[StrictBool] = None
-    circuit_carrier: Optional[StrictStr] = Field(default=None, alias="circuitCarrier")
-    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName")
-    destination_ip: Optional[StrictStr] = Field(default=None, alias="destinationIp")
-    hostname: Optional[StrictStr] = None
+    active: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    circuit_carrier: Optional[StrictStr] = Field(default=None, alias="circuitCarrier", json_schema_extra={"examples": ["example string"]})
+    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName", json_schema_extra={"examples": ["example string"]})
+    destination_ip: Optional[StrictStr] = Field(default=None, alias="destinationIp", json_schema_extra={"examples": ["example string"]})
+    hostname: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     last_established_time: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="lastEstablishedTime")
-    last_resort: Optional[StrictBool] = Field(default=None, alias="lastResort")
-    quality: Optional[StrictStr] = None
-    source_ip: Optional[StrictStr] = Field(default=None, alias="sourceIp")
-    source_public_ip: Optional[StrictStr] = Field(default=None, alias="sourcePublicIp")
+    last_resort: Optional[StrictBool] = Field(default=None, alias="lastResort", json_schema_extra={"examples": [True]})
+    quality: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    source_ip: Optional[StrictStr] = Field(default=None, alias="sourceIp", json_schema_extra={"examples": ["example string"]})
+    source_public_ip: Optional[StrictStr] = Field(default=None, alias="sourcePublicIp", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["active", "circuitCarrier", "circuitName", "destinationIp", "hostname", "lastEstablishedTime", "lastResort", "quality", "sourceIp", "sourcePublicIp"]
 
     model_config = ConfigDict(

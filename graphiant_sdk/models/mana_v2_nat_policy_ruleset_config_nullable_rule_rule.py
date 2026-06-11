@@ -27,15 +27,15 @@ class ManaV2NATPolicyRulesetConfigNullableRuleRule(BaseModel):
     """
     ManaV2NATPolicyRulesetConfigNullableRuleRule
     """ # noqa: E501
-    advertise_pre_nat_prefixes: Optional[StrictBool] = Field(default=None, alias="advertisePreNatPrefixes")
-    description: Optional[StrictStr] = None
-    name: Optional[StrictStr] = None
-    original_dst_ip_prefix: Optional[StrictStr] = Field(default=None, alias="originalDstIpPrefix")
-    original_src_ip_prefix: Optional[StrictStr] = Field(default=None, alias="originalSrcIpPrefix")
-    seq: Optional[StrictInt] = None
-    translated_dst_ip_prefix: Optional[StrictStr] = Field(default=None, alias="translatedDstIpPrefix")
-    translated_src_ip_prefix: Optional[StrictStr] = Field(default=None, alias="translatedSrcIpPrefix")
-    type: Optional[StrictStr] = None
+    advertise_pre_nat_prefixes: Optional[StrictBool] = Field(default=None, alias="advertisePreNatPrefixes", json_schema_extra={"examples": [True]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    original_dst_ip_prefix: Optional[StrictStr] = Field(default=None, alias="originalDstIpPrefix", json_schema_extra={"examples": ["example string"]})
+    original_src_ip_prefix: Optional[StrictStr] = Field(default=None, alias="originalSrcIpPrefix", json_schema_extra={"examples": ["example string"]})
+    seq: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    translated_dst_ip_prefix: Optional[StrictStr] = Field(default=None, alias="translatedDstIpPrefix", json_schema_extra={"examples": ["example string"]})
+    translated_src_ip_prefix: Optional[StrictStr] = Field(default=None, alias="translatedSrcIpPrefix", json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["advertisePreNatPrefixes", "description", "name", "originalDstIpPrefix", "originalSrcIpPrefix", "seq", "translatedDstIpPrefix", "translatedSrcIpPrefix", "type"]
 
     model_config = ConfigDict(

@@ -27,10 +27,10 @@ class V1DevicesDeviceIdCandidateCircuitsGetResponseCircuitInfo(BaseModel):
     """
     V1DevicesDeviceIdCandidateCircuitsGetResponseCircuitInfo
     """ # noqa: E501
-    circuit: Optional[StrictStr] = None
-    interface: Optional[StrictStr] = None
-    loopback_interface: Optional[StrictStr] = Field(default=None, alias="loopbackInterface")
-    vrf: Optional[StrictStr] = None
+    circuit: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    interface: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    loopback_interface: Optional[StrictStr] = Field(default=None, alias="loopbackInterface", json_schema_extra={"examples": ["example string"]})
+    vrf: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["circuit", "interface", "loopbackInterface", "vrf"]
 
     model_config = ConfigDict(

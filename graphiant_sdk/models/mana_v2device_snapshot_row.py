@@ -30,11 +30,11 @@ class ManaV2deviceSnapshotRow(BaseModel):
     """
     ManaV2deviceSnapshotRow
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    hostname: Optional[StrictStr] = None
-    region: Optional[StrictStr] = None
-    site: Optional[StrictStr] = None
-    snapshot_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="snapshotCount")
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    hostname: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    region: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    site: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    snapshot_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="snapshotCount", json_schema_extra={"examples": [123]})
     snapshots: Optional[List[ManaV2DeviceSnapshot]] = None
     uptime: Optional[GoogleProtobufDuration] = None
     __properties: ClassVar[List[str]] = ["deviceId", "hostname", "region", "site", "snapshotCount", "snapshots", "uptime"]

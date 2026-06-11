@@ -32,21 +32,21 @@ class ManaV2OspfInterface(BaseModel):
     """ # noqa: E501
     bfd: Optional[ManaV2BfdInstance] = None
     bfd_neighbors: Optional[List[ManaV2BfdNeighbor]] = Field(default=None, alias="bfdNeighbors")
-    cost: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    dead_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deadInterval")
-    dead_interval_value: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deadIntervalValue")
-    dr_priority: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="drPriority")
-    hello_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="helloInterval")
-    hello_interval_value: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="helloIntervalValue")
-    id: Optional[StrictInt] = None
-    if_index: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="ifIndex")
-    interface: Optional[StrictStr] = None
-    max_transmission_unit: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="maxTransmissionUnit")
-    mtu_ignore: Optional[StrictBool] = Field(default=None, alias="mtuIgnore")
-    prefix_sid: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="prefixSid")
-    retransmit_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="retransmitInterval")
-    retransmit_interval_value: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="retransmitIntervalValue")
-    type: Optional[StrictStr] = None
+    cost: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    dead_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deadInterval", json_schema_extra={"examples": [123]})
+    dead_interval_value: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deadIntervalValue", json_schema_extra={"examples": [123]})
+    dr_priority: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="drPriority", json_schema_extra={"examples": [123]})
+    hello_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="helloInterval", json_schema_extra={"examples": [123]})
+    hello_interval_value: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="helloIntervalValue", json_schema_extra={"examples": [123]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    if_index: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="ifIndex", json_schema_extra={"examples": [123]})
+    interface: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    max_transmission_unit: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="maxTransmissionUnit", json_schema_extra={"examples": [123]})
+    mtu_ignore: Optional[StrictBool] = Field(default=None, alias="mtuIgnore", json_schema_extra={"examples": [True]})
+    prefix_sid: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="prefixSid", json_schema_extra={"examples": [123]})
+    retransmit_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="retransmitInterval", json_schema_extra={"examples": [123]})
+    retransmit_interval_value: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="retransmitIntervalValue", json_schema_extra={"examples": [123]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["bfd", "bfdNeighbors", "cost", "deadInterval", "deadIntervalValue", "drPriority", "helloInterval", "helloIntervalValue", "id", "ifIndex", "interface", "maxTransmissionUnit", "mtuIgnore", "prefixSid", "retransmitInterval", "retransmitIntervalValue", "type"]
 
     model_config = ConfigDict(

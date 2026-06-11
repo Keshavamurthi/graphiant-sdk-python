@@ -29,9 +29,9 @@ class StatsmonBandwidthtrackerBwUsageChartValue(BaseModel):
     """
     StatsmonBandwidthtrackerBwUsageChartValue
     """ # noqa: E501
-    avg_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="avgValue")
-    duration: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    max_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="maxValue")
+    avg_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="avgValue", json_schema_extra={"examples": [123.45]})
+    duration: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [12345678910]})
+    max_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="maxValue", json_schema_extra={"examples": [123.45]})
     start_time: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="startTime")
     __properties: ClassVar[List[str]] = ["avgValue", "duration", "maxValue", "startTime"]
 

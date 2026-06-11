@@ -45,28 +45,28 @@ class ManaV2EdgeDeviceConfig(BaseModel):
     """
     ManaV2EdgeDeviceConfig
     """ # noqa: E501
-    bgp_enabled: Optional[StrictBool] = Field(default=None, alias="bgpEnabled")
+    bgp_enabled: Optional[StrictBool] = Field(default=None, alias="bgpEnabled", json_schema_extra={"examples": [True]})
     bgp_instance: Optional[ManaV2BgpInstanceConfig] = Field(default=None, alias="bgpInstance")
     circuits: Optional[Dict[str, ManaV2CircuitConfig]] = None
-    dhcp_server_enabled: Optional[StrictBool] = Field(default=None, alias="dhcpServerEnabled")
+    dhcp_server_enabled: Optional[StrictBool] = Field(default=None, alias="dhcpServerEnabled", json_schema_extra={"examples": [True]})
     dns: Optional[ManaV2NullableDnsConfig] = None
     interfaces: Optional[Dict[str, ManaV2NullableInterfaceConfig]] = None
-    ipfix_enabled: Optional[StrictBool] = Field(default=None, alias="ipfixEnabled")
+    ipfix_enabled: Optional[StrictBool] = Field(default=None, alias="ipfixEnabled", json_schema_extra={"examples": [True]})
     ipfix_exporters: Optional[Dict[str, ManaV2NullableIpfixExporterConfig]] = Field(default=None, alias="ipfixExporters")
     lag_interfaces: Optional[Dict[str, ManaV2NullableLagInterfaceConfig]] = Field(default=None, alias="lagInterfaces")
-    lldp_enabled: Optional[StrictBool] = Field(default=None, alias="lldpEnabled")
+    lldp_enabled: Optional[StrictBool] = Field(default=None, alias="lldpEnabled", json_schema_extra={"examples": [True]})
     local_route_tag: Optional[ManaV2NullableRouteTagSet] = Field(default=None, alias="localRouteTag")
-    local_web_server_password: Optional[StrictStr] = Field(default=None, alias="localWebServerPassword")
+    local_web_server_password: Optional[StrictStr] = Field(default=None, alias="localWebServerPassword", json_schema_extra={"examples": ["example string"]})
     location: Optional[ManaV2Location] = None
-    maintenance_mode: Optional[StrictBool] = Field(default=None, alias="maintenanceMode")
-    name: Optional[StrictStr] = None
+    maintenance_mode: Optional[StrictBool] = Field(default=None, alias="maintenanceMode", json_schema_extra={"examples": [True]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     nat_policy: Optional[ManaV2NatPolicyConfig] = Field(default=None, alias="natPolicy")
     ntp_global_object: Optional[Dict[str, ManaV2NullableNtpConfig]] = Field(default=None, alias="ntpGlobalObject")
-    ospfv2_enabled: Optional[StrictBool] = Field(default=None, alias="ospfv2Enabled")
-    ospfv3_enabled: Optional[StrictBool] = Field(default=None, alias="ospfv3Enabled")
+    ospfv2_enabled: Optional[StrictBool] = Field(default=None, alias="ospfv2Enabled", json_schema_extra={"examples": [True]})
+    ospfv3_enabled: Optional[StrictBool] = Field(default=None, alias="ospfv3Enabled", json_schema_extra={"examples": [True]})
     prefix_sets: Optional[Dict[str, ManaV2NullablePrefixSetConfig]] = Field(default=None, alias="prefixSets")
-    region: Optional[StrictStr] = None
-    region_name: Optional[StrictStr] = Field(default=None, alias="regionName")
+    region: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    region_name: Optional[StrictStr] = Field(default=None, alias="regionName", json_schema_extra={"examples": ["example string"]})
     route_policies: Optional[Dict[str, ManaV2NullableRoutingPolicyConfig]] = Field(default=None, alias="routePolicies")
     segments: Optional[Dict[str, ManaV2VrfConfig]] = None
     site: Optional[ManaV2NewSite] = None
@@ -74,9 +74,9 @@ class ManaV2EdgeDeviceConfig(BaseModel):
     sla_conformance: Optional[ManaV2NullableSlaConformance] = Field(default=None, alias="slaConformance")
     snmp: Optional[ManaV2NullableSnmpConfig] = None
     snmp_global_object: Optional[Dict[str, ManaV2NullableSnmpConfig]] = Field(default=None, alias="snmpGlobalObject")
-    static_routes_enabled: Optional[StrictBool] = Field(default=None, alias="staticRoutesEnabled")
+    static_routes_enabled: Optional[StrictBool] = Field(default=None, alias="staticRoutesEnabled", json_schema_extra={"examples": [True]})
     traffic_policy: Optional[ManaV2ForwardingPolicyConfig] = Field(default=None, alias="trafficPolicy")
-    vrrp_enabled: Optional[StrictBool] = Field(default=None, alias="vrrpEnabled")
+    vrrp_enabled: Optional[StrictBool] = Field(default=None, alias="vrrpEnabled", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["bgpEnabled", "bgpInstance", "circuits", "dhcpServerEnabled", "dns", "interfaces", "ipfixEnabled", "ipfixExporters", "lagInterfaces", "lldpEnabled", "localRouteTag", "localWebServerPassword", "location", "maintenanceMode", "name", "natPolicy", "ntpGlobalObject", "ospfv2Enabled", "ospfv3Enabled", "prefixSets", "region", "regionName", "routePolicies", "segments", "site", "siteToSiteVpn", "slaConformance", "snmp", "snmpGlobalObject", "staticRoutesEnabled", "trafficPolicy", "vrrpEnabled"]
 
     model_config = ConfigDict(

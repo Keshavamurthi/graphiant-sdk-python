@@ -28,9 +28,9 @@ class Routingprefix(BaseModel):
     """
     Routingprefix
     """ # noqa: E501
-    afi_safi_name: Optional[StrictStr] = Field(default=None, alias="afiSafiName")
-    prefix_rcvd: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="prefixRcvd")
-    prefix_sent: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="prefixSent")
+    afi_safi_name: Optional[StrictStr] = Field(default=None, alias="afiSafiName", json_schema_extra={"examples": ["example string"]})
+    prefix_rcvd: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="prefixRcvd", json_schema_extra={"examples": [123]})
+    prefix_sent: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="prefixSent", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["afiSafiName", "prefixRcvd", "prefixSent"]
 
     model_config = ConfigDict(

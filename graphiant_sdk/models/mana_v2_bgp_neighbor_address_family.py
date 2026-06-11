@@ -27,10 +27,10 @@ class ManaV2BgpNeighborAddressFamily(BaseModel):
     """
     ManaV2BgpNeighborAddressFamily
     """ # noqa: E501
-    address_family: Optional[StrictStr] = Field(default=None, alias="addressFamily")
-    id: Optional[StrictInt] = None
-    inbound_policy: Optional[StrictStr] = Field(default=None, alias="inboundPolicy")
-    outbound_policy: Optional[StrictStr] = Field(default=None, alias="outboundPolicy")
+    address_family: Optional[StrictStr] = Field(default=None, alias="addressFamily", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    inbound_policy: Optional[StrictStr] = Field(default=None, alias="inboundPolicy", json_schema_extra={"examples": ["example string"]})
+    outbound_policy: Optional[StrictStr] = Field(default=None, alias="outboundPolicy", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["addressFamily", "id", "inboundPolicy", "outboundPolicy"]
 
     model_config = ConfigDict(

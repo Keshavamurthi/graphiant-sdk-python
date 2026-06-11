@@ -27,7 +27,7 @@ class V1DataAssuranceAssurancesGlobalGetResponseRowLanEntry(BaseModel):
     """
     V1DataAssuranceAssurancesGlobalGetResponseRowLanEntry
     """ # noqa: E501
-    lan_name: Optional[StrictStr] = Field(default=None, alias="lanName")
+    lan_name: Optional[StrictStr] = Field(default=None, alias="lanName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["lanName"]
 
     model_config = ConfigDict(

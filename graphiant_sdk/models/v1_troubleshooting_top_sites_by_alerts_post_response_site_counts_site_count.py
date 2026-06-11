@@ -27,8 +27,8 @@ class V1TroubleshootingTopSitesByAlertsPostResponseSiteCountsSiteCount(BaseModel
     """
     V1TroubleshootingTopSitesByAlertsPostResponseSiteCountsSiteCount
     """ # noqa: E501
-    num_alerts: Optional[StrictInt] = Field(default=None, alias="numAlerts")
-    site_name: Optional[StrictStr] = Field(default=None, alias="siteName")
+    num_alerts: Optional[StrictInt] = Field(default=None, alias="numAlerts", json_schema_extra={"examples": [123]})
+    site_name: Optional[StrictStr] = Field(default=None, alias="siteName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["numAlerts", "siteName"]
 
     model_config = ConfigDict(

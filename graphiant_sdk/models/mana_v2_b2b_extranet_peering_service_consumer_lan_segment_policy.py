@@ -28,7 +28,7 @@ class ManaV2B2bExtranetPeeringServiceConsumerLanSegmentPolicy(BaseModel):
     ManaV2B2bExtranetPeeringServiceConsumerLanSegmentPolicy
     """ # noqa: E501
     consumer_prefixes: Optional[List[StrictStr]] = Field(default=None, alias="consumerPrefixes")
-    lan_segment: Optional[StrictInt] = Field(default=None, alias="lanSegment")
+    lan_segment: Optional[StrictInt] = Field(default=None, alias="lanSegment", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["consumerPrefixes", "lanSegment"]
 
     model_config = ConfigDict(

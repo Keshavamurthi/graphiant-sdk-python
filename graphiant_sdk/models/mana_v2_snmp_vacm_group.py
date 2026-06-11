@@ -32,8 +32,8 @@ class ManaV2SnmpVacmGroup(BaseModel):
     """ # noqa: E501
     accesses: Optional[List[ManaV2SnmpVacmGroupAccess]] = None
     group_members: Optional[List[ManaV2SnmpVacmGroupMember]] = Field(default=None, alias="groupMembers")
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     views: Optional[List[ManaV2SnmpVacmView]] = None
     __properties: ClassVar[List[str]] = ["accesses", "groupMembers", "id", "name", "views"]
 

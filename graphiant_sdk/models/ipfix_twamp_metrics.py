@@ -27,12 +27,12 @@ class IpfixTwampMetrics(BaseModel):
     """
     IpfixTwampMetrics
     """ # noqa: E501
-    health_avg: Optional[StrictStr] = Field(default=None, description="calculated health average (over time window) ", alias="healthAvg")
-    jitter: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Jitter in ms")
-    latency: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Latency in  ms")
-    loss: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Loss in percentage")
-    mos: Optional[Union[StrictFloat, StrictInt]] = None
-    status: Optional[StrictStr] = Field(default=None, description="calculated status (last measured value)")
+    health_avg: Optional[StrictStr] = Field(default=None, description="calculated health average (over time window) ", alias="healthAvg", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    jitter: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Jitter in ms", json_schema_extra={"examples": [123.45]})
+    latency: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Latency in  ms", json_schema_extra={"examples": [123.45]})
+    loss: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Loss in percentage", json_schema_extra={"examples": [12.34]})
+    mos: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [12.34]})
+    status: Optional[StrictStr] = Field(default=None, description="calculated status (last measured value)", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["healthAvg", "jitter", "latency", "loss", "mos", "status"]
 
     model_config = ConfigDict(

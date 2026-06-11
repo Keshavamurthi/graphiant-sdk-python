@@ -28,11 +28,11 @@ class AssuranceTopologyNode(BaseModel):
     """
     AssuranceTopologyNode
     """ # noqa: E501
-    active: Optional[StrictBool] = None
+    active: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     location: Optional[AssuranceGeolocation] = None
-    name: Optional[StrictStr] = None
-    node_id: Optional[StrictStr] = Field(default=None, alias="nodeId")
-    node_type: Optional[StrictStr] = Field(default=None, alias="nodeType")
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    node_id: Optional[StrictStr] = Field(default=None, alias="nodeId", json_schema_extra={"examples": ["example string"]})
+    node_type: Optional[StrictStr] = Field(default=None, alias="nodeType", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["active", "location", "name", "nodeId", "nodeType"]
 
     model_config = ConfigDict(

@@ -28,7 +28,7 @@ class ManaV2NullableOspfDeadIntervalValue(BaseModel):
     """
     ManaV2NullableOspfDeadIntervalValue
     """ # noqa: E501
-    dead_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deadInterval")
+    dead_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deadInterval", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["deadInterval"]
 
     model_config = ConfigDict(

@@ -27,7 +27,7 @@ class ManaV2NullableDestinationNetworkMatchConfig(BaseModel):
     """
     ManaV2NullableDestinationNetworkMatchConfig
     """ # noqa: E501
-    destination_network: Optional[StrictStr] = Field(default=None, alias="destinationNetwork")
+    destination_network: Optional[StrictStr] = Field(default=None, alias="destinationNetwork", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["destinationNetwork"]
 
     model_config = ConfigDict(

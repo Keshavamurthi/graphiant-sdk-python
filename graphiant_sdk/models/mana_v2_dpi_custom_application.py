@@ -28,18 +28,18 @@ class ManaV2DpiCustomApplication(BaseModel):
     """
     ManaV2DpiCustomApplication
     """ # noqa: E501
-    description: Optional[StrictStr] = None
-    destination_network: Optional[StrictStr] = Field(default=None, alias="destinationNetwork")
-    destination_network_list: Optional[StrictStr] = Field(default=None, alias="destinationNetworkList")
-    destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destinationPort")
-    destination_port_list: Optional[StrictStr] = Field(default=None, alias="destinationPortList")
-    id: Optional[StrictInt] = None
-    ip_protocol: Optional[StrictStr] = Field(default=None, alias="ipProtocol")
-    name: Optional[StrictStr] = None
-    source_network: Optional[StrictStr] = Field(default=None, alias="sourceNetwork")
-    source_network_list: Optional[StrictStr] = Field(default=None, alias="sourceNetworkList")
-    source_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="sourcePort")
-    source_port_list: Optional[StrictStr] = Field(default=None, alias="sourcePortList")
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    destination_network: Optional[StrictStr] = Field(default=None, alias="destinationNetwork", json_schema_extra={"examples": ["example string"]})
+    destination_network_list: Optional[StrictStr] = Field(default=None, alias="destinationNetworkList", json_schema_extra={"examples": ["example string"]})
+    destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destinationPort", json_schema_extra={"examples": [123]})
+    destination_port_list: Optional[StrictStr] = Field(default=None, alias="destinationPortList", json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    ip_protocol: Optional[StrictStr] = Field(default=None, alias="ipProtocol", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    source_network: Optional[StrictStr] = Field(default=None, alias="sourceNetwork", json_schema_extra={"examples": ["example string"]})
+    source_network_list: Optional[StrictStr] = Field(default=None, alias="sourceNetworkList", json_schema_extra={"examples": ["example string"]})
+    source_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="sourcePort", json_schema_extra={"examples": [123]})
+    source_port_list: Optional[StrictStr] = Field(default=None, alias="sourcePortList", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["description", "destinationNetwork", "destinationNetworkList", "destinationPort", "destinationPortList", "id", "ipProtocol", "name", "sourceNetwork", "sourceNetworkList", "sourcePort", "sourcePortList"]
 
     model_config = ConfigDict(

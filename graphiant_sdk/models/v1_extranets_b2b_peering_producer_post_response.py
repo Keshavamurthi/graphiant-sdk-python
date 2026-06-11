@@ -28,8 +28,8 @@ class V1ExtranetsB2bPeeringProducerPostResponse(BaseModel):
     """
     V1ExtranetsB2bPeeringProducerPostResponse
     """ # noqa: E501
-    activity_id: Optional[StrictStr] = Field(default=None, alias="activityId")
-    id: Optional[StrictInt] = None
+    activity_id: Optional[StrictStr] = Field(default=None, alias="activityId", json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     policy: Optional[ManaV2B2bExtranetPeeringServicePolicyResponse] = None
     __properties: ClassVar[List[str]] = ["activityId", "id", "policy"]
 

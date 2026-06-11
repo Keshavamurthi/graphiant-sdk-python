@@ -28,7 +28,7 @@ class V2DeviceDeviceIdTopologyPostResponseSnapshot(BaseModel):
     """
     V2DeviceDeviceIdTopologyPostResponseSnapshot
     """ # noqa: E501
-    quality: Optional[StrictStr] = None
+    quality: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     snapshot_time: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="snapshotTime")
     __properties: ClassVar[List[str]] = ["quality", "snapshotTime"]
 

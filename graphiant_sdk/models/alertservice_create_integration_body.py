@@ -29,13 +29,13 @@ class AlertserviceCreateIntegrationBody(BaseModel):
     """
     AlertserviceCreateIntegrationBody
     """ # noqa: E501
-    created_by: Optional[StrictStr] = Field(default=None, description="ID of the user who created the integration", alias="createdBy")
+    created_by: Optional[StrictStr] = Field(default=None, description="ID of the user who created the integration", alias="createdBy", json_schema_extra={"examples": ["example string"]})
     created_on: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="createdOn")
     details: Optional[AlertserviceIntegrationDetails] = None
-    enterprise: StrictInt = Field(description="ID of the enterprise (required)")
-    integration_type: StrictStr = Field(description="Type of integration (required)", alias="integrationType")
-    is_active: Optional[StrictBool] = Field(default=None, description="Indicates whether the integration is active", alias="isActive")
-    nick_name: StrictStr = Field(description="Name of the integration (required)", alias="nickName")
+    enterprise: StrictInt = Field(description="ID of the enterprise (required)", json_schema_extra={"examples": [1234567891011]})
+    integration_type: StrictStr = Field(description="Type of integration (required)", alias="integrationType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    is_active: Optional[StrictBool] = Field(default=None, description="Indicates whether the integration is active", alias="isActive", json_schema_extra={"examples": [True]})
+    nick_name: StrictStr = Field(description="Name of the integration (required)", alias="nickName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["createdBy", "createdOn", "details", "enterprise", "integrationType", "isActive", "nickName"]
 
     model_config = ConfigDict(

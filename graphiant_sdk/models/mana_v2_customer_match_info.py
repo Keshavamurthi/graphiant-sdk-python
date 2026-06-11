@@ -29,13 +29,13 @@ class ManaV2CustomerMatchInfo(BaseModel):
     """
     ManaV2CustomerMatchInfo
     """ # noqa: E501
-    customer_id: Optional[StrictStr] = Field(default=None, alias="customerId")
-    customer_name: Optional[StrictStr] = Field(default=None, alias="customerName")
+    customer_id: Optional[StrictStr] = Field(default=None, alias="customerId", json_schema_extra={"examples": ["example string"]})
+    customer_name: Optional[StrictStr] = Field(default=None, alias="customerName", json_schema_extra={"examples": ["example string"]})
     emails: Optional[List[StrictStr]] = None
-    match_id: Optional[StrictInt] = Field(default=None, alias="matchId")
-    matched_services: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="matchedServices")
-    peer_type: Optional[StrictStr] = Field(default=None, alias="peerType")
-    status: Optional[StrictStr] = None
+    match_id: Optional[StrictInt] = Field(default=None, alias="matchId", json_schema_extra={"examples": [1234567891011]})
+    matched_services: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="matchedServices", json_schema_extra={"examples": [123]})
+    peer_type: Optional[StrictStr] = Field(default=None, alias="peerType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     updated_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="updatedAt")
     __properties: ClassVar[List[str]] = ["customerId", "customerName", "emails", "matchId", "matchedServices", "peerType", "status", "updatedAt"]
 

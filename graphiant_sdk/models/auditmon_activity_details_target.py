@@ -30,13 +30,13 @@ class AuditmonActivityDetailsTarget(BaseModel):
     """
     AuditmonActivityDetailsTarget
     """ # noqa: E501
-    detailed_failure_reason: Optional[StrictStr] = Field(default=None, alias="detailedFailureReason")
+    detailed_failure_reason: Optional[StrictStr] = Field(default=None, alias="detailedFailureReason", json_schema_extra={"examples": ["example string"]})
     end_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="endTs")
     events: Optional[List[AuditmonActivityDetailsTargetEvent]] = None
-    failure_reason: Optional[StrictStr] = Field(default=None, alias="failureReason")
+    failure_reason: Optional[StrictStr] = Field(default=None, alias="failureReason", json_schema_extra={"examples": ["example string"]})
     ids: Optional[List[AuditActivityItem]] = None
     start_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="startTs")
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["detailedFailureReason", "endTs", "events", "failureReason", "ids", "startTs", "status"]
 
     model_config = ConfigDict(

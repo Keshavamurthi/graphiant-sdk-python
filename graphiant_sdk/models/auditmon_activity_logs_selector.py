@@ -29,11 +29,11 @@ class AuditmonActivityLogsSelector(BaseModel):
     AuditmonActivityLogsSelector
     """ # noqa: E501
     device_ids: Optional[List[StrictInt]] = Field(default=None, alias="deviceIds")
-    id: Optional[StrictStr] = None
-    in_progress: Optional[StrictBool] = Field(default=None, alias="inProgress")
+    id: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    in_progress: Optional[StrictBool] = Field(default=None, alias="inProgress", json_schema_extra={"examples": [True]})
     job_entity: Optional[AuditActivityItem] = Field(default=None, alias="jobEntity")
     target_ids: Optional[List[AuditActivityItem]] = Field(default=None, alias="targetIds")
-    type: Optional[StrictStr] = None
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["deviceIds", "id", "inProgress", "jobEntity", "targetIds", "type"]
 
     model_config = ConfigDict(

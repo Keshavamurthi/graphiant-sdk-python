@@ -27,9 +27,9 @@ class V1DeviceSnapshotPutRequest(BaseModel):
     """
     V1DeviceSnapshotPutRequest
     """ # noqa: E501
-    golden: Optional[StrictBool] = None
-    name: Optional[StrictStr] = None
-    snapshot_id: Optional[StrictInt] = Field(default=None, alias="snapshotId")
+    golden: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    snapshot_id: Optional[StrictInt] = Field(default=None, alias="snapshotId", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["golden", "name", "snapshotId"]
 
     model_config = ConfigDict(

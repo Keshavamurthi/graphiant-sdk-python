@@ -27,7 +27,7 @@ class V1AccountEmailPatchRequest(BaseModel):
     """
     V1AccountEmailPatchRequest
     """ # noqa: E501
-    email: StrictStr = Field(description=" (required)")
+    email: StrictStr = Field(description=" (required)", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["email"]
 
     model_config = ConfigDict(

@@ -38,7 +38,7 @@ class ManaV2CoreVlanInterfaceConfig(BaseModel):
     gateway_neighbor: Optional[ManaV2InterfaceCoreToGatewayPeerConfig] = Field(default=None, alias="gatewayNeighbor")
     interface: Optional[ManaV2CoreInterfaceConfig] = None
     interface_type: Optional[ManaV2interfaceConfigType] = Field(default=None, alias="interfaceType")
-    vlan_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="vlanId")
+    vlan_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="vlanId", json_schema_extra={"examples": [123]})
     wan: Optional[ManaV2InterfaceWanConfig] = None
     __properties: ClassVar[List[str]] = ["coreNeighbor", "default", "gatewayNeighbor", "interface", "interfaceType", "vlanId", "wan"]
 

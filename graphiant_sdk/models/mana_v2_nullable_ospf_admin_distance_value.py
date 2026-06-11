@@ -28,7 +28,7 @@ class ManaV2NullableOspfAdminDistanceValue(BaseModel):
     """
     ManaV2NullableOspfAdminDistanceValue
     """ # noqa: E501
-    admin_distance: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="adminDistance")
+    admin_distance: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="adminDistance", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["adminDistance"]
 
     model_config = ConfigDict(

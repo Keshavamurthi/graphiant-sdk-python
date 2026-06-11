@@ -28,13 +28,13 @@ class RoutingPrefixFilter(BaseModel):
     RoutingPrefixFilter
     """ # noqa: E501
     as_path: Optional[List[StrictStr]] = Field(default=None, alias="asPath")
-    ext_community: Optional[StrictStr] = Field(default=None, alias="extCommunity")
-    interface_name: Optional[StrictStr] = Field(default=None, description="Interface name", alias="interfaceName")
-    next_hop: Optional[StrictStr] = Field(default=None, description="IPv4 or IPv6 Nexthop", alias="nextHop")
-    prefix: Optional[StrictStr] = None
-    rd: Optional[StrictStr] = Field(default=None, description="Route RD. Must for BGPAddrFamilyVpnIpv4Unicast/BGPAddrFamilyVpnIpv6Unicast")
-    src_proto: Optional[StrictStr] = Field(default=None, alias="srcProto")
-    type: Optional[StrictStr] = Field(default=None, description="route type")
+    ext_community: Optional[StrictStr] = Field(default=None, alias="extCommunity", json_schema_extra={"examples": ["example string"]})
+    interface_name: Optional[StrictStr] = Field(default=None, description="Interface name", alias="interfaceName", json_schema_extra={"examples": ["ethernet1/0"]})
+    next_hop: Optional[StrictStr] = Field(default=None, description="IPv4 or IPv6 Nexthop", alias="nextHop", json_schema_extra={"examples": ["10.1.1.1"]})
+    prefix: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    rd: Optional[StrictStr] = Field(default=None, description="Route RD. Must for BGPAddrFamilyVpnIpv4Unicast/BGPAddrFamilyVpnIpv6Unicast", json_schema_extra={"examples": ["10:1231"]})
+    src_proto: Optional[StrictStr] = Field(default=None, alias="srcProto", json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, description="route type", json_schema_extra={"examples": ["internal or external"]})
     __properties: ClassVar[List[str]] = ["asPath", "extCommunity", "interfaceName", "nextHop", "prefix", "rd", "srcProto", "type"]
 
     model_config = ConfigDict(

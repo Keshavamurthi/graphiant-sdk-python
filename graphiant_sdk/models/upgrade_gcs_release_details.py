@@ -30,7 +30,7 @@ class UpgradeGcsReleaseDetails(BaseModel):
     UpgradeGcsReleaseDetails
     """ # noqa: E501
     category: Optional[List[UpgradeGcsReleaseCategory]] = None
-    major: Optional[StrictBool] = None
+    major: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     release_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="releaseTs")
     __properties: ClassVar[List[str]] = ["category", "major", "releaseTs"]
 

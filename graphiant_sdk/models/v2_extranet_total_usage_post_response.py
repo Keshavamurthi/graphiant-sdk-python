@@ -27,7 +27,7 @@ class V2ExtranetTotalUsagePostResponse(BaseModel):
     """
     V2ExtranetTotalUsagePostResponse
     """ # noqa: E501
-    usage: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="total service usage in kilo bytes")
+    usage: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="total service usage in kilo bytes", json_schema_extra={"examples": [1000000]})
     __properties: ClassVar[List[str]] = ["usage"]
 
     model_config = ConfigDict(

@@ -28,19 +28,19 @@ class StatsmonTroubleshootingIssue(BaseModel):
     """
     StatsmonTroubleshootingIssue
     """ # noqa: E501
-    alert_id: Optional[StrictStr] = Field(default=None, alias="alertId")
-    allow_listed: Optional[StrictBool] = Field(default=None, alias="allowListed")
-    component: Optional[StrictStr] = None
+    alert_id: Optional[StrictStr] = Field(default=None, alias="alertId", json_schema_extra={"examples": ["example string"]})
+    allow_listed: Optional[StrictBool] = Field(default=None, alias="allowListed", json_schema_extra={"examples": [True]})
+    component: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     end_time: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="endTime")
-    entity: Optional[StrictStr] = None
-    issue: Optional[StrictStr] = None
-    mute_listed: Optional[StrictBool] = Field(default=None, alias="muteListed")
-    notification_created: Optional[StrictBool] = Field(default=None, alias="notificationCreated")
-    plane: Optional[StrictStr] = None
-    reason: Optional[StrictStr] = None
-    severity: Optional[StrictStr] = None
+    entity: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    issue: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    mute_listed: Optional[StrictBool] = Field(default=None, alias="muteListed", json_schema_extra={"examples": [True]})
+    notification_created: Optional[StrictBool] = Field(default=None, alias="notificationCreated", json_schema_extra={"examples": [True]})
+    plane: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    reason: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    severity: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     start_time: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="startTime")
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["alertId", "allowListed", "component", "endTime", "entity", "issue", "muteListed", "notificationCreated", "plane", "reason", "severity", "startTime", "status"]
 
     model_config = ConfigDict(

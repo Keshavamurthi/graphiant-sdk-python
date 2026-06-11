@@ -28,13 +28,13 @@ class ManaV2StaticRouteNexthop(BaseModel):
     """
     ManaV2StaticRouteNexthop
     """ # noqa: E501
-    circuit: Optional[StrictStr] = None
-    id: Optional[StrictInt] = None
-    metric: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    next_hop_address: Optional[StrictStr] = Field(default=None, alias="nextHopAddress")
-    nexthop: Optional[StrictStr] = None
-    outgoing_interface: Optional[StrictStr] = Field(default=None, alias="outgoingInterface")
-    third_party_ipsec_tunnel: Optional[StrictStr] = Field(default=None, alias="thirdPartyIpsecTunnel")
+    circuit: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    metric: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    next_hop_address: Optional[StrictStr] = Field(default=None, alias="nextHopAddress", json_schema_extra={"examples": ["example string"]})
+    nexthop: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    outgoing_interface: Optional[StrictStr] = Field(default=None, alias="outgoingInterface", json_schema_extra={"examples": ["example string"]})
+    third_party_ipsec_tunnel: Optional[StrictStr] = Field(default=None, alias="thirdPartyIpsecTunnel", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["circuit", "id", "metric", "nextHopAddress", "nexthop", "outgoingInterface", "thirdPartyIpsecTunnel"]
 
     model_config = ConfigDict(

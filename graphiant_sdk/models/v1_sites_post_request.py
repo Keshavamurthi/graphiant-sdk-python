@@ -28,7 +28,7 @@ class V1SitesPostRequest(BaseModel):
     """
     V1SitesPostRequest
     """ # noqa: E501
-    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId")
+    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId", json_schema_extra={"examples": [1234567891011]})
     site: Optional[ManaV2NewSite] = None
     __properties: ClassVar[List[str]] = ["enterpriseId", "site"]
 

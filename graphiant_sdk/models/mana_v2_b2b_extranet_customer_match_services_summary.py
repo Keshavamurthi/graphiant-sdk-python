@@ -29,12 +29,12 @@ class ManaV2B2bExtranetCustomerMatchServicesSummary(BaseModel):
     """
     ManaV2B2bExtranetCustomerMatchServicesSummary
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    lan_segment: Optional[StrictInt] = Field(default=None, alias="lanSegment")
-    matched_customers: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="matchedCustomers")
-    name: Optional[StrictStr] = None
-    status: Optional[StrictStr] = None
-    type: Optional[StrictStr] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    lan_segment: Optional[StrictInt] = Field(default=None, alias="lanSegment", json_schema_extra={"examples": [1234567891011]})
+    matched_customers: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="matchedCustomers", json_schema_extra={"examples": [123]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     updated_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="updatedAt")
     __properties: ClassVar[List[str]] = ["id", "lanSegment", "matchedCustomers", "name", "status", "type", "updatedAt"]
 

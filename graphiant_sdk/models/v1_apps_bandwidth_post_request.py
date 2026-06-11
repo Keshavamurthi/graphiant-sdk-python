@@ -29,13 +29,13 @@ class V1AppsBandwidthPostRequest(BaseModel):
     """
     V1AppsBandwidthPostRequest
     """ # noqa: E501
-    app_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="appId")
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    dl_circuit_name: Optional[StrictStr] = Field(default=None, alias="dlCircuitName")
-    is_dia: Optional[StrictBool] = Field(default=None, alias="isDia")
-    sla_class: Optional[StrictStr] = Field(default=None, alias="slaClass")
+    app_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="appId", json_schema_extra={"examples": [123]})
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    dl_circuit_name: Optional[StrictStr] = Field(default=None, alias="dlCircuitName", json_schema_extra={"examples": ["example string"]})
+    is_dia: Optional[StrictBool] = Field(default=None, alias="isDia", json_schema_extra={"examples": [True]})
+    sla_class: Optional[StrictStr] = Field(default=None, alias="slaClass", json_schema_extra={"examples": ["ENUM_VALUE"]})
     time_window: Optional[StatsmonTimeWindow] = Field(default=None, alias="timeWindow")
-    ul_circuit_name: Optional[StrictStr] = Field(default=None, alias="ulCircuitName")
+    ul_circuit_name: Optional[StrictStr] = Field(default=None, alias="ulCircuitName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["appId", "deviceId", "dlCircuitName", "isDia", "slaClass", "timeWindow", "ulCircuitName"]
 
     model_config = ConfigDict(

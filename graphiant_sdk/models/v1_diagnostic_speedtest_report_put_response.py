@@ -27,8 +27,8 @@ class V1DiagnosticSpeedtestReportPutResponse(BaseModel):
     """
     V1DiagnosticSpeedtestReportPutResponse
     """ # noqa: E501
-    report: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The generated report")
-    report_id: Optional[StrictInt] = Field(default=None, description="8 bytes (base32 encoded) identifier for the report", alias="reportId")
+    report: Optional[Union[StrictBytes, StrictStr]] = Field(default=None, description="The generated report", json_schema_extra={"examples": ["WzM3LDgwLDY4LDcwLDQ1LDQ5LDQ2LDUyLDEwLDM3LDIxMSwyMzUsMjMzLDIyNSwxMCw0OSwzMiw0OCwzMiwxMTEsOTgsMTA2LDEwLDYwLDYwLDQ3LDY3LDExNCwxMDEsOTcsMTE2LDExMSwxMTQsMzIsNDAsNjcsMTA0LDExNCwxMTEsMTA5LDEwNSwxMTcsMTA5LDQxLDEwLDQ3LDgwLDExNCwxMTEsMTAwLDExNyw5OSwxMDEsMTE0LDMyLDQwLDgzLDEwNywxMDUsOTcsNDcsODAsNjgsNzAsMzIsMTA5LDU3LDU2LDQxLDEwLDQ3LDY3LDExNCwxMDEsOTcsMTE2LDEwNSwxMTEsMTEwLDY4LDk3LDExNiwxMDEsMzIsNDAsNjgsNTgsNTAsNDgsNTAsNTAsNDgsNTQsNDgsNTcsNDgsNTQsNTIsNDksNTAsNTUsNDMsNDgsNDgsMzksNDgsNDgsMzksNDEsMTAsNDcsNzcsMTExLDEwMCw2OCw5NywxMTYsMTAxLDMyLDQwLDY4LDU4LDUwLDQ4LDUwLDUwLDQ4LDU0LDQ4LDU3LDQ4LDU0LDUyLDQ5LDUwLDU1LDQzLDQ4LDQ4LDM5LDQ4LDQ4XQ=="]})
+    report_id: Optional[StrictInt] = Field(default=None, description="8 bytes (base32 encoded) identifier for the report", alias="reportId", json_schema_extra={"examples": [10]})
     __properties: ClassVar[List[str]] = ["report", "reportId"]
 
     model_config = ConfigDict(

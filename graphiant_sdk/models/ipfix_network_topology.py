@@ -35,7 +35,7 @@ class IpfixNetworkTopology(BaseModel):
     circuit_status: Optional[Dict[str, Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, alias="circuitStatus")
     delta: Optional[IpfixNetworkTopologyDelta] = None
     edges: Optional[List[ManaV2ConnectivityGraphEdge]] = None
-    flows: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Application flow count")
+    flows: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Application flow count", json_schema_extra={"examples": [123]})
     nodes: Optional[List[ManaV2ConnectivityGraphNode]] = None
     time_window: Optional[StatsmonTimeWindow] = Field(default=None, alias="timeWindow")
     __properties: ClassVar[List[str]] = ["circuitStatus", "delta", "edges", "flows", "nodes", "timeWindow"]

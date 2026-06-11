@@ -30,8 +30,8 @@ class V2MonitoringCircuitsBandwidthPostResponseData(BaseModel):
     """
     V2MonitoringCircuitsBandwidthPostResponseData
     """ # noqa: E501
-    carrier: Optional[StrictStr] = None
-    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId")
+    carrier: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [12345678910]})
     dl_bw_kbps_samples: Optional[List[StatsmonV2StatsSample]] = Field(default=None, alias="dlBwKbpsSamples")
     selector: Optional[StatsmonV2CircuitBandwidthStatsSelector] = None
     ul_bw_kbps_samples: Optional[List[StatsmonV2StatsSample]] = Field(default=None, alias="ulBwKbpsSamples")

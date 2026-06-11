@@ -27,9 +27,9 @@ class IpfixEntityUsage(BaseModel):
     """
     IpfixEntityUsage
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="id of the entity")
-    name: Optional[StrictStr] = Field(default=None, description="name of the entity")
-    usage: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="usage in kbps")
+    id: Optional[StrictInt] = Field(default=None, description="id of the entity", json_schema_extra={"examples": [1]})
+    name: Optional[StrictStr] = Field(default=None, description="name of the entity", json_schema_extra={"examples": ["Site 1"]})
+    usage: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="usage in kbps", json_schema_extra={"examples": [1000000]})
     __properties: ClassVar[List[str]] = ["id", "name", "usage"]
 
     model_config = ConfigDict(

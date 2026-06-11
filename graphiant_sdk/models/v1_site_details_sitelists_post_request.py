@@ -27,7 +27,7 @@ class V1SiteDetailsSitelistsPostRequest(BaseModel):
     """
     V1SiteDetailsSitelistsPostRequest
     """ # noqa: E501
-    site_id: Optional[StrictInt] = Field(default=None, alias="siteId")
+    site_id: Optional[StrictInt] = Field(default=None, alias="siteId", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["siteId"]
 
     model_config = ConfigDict(

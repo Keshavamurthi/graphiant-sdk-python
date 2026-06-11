@@ -28,11 +28,11 @@ class IpfixNatUsage(BaseModel):
     """
     IpfixNatUsage
     """ # noqa: E501
-    current_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="currentCount")
-    current_count_extranet: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="currentCountExtranet")
-    current_count_pat: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="currentCountPat")
-    current_count_static: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="currentCountStatic")
-    max_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="maxCount")
+    current_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="currentCount", json_schema_extra={"examples": [12345678910]})
+    current_count_extranet: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="currentCountExtranet", json_schema_extra={"examples": [12345678910]})
+    current_count_pat: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="currentCountPat", json_schema_extra={"examples": [12345678910]})
+    current_count_static: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="currentCountStatic", json_schema_extra={"examples": [12345678910]})
+    max_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="maxCount", json_schema_extra={"examples": [12345678910]})
     __properties: ClassVar[List[str]] = ["currentCount", "currentCountExtranet", "currentCountPat", "currentCountStatic", "maxCount"]
 
     model_config = ConfigDict(

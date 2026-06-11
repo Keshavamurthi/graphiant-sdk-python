@@ -28,7 +28,7 @@ class ManaV2NullableMeterRates(BaseModel):
     """
     ManaV2NullableMeterRates
     """ # noqa: E501
-    rate: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    rate: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["rate"]
 
     model_config = ConfigDict(

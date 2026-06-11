@@ -27,8 +27,8 @@ class IpfixClientUsageSummary(BaseModel):
     """
     IpfixClientUsageSummary
     """ # noqa: E501
-    client_ip_address: Optional[StrictStr] = Field(default=None, alias="clientIpAddress")
-    usage: Optional[StrictInt] = Field(default=None, description="data used in kilo bytes")
+    client_ip_address: Optional[StrictStr] = Field(default=None, alias="clientIpAddress", json_schema_extra={"examples": ["example string"]})
+    usage: Optional[StrictInt] = Field(default=None, description="data used in kilo bytes", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["clientIpAddress", "usage"]
 
     model_config = ConfigDict(

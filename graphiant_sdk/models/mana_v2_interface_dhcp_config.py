@@ -28,7 +28,7 @@ class ManaV2InterfaceDhcpConfig(BaseModel):
     """
     ManaV2InterfaceDhcpConfig
     """ # noqa: E501
-    dhcp_client: Optional[StrictBool] = Field(default=None, alias="dhcpClient")
+    dhcp_client: Optional[StrictBool] = Field(default=None, alias="dhcpClient", json_schema_extra={"examples": [True]})
     dhcp_relay: Optional[ManaV2DhcpRelayConfig] = Field(default=None, alias="dhcpRelay")
     __properties: ClassVar[List[str]] = ["dhcpClient", "dhcpRelay"]
 

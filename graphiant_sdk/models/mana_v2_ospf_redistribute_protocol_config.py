@@ -28,9 +28,9 @@ class ManaV2OspfRedistributeProtocolConfig(BaseModel):
     """
     ManaV2OspfRedistributeProtocolConfig
     """ # noqa: E501
-    metric: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    metric_type: Optional[StrictStr] = Field(default=None, alias="metricType")
-    type: Optional[StrictStr] = None
+    metric: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    metric_type: Optional[StrictStr] = Field(default=None, alias="metricType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["metric", "metricType", "type"]
 
     model_config = ConfigDict(

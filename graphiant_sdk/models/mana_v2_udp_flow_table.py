@@ -28,8 +28,8 @@ class ManaV2UdpFlowTable(BaseModel):
     """
     ManaV2UdpFlowTable
     """ # noqa: E501
-    expiry: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    unidirectional_flow_limit: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="unidirectionalFlowLimit")
+    expiry: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    unidirectional_flow_limit: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="unidirectionalFlowLimit", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["expiry", "unidirectionalFlowLimit"]
 
     model_config = ConfigDict(

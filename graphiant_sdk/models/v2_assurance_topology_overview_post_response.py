@@ -30,8 +30,8 @@ class V2AssuranceTopologyOverviewPostResponse(BaseModel):
     """
     V2AssuranceTopologyOverviewPostResponse
     """ # noqa: E501
-    num_applications: Optional[StrictInt] = Field(default=None, alias="numApplications")
-    num_flows: Optional[StrictInt] = Field(default=None, alias="numFlows")
+    num_applications: Optional[StrictInt] = Field(default=None, alias="numApplications", json_schema_extra={"examples": [123]})
+    num_flows: Optional[StrictInt] = Field(default=None, alias="numFlows", json_schema_extra={"examples": [123]})
     topology: Optional[AssuranceTopology] = None
     topology_change_ts: Optional[List[GoogleProtobufTimestamp]] = Field(default=None, alias="topologyChangeTs")
     traffic_regions: Optional[List[V2AssuranceTopologyOverviewPostResponseGeoregion]] = Field(default=None, alias="trafficRegions")

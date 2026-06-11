@@ -30,20 +30,20 @@ class OnboardingHardwareInventory(BaseModel):
     """ # noqa: E501
     assigned_on: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="assignedOn")
     created_on: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="createdOn")
-    device_model: Optional[StrictStr] = Field(default=None, alias="deviceModel")
-    device_serial: Optional[StrictStr] = Field(default=None, alias="deviceSerial")
-    ek_cert: Optional[StrictStr] = Field(default=None, alias="ekCert")
-    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId")
-    enterprise_name: Optional[StrictStr] = Field(default=None, alias="enterpriseName")
-    gek_pub: Optional[StrictStr] = Field(default=None, alias="gekPub")
-    is_core: Optional[StrictBool] = Field(default=None, alias="isCore")
-    is_new: Optional[StrictBool] = Field(default=None, alias="isNew")
-    is_requested: Optional[StrictBool] = Field(default=None, alias="isRequested")
-    parent_enterprise_id: Optional[StrictInt] = Field(default=None, alias="parentEnterpriseId")
-    parent_enterprise_name: Optional[StrictStr] = Field(default=None, alias="parentEnterpriseName")
-    role: Optional[StrictStr] = None
-    use_oauth: Optional[StrictBool] = Field(default=None, alias="useOauth")
-    uuid: Optional[StrictStr] = None
+    device_model: Optional[StrictStr] = Field(default=None, alias="deviceModel", json_schema_extra={"examples": ["example string"]})
+    device_serial: Optional[StrictStr] = Field(default=None, alias="deviceSerial", json_schema_extra={"examples": ["example string"]})
+    ek_cert: Optional[StrictStr] = Field(default=None, alias="ekCert", json_schema_extra={"examples": ["example string"]})
+    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId", json_schema_extra={"examples": [1234567891011]})
+    enterprise_name: Optional[StrictStr] = Field(default=None, alias="enterpriseName", json_schema_extra={"examples": ["example string"]})
+    gek_pub: Optional[StrictStr] = Field(default=None, alias="gekPub", json_schema_extra={"examples": ["example string"]})
+    is_core: Optional[StrictBool] = Field(default=None, alias="isCore", json_schema_extra={"examples": [True]})
+    is_new: Optional[StrictBool] = Field(default=None, alias="isNew", json_schema_extra={"examples": [True]})
+    is_requested: Optional[StrictBool] = Field(default=None, alias="isRequested", json_schema_extra={"examples": [True]})
+    parent_enterprise_id: Optional[StrictInt] = Field(default=None, alias="parentEnterpriseId", json_schema_extra={"examples": [1234567891011]})
+    parent_enterprise_name: Optional[StrictStr] = Field(default=None, alias="parentEnterpriseName", json_schema_extra={"examples": ["example string"]})
+    role: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    use_oauth: Optional[StrictBool] = Field(default=None, alias="useOauth", json_schema_extra={"examples": [True]})
+    uuid: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["assignedOn", "createdOn", "deviceModel", "deviceSerial", "ekCert", "enterpriseId", "enterpriseName", "gekPub", "isCore", "isNew", "isRequested", "parentEnterpriseId", "parentEnterpriseName", "role", "useOauth", "uuid"]
 
     model_config = ConfigDict(

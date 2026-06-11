@@ -28,7 +28,7 @@ class ManaV2NullableOspfRetransmitIntervalValue(BaseModel):
     """
     ManaV2NullableOspfRetransmitIntervalValue
     """ # noqa: E501
-    retransmit_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="retransmitInterval")
+    retransmit_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="retransmitInterval", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["retransmitInterval"]
 
     model_config = ConfigDict(

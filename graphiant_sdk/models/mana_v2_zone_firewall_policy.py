@@ -31,7 +31,7 @@ class ManaV2ZoneFirewallPolicy(BaseModel):
     """ # noqa: E501
     ip: Optional[ManaV2IpFirewallPolicy] = None
     udp: Optional[ManaV2UdpFlowTable] = None
-    zone_name: Optional[StrictStr] = Field(default=None, alias="zoneName")
+    zone_name: Optional[StrictStr] = Field(default=None, alias="zoneName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["ip", "udp", "zoneName"]
 
     model_config = ConfigDict(

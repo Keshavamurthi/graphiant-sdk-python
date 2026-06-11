@@ -28,8 +28,8 @@ class StatsmonCircuitIncidents(BaseModel):
     """
     StatsmonCircuitIncidents
     """ # noqa: E501
-    num_fair_incidents: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="numFairIncidents")
-    num_poor_incidents: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="numPoorIncidents")
+    num_fair_incidents: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="numFairIncidents", json_schema_extra={"examples": [123]})
+    num_poor_incidents: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="numPoorIncidents", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["numFairIncidents", "numPoorIncidents"]
 
     model_config = ConfigDict(

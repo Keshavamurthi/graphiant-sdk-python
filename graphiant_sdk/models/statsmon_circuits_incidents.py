@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.statsmon_circuits_incidents_data import StatsmonCircuitsIncidentsData
 from typing import Optional, Set
@@ -29,7 +29,7 @@ class StatsmonCircuitsIncidents(BaseModel):
     StatsmonCircuitsIncidents
     """ # noqa: E501
     data: Optional[List[StatsmonCircuitsIncidentsData]] = None
-    name: Optional[StrictStr] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["data", "name"]
 
     model_config = ConfigDict(

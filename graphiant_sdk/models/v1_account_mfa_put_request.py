@@ -27,8 +27,8 @@ class V1AccountMfaPutRequest(BaseModel):
     """
     V1AccountMfaPutRequest
     """ # noqa: E501
-    phone_number: Optional[StrictStr] = Field(default=None, alias="phoneNumber")
-    type: StrictStr = Field(description=" (required)")
+    phone_number: Optional[StrictStr] = Field(default=None, alias="phoneNumber", json_schema_extra={"examples": ["example string"]})
+    type: StrictStr = Field(description=" (required)", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["phoneNumber", "type"]
 
     model_config = ConfigDict(

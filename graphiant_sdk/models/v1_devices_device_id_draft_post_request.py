@@ -28,8 +28,8 @@ class V1DevicesDeviceIdDraftPostRequest(BaseModel):
     """
     V1DevicesDeviceIdDraftPostRequest
     """ # noqa: E501
-    base_version: Optional[StrictInt] = Field(default=None, alias="baseVersion")
-    description: Optional[StrictStr] = None
+    base_version: Optional[StrictInt] = Field(default=None, alias="baseVersion", json_schema_extra={"examples": [123]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     draft: Optional[ManaV2Device] = None
     __properties: ClassVar[List[str]] = ["baseVersion", "description", "draft"]
 

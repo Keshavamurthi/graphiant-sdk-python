@@ -30,9 +30,9 @@ class StatsmonBandwidthtrackerBwUsageBySiteSummary(BaseModel):
     StatsmonBandwidthtrackerBwUsageBySiteSummary
     """ # noqa: E501
     bwuage_region: Optional[List[StatsmonBandwidthtrackerBwUsageByRegion]] = Field(default=None, alias="bwuageRegion")
-    edge_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="edgeCount")
-    provider_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="providerCount")
-    usage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usageKbps")
+    edge_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="edgeCount", json_schema_extra={"examples": [12345678910]})
+    provider_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="providerCount", json_schema_extra={"examples": [12345678910]})
+    usage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usageKbps", json_schema_extra={"examples": [123.45]})
     __properties: ClassVar[List[str]] = ["bwuageRegion", "edgeCount", "providerCount", "usageKbps"]
 
     model_config = ConfigDict(

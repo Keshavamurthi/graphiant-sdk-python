@@ -27,9 +27,9 @@ class StatsmonV2QueueInstantStatsSelector(BaseModel):
     """
     StatsmonV2QueueInstantStatsSelector
     """ # noqa: E501
-    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName")
-    sla_class: Optional[StrictStr] = Field(default=None, alias="slaClass")
-    type: Optional[StrictStr] = None
+    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName", json_schema_extra={"examples": ["example string"]})
+    sla_class: Optional[StrictStr] = Field(default=None, alias="slaClass", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["interfaceName", "slaClass", "type"]
 
     model_config = ConfigDict(

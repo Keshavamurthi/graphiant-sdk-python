@@ -27,8 +27,8 @@ class V1DevicesDeviceIdConfigPutResponse(BaseModel):
     """
     V1DevicesDeviceIdConfigPutResponse
     """ # noqa: E501
-    job_id: Optional[StrictInt] = Field(default=None, alias="jobId")
-    workflow_id: Optional[StrictStr] = Field(default=None, alias="workflowId")
+    job_id: Optional[StrictInt] = Field(default=None, alias="jobId", json_schema_extra={"examples": [1234567891011]})
+    workflow_id: Optional[StrictStr] = Field(default=None, alias="workflowId", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["jobId", "workflowId"]
 
     model_config = ConfigDict(

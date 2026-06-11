@@ -27,8 +27,8 @@ class V1AccountPasswordPatchRequest(BaseModel):
     """
     V1AccountPasswordPatchRequest
     """ # noqa: E501
-    old_password: StrictStr = Field(description=" (required)", alias="oldPassword")
-    password: StrictStr = Field(description=" (required)")
+    old_password: StrictStr = Field(description=" (required)", alias="oldPassword", json_schema_extra={"examples": ["example string"]})
+    password: StrictStr = Field(description=" (required)", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["oldPassword", "password"]
 
     model_config = ConfigDict(

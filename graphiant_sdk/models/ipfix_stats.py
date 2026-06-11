@@ -28,8 +28,8 @@ class IpfixStats(BaseModel):
     """
     IpfixStats
     """ # noqa: E501
-    avg_usage: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Average service usage in kbps", alias="avgUsage")
-    peak_usage: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Peak service usage in kbps", alias="peakUsage")
+    avg_usage: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Average service usage in kbps", alias="avgUsage", json_schema_extra={"examples": [1000000]})
+    peak_usage: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Peak service usage in kbps", alias="peakUsage", json_schema_extra={"examples": [1000000]})
     ts: Optional[GoogleProtobufTimestamp] = None
     __properties: ClassVar[List[str]] = ["avgUsage", "peakUsage", "ts"]
 

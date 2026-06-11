@@ -30,7 +30,7 @@ class V1DevicesUpgradeSchedulePutRequest(BaseModel):
     """
     V1DevicesUpgradeSchedulePutRequest
     """ # noqa: E501
-    action: Optional[StrictStr] = None
+    action: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     device_ids: Optional[List[StrictInt]] = Field(default=None, alias="deviceIds")
     device_versions: Optional[List[V1DevicesUpgradeSchedulePutRequestDeviceVersion]] = Field(default=None, alias="deviceVersions")
     ts: Optional[GoogleProtobufTimestamp] = None

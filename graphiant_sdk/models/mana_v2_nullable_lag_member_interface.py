@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,7 +27,7 @@ class ManaV2NullableLagMemberInterface(BaseModel):
     """
     ManaV2NullableLagMemberInterface
     """ # noqa: E501
-    interface: Optional[StrictInt] = None
+    interface: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["interface"]
 
     model_config = ConfigDict(

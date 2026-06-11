@@ -28,9 +28,9 @@ class V2AssistantGetConversationDetailsPostRequest(BaseModel):
     """
     V2AssistantGetConversationDetailsPostRequest
     """ # noqa: E501
-    conversation_id: Optional[StrictStr] = Field(default=None, alias="conversationId")
+    conversation_id: Optional[StrictStr] = Field(default=None, alias="conversationId", json_schema_extra={"examples": ["example string"]})
     time_window: Optional[AssistantTimeWindow] = Field(default=None, alias="timeWindow")
-    user_id: Optional[StrictStr] = Field(default=None, alias="userId")
+    user_id: Optional[StrictStr] = Field(default=None, alias="userId", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["conversationId", "timeWindow", "userId"]
 
     model_config = ConfigDict(

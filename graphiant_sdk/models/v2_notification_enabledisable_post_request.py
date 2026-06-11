@@ -27,7 +27,7 @@ class V2NotificationEnabledisablePostRequest(BaseModel):
     """
     V2NotificationEnabledisablePostRequest
     """ # noqa: E501
-    enable: StrictBool = Field(description="Enable or disable. True means enable (required)")
+    enable: StrictBool = Field(description="Enable or disable. True means enable (required)", json_schema_extra={"examples": [True]})
     notification_id_list: List[StrictStr] = Field(alias="notificationIdList")
     __properties: ClassVar[List[str]] = ["enable", "notificationIdList"]
 

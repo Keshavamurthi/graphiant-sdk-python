@@ -30,7 +30,7 @@ class ManaV2GuestConsumerSiteToSiteVpnConfig(BaseModel):
     """ # noqa: E501
     emails: Optional[List[StrictStr]] = None
     ipsec_gateway_details: Optional[ManaV2IPsecGatewayDetails] = Field(default=None, alias="ipsecGatewayDetails")
-    region_id: Optional[StrictInt] = Field(default=None, alias="regionId")
+    region_id: Optional[StrictInt] = Field(default=None, alias="regionId", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["emails", "ipsecGatewayDetails", "regionId"]
 
     model_config = ConfigDict(

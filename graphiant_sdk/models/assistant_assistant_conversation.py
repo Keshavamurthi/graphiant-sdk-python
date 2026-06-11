@@ -27,10 +27,10 @@ class AssistantAssistantConversation(BaseModel):
     """
     AssistantAssistantConversation
     """ # noqa: E501
-    conversation_header: Optional[StrictStr] = Field(default=None, alias="conversationHeader")
-    conversation_id: Optional[StrictStr] = Field(default=None, alias="conversationId")
-    conversation_recent_timestamp: Optional[StrictInt] = Field(default=None, alias="conversationRecentTimestamp")
-    enable_context_history: Optional[StrictBool] = Field(default=None, alias="enableContextHistory")
+    conversation_header: Optional[StrictStr] = Field(default=None, alias="conversationHeader", json_schema_extra={"examples": ["example string"]})
+    conversation_id: Optional[StrictStr] = Field(default=None, alias="conversationId", json_schema_extra={"examples": ["example string"]})
+    conversation_recent_timestamp: Optional[StrictInt] = Field(default=None, alias="conversationRecentTimestamp", json_schema_extra={"examples": [1234567891011]})
+    enable_context_history: Optional[StrictBool] = Field(default=None, alias="enableContextHistory", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["conversationHeader", "conversationId", "conversationRecentTimestamp", "enableContextHistory"]
 
     model_config = ConfigDict(

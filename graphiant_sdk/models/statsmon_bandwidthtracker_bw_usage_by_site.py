@@ -28,12 +28,12 @@ class StatsmonBandwidthtrackerBwUsageBySite(BaseModel):
     """
     StatsmonBandwidthtrackerBwUsageBySite
     """ # noqa: E501
-    edge_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="edgeCount")
-    location_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="locationId")
-    location_name: Optional[StrictStr] = Field(default=None, alias="locationName")
-    site_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="siteId")
-    site_name: Optional[StrictStr] = Field(default=None, alias="siteName")
-    usage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usageKbps")
+    edge_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="edgeCount", json_schema_extra={"examples": [12345678910]})
+    location_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="locationId", json_schema_extra={"examples": [12345678910]})
+    location_name: Optional[StrictStr] = Field(default=None, alias="locationName", json_schema_extra={"examples": ["example string"]})
+    site_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="siteId", json_schema_extra={"examples": [12345678910]})
+    site_name: Optional[StrictStr] = Field(default=None, alias="siteName", json_schema_extra={"examples": ["example string"]})
+    usage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usageKbps", json_schema_extra={"examples": [123.45]})
     __properties: ClassVar[List[str]] = ["edgeCount", "locationId", "locationName", "siteId", "siteName", "usageKbps"]
 
     model_config = ConfigDict(

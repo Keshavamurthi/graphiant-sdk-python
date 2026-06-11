@@ -28,14 +28,14 @@ class V2ExtranetSitesConsumptionOverviewPostRequest(BaseModel):
     """
     V2ExtranetSitesConsumptionOverviewPostRequest
     """ # noqa: E501
-    customer_name: Optional[StrictStr] = Field(default=None, description="a filter to get usage for a specific customer", alias="customerName")
-    flipped_view: StrictBool = Field(description="whether to view the data from the consumer's perspective (true) or the provider's perspective (false) (required)", alias="flippedView")
-    id: StrictInt = Field(description="the id associated with an entity - consumer_id for consumer, and service_id for the producer/service (required)")
-    is_b2_b: StrictBool = Field(description="whether the entity is a b2b entity (true for b2b entity, false for local extranet entity) (required)", alias="isB2B")
-    is_provider: StrictBool = Field(description="whether the entity is a provider or consumer (required)", alias="isProvider")
-    site_id: Optional[StrictInt] = Field(default=None, description="a filter to get usage for a specific site", alias="siteId")
+    customer_name: Optional[StrictStr] = Field(default=None, description="a filter to get usage for a specific customer", alias="customerName", json_schema_extra={"examples": ["Customer 1"]})
+    flipped_view: StrictBool = Field(description="whether to view the data from the consumer's perspective (true) or the provider's perspective (false) (required)", alias="flippedView", json_schema_extra={"examples": [True]})
+    id: StrictInt = Field(description="the id associated with an entity - consumer_id for consumer, and service_id for the producer/service (required)", json_schema_extra={"examples": [1]})
+    is_b2_b: StrictBool = Field(description="whether the entity is a b2b entity (true for b2b entity, false for local extranet entity) (required)", alias="isB2B", json_schema_extra={"examples": [True]})
+    is_provider: StrictBool = Field(description="whether the entity is a provider or consumer (required)", alias="isProvider", json_schema_extra={"examples": [True]})
+    site_id: Optional[StrictInt] = Field(default=None, description="a filter to get usage for a specific site", alias="siteId", json_schema_extra={"examples": [1]})
     time_window: StatsmonTimeWindow = Field(alias="timeWindow")
-    vrf_id: Optional[StrictInt] = Field(default=None, description="a filter to get usage for a specific vrf", alias="vrfId")
+    vrf_id: Optional[StrictInt] = Field(default=None, description="a filter to get usage for a specific vrf", alias="vrfId", json_schema_extra={"examples": [1]})
     __properties: ClassVar[List[str]] = ["customerName", "flippedView", "id", "isB2B", "isProvider", "siteId", "timeWindow", "vrfId"]
 
     model_config = ConfigDict(

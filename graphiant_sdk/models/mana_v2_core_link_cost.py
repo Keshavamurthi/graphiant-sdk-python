@@ -30,7 +30,7 @@ class ManaV2CoreLinkCost(BaseModel):
     ManaV2CoreLinkCost
     """ # noqa: E501
     dynamic: Optional[ManaV2LatencyBandwidth] = None
-    static: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    static: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["dynamic", "static"]
 
     model_config = ConfigDict(

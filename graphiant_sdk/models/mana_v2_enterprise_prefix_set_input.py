@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.mana_v2_enterprise_prefix_set_input_entry import ManaV2EnterprisePrefixSetInputEntry
 from typing import Optional, Set
@@ -28,11 +28,11 @@ class ManaV2EnterprisePrefixSetInput(BaseModel):
     """
     ManaV2EnterprisePrefixSetInput
     """ # noqa: E501
-    description: Optional[StrictStr] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     entries: Optional[Dict[str, ManaV2EnterprisePrefixSetInputEntry]] = None
-    id: Optional[StrictInt] = None
-    mode: Optional[StrictStr] = None
-    name: Optional[StrictStr] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    mode: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["description", "entries", "id", "mode", "name"]
 
     model_config = ConfigDict(

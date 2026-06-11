@@ -30,7 +30,7 @@ class V1SitesSiteIdCircuitsGetResponseData(BaseModel):
     V1SitesSiteIdCircuitsGetResponseData
     """ # noqa: E501
     circuits: Optional[List[ManaV2Circuit]] = None
-    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId")
+    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [12345678910]})
     __properties: ClassVar[List[str]] = ["circuits", "deviceId"]
 
     model_config = ConfigDict(

@@ -27,7 +27,7 @@ class V2AggregatedNotificationEnableDisablePostRequest(BaseModel):
     """
     V2AggregatedNotificationEnableDisablePostRequest
     """ # noqa: E501
-    enable: StrictBool = Field(description="Enable or disable aggregated notifications. True means enabled (required)")
+    enable: StrictBool = Field(description="Enable or disable aggregated notifications. True means enabled (required)", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["enable"]
 
     model_config = ConfigDict(

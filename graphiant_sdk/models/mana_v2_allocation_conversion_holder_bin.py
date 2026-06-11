@@ -27,12 +27,12 @@ class ManaV2AllocationConversionHolderBin(BaseModel):
     """
     ManaV2AllocationConversionHolderBin
     """ # noqa: E501
-    allocation_upper_bound: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Int32 value indicating the conversion rates apply from the prior highest upper bound to this upper bound", alias="allocationUpperBound")
-    core_conversion_factor: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Conversion rate from gigabytes per second to Graphiant credits for connections to core devices", alias="coreConversionFactor")
-    core_conversion_rate: Optional[StrictInt] = Field(default=None, alias="coreConversionRate")
-    gw_conversion_factor: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Conversion rate from gigabytes per second to Graphiant credits for connections to gateway devices", alias="gwConversionFactor")
-    gw_conversion_rate: Optional[StrictInt] = Field(default=None, alias="gwConversionRate")
-    is_private: Optional[StrictBool] = Field(default=None, description="True-only flag indicating the conversion rates apply within a private context such as in-country", alias="isPrivate")
+    allocation_upper_bound: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Int32 value indicating the conversion rates apply from the prior highest upper bound to this upper bound", alias="allocationUpperBound", json_schema_extra={"examples": [12.34]})
+    core_conversion_factor: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Conversion rate from gigabytes per second to Graphiant credits for connections to core devices", alias="coreConversionFactor", json_schema_extra={"examples": [12.34]})
+    core_conversion_rate: Optional[StrictInt] = Field(default=None, alias="coreConversionRate", json_schema_extra={"examples": [123]})
+    gw_conversion_factor: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Conversion rate from gigabytes per second to Graphiant credits for connections to gateway devices", alias="gwConversionFactor", json_schema_extra={"examples": [12.34]})
+    gw_conversion_rate: Optional[StrictInt] = Field(default=None, alias="gwConversionRate", json_schema_extra={"examples": [123]})
+    is_private: Optional[StrictBool] = Field(default=None, description="True-only flag indicating the conversion rates apply within a private context such as in-country", alias="isPrivate", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["allocationUpperBound", "coreConversionFactor", "coreConversionRate", "gwConversionFactor", "gwConversionRate", "isPrivate"]
 
     model_config = ConfigDict(

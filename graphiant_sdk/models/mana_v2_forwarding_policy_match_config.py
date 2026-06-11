@@ -39,15 +39,15 @@ class ManaV2ForwardingPolicyMatchConfig(BaseModel):
     application: Optional[ManaV2NullableApplicationMatchConfig] = None
     content_filter: Optional[ManaV2NullableContentFilterMatchConfig] = Field(default=None, alias="contentFilter")
     destination_network: Optional[ManaV2NullableDestinationNetworkMatchConfig] = Field(default=None, alias="destinationNetwork")
-    destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destinationPort")
+    destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destinationPort", json_schema_extra={"examples": [123]})
     destination_port_range: Optional[ManaV2PortRangeConfig] = Field(default=None, alias="destinationPortRange")
     domain_list: Optional[ManaV2NullableDomainListMatchConfig] = Field(default=None, alias="domainList")
     dscp: Optional[ManaV2NullableDscpMatchConfig] = None
-    icmp_type: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="icmpType")
-    ip_protocol: Optional[StrictStr] = Field(default=None, alias="ipProtocol")
+    icmp_type: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="icmpType", json_schema_extra={"examples": [123]})
+    ip_protocol: Optional[StrictStr] = Field(default=None, alias="ipProtocol", json_schema_extra={"examples": ["ENUM_VALUE"]})
     protocol: Optional[ManaV2NullableIpProtocol] = None
     source_network: Optional[ManaV2NullableSourceNetworkMatchConfig] = Field(default=None, alias="sourceNetwork")
-    source_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="sourcePort")
+    source_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="sourcePort", json_schema_extra={"examples": [123]})
     source_port_range: Optional[ManaV2PortRangeConfig] = Field(default=None, alias="sourcePortRange")
     __properties: ClassVar[List[str]] = ["application", "contentFilter", "destinationNetwork", "destinationPort", "destinationPortRange", "domainList", "dscp", "icmpType", "ipProtocol", "protocol", "sourceNetwork", "sourcePort", "sourcePortRange"]
 

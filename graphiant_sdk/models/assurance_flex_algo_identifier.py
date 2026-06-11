@@ -27,8 +27,8 @@ class AssuranceFlexAlgoIdentifier(BaseModel):
     """
     AssuranceFlexAlgoIdentifier
     """ # noqa: E501
-    flex_algo_id: Optional[StrictInt] = Field(default=None, alias="flexAlgoId")
-    flex_algo_name: Optional[StrictStr] = Field(default=None, alias="flexAlgoName")
+    flex_algo_id: Optional[StrictInt] = Field(default=None, alias="flexAlgoId", json_schema_extra={"examples": [1234567891011]})
+    flex_algo_name: Optional[StrictStr] = Field(default=None, alias="flexAlgoName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["flexAlgoId", "flexAlgoName"]
 
     model_config = ConfigDict(

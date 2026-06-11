@@ -27,8 +27,8 @@ class AssuranceExchangeServiceIdentifier(BaseModel):
     """
     AssuranceExchangeServiceIdentifier
     """ # noqa: E501
-    exchange_service_id: Optional[StrictInt] = Field(default=None, alias="exchangeServiceId")
-    exchange_service_name: Optional[StrictStr] = Field(default=None, alias="exchangeServiceName")
+    exchange_service_id: Optional[StrictInt] = Field(default=None, alias="exchangeServiceId", json_schema_extra={"examples": [1234567891011]})
+    exchange_service_name: Optional[StrictStr] = Field(default=None, alias="exchangeServiceName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["exchangeServiceId", "exchangeServiceName"]
 
     model_config = ConfigDict(

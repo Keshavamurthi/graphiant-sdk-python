@@ -27,10 +27,11 @@ class AssuranceSite(BaseModel):
     """
     AssuranceSite
     """ # noqa: E501
-    region_id: Optional[StrictInt] = Field(default=None, alias="regionId")
-    site_id: Optional[StrictInt] = Field(default=None, alias="siteId")
-    site_name: Optional[StrictStr] = Field(default=None, alias="siteName")
-    __properties: ClassVar[List[str]] = ["regionId", "siteId", "siteName"]
+    region_id: Optional[StrictInt] = Field(default=None, alias="regionId", json_schema_extra={"examples": [123]})
+    site_enterprise_name: Optional[StrictStr] = Field(default=None, alias="siteEnterpriseName", json_schema_extra={"examples": ["example string"]})
+    site_id: Optional[StrictInt] = Field(default=None, alias="siteId", json_schema_extra={"examples": [1234567891011]})
+    site_name: Optional[StrictStr] = Field(default=None, alias="siteName", json_schema_extra={"examples": ["example string"]})
+    __properties: ClassVar[List[str]] = ["regionId", "siteEnterpriseName", "siteId", "siteName"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -84,6 +85,7 @@ class AssuranceSite(BaseModel):
 
         _obj = cls.model_validate({
             "regionId": obj.get("regionId"),
+            "siteEnterpriseName": obj.get("siteEnterpriseName"),
             "siteId": obj.get("siteId"),
             "siteName": obj.get("siteName")
         })

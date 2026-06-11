@@ -31,7 +31,7 @@ class ManaV2TrafficPolicyRuleRow(BaseModel):
     """ # noqa: E501
     device: Optional[ManaV2SiteDeviceStub] = None
     traffic_policy_rule: Optional[ManaV2TrafficPolicyRule] = Field(default=None, alias="trafficPolicyRule")
-    vrf_name: Optional[StrictStr] = Field(default=None, alias="vrfName")
+    vrf_name: Optional[StrictStr] = Field(default=None, alias="vrfName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["device", "trafficPolicyRule", "vrfName"]
 
     model_config = ConfigDict(

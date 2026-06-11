@@ -30,22 +30,22 @@ class AssuranceAppNameRecord(BaseModel):
     """
     AssuranceAppNameRecord
     """ # noqa: E501
-    affected_hosts: Optional[StrictInt] = Field(default=None, alias="affectedHosts")
-    affected_regions: Optional[StrictInt] = Field(default=None, alias="affectedRegions")
-    affected_sites: Optional[StrictInt] = Field(default=None, alias="affectedSites")
-    affected_vrfs: Optional[StrictInt] = Field(default=None, alias="affectedVrfs")
-    app_id: Optional[StrictInt] = Field(default=None, alias="appId")
+    affected_hosts: Optional[StrictInt] = Field(default=None, alias="affectedHosts", json_schema_extra={"examples": [1234567891011]})
+    affected_regions: Optional[StrictInt] = Field(default=None, alias="affectedRegions", json_schema_extra={"examples": [1234567891011]})
+    affected_sites: Optional[StrictInt] = Field(default=None, alias="affectedSites", json_schema_extra={"examples": [1234567891011]})
+    affected_vrfs: Optional[StrictInt] = Field(default=None, alias="affectedVrfs", json_schema_extra={"examples": [1234567891011]})
+    app_id: Optional[StrictInt] = Field(default=None, alias="appId", json_schema_extra={"examples": [1234567891011]})
     app_id_records: Optional[List[AssuranceAppIdRecord]] = Field(default=None, alias="appIdRecords")
-    app_name: Optional[StrictStr] = Field(default=None, alias="appName")
-    app_type: Optional[StrictStr] = Field(default=None, alias="appType")
-    category: Optional[StrictStr] = None
-    da_classified: Optional[StrictBool] = Field(default=None, alias="daClassified")
+    app_name: Optional[StrictStr] = Field(default=None, alias="appName", json_schema_extra={"examples": ["example string"]})
+    app_type: Optional[StrictStr] = Field(default=None, alias="appType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    category: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    da_classified: Optional[StrictBool] = Field(default=None, alias="daClassified", json_schema_extra={"examples": [True]})
     exchange_service: Optional[List[AssuranceExchangeServiceIdentifier]] = Field(default=None, alias="exchangeService")
     flex_algo: Optional[List[AssuranceFlexAlgoIdentifier]] = Field(default=None, alias="flexAlgo")
-    flows_analyzed: Optional[StrictInt] = Field(default=None, alias="flowsAnalyzed")
-    recommendation: Optional[StrictStr] = None
-    risk_status: Optional[StrictStr] = Field(default=None, alias="riskStatus")
-    threat_score: Optional[StrictInt] = Field(default=None, alias="threatScore")
+    flows_analyzed: Optional[StrictInt] = Field(default=None, alias="flowsAnalyzed", json_schema_extra={"examples": [1234567891011]})
+    recommendation: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    risk_status: Optional[StrictStr] = Field(default=None, alias="riskStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    threat_score: Optional[StrictInt] = Field(default=None, alias="threatScore", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["affectedHosts", "affectedRegions", "affectedSites", "affectedVrfs", "appId", "appIdRecords", "appName", "appType", "category", "daClassified", "exchangeService", "flexAlgo", "flowsAnalyzed", "recommendation", "riskStatus", "threatScore"]
 
     model_config = ConfigDict(

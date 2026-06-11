@@ -28,11 +28,11 @@ class ManaV2Ntp(BaseModel):
     ManaV2Ntp
     """ # noqa: E501
     domains: Optional[List[StrictStr]] = None
-    error_message: Optional[StrictStr] = Field(default=None, alias="errorMessage")
-    global_id: Optional[StrictInt] = Field(default=None, alias="globalId")
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
-    status: Optional[StrictStr] = None
+    error_message: Optional[StrictStr] = Field(default=None, alias="errorMessage", json_schema_extra={"examples": ["example string"]})
+    global_id: Optional[StrictInt] = Field(default=None, alias="globalId", json_schema_extra={"examples": [1234567891011]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["domains", "errorMessage", "globalId", "id", "name", "status"]
 
     model_config = ConfigDict(

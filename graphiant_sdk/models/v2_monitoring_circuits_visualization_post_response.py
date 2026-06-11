@@ -29,7 +29,7 @@ class V2MonitoringCircuitsVisualizationPostResponse(BaseModel):
     V2MonitoringCircuitsVisualizationPostResponse
     """ # noqa: E501
     data: Optional[List[V2MonitoringCircuitsVisualizationPostResponseData]] = None
-    hostname: Optional[StrictStr] = Field(default=None, description="hostname of the device.")
+    hostname: Optional[StrictStr] = Field(default=None, description="hostname of the device.", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["data", "hostname"]
 
     model_config = ConfigDict(

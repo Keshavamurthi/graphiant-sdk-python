@@ -31,11 +31,11 @@ class DiagnosticToolsTracerouteResult(BaseModel):
     DiagnosticToolsTracerouteResult
     """ # noqa: E501
     hops: Optional[List[DiagnosticToolsHopInfo]] = None
-    max_latency: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="time in milliseconds (required)", alias="maxLatency")
-    max_latency_host: Optional[StrictStr] = Field(default=None, description="IPv4 or IPv6 address (required)", alias="maxLatencyHost")
-    max_path_mtu: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Path MTU (required)", alias="maxPathMtu")
-    min_path_mtu: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Path MTU (required)", alias="minPathMtu")
-    result: Optional[StrictStr] = Field(default=None, description="Success or Failed (required)")
+    max_latency: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="time in milliseconds (required)", alias="maxLatency", json_schema_extra={"examples": [10]})
+    max_latency_host: Optional[StrictStr] = Field(default=None, description="IPv4 or IPv6 address (required)", alias="maxLatencyHost", json_schema_extra={"examples": ["A123:3242::1111"]})
+    max_path_mtu: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Path MTU (required)", alias="maxPathMtu", json_schema_extra={"examples": [1500]})
+    min_path_mtu: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Path MTU (required)", alias="minPathMtu", json_schema_extra={"examples": [1000]})
+    result: Optional[StrictStr] = Field(default=None, description="Success or Failed (required)", json_schema_extra={"examples": ["Failed"]})
     stopped_time: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="stoppedTime")
     __properties: ClassVar[List[str]] = ["hops", "maxLatency", "maxLatencyHost", "maxPathMtu", "minPathMtu", "result", "stoppedTime"]
 

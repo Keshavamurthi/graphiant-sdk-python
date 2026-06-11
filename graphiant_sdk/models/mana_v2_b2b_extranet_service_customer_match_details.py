@@ -30,7 +30,7 @@ class ManaV2B2bExtranetServiceCustomerMatchDetails(BaseModel):
     """
     ManaV2B2bExtranetServiceCustomerMatchDetails
     """ # noqa: E501
-    consumer_id: Optional[StrictInt] = Field(default=None, alias="consumerId")
+    consumer_id: Optional[StrictInt] = Field(default=None, alias="consumerId", json_schema_extra={"examples": [1234567891011]})
     consumer_prefixes: Optional[List[StrictStr]] = Field(default=None, alias="consumerPrefixes")
     customer: Optional[ManaV2B2BExtranetServiceCustomerMatchDetailsCustomer] = None
     old_consumer_prefixes: Optional[List[StrictStr]] = Field(default=None, alias="oldConsumerPrefixes")

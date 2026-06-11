@@ -28,13 +28,13 @@ class IamCustomer(BaseModel):
     """
     IamCustomer
     """ # noqa: E501
-    admin_email: Optional[StrictStr] = Field(default=None, alias="adminEmail")
-    company_name: Optional[StrictStr] = Field(default=None, alias="companyName")
+    admin_email: Optional[StrictStr] = Field(default=None, alias="adminEmail", json_schema_extra={"examples": ["example string"]})
+    company_name: Optional[StrictStr] = Field(default=None, alias="companyName", json_schema_extra={"examples": ["example string"]})
     counts: Optional[IamCounts] = None
-    description: Optional[StrictStr] = None
-    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId")
-    impersonation_enabled: Optional[StrictBool] = Field(default=None, alias="impersonationEnabled")
-    marketplace_id: Optional[StrictStr] = Field(default=None, alias="marketplaceId")
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId", json_schema_extra={"examples": [1234567891011]})
+    impersonation_enabled: Optional[StrictBool] = Field(default=None, alias="impersonationEnabled", json_schema_extra={"examples": [True]})
+    marketplace_id: Optional[StrictStr] = Field(default=None, alias="marketplaceId", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["adminEmail", "companyName", "counts", "description", "enterpriseId", "impersonationEnabled", "marketplaceId"]
 
     model_config = ConfigDict(

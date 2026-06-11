@@ -31,7 +31,7 @@ class V1ExtranetsB2bConsumerPostResponse(BaseModel):
     V1ExtranetsB2bConsumerPostResponse
     """ # noqa: E501
     device: Optional[List[ManaV2ConsumerDeviceInformation]] = None
-    id: Optional[StrictInt] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     policy: Optional[List[ManaV2ExtranetConsumerLanSegmentPolicyResponse]] = None
     site_information: Optional[List[ManaV2B2bSiteInformation]] = Field(default=None, alias="siteInformation")
     __properties: ClassVar[List[str]] = ["device", "id", "policy", "siteInformation"]

@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **client_ip** | **str** |  | [optional] 
 **client_links** | [**List[AssuranceClientSessionEndpointLink]**](AssuranceClientSessionEndpointLink.md) |  | [optional] 
 **client_username** | **str** |  | [optional] 
+**exchange_service_name** | **str** |  | [optional] 
 **first_seen_ts** | [**GoogleProtobufTimestamp**](GoogleProtobufTimestamp.md) |  | [optional] 
 **lan_segment** | **List[str]** |  | [optional] 
 **last_seen_ts** | [**GoogleProtobufTimestamp**](GoogleProtobufTimestamp.md) |  | [optional] 

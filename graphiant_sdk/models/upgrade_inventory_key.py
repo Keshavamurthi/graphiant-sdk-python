@@ -28,8 +28,8 @@ class UpgradeInventoryKey(BaseModel):
     """
     UpgradeInventoryKey
     """ # noqa: E501
-    model: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    version: Optional[StrictStr] = None
+    model: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    version: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["model", "version"]
 
     model_config = ConfigDict(

@@ -32,23 +32,23 @@ class ManaV2DhcpServerPool(BaseModel):
     """
     ManaV2DhcpServerPool
     """ # noqa: E501
-    default_lease_time_secs: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="defaultLeaseTimeSecs")
-    description: Optional[StrictStr] = None
-    domain_name: Optional[StrictStr] = Field(default=None, alias="domainName")
-    gateway: Optional[StrictStr] = None
-    id: Optional[StrictInt] = None
-    interface: Optional[StrictStr] = None
-    ip_prefix: Optional[StrictStr] = Field(default=None, alias="ipPrefix")
-    ip_version: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="ipVersion")
+    default_lease_time_secs: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="defaultLeaseTimeSecs", json_schema_extra={"examples": [123]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    domain_name: Optional[StrictStr] = Field(default=None, alias="domainName", json_schema_extra={"examples": ["example string"]})
+    gateway: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    interface: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    ip_prefix: Optional[StrictStr] = Field(default=None, alias="ipPrefix", json_schema_extra={"examples": ["example string"]})
+    ip_version: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="ipVersion", json_schema_extra={"examples": [123]})
     leases: Optional[List[ManaV2DhcpLease]] = None
-    max_lease_time_secs: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="maxLeaseTimeSecs")
-    min_lease_time_secs: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="minLeaseTimeSecs")
-    name: Optional[StrictStr] = None
+    max_lease_time_secs: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="maxLeaseTimeSecs", json_schema_extra={"examples": [123]})
+    min_lease_time_secs: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="minLeaseTimeSecs", json_schema_extra={"examples": [123]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     nameservers: Optional[ManaV2DnsServers] = None
     ranges: Optional[List[ManaV2DhcpServerIpRange]] = None
     static_leases: Optional[List[ManaV2DhcpStaticLease]] = Field(default=None, alias="staticLeases")
-    total_addresses: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="totalAddresses")
-    utilization: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    total_addresses: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="totalAddresses", json_schema_extra={"examples": [12345678910]})
+    utilization: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["defaultLeaseTimeSecs", "description", "domainName", "gateway", "id", "interface", "ipPrefix", "ipVersion", "leases", "maxLeaseTimeSecs", "minLeaseTimeSecs", "name", "nameservers", "ranges", "staticLeases", "totalAddresses", "utilization"]
 
     model_config = ConfigDict(

@@ -31,7 +31,7 @@ class ManaV2SecurityPolicyRuleRow(BaseModel):
     """ # noqa: E501
     device: Optional[ManaV2SiteDeviceStub] = None
     security_policy_rule: Optional[ManaV2SecurityPolicyRule] = Field(default=None, alias="securityPolicyRule")
-    vrf_name: Optional[StrictStr] = Field(default=None, alias="vrfName")
+    vrf_name: Optional[StrictStr] = Field(default=None, alias="vrfName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["device", "securityPolicyRule", "vrfName"]
 
     model_config = ConfigDict(

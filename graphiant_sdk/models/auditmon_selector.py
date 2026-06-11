@@ -27,7 +27,7 @@ class AuditmonSelector(BaseModel):
     """
     AuditmonSelector
     """ # noqa: E501
-    var_field: Optional[StrictStr] = Field(default=None, description="Field to search", alias="field")
+    var_field: Optional[StrictStr] = Field(default=None, description="Field to search", alias="field", json_schema_extra={"examples": ["AuditFieldId"]})
     values: Optional[List[StrictStr]] = None
     __properties: ClassVar[List[str]] = ["field", "values"]
 

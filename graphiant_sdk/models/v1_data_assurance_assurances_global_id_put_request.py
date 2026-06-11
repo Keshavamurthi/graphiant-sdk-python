@@ -28,7 +28,7 @@ class V1DataAssuranceAssurancesGlobalIdPutRequest(BaseModel):
     """
     V1DataAssuranceAssurancesGlobalIdPutRequest
     """ # noqa: E501
-    app_removal_reason: Optional[StrictStr] = Field(default=None, alias="appRemovalReason")
+    app_removal_reason: Optional[StrictStr] = Field(default=None, alias="appRemovalReason", json_schema_extra={"examples": ["example string"]})
     config: Optional[ManaV2AssuranceConfig] = None
     __properties: ClassVar[List[str]] = ["appRemovalReason", "config"]
 

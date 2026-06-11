@@ -27,10 +27,10 @@ class V1DeviceSnapshotPostRequest(BaseModel):
     """
     V1DeviceSnapshotPostRequest
     """ # noqa: E501
-    category: Optional[StrictStr] = None
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    golden: Optional[StrictBool] = None
-    name: Optional[StrictStr] = None
+    category: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    golden: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["category", "deviceId", "golden", "name"]
 
     model_config = ConfigDict(

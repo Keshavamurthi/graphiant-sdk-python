@@ -27,7 +27,7 @@ class V2AssuranceCreateUserReportPostResponse(BaseModel):
     """
     V2AssuranceCreateUserReportPostResponse
     """ # noqa: E501
-    report_id: Optional[StrictInt] = Field(default=None, alias="reportId")
+    report_id: Optional[StrictInt] = Field(default=None, alias="reportId", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["reportId"]
 
     model_config = ConfigDict(

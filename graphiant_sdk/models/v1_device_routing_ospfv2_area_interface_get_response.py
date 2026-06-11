@@ -31,7 +31,7 @@ class V1DeviceRoutingOspfv2AreaInterfaceGetResponse(BaseModel):
     """ # noqa: E501
     interfaces: Optional[List[RoutingOspfInterface]] = None
     page_info: Optional[CommonPageInfo] = Field(default=None, alias="pageInfo")
-    token: Optional[StrictStr] = Field(default=None, description="Reference to the resultset being queried, this should be sent by the service as part of a previous request and so can be opaque to the client.")
+    token: Optional[StrictStr] = Field(default=None, description="Reference to the resultset being queried, this should be sent by the service as part of a previous request and so can be opaque to the client.", json_schema_extra={"examples": ["xxxxxxxxx"]})
     __properties: ClassVar[List[str]] = ["interfaces", "pageInfo", "token"]
 
     model_config = ConfigDict(

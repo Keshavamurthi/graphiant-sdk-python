@@ -27,10 +27,10 @@ class ManaV2TrafficPolicyAction(BaseModel):
     """
     ManaV2TrafficPolicyAction
     """ # noqa: E501
-    backup: Optional[StrictStr] = Field(default=None, description="Backup circuit for the traffic policy action")
-    var_class: Optional[StrictStr] = Field(default=None, description="Class for the traffic policy action", alias="class")
-    primary: Optional[StrictStr] = Field(default=None, description="Primary circuit for the traffic policy action")
-    result: Optional[StrictStr] = Field(default=None, description="Result for the traffic policy action")
+    backup: Optional[StrictStr] = Field(default=None, description="Backup circuit for the traffic policy action", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    var_class: Optional[StrictStr] = Field(default=None, description="Class for the traffic policy action", alias="class", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    primary: Optional[StrictStr] = Field(default=None, description="Primary circuit for the traffic policy action", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    result: Optional[StrictStr] = Field(default=None, description="Result for the traffic policy action", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["backup", "class", "primary", "result"]
 
     model_config = ConfigDict(

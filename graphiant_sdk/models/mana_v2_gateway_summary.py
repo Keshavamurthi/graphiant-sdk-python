@@ -31,13 +31,13 @@ class ManaV2GatewaySummary(BaseModel):
     """ # noqa: E501
     created_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="createdAt")
     gateway_device_summary: Optional[List[ManaV2GatewaySummaryGatewayDeviceSummary]] = Field(default=None, alias="gatewayDeviceSummary")
-    graphiant_region: Optional[StrictStr] = Field(default=None, alias="graphiantRegion")
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
-    speed: Optional[StrictStr] = None
-    status: Optional[StrictStr] = None
-    support_status: Optional[StrictStr] = Field(default=None, alias="supportStatus")
-    type: Optional[StrictStr] = None
+    graphiant_region: Optional[StrictStr] = Field(default=None, alias="graphiantRegion", json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    speed: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    support_status: Optional[StrictStr] = Field(default=None, alias="supportStatus", json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     updated_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="updatedAt")
     __properties: ClassVar[List[str]] = ["createdAt", "gatewayDeviceSummary", "graphiantRegion", "id", "name", "speed", "status", "supportStatus", "type", "updatedAt"]
 

@@ -29,14 +29,14 @@ class AssuranceBucketSummary(BaseModel):
     """
     AssuranceBucketSummary
     """ # noqa: E501
-    assurance_bucket: Optional[StrictStr] = Field(default=None, alias="assuranceBucket")
-    bucket_color: Optional[StrictStr] = Field(default=None, alias="bucketColor")
-    bucket_name_to_display: Optional[StrictStr] = Field(default=None, alias="bucketNameToDisplay")
+    assurance_bucket: Optional[StrictStr] = Field(default=None, alias="assuranceBucket", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    bucket_color: Optional[StrictStr] = Field(default=None, alias="bucketColor", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    bucket_name_to_display: Optional[StrictStr] = Field(default=None, alias="bucketNameToDisplay", json_schema_extra={"examples": ["example string"]})
     bucket_stats: Optional[AssuranceBucketStats] = Field(default=None, alias="bucketStats")
     child_bucket_list: Optional[List[StrictStr]] = Field(default=None, alias="childBucketList")
     child_bucket_stats_list: Optional[List[AssuranceBucketStatsWithId]] = Field(default=None, alias="childBucketStatsList")
-    is_root: Optional[StrictBool] = Field(default=None, alias="isRoot")
-    is_terminal: Optional[StrictBool] = Field(default=None, alias="isTerminal")
+    is_root: Optional[StrictBool] = Field(default=None, alias="isRoot", json_schema_extra={"examples": [True]})
+    is_terminal: Optional[StrictBool] = Field(default=None, alias="isTerminal", json_schema_extra={"examples": [True]})
     parent_bucket_list: Optional[List[StrictStr]] = Field(default=None, alias="parentBucketList")
     __properties: ClassVar[List[str]] = ["assuranceBucket", "bucketColor", "bucketNameToDisplay", "bucketStats", "childBucketList", "childBucketStatsList", "isRoot", "isTerminal", "parentBucketList"]
 

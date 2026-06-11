@@ -27,11 +27,11 @@ class ManaV2SnmpVacmGroupMember(BaseModel):
     """
     ManaV2SnmpVacmGroupMember
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    security_model: Optional[StrictStr] = Field(default=None, alias="securityModel")
-    security_name: Optional[StrictStr] = Field(default=None, alias="securityName")
-    snmp_community: Optional[StrictStr] = Field(default=None, alias="snmpCommunity")
-    type: Optional[StrictStr] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    security_model: Optional[StrictStr] = Field(default=None, alias="securityModel", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    security_name: Optional[StrictStr] = Field(default=None, alias="securityName", json_schema_extra={"examples": ["example string"]})
+    snmp_community: Optional[StrictStr] = Field(default=None, alias="snmpCommunity", json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["id", "securityModel", "securityName", "snmpCommunity", "type"]
 
     model_config = ConfigDict(

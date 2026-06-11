@@ -31,11 +31,11 @@ class ManaV2IPsecBgpRouteConfig(BaseModel):
     ManaV2IPsecBgpRouteConfig
     """ # noqa: E501
     address_families: Optional[Dict[str, ManaV2NullableBgpNeighborAddressFamilyConfig]] = Field(default=None, alias="addressFamilies")
-    hold_timer: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="holdTimer")
-    keepalive_timer: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="keepaliveTimer")
+    hold_timer: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="holdTimer", json_schema_extra={"examples": [123]})
+    keepalive_timer: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="keepaliveTimer", json_schema_extra={"examples": [123]})
     md5_password: Optional[ManaV2NullableMd5Password] = Field(default=None, alias="md5Password")
-    peer_asn: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="peerAsn")
-    send_community: Optional[StrictBool] = Field(default=None, alias="sendCommunity")
+    peer_asn: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="peerAsn", json_schema_extra={"examples": [123]})
+    send_community: Optional[StrictBool] = Field(default=None, alias="sendCommunity", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["addressFamilies", "holdTimer", "keepaliveTimer", "md5Password", "peerAsn", "sendCommunity"]
 
     model_config = ConfigDict(

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool
+from pydantic import BaseModel, ConfigDict, Field, StrictBool
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,11 +27,11 @@ class ManaV2BgpRedistribute(BaseModel):
     """
     ManaV2BgpRedistribute
     """ # noqa: E501
-    bgp: Optional[StrictBool] = None
-    connected: Optional[StrictBool] = None
-    dia: Optional[StrictBool] = None
-    ospfv2: Optional[StrictBool] = None
-    static: Optional[StrictBool] = None
+    bgp: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    connected: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    dia: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    ospfv2: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    static: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["bgp", "connected", "dia", "ospfv2", "static"]
 
     model_config = ConfigDict(

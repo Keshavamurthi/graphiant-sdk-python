@@ -30,26 +30,26 @@ class IamEnterprise(BaseModel):
     """
     IamEnterprise
     """ # noqa: E501
-    accept_eula: Optional[StrictBool] = Field(default=None, alias="acceptEula")
-    account_type: Optional[StrictStr] = Field(default=None, alias="accountType")
-    admin_email: Optional[StrictStr] = Field(default=None, alias="adminEmail")
-    cloud_provider: Optional[StrictStr] = Field(default=None, alias="cloudProvider")
-    company_name: Optional[StrictStr] = Field(default=None, alias="companyName")
+    accept_eula: Optional[StrictBool] = Field(default=None, alias="acceptEula", json_schema_extra={"examples": [True]})
+    account_type: Optional[StrictStr] = Field(default=None, alias="accountType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    admin_email: Optional[StrictStr] = Field(default=None, alias="adminEmail", json_schema_extra={"examples": ["example string"]})
+    cloud_provider: Optional[StrictStr] = Field(default=None, alias="cloudProvider", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    company_name: Optional[StrictStr] = Field(default=None, alias="companyName", json_schema_extra={"examples": ["example string"]})
     counts: Optional[IamCounts] = None
-    credit_limit: Optional[StrictInt] = Field(default=None, alias="creditLimit")
+    credit_limit: Optional[StrictInt] = Field(default=None, alias="creditLimit", json_schema_extra={"examples": [123]})
     customers: Optional[Dict[str, IamCustomer]] = None
-    description: Optional[StrictStr] = None
-    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId")
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId", json_schema_extra={"examples": [1234567891011]})
     eula_agreement_date: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="eulaAgreementDate")
-    impersonation_enabled: Optional[StrictBool] = Field(default=None, alias="impersonationEnabled")
-    logo: Optional[StrictStr] = None
-    marketplace_id: Optional[StrictStr] = Field(default=None, alias="marketplaceId")
-    parent_company_name: Optional[StrictStr] = Field(default=None, alias="parentCompanyName")
-    parent_enterprise_id: Optional[StrictInt] = Field(default=None, alias="parentEnterpriseId")
-    portal_banner: Optional[StrictStr] = Field(default=None, alias="portalBanner")
-    proxy_tenant_id: Optional[StrictInt] = Field(default=None, alias="proxyTenantId")
-    small_logo: Optional[StrictStr] = Field(default=None, alias="smallLogo")
-    token_expiry: Optional[StrictStr] = Field(default=None, alias="tokenExpiry")
+    impersonation_enabled: Optional[StrictBool] = Field(default=None, alias="impersonationEnabled", json_schema_extra={"examples": [True]})
+    logo: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    marketplace_id: Optional[StrictStr] = Field(default=None, alias="marketplaceId", json_schema_extra={"examples": ["example string"]})
+    parent_company_name: Optional[StrictStr] = Field(default=None, alias="parentCompanyName", json_schema_extra={"examples": ["example string"]})
+    parent_enterprise_id: Optional[StrictInt] = Field(default=None, alias="parentEnterpriseId", json_schema_extra={"examples": [1234567891011]})
+    portal_banner: Optional[StrictStr] = Field(default=None, alias="portalBanner", json_schema_extra={"examples": ["example string"]})
+    proxy_tenant_id: Optional[StrictInt] = Field(default=None, alias="proxyTenantId", json_schema_extra={"examples": [1234567891011]})
+    small_logo: Optional[StrictStr] = Field(default=None, alias="smallLogo", json_schema_extra={"examples": ["example string"]})
+    token_expiry: Optional[StrictStr] = Field(default=None, alias="tokenExpiry", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["acceptEula", "accountType", "adminEmail", "cloudProvider", "companyName", "counts", "creditLimit", "customers", "description", "enterpriseId", "eulaAgreementDate", "impersonationEnabled", "logo", "marketplaceId", "parentCompanyName", "parentEnterpriseId", "portalBanner", "proxyTenantId", "smallLogo", "tokenExpiry"]
 
     model_config = ConfigDict(

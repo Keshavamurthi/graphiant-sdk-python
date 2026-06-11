@@ -27,8 +27,8 @@ class StatsmonTroubleshootingDeviceFilter(BaseModel):
     """
     StatsmonTroubleshootingDeviceFilter
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName")
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["deviceId", "deviceName"]
 
     model_config = ConfigDict(

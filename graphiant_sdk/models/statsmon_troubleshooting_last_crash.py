@@ -28,8 +28,8 @@ class StatsmonTroubleshootingLastCrash(BaseModel):
     """
     StatsmonTroubleshootingLastCrash
     """ # noqa: E501
-    crash_details: Optional[StrictStr] = Field(default=None, alias="crashDetails")
-    reason: Optional[StrictStr] = None
+    crash_details: Optional[StrictStr] = Field(default=None, alias="crashDetails", json_schema_extra={"examples": ["example string"]})
+    reason: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     up_since_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="upSinceTs")
     __properties: ClassVar[List[str]] = ["crashDetails", "reason", "upSinceTs"]
 

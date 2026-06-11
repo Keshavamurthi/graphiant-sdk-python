@@ -28,8 +28,8 @@ class StatsmonV2PolicyStatsSelector(BaseModel):
     """
     StatsmonV2PolicyStatsSelector
     """ # noqa: E501
-    index: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    type: Optional[StrictStr] = None
+    index: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["index", "type"]
 
     model_config = ConfigDict(

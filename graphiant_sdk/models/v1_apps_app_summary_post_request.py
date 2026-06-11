@@ -28,8 +28,8 @@ class V1AppsAppSummaryPostRequest(BaseModel):
     """
     V1AppsAppSummaryPostRequest
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    is_dia: Optional[StrictBool] = Field(default=None, alias="isDia")
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    is_dia: Optional[StrictBool] = Field(default=None, alias="isDia", json_schema_extra={"examples": [True]})
     time_window: Optional[IpfixTimeWindow] = Field(default=None, alias="timeWindow")
     __properties: ClassVar[List[str]] = ["deviceId", "isDia", "timeWindow"]
 

@@ -28,12 +28,12 @@ class AlertserviceNotificationBody(BaseModel):
     """
     AlertserviceNotificationBody
     """ # noqa: E501
-    description: Optional[StrictStr] = Field(default=None, description="Description of notification")
-    duration: Optional[StrictStr] = Field(default=None, description="Time interval for notification (required)")
-    enabled: Optional[StrictBool] = Field(default=None, description="Enable or disable notification (required)")
-    frequency: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Frequency of notifying a continuing alert (required)")
-    message_body: Optional[StrictStr] = Field(default=None, description="Message body to prepend to actual message", alias="messageBody")
-    notification_name: Optional[StrictStr] = Field(default=None, description="Name of the notification record (required)", alias="notificationName")
+    description: Optional[StrictStr] = Field(default=None, description="Description of notification", json_schema_extra={"examples": ["example string"]})
+    duration: Optional[StrictStr] = Field(default=None, description="Time interval for notification (required)", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    enabled: Optional[StrictBool] = Field(default=None, description="Enable or disable notification (required)", json_schema_extra={"examples": [True]})
+    frequency: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Frequency of notifying a continuing alert (required)", json_schema_extra={"examples": [12345678910]})
+    message_body: Optional[StrictStr] = Field(default=None, description="Message body to prepend to actual message", alias="messageBody", json_schema_extra={"examples": ["example string"]})
+    notification_name: Optional[StrictStr] = Field(default=None, description="Name of the notification record (required)", alias="notificationName", json_schema_extra={"examples": ["example string"]})
     opsgenie_list: Optional[List[StrictStr]] = Field(default=None, alias="opsgenieList")
     opsramp_list: Optional[List[StrictStr]] = Field(default=None, alias="opsrampList")
     pagerduty_list: Optional[List[StrictStr]] = Field(default=None, alias="pagerdutyList")

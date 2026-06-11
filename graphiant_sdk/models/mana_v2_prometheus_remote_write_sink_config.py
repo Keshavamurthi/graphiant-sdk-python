@@ -28,10 +28,10 @@ class ManaV2PrometheusRemoteWriteSinkConfig(BaseModel):
     """
     ManaV2PrometheusRemoteWriteSinkConfig
     """ # noqa: E501
-    description: Optional[StrictStr] = None
-    host: Optional[StrictStr] = None
-    path: Optional[StrictStr] = None
-    port: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    host: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    path: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["description", "host", "path", "port"]
 
     model_config = ConfigDict(

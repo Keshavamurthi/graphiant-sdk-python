@@ -28,9 +28,9 @@ class StatsmonV2BfdStatsSelector(BaseModel):
     """
     StatsmonV2BfdStatsSelector
     """ # noqa: E501
-    if_index: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="ifIndex")
-    peer_address: Optional[StrictStr] = Field(default=None, alias="peerAddress")
-    type: Optional[StrictStr] = None
+    if_index: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="ifIndex", json_schema_extra={"examples": [123]})
+    peer_address: Optional[StrictStr] = Field(default=None, alias="peerAddress", json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["ifIndex", "peerAddress", "type"]
 
     model_config = ConfigDict(

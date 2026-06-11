@@ -27,19 +27,19 @@ class IamCounts(BaseModel):
     """
     IamCounts
     """ # noqa: E501
-    active_down_count: Optional[StrictInt] = Field(default=None, alias="activeDownCount")
-    active_up_count: Optional[StrictInt] = Field(default=None, alias="activeUpCount")
-    deactivated_down_count: Optional[StrictInt] = Field(default=None, alias="deactivatedDownCount")
-    down_sites_count: Optional[StrictInt] = Field(default=None, alias="downSitesCount")
-    empty_sites_count: Optional[StrictInt] = Field(default=None, alias="emptySitesCount")
-    impaired_sites_count: Optional[StrictInt] = Field(default=None, alias="impairedSitesCount")
-    staging_down_count: Optional[StrictInt] = Field(default=None, alias="stagingDownCount")
-    staging_up_count: Optional[StrictInt] = Field(default=None, alias="stagingUpCount")
-    total_customers: Optional[StrictInt] = Field(default=None, alias="totalCustomers")
-    total_edges: Optional[StrictInt] = Field(default=None, alias="totalEdges")
-    total_msps: Optional[StrictInt] = Field(default=None, alias="totalMsps")
-    total_sites: Optional[StrictInt] = Field(default=None, alias="totalSites")
-    up_sites_count: Optional[StrictInt] = Field(default=None, alias="upSitesCount")
+    active_down_count: Optional[StrictInt] = Field(default=None, alias="activeDownCount", json_schema_extra={"examples": [1234567891011]})
+    active_up_count: Optional[StrictInt] = Field(default=None, alias="activeUpCount", json_schema_extra={"examples": [1234567891011]})
+    deactivated_down_count: Optional[StrictInt] = Field(default=None, alias="deactivatedDownCount", json_schema_extra={"examples": [1234567891011]})
+    down_sites_count: Optional[StrictInt] = Field(default=None, alias="downSitesCount", json_schema_extra={"examples": [1234567891011]})
+    empty_sites_count: Optional[StrictInt] = Field(default=None, alias="emptySitesCount", json_schema_extra={"examples": [1234567891011]})
+    impaired_sites_count: Optional[StrictInt] = Field(default=None, alias="impairedSitesCount", json_schema_extra={"examples": [1234567891011]})
+    staging_down_count: Optional[StrictInt] = Field(default=None, alias="stagingDownCount", json_schema_extra={"examples": [1234567891011]})
+    staging_up_count: Optional[StrictInt] = Field(default=None, alias="stagingUpCount", json_schema_extra={"examples": [1234567891011]})
+    total_customers: Optional[StrictInt] = Field(default=None, alias="totalCustomers", json_schema_extra={"examples": [1234567891011]})
+    total_edges: Optional[StrictInt] = Field(default=None, alias="totalEdges", json_schema_extra={"examples": [1234567891011]})
+    total_msps: Optional[StrictInt] = Field(default=None, alias="totalMsps", json_schema_extra={"examples": [1234567891011]})
+    total_sites: Optional[StrictInt] = Field(default=None, alias="totalSites", json_schema_extra={"examples": [1234567891011]})
+    up_sites_count: Optional[StrictInt] = Field(default=None, alias="upSitesCount", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["activeDownCount", "activeUpCount", "deactivatedDownCount", "downSitesCount", "emptySitesCount", "impairedSitesCount", "stagingDownCount", "stagingUpCount", "totalCustomers", "totalEdges", "totalMsps", "totalSites", "upSitesCount"]
 
     model_config = ConfigDict(

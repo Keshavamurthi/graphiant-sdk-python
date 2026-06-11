@@ -29,20 +29,20 @@ class ManaV2VrrpGroup(BaseModel):
     """
     ManaV2VrrpGroup
     """ # noqa: E501
-    accept_mode: Optional[StrictBool] = Field(default=None, alias="acceptMode")
-    allow_inter_operability: Optional[StrictBool] = Field(default=None, alias="allowInterOperability")
-    description: Optional[StrictStr] = None
-    effective_priority: Optional[StrictInt] = Field(default=None, alias="effectivePriority")
-    enabled: Optional[StrictBool] = None
+    accept_mode: Optional[StrictBool] = Field(default=None, alias="acceptMode", json_schema_extra={"examples": [True]})
+    allow_inter_operability: Optional[StrictBool] = Field(default=None, alias="allowInterOperability", json_schema_extra={"examples": [True]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    effective_priority: Optional[StrictInt] = Field(default=None, alias="effectivePriority", json_schema_extra={"examples": [123]})
+    enabled: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     group_members: Optional[List[ManaV2VRRPGroupMember]] = Field(default=None, alias="groupMembers")
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
-    preempt: Optional[StrictBool] = None
-    priority: Optional[StrictInt] = None
-    state: Optional[StrictStr] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    preempt: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    priority: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [123]})
+    state: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     tracked_interfaces: Optional[List[ManaV2VRRPGroupInterfacePriorityDecrement]] = Field(default=None, alias="trackedInterfaces")
-    virtual_ip_address: Optional[StrictStr] = Field(default=None, alias="virtualIpAddress")
-    virtual_mac_address: Optional[StrictStr] = Field(default=None, alias="virtualMacAddress")
+    virtual_ip_address: Optional[StrictStr] = Field(default=None, alias="virtualIpAddress", json_schema_extra={"examples": ["example string"]})
+    virtual_mac_address: Optional[StrictStr] = Field(default=None, alias="virtualMacAddress", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["acceptMode", "allowInterOperability", "description", "effectivePriority", "enabled", "groupMembers", "id", "name", "preempt", "priority", "state", "trackedInterfaces", "virtualIpAddress", "virtualMacAddress"]
 
     model_config = ConfigDict(

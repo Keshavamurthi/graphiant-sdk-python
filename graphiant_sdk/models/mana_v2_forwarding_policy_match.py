@@ -30,18 +30,18 @@ class ManaV2ForwardingPolicyMatch(BaseModel):
     """
     ManaV2ForwardingPolicyMatch
     """ # noqa: E501
-    application: Optional[StrictStr] = None
-    destination_network: Optional[StrictStr] = Field(default=None, alias="destinationNetwork")
-    destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destinationPort")
+    application: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    destination_network: Optional[StrictStr] = Field(default=None, alias="destinationNetwork", json_schema_extra={"examples": ["example string"]})
+    destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destinationPort", json_schema_extra={"examples": [123]})
     destination_port_range: Optional[ManaV2PortRange] = Field(default=None, alias="destinationPortRange")
     domain_category_ids: Optional[List[StrictInt]] = Field(default=None, alias="domainCategoryIds")
     domain_wildcards: Optional[List[StrictStr]] = Field(default=None, alias="domainWildcards")
     dscp: Optional[ManaV2Dscp] = None
-    icmp_type: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="icmpType")
-    ip_protocol: Optional[StrictStr] = Field(default=None, alias="ipProtocol")
-    protocol: Optional[StrictStr] = None
-    source_network: Optional[StrictStr] = Field(default=None, alias="sourceNetwork")
-    source_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="sourcePort")
+    icmp_type: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="icmpType", json_schema_extra={"examples": [123]})
+    ip_protocol: Optional[StrictStr] = Field(default=None, alias="ipProtocol", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    protocol: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    source_network: Optional[StrictStr] = Field(default=None, alias="sourceNetwork", json_schema_extra={"examples": ["example string"]})
+    source_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="sourcePort", json_schema_extra={"examples": [123]})
     source_port_range: Optional[ManaV2PortRange] = Field(default=None, alias="sourcePortRange")
     __properties: ClassVar[List[str]] = ["application", "destinationNetwork", "destinationPort", "destinationPortRange", "domainCategoryIds", "domainWildcards", "dscp", "icmpType", "ipProtocol", "protocol", "sourceNetwork", "sourcePort", "sourcePortRange"]
 

@@ -27,7 +27,7 @@ class V1ExtranetsB2bPeeringConsumerIdPrefixesPutResponse(BaseModel):
     """
     V1ExtranetsB2bPeeringConsumerIdPrefixesPutResponse
     """ # noqa: E501
-    consumer_activiy_id: Optional[StrictStr] = Field(default=None, alias="consumerActiviyId")
+    consumer_activiy_id: Optional[StrictStr] = Field(default=None, alias="consumerActiviyId", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["consumerActiviyId"]
 
     model_config = ConfigDict(

@@ -29,8 +29,8 @@ class V1TroubleshootingSiteSiteIdGetResponse(BaseModel):
     V1TroubleshootingSiteSiteIdGetResponse
     """ # noqa: E501
     edge_statuses: Optional[List[StatsmonTroubleshootingEdgeStatus]] = Field(default=None, alias="edgeStatuses")
-    site_name: Optional[StrictStr] = Field(default=None, alias="siteName")
-    site_status: Optional[StrictStr] = Field(default=None, alias="siteStatus")
+    site_name: Optional[StrictStr] = Field(default=None, alias="siteName", json_schema_extra={"examples": ["example string"]})
+    site_status: Optional[StrictStr] = Field(default=None, alias="siteStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["edgeStatuses", "siteName", "siteStatus"]
 
     model_config = ConfigDict(

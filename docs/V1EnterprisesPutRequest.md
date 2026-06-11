@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **company_name** | **str** |  (required) | 
 **credit_limit** | **int** |  | [optional] 
 **description** | **str** |  | [optional] 
+**enterprise_contract** | [**CommonBillingContract**](CommonBillingContract.md) |  | 
 **logo** | **str** |  | [optional] 
 **marketplace_id** | **str** |  | [optional] 
 **small_logo** | **str** |  | [optional] 

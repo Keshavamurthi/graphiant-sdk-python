@@ -29,9 +29,9 @@ class ManaV2AwsDirectConnectGateway(BaseModel):
     """
     ManaV2AwsDirectConnectGateway
     """ # noqa: E501
-    asn: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    id: Optional[StrictStr] = None
-    name: Optional[StrictStr] = None
+    asn: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    id: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     transit_gateways: Optional[List[ManaV2AwsTransitGateway]] = Field(default=None, alias="transitGateways")
     __properties: ClassVar[List[str]] = ["asn", "id", "name", "transitGateways"]
 

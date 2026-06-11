@@ -27,22 +27,22 @@ class AuthPermissions(BaseModel):
     """
     AuthPermissions
     """ # noqa: E501
-    billing_and_invoicing: Optional[StrictStr] = Field(default=None, alias="billingAndInvoicing")
-    licensing: Optional[StrictStr] = None
-    order_status: Optional[StrictStr] = Field(default=None, alias="orderStatus")
-    support: Optional[StrictStr] = None
-    user_and_tenant_management: Optional[StrictStr] = Field(default=None, alias="userAndTenantManagement")
-    asset_manager: Optional[StrictStr] = Field(default=None, alias="assetManager")
-    global_services: Optional[StrictStr] = Field(default=None, alias="globalServices")
-    network_configurations: Optional[StrictStr] = Field(default=None, alias="networkConfigurations")
-    safety_and_security: Optional[StrictStr] = Field(default=None, alias="safetyAndSecurity")
-    service_policies: Optional[StrictStr] = Field(default=None, alias="servicePolicies")
-    compliance: Optional[StrictStr] = None
-    developer_tools: Optional[StrictStr] = Field(default=None, alias="developerTools")
-    insights: Optional[StrictStr] = None
-    logs: Optional[StrictStr] = None
-    monitoring_and_troubleshooting: Optional[StrictStr] = Field(default=None, alias="monitoringAndTroubleshooting")
-    reports: Optional[StrictStr] = None
+    billing_and_invoicing: Optional[StrictStr] = Field(default=None, alias="billingAndInvoicing", json_schema_extra={"examples": ["read_write"]})
+    licensing: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["read_write"]})
+    order_status: Optional[StrictStr] = Field(default=None, alias="orderStatus", json_schema_extra={"examples": ["read"]})
+    support: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["read"]})
+    user_and_tenant_management: Optional[StrictStr] = Field(default=None, alias="userAndTenantManagement", json_schema_extra={"examples": ["read_write"]})
+    asset_manager: Optional[StrictStr] = Field(default=None, alias="assetManager", json_schema_extra={"examples": ["read_write"]})
+    global_services: Optional[StrictStr] = Field(default=None, alias="globalServices", json_schema_extra={"examples": ["read"]})
+    network_configurations: Optional[StrictStr] = Field(default=None, alias="networkConfigurations", json_schema_extra={"examples": ["read_write"]})
+    safety_and_security: Optional[StrictStr] = Field(default=None, alias="safetyAndSecurity", json_schema_extra={"examples": ["read_write"]})
+    service_policies: Optional[StrictStr] = Field(default=None, alias="servicePolicies", json_schema_extra={"examples": ["read_write"]})
+    compliance: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["read"]})
+    developer_tools: Optional[StrictStr] = Field(default=None, alias="developerTools", json_schema_extra={"examples": ["read"]})
+    insights: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["read_write"]})
+    logs: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["read_write"]})
+    monitoring_and_troubleshooting: Optional[StrictStr] = Field(default=None, alias="monitoringAndTroubleshooting", json_schema_extra={"examples": ["read_write"]})
+    reports: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["read"]})
     __properties: ClassVar[List[str]] = ["billingAndInvoicing", "licensing", "orderStatus", "support", "userAndTenantManagement", "assetManager", "globalServices", "networkConfigurations", "safetyAndSecurity", "servicePolicies", "compliance", "developerTools", "insights", "logs", "monitoringAndTroubleshooting", "reports"]
 
     @field_validator('billing_and_invoicing')

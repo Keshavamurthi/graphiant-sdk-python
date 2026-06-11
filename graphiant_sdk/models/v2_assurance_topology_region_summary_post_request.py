@@ -27,7 +27,7 @@ class V2AssuranceTopologyRegionSummaryPostRequest(BaseModel):
     """
     V2AssuranceTopologyRegionSummaryPostRequest
     """ # noqa: E501
-    region_id: Optional[StrictInt] = Field(default=None, alias="regionId")
+    region_id: Optional[StrictInt] = Field(default=None, alias="regionId", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["regionId"]
 
     model_config = ConfigDict(

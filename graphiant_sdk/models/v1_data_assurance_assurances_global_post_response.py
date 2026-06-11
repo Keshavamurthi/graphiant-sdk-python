@@ -27,7 +27,7 @@ class V1DataAssuranceAssurancesGlobalPostResponse(BaseModel):
     """
     V1DataAssuranceAssurancesGlobalPostResponse
     """ # noqa: E501
-    assurance_id: Optional[StrictInt] = Field(default=None, alias="assuranceId")
+    assurance_id: Optional[StrictInt] = Field(default=None, alias="assuranceId", json_schema_extra={"examples": [1234567891011]})
     unsynced_device_names: Optional[List[StrictStr]] = Field(default=None, alias="unsyncedDeviceNames")
     __properties: ClassVar[List[str]] = ["assuranceId", "unsyncedDeviceNames"]
 

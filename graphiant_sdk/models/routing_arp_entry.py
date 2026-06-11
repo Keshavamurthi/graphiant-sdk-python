@@ -27,10 +27,10 @@ class RoutingArpEntry(BaseModel):
     """
     RoutingArpEntry
     """ # noqa: E501
-    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName")
-    ipv4_address: Optional[StrictStr] = Field(default=None, alias="ipv4Address")
-    mac_address: Optional[StrictStr] = Field(default=None, alias="macAddress")
-    name: Optional[StrictStr] = Field(default=None, description="Circuit or VRF name")
+    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName", json_schema_extra={"examples": ["example string"]})
+    ipv4_address: Optional[StrictStr] = Field(default=None, alias="ipv4Address", json_schema_extra={"examples": ["example string"]})
+    mac_address: Optional[StrictStr] = Field(default=None, alias="macAddress", json_schema_extra={"examples": ["example string"]})
+    name: Optional[StrictStr] = Field(default=None, description="Circuit or VRF name", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["interfaceName", "ipv4Address", "macAddress", "name"]
 
     model_config = ConfigDict(

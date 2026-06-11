@@ -30,21 +30,21 @@ class ManaV2DpiApplicationConfig(BaseModel):
     """
     ManaV2DpiApplicationConfig
     """ # noqa: E501
-    description: Optional[StrictStr] = None
-    destination_network: Optional[StrictStr] = Field(default=None, alias="destinationNetwork")
-    destination_network_list: Optional[StrictStr] = Field(default=None, alias="destinationNetworkList")
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    destination_network: Optional[StrictStr] = Field(default=None, alias="destinationNetwork", json_schema_extra={"examples": ["example string"]})
+    destination_network_list: Optional[StrictStr] = Field(default=None, alias="destinationNetworkList", json_schema_extra={"examples": ["example string"]})
     destination_networks: Optional[ManaV2IpNetworkListConfig] = Field(default=None, alias="destinationNetworks")
-    destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destinationPort")
-    destination_port_list: Optional[StrictStr] = Field(default=None, alias="destinationPortList")
+    destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destinationPort", json_schema_extra={"examples": [123]})
+    destination_port_list: Optional[StrictStr] = Field(default=None, alias="destinationPortList", json_schema_extra={"examples": ["example string"]})
     destination_ports: Optional[ManaV2L4PortListConfig] = Field(default=None, alias="destinationPorts")
-    icmp_type: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="icmpType")
-    ip_protocol: Optional[StrictStr] = Field(default=None, alias="ipProtocol")
-    name: Optional[StrictStr] = None
-    source_network: Optional[StrictStr] = Field(default=None, alias="sourceNetwork")
-    source_network_list: Optional[StrictStr] = Field(default=None, alias="sourceNetworkList")
+    icmp_type: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="icmpType", json_schema_extra={"examples": [123]})
+    ip_protocol: Optional[StrictStr] = Field(default=None, alias="ipProtocol", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    source_network: Optional[StrictStr] = Field(default=None, alias="sourceNetwork", json_schema_extra={"examples": ["example string"]})
+    source_network_list: Optional[StrictStr] = Field(default=None, alias="sourceNetworkList", json_schema_extra={"examples": ["example string"]})
     source_networks: Optional[ManaV2IpNetworkListConfig] = Field(default=None, alias="sourceNetworks")
-    source_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="sourcePort")
-    source_port_list: Optional[StrictStr] = Field(default=None, alias="sourcePortList")
+    source_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="sourcePort", json_schema_extra={"examples": [123]})
+    source_port_list: Optional[StrictStr] = Field(default=None, alias="sourcePortList", json_schema_extra={"examples": ["example string"]})
     source_ports: Optional[ManaV2L4PortListConfig] = Field(default=None, alias="sourcePorts")
     __properties: ClassVar[List[str]] = ["description", "destinationNetwork", "destinationNetworkList", "destinationNetworks", "destinationPort", "destinationPortList", "destinationPorts", "icmpType", "ipProtocol", "name", "sourceNetwork", "sourceNetworkList", "sourceNetworks", "sourcePort", "sourcePortList", "sourcePorts"]
 

@@ -30,7 +30,7 @@ class V1EdgesHardwareUnassignedGetResponse(BaseModel):
     V1EdgesHardwareUnassignedGetResponse
     """ # noqa: E501
     inventory: Optional[List[OnboardingHardwareInventory]] = None
-    is_new_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="isNewCount")
+    is_new_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="isNewCount", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["inventory", "isNewCount"]
 
     model_config = ConfigDict(

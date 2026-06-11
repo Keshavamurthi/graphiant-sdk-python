@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.mana_v2_b2b_extranet_policy_response import ManaV2B2bExtranetPolicyResponse
 from typing import Optional, Set
@@ -28,7 +28,7 @@ class V1ExtranetsB2bIdProducerGetResponse(BaseModel):
     """
     V1ExtranetsB2bIdProducerGetResponse
     """ # noqa: E501
-    id: Optional[StrictInt] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     policy: Optional[ManaV2B2bExtranetPolicyResponse] = None
     __properties: ClassVar[List[str]] = ["id", "policy"]
 

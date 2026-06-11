@@ -29,7 +29,7 @@ class ManaV2B2bExtranetPeeringServiceCustomerInvite(BaseModel):
     ManaV2B2bExtranetPeeringServiceCustomerInvite
     """ # noqa: E501
     admin_email: List[StrictStr] = Field(alias="adminEmail")
-    maximum_number_of_sites: Annotated[int, Field(strict=True, ge=0)] = Field(description="Maximum number of sites for the peering service customer (required)", alias="maximumNumberOfSites")
+    maximum_number_of_sites: Annotated[int, Field(strict=True, ge=0)] = Field(description="Maximum number of sites for the peering service customer (required)", alias="maximumNumberOfSites", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["adminEmail", "maximumNumberOfSites"]
 
     model_config = ConfigDict(

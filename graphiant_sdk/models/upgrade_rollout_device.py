@@ -27,8 +27,8 @@ class UpgradeRolloutDevice(BaseModel):
     """
     UpgradeRolloutDevice
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, description="Device identifier. (required)", alias="deviceId")
-    hostname: Optional[StrictStr] = Field(default=None, description="Device hostname for display.")
+    device_id: Optional[StrictInt] = Field(default=None, description="Device identifier. (required)", alias="deviceId", json_schema_extra={"examples": [1001]})
+    hostname: Optional[StrictStr] = Field(default=None, description="Device hostname for display.", json_schema_extra={"examples": ["edge-site-01"]})
     __properties: ClassVar[List[str]] = ["deviceId", "hostname"]
 
     model_config = ConfigDict(

@@ -27,8 +27,8 @@ class ManaV2InternetAccessBandwidthInfo(BaseModel):
     """
     ManaV2InternetAccessBandwidthInfo
     """ # noqa: E501
-    internet_bandwidth: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Bandwidth value associated with dia gateways. This should either be 0, 10, or 100.", alias="internetBandwidth")
-    internet_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Additional credits to support the provided DIA bandwidth", alias="internetCredits")
+    internet_bandwidth: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Bandwidth value associated with dia gateways. This should either be 0, 10, or 100.", alias="internetBandwidth", json_schema_extra={"examples": [12.34]})
+    internet_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Additional credits to support the provided DIA bandwidth", alias="internetCredits", json_schema_extra={"examples": [12.34]})
     __properties: ClassVar[List[str]] = ["internetBandwidth", "internetCredits"]
 
     model_config = ConfigDict(

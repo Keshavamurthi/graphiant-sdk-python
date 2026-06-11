@@ -27,8 +27,8 @@ class V1BackboneHealthTopDevicesByAlertsPostResponseDeviceCountsDeviceCount(Base
     """
     V1BackboneHealthTopDevicesByAlertsPostResponseDeviceCountsDeviceCount
     """ # noqa: E501
-    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName")
-    num_alerts: Optional[StrictInt] = Field(default=None, alias="numAlerts")
+    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName", json_schema_extra={"examples": ["example string"]})
+    num_alerts: Optional[StrictInt] = Field(default=None, alias="numAlerts", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["deviceName", "numAlerts"]
 
     model_config = ConfigDict(

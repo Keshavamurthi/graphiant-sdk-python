@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,9 +27,10 @@ class ManaV2ApplicationProfile(BaseModel):
     """
     ManaV2ApplicationProfile
     """ # noqa: E501
+    port_range: Optional[StrictStr] = Field(default=None, description="Port Range", alias="portRange", json_schema_extra={"examples": ["example string"]})
     ports: List[StrictInt]
-    protocol: StrictInt = Field(description="Protocol for the application profile (required)")
-    __properties: ClassVar[List[str]] = ["ports", "protocol"]
+    protocol: StrictInt = Field(description="Protocol for the application profile (required)", json_schema_extra={"examples": [123]})
+    __properties: ClassVar[List[str]] = ["portRange", "ports", "protocol"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -82,6 +83,7 @@ class ManaV2ApplicationProfile(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "portRange": obj.get("portRange"),
             "ports": obj.get("ports"),
             "protocol": obj.get("protocol")
         })

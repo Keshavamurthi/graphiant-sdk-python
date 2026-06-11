@@ -27,8 +27,8 @@ class ManaV2B2bNat(BaseModel):
     """
     ManaV2B2bNat
     """ # noqa: E501
-    outside_nat_prefix: Optional[StrictStr] = Field(default=None, description="Outside NAT prefix for the customer prefix", alias="outsideNatPrefix")
-    prefix: StrictStr = Field(description="Prefix imported into the service (required)")
+    outside_nat_prefix: Optional[StrictStr] = Field(default=None, description="Outside NAT prefix for the customer prefix", alias="outsideNatPrefix", json_schema_extra={"examples": ["100.1.2.0/24"]})
+    prefix: StrictStr = Field(description="Prefix imported into the service (required)", json_schema_extra={"examples": ["10.1.2.0/24"]})
     __properties: ClassVar[List[str]] = ["outsideNatPrefix", "prefix"]
 
     model_config = ConfigDict(

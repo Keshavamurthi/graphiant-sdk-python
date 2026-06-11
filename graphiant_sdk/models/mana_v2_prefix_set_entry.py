@@ -28,11 +28,11 @@ class ManaV2PrefixSetEntry(BaseModel):
     """
     ManaV2PrefixSetEntry
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    ip_prefix: Optional[StrictStr] = Field(default=None, alias="ipPrefix")
-    mask_lower: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="maskLower")
-    mask_upper: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="maskUpper")
-    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    ip_prefix: Optional[StrictStr] = Field(default=None, alias="ipPrefix", json_schema_extra={"examples": ["example string"]})
+    mask_lower: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="maskLower", json_schema_extra={"examples": [123]})
+    mask_upper: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="maskUpper", json_schema_extra={"examples": [123]})
+    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["id", "ipPrefix", "maskLower", "maskUpper", "seq"]
 
     model_config = ConfigDict(

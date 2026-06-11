@@ -28,7 +28,7 @@ class ManaV2NullableTcpMssV4(BaseModel):
     """
     ManaV2NullableTcpMssV4
     """ # noqa: E501
-    tcp_mss_v4: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="tcpMssV4")
+    tcp_mss_v4: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="tcpMssV4", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["tcpMssV4"]
 
     model_config = ConfigDict(

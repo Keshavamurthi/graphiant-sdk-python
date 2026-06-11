@@ -29,16 +29,16 @@ class AuditAuditEntry(BaseModel):
     """
     AuditAuditEntry
     """ # noqa: E501
-    activity: Optional[StrictStr] = None
-    actor: Optional[StrictStr] = None
-    category: Optional[StrictStr] = None
+    activity: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    actor: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    category: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     end: Optional[GoogleProtobufTimestamp] = None
     failed_target_results: Optional[List[AuditTargetResult]] = Field(default=None, alias="failedTargetResults")
-    info: Optional[StrictStr] = None
-    reason: Optional[StrictStr] = None
-    service: Optional[StrictStr] = None
+    info: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    reason: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    service: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     start: Optional[GoogleProtobufTimestamp] = None
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     targets: Optional[List[AuditTargetResult]] = None
     __properties: ClassVar[List[str]] = ["activity", "actor", "category", "end", "failedTargetResults", "info", "reason", "service", "start", "status", "targets"]
 

@@ -30,7 +30,7 @@ class V1EdgesSummaryGetResponse(BaseModel):
     V1EdgesSummaryGetResponse
     """ # noqa: E501
     edges_summary: Optional[List[SearchEdgeSummary]] = Field(default=None, alias="edgesSummary")
-    is_new_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="isNewCount")
+    is_new_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="isNewCount", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["edgesSummary", "isNewCount"]
 
     model_config = ConfigDict(

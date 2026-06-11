@@ -27,7 +27,7 @@ class V1DiagnosticArchiveCreateDeviceIdPostRequest(BaseModel):
     """
     V1DiagnosticArchiveCreateDeviceIdPostRequest
     """ # noqa: E501
-    description: Optional[StrictStr] = Field(default=None, description="Description of the requested archive")
+    description: Optional[StrictStr] = Field(default=None, description="Description of the requested archive", json_schema_extra={"examples": ["archive requested to debug tenant A problem in device B"]})
     __properties: ClassVar[List[str]] = ["description"]
 
     model_config = ConfigDict(

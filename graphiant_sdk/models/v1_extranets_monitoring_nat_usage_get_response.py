@@ -29,9 +29,9 @@ class V1ExtranetsMonitoringNatUsageGetResponse(BaseModel):
     """
     V1ExtranetsMonitoringNatUsageGetResponse
     """ # noqa: E501
-    allocated_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="allocatedCount")
+    allocated_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="allocatedCount", json_schema_extra={"examples": [123]})
     allocations: Optional[List[V1ExtranetsMonitoringNatUsageGetResponseAllocation]] = None
-    usage_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="usageCount")
+    usage_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="usageCount", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["allocatedCount", "allocations", "usageCount"]
 
     model_config = ConfigDict(

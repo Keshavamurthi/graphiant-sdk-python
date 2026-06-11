@@ -27,8 +27,8 @@ class StatsmonTroubleshootingSiteFilter(BaseModel):
     """
     StatsmonTroubleshootingSiteFilter
     """ # noqa: E501
-    site_id: Optional[StrictInt] = Field(default=None, alias="siteId")
-    site_name: Optional[StrictStr] = Field(default=None, alias="siteName")
+    site_id: Optional[StrictInt] = Field(default=None, alias="siteId", json_schema_extra={"examples": [1234567891011]})
+    site_name: Optional[StrictStr] = Field(default=None, alias="siteName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["siteId", "siteName"]
 
     model_config = ConfigDict(

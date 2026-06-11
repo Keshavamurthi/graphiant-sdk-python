@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,9 +27,9 @@ class ManaV2BucketAppServer(BaseModel):
     """
     ManaV2BucketAppServer
     """ # noqa: E501
-    ip: Optional[StrictStr] = None
-    port: Optional[StrictInt] = None
-    protocol: Optional[StrictStr] = None
+    ip: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    port: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [123]})
+    protocol: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["ip", "port", "protocol"]
 
     model_config = ConfigDict(

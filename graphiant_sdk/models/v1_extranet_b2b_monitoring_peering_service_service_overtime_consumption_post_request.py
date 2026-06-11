@@ -28,13 +28,13 @@ class V1ExtranetB2bMonitoringPeeringServiceServiceOvertimeConsumptionPostRequest
     """
     V1ExtranetB2bMonitoringPeeringServiceServiceOvertimeConsumptionPostRequest
     """ # noqa: E501
-    id: StrictInt = Field(description="the id associated with an entity - consumer_id for consumer, and service_id for the producer/service (required)")
-    is_b2_b: StrictBool = Field(description="whether the entity is a b2b entity (true for b2b entity, false for local extranet entity) (required)", alias="isB2B")
-    is_provider: StrictBool = Field(description="whether the entity is a provider or consumer (required)", alias="isProvider")
-    site_id: Optional[StrictInt] = Field(default=None, description="a filter to get usage for a specific site", alias="siteId")
-    subscription_name: Optional[StrictStr] = Field(default=None, description="Optional subscription name for filter", alias="subscriptionName")
+    id: StrictInt = Field(description="the id associated with an entity - consumer_id for consumer, and service_id for the producer/service (required)", json_schema_extra={"examples": [1]})
+    is_b2_b: StrictBool = Field(description="whether the entity is a b2b entity (true for b2b entity, false for local extranet entity) (required)", alias="isB2B", json_schema_extra={"examples": [True]})
+    is_provider: StrictBool = Field(description="whether the entity is a provider or consumer (required)", alias="isProvider", json_schema_extra={"examples": [True]})
+    site_id: Optional[StrictInt] = Field(default=None, description="a filter to get usage for a specific site", alias="siteId", json_schema_extra={"examples": [1]})
+    subscription_name: Optional[StrictStr] = Field(default=None, description="Optional subscription name for filter", alias="subscriptionName", json_schema_extra={"examples": ["example string"]})
     time_window: StatsmonTimeWindow = Field(alias="timeWindow")
-    vrf_id: Optional[StrictInt] = Field(default=None, description="a filter to get usage for a specific vrf", alias="vrfId")
+    vrf_id: Optional[StrictInt] = Field(default=None, description="a filter to get usage for a specific vrf", alias="vrfId", json_schema_extra={"examples": [1]})
     __properties: ClassVar[List[str]] = ["id", "isB2B", "isProvider", "siteId", "subscriptionName", "timeWindow", "vrfId"]
 
     model_config = ConfigDict(

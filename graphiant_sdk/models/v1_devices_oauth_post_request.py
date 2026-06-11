@@ -27,12 +27,12 @@ class V1DevicesOauthPostRequest(BaseModel):
     """
     V1DevicesOauthPostRequest
     """ # noqa: E501
-    grant_type: StrictStr = Field(description="OAuth grant type")
-    scope: StrictStr = Field(description="OAuth scope containing device type, UUID, and hostname")
-    state: Optional[StrictStr] = Field(default=None, description="OAuth state parameter")
-    code_verify: Optional[StrictStr] = Field(default=None, description="OAuth code verifier")
-    pt: Optional[StrictStr] = Field(default=None, description="Platform type")
-    bm: Optional[StrictStr] = Field(default=None, description="Boot mode")
+    grant_type: StrictStr = Field(description="OAuth grant type", json_schema_extra={"examples": ["client_credentials"]})
+    scope: StrictStr = Field(description="OAuth scope containing device type, UUID, and hostname", json_schema_extra={"examples": ["type=zt-cpe uuid=device-uuid-123 hostname=device.example.com"]})
+    state: Optional[StrictStr] = Field(default=None, description="OAuth state parameter", json_schema_extra={"examples": ["state-12345"]})
+    code_verify: Optional[StrictStr] = Field(default=None, description="OAuth code verifier", json_schema_extra={"examples": ["code-verify-12345"]})
+    pt: Optional[StrictStr] = Field(default=None, description="Platform type", json_schema_extra={"examples": ["hardware"]})
+    bm: Optional[StrictStr] = Field(default=None, description="Boot mode", json_schema_extra={"examples": ["p"]})
     __properties: ClassVar[List[str]] = ["grant_type", "scope", "state", "code_verify", "pt", "bm"]
 
     @field_validator('grant_type')

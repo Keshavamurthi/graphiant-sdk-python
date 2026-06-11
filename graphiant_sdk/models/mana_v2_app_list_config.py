@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.mana_v2_app_identifier import ManaV2AppIdentifier
 from typing import Optional, Set
@@ -29,8 +29,8 @@ class ManaV2AppListConfig(BaseModel):
     ManaV2AppListConfig
     """ # noqa: E501
     apps: Optional[List[ManaV2AppIdentifier]] = None
-    description: Optional[StrictStr] = None
-    name: Optional[StrictStr] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["apps", "description", "name"]
 
     model_config = ConfigDict(

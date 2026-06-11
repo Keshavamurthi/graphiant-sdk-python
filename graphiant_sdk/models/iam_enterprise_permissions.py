@@ -28,7 +28,7 @@ class IamEnterprisePermissions(BaseModel):
     """
     IamEnterprisePermissions
     """ # noqa: E501
-    group_type: Optional[StrictStr] = Field(default=None, description=" (required)", alias="groupType")
+    group_type: Optional[StrictStr] = Field(default=None, description=" (required)", alias="groupType", json_schema_extra={"examples": ["ENUM_VALUE"]})
     permissions: Optional[CommonPermissions] = None
     __properties: ClassVar[List[str]] = ["groupType", "permissions"]
 

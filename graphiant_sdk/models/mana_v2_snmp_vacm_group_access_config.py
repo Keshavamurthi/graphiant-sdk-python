@@ -27,13 +27,13 @@ class ManaV2SnmpVacmGroupAccessConfig(BaseModel):
     """
     ManaV2SnmpVacmGroupAccessConfig
     """ # noqa: E501
-    context: Optional[StrictStr] = None
-    context_match: Optional[StrictStr] = Field(default=None, alias="contextMatch")
-    name: Optional[StrictStr] = None
-    read_view: Optional[StrictStr] = Field(default=None, alias="readView")
-    security_level: Optional[StrictStr] = Field(default=None, alias="securityLevel")
-    security_model: Optional[StrictStr] = Field(default=None, alias="securityModel")
-    write_view: Optional[StrictStr] = Field(default=None, alias="writeView")
+    context: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    context_match: Optional[StrictStr] = Field(default=None, alias="contextMatch", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    read_view: Optional[StrictStr] = Field(default=None, alias="readView", json_schema_extra={"examples": ["example string"]})
+    security_level: Optional[StrictStr] = Field(default=None, alias="securityLevel", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    security_model: Optional[StrictStr] = Field(default=None, alias="securityModel", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    write_view: Optional[StrictStr] = Field(default=None, alias="writeView", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["context", "contextMatch", "name", "readView", "securityLevel", "securityModel", "writeView"]
 
     model_config = ConfigDict(

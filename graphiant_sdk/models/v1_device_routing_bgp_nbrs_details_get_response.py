@@ -27,9 +27,9 @@ class V1DeviceRoutingBgpNbrsDetailsGetResponse(BaseModel):
     """
     V1DeviceRoutingBgpNbrsDetailsGetResponse
     """ # noqa: E501
-    ebgp_multi_hop_ttl: Optional[StrictInt] = Field(default=None, alias="ebgpMultiHopTtl")
-    hold_timer: Optional[StrictInt] = Field(default=None, alias="holdTimer")
-    keep_alive_timer: Optional[StrictInt] = Field(default=None, alias="keepAliveTimer")
+    ebgp_multi_hop_ttl: Optional[StrictInt] = Field(default=None, alias="ebgpMultiHopTtl", json_schema_extra={"examples": [123]})
+    hold_timer: Optional[StrictInt] = Field(default=None, alias="holdTimer", json_schema_extra={"examples": [123]})
+    keep_alive_timer: Optional[StrictInt] = Field(default=None, alias="keepAliveTimer", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["ebgpMultiHopTtl", "holdTimer", "keepAliveTimer"]
 
     model_config = ConfigDict(

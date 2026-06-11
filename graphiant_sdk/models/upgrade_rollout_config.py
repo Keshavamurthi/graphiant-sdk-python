@@ -28,11 +28,11 @@ class UpgradeRolloutConfig(BaseModel):
     """
     UpgradeRolloutConfig
     """ # noqa: E501
-    action: StrictStr = Field(description="Upgrade action to perform (e.g. install+activate, install only, activate, auto-upgrade). (required)")
-    description: Optional[StrictStr] = Field(default=None, description="Optional longer description of the rollout.")
+    action: StrictStr = Field(description="Upgrade action to perform (e.g. install+activate, install only, activate, auto-upgrade). (required)", json_schema_extra={"examples": ["InstallActivate"]})
+    description: Optional[StrictStr] = Field(default=None, description="Optional longer description of the rollout.", json_schema_extra={"examples": ["Upgrade branch sites to release 25.4"]})
     device_ids: Optional[List[StrictInt]] = Field(default=None, alias="deviceIds")
-    name: StrictStr = Field(description="Human-readable rollout name unique within the enterprise. (required)")
-    release: StrictStr = Field(description="Target software release for devices in this rollout. (required)")
+    name: StrictStr = Field(description="Human-readable rollout name unique within the enterprise. (required)", json_schema_extra={"examples": ["Q2 edge upgrade"]})
+    release: StrictStr = Field(description="Target software release for devices in this rollout. (required)", json_schema_extra={"examples": ["Recommended"]})
     schedule: Optional[UpgradeRecurringSchedule] = None
     __properties: ClassVar[List[str]] = ["action", "description", "deviceIds", "name", "release", "schedule"]
 

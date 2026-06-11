@@ -29,13 +29,13 @@ class OnboardingOnboardingSummary(BaseModel):
     """
     OnboardingOnboardingSummary
     """ # noqa: E501
-    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId")
-    discovered_location: Optional[StrictStr] = Field(default=None, alias="discoveredLocation")
+    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [12345678910]})
+    discovered_location: Optional[StrictStr] = Field(default=None, alias="discoveredLocation", json_schema_extra={"examples": ["example string"]})
     first_appeared_on: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="firstAppearedOn")
-    ip_detected: Optional[StrictStr] = Field(default=None, alias="ipDetected")
-    is_new: Optional[StrictBool] = Field(default=None, alias="isNew")
-    state: Optional[StrictStr] = None
-    status: Optional[StrictStr] = None
+    ip_detected: Optional[StrictStr] = Field(default=None, alias="ipDetected", json_schema_extra={"examples": ["example string"]})
+    is_new: Optional[StrictBool] = Field(default=None, alias="isNew", json_schema_extra={"examples": [True]})
+    state: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["deviceId", "discoveredLocation", "firstAppearedOn", "ipDetected", "isNew", "state", "status"]
 
     model_config = ConfigDict(

@@ -28,9 +28,9 @@ class ManaV2RouteTagDevice(BaseModel):
     """
     ManaV2RouteTagDevice
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    location_id: Optional[StrictInt] = Field(default=None, alias="locationId")
-    site_id: Optional[StrictInt] = Field(default=None, alias="siteId")
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    location_id: Optional[StrictInt] = Field(default=None, alias="locationId", json_schema_extra={"examples": [1234567891011]})
+    site_id: Optional[StrictInt] = Field(default=None, alias="siteId", json_schema_extra={"examples": [1234567891011]})
     tag: Optional[ManaV2RouteTag] = None
     __properties: ClassVar[List[str]] = ["deviceId", "locationId", "siteId", "tag"]
 

@@ -28,19 +28,19 @@ class ManaV2SyslogCollector(BaseModel):
     """
     ManaV2SyslogCollector
     """ # noqa: E501
-    destination_host: Optional[StrictStr] = Field(default=None, alias="destinationHost")
-    destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destinationPort")
-    enabled: Optional[StrictBool] = None
-    error_message: Optional[StrictStr] = Field(default=None, alias="errorMessage")
-    global_id: Optional[StrictInt] = Field(default=None, alias="globalId")
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
-    severity: Optional[StrictStr] = None
-    source_interface: Optional[StrictStr] = Field(default=None, alias="sourceInterface")
-    status: Optional[StrictStr] = None
-    transport: Optional[StrictStr] = None
-    vrf_id: Optional[StrictInt] = Field(default=None, alias="vrfId")
-    vrf_name: Optional[StrictStr] = Field(default=None, alias="vrfName")
+    destination_host: Optional[StrictStr] = Field(default=None, alias="destinationHost", json_schema_extra={"examples": ["example string"]})
+    destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destinationPort", json_schema_extra={"examples": [123]})
+    enabled: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    error_message: Optional[StrictStr] = Field(default=None, alias="errorMessage", json_schema_extra={"examples": ["example string"]})
+    global_id: Optional[StrictInt] = Field(default=None, alias="globalId", json_schema_extra={"examples": [1234567891011]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    severity: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    source_interface: Optional[StrictStr] = Field(default=None, alias="sourceInterface", json_schema_extra={"examples": ["example string"]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    transport: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    vrf_id: Optional[StrictInt] = Field(default=None, alias="vrfId", json_schema_extra={"examples": [1234567891011]})
+    vrf_name: Optional[StrictStr] = Field(default=None, alias="vrfName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["destinationHost", "destinationPort", "enabled", "errorMessage", "globalId", "id", "name", "severity", "sourceInterface", "status", "transport", "vrfId", "vrfName"]
 
     model_config = ConfigDict(

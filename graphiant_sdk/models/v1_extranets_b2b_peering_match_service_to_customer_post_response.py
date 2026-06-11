@@ -28,7 +28,7 @@ class V1ExtranetsB2bPeeringMatchServiceToCustomerPostResponse(BaseModel):
     """
     V1ExtranetsB2bPeeringMatchServiceToCustomerPostResponse
     """ # noqa: E501
-    match_id: Optional[StrictInt] = Field(default=None, alias="matchId")
+    match_id: Optional[StrictInt] = Field(default=None, alias="matchId", json_schema_extra={"examples": [1234567891011]})
     service: Optional[List[ManaV2B2bExtranetMatchServiceToCustomer]] = None
     __properties: ClassVar[List[str]] = ["matchId", "service"]
 

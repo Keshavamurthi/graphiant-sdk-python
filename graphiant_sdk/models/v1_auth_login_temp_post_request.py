@@ -27,9 +27,9 @@ class V1AuthLoginTempPostRequest(BaseModel):
     """
     V1AuthLoginTempPostRequest
     """ # noqa: E501
-    email: StrictStr
-    temp_password: StrictStr = Field(alias="tempPassword")
-    match_id: Union[StrictFloat, StrictInt] = Field(alias="matchId")
+    email: StrictStr = Field(json_schema_extra={"examples": ["user@example.com"]})
+    temp_password: StrictStr = Field(alias="tempPassword", json_schema_extra={"examples": ["temp123456"]})
+    match_id: Union[StrictFloat, StrictInt] = Field(alias="matchId", json_schema_extra={"examples": [12345]})
     __properties: ClassVar[List[str]] = ["email", "tempPassword", "matchId"]
 
     model_config = ConfigDict(

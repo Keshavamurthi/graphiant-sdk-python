@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.mana_v2_policy_target_input import ManaV2PolicyTargetInput
 from typing import Optional, Set
@@ -28,7 +28,7 @@ class V1ExtranetsSourceSegmentsPostRequest(BaseModel):
     """
     V1ExtranetsSourceSegmentsPostRequest
     """ # noqa: E501
-    filter: Optional[StrictStr] = None
+    filter: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     target: Optional[ManaV2PolicyTargetInput] = None
     __properties: ClassVar[List[str]] = ["filter", "target"]
 

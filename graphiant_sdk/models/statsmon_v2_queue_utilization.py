@@ -28,12 +28,12 @@ class StatsmonV2QueueUtilization(BaseModel):
     """
     StatsmonV2QueueUtilization
     """ # noqa: E501
-    allocated_pct: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="allocatedPct")
-    default_queue: Optional[StrictBool] = Field(default=None, alias="defaultQueue")
-    excess_weight: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="excessWeight")
-    sla_class: Optional[StrictStr] = Field(default=None, alias="slaClass")
-    utilization_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="utilizationKbps")
-    utilization_pct: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="utilizationPct")
+    allocated_pct: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="allocatedPct", json_schema_extra={"examples": [123]})
+    default_queue: Optional[StrictBool] = Field(default=None, alias="defaultQueue", json_schema_extra={"examples": [True]})
+    excess_weight: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="excessWeight", json_schema_extra={"examples": [123]})
+    sla_class: Optional[StrictStr] = Field(default=None, alias="slaClass", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    utilization_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="utilizationKbps", json_schema_extra={"examples": [12.34]})
+    utilization_pct: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="utilizationPct", json_schema_extra={"examples": [12.34]})
     __properties: ClassVar[List[str]] = ["allocatedPct", "defaultQueue", "excessWeight", "slaClass", "utilizationKbps", "utilizationPct"]
 
     model_config = ConfigDict(

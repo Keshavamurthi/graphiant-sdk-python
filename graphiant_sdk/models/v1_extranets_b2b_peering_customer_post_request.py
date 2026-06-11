@@ -29,8 +29,8 @@ class V1ExtranetsB2bPeeringCustomerPostRequest(BaseModel):
     V1ExtranetsB2bPeeringCustomerPostRequest
     """ # noqa: E501
     invite: ManaV2B2bExtranetPeeringServiceCustomerInvite
-    name: StrictStr = Field(description="Name of the peering service customer (required)")
-    type: StrictStr = Field(description="Type of the peerings servicecustomer whether it is a graphiant or non-graphiant (required)")
+    name: StrictStr = Field(description="Name of the peering service customer (required)", json_schema_extra={"examples": ["example string"]})
+    type: StrictStr = Field(description="Type of the peerings servicecustomer whether it is a graphiant or non-graphiant (required)", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["invite", "name", "type"]
 
     model_config = ConfigDict(

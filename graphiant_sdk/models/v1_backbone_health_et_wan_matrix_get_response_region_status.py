@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.statsmon_troubleshooting_region import StatsmonTroubleshootingRegion
 from typing import Optional, Set
@@ -29,7 +29,7 @@ class V1BackboneHealthEtWanMatrixGetResponseRegionStatus(BaseModel):
     V1BackboneHealthEtWanMatrixGetResponseRegionStatus
     """ # noqa: E501
     region: Optional[StatsmonTroubleshootingRegion] = None
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["region", "status"]
 
     model_config = ConfigDict(

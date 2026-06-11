@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,9 +27,9 @@ class AssuranceTopologyEdgeLinkPerformance(BaseModel):
     """
     AssuranceTopologyEdgeLinkPerformance
     """ # noqa: E501
-    jitter: Optional[Union[StrictFloat, StrictInt]] = None
-    latency: Optional[Union[StrictFloat, StrictInt]] = None
-    loss: Optional[Union[StrictFloat, StrictInt]] = None
+    jitter: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [12.34]})
+    latency: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [12.34]})
+    loss: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [12.34]})
     __properties: ClassVar[List[str]] = ["jitter", "latency", "loss"]
 
     model_config = ConfigDict(

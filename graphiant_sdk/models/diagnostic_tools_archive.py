@@ -28,15 +28,15 @@ class DiagnosticToolsArchive(BaseModel):
     """
     DiagnosticToolsArchive
     """ # noqa: E501
-    archive_file_name: Optional[StrictStr] = Field(default=None, description="The archive file name", alias="archiveFileName")
-    archive_id: Optional[StrictInt] = Field(default=None, description="Unique identifier for a specific archive", alias="archiveId")
-    archive_url: Optional[StrictStr] = Field(default=None, description="The URL to download this archive", alias="archiveUrl")
+    archive_file_name: Optional[StrictStr] = Field(default=None, description="The archive file name", alias="archiveFileName", json_schema_extra={"examples": ["12000.tar.zst.gpg"]})
+    archive_id: Optional[StrictInt] = Field(default=None, description="Unique identifier for a specific archive", alias="archiveId", json_schema_extra={"examples": [1000000]})
+    archive_url: Optional[StrictStr] = Field(default=None, description="The URL to download this archive", alias="archiveUrl", json_schema_extra={"examples": ["graphiant.com/archives/134"]})
     created: Optional[GoogleProtobufTimestamp] = None
-    creator: Optional[StrictStr] = Field(default=None, description="The user who requested the generation of this archive")
-    description: Optional[StrictStr] = Field(default=None, description="Description of the requested archive")
-    progress: Optional[StrictInt] = Field(default=None, description="The upload progress of the requested debug archive in percentage")
-    status: Optional[StrictStr] = Field(default=None, description="The status of the requested debug archive")
-    type: Optional[StrictStr] = Field(default=None, description="The type of the archive")
+    creator: Optional[StrictStr] = Field(default=None, description="The user who requested the generation of this archive", json_schema_extra={"examples": ["8a2ec658-f25b-11ec-b939-0242ac120002"]})
+    description: Optional[StrictStr] = Field(default=None, description="Description of the requested archive", json_schema_extra={"examples": ["archive requested to debug tenant A problem in device B"]})
+    progress: Optional[StrictInt] = Field(default=None, description="The upload progress of the requested debug archive in percentage", json_schema_extra={"examples": [80]})
+    status: Optional[StrictStr] = Field(default=None, description="The status of the requested debug archive", json_schema_extra={"examples": ["Uploaded"]})
+    type: Optional[StrictStr] = Field(default=None, description="The type of the archive", json_schema_extra={"examples": ["Debug"]})
     __properties: ClassVar[List[str]] = ["archiveFileName", "archiveId", "archiveUrl", "created", "creator", "description", "progress", "status", "type"]
 
     model_config = ConfigDict(

@@ -32,10 +32,10 @@ class V1DataAssuranceAssurancesGlobalGetResponseRow(BaseModel):
     V1DataAssuranceAssurancesGlobalGetResponseRow
     """ # noqa: E501
     apps: Optional[List[V1DataAssuranceAssurancesGlobalGetResponseRowAppEntry]] = None
-    assurance_id: Optional[StrictInt] = Field(default=None, alias="assuranceId")
-    assurance_name: Optional[StrictStr] = Field(default=None, alias="assuranceName")
+    assurance_id: Optional[StrictInt] = Field(default=None, alias="assuranceId", json_schema_extra={"examples": [1234567891011]})
+    assurance_name: Optional[StrictStr] = Field(default=None, alias="assuranceName", json_schema_extra={"examples": ["example string"]})
     created_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="createdAt")
-    flex_algo: Optional[StrictStr] = Field(default=None, alias="flexAlgo")
+    flex_algo: Optional[StrictStr] = Field(default=None, alias="flexAlgo", json_schema_extra={"examples": ["example string"]})
     lans: Optional[List[V1DataAssuranceAssurancesGlobalGetResponseRowLanEntry]] = None
     sites: Optional[List[V1DataAssuranceAssurancesGlobalGetResponseRowSiteEntry]] = None
     updated_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="updatedAt")

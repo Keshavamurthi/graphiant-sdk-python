@@ -27,15 +27,15 @@ class AlertserviceRuleRecord(BaseModel):
     """
     AlertserviceRuleRecord
     """ # noqa: E501
-    alarm_clear: Optional[StrictStr] = Field(default=None, description="Condition for triggering recovery", alias="alarmClear")
-    alarm_set: Optional[StrictStr] = Field(default=None, description="Condition for triggering alert (required)", alias="alarmSet")
-    allow_count: Optional[StrictInt] = Field(default=None, description="Number of entities  allowed/excluded (required)", alias="allowCount")
-    category: Optional[StrictStr] = Field(default=None, description="Category of the rule (required)")
-    enabled: Optional[StrictBool] = Field(default=None, description="Whether the rule is enabled or disabled (required)")
-    plane: Optional[StrictStr] = Field(default=None, description="Plane of the rule (required)")
-    priority: Optional[StrictStr] = Field(default=None, description="Priority of taking action against the rule (required)")
-    rule_id: Optional[StrictStr] = Field(default=None, description="Unique id of the rule (required)", alias="ruleId")
-    rule_name: Optional[StrictStr] = Field(default=None, description="Name of the rule (required)", alias="ruleName")
+    alarm_clear: Optional[StrictStr] = Field(default=None, description="Condition for triggering recovery", alias="alarmClear", json_schema_extra={"examples": ["example string"]})
+    alarm_set: Optional[StrictStr] = Field(default=None, description="Condition for triggering alert (required)", alias="alarmSet", json_schema_extra={"examples": ["example string"]})
+    allow_count: Optional[StrictInt] = Field(default=None, description="Number of entities  allowed/excluded (required)", alias="allowCount", json_schema_extra={"examples": [1234567891011]})
+    category: Optional[StrictStr] = Field(default=None, description="Category of the rule (required)", json_schema_extra={"examples": ["example string"]})
+    enabled: Optional[StrictBool] = Field(default=None, description="Whether the rule is enabled or disabled (required)", json_schema_extra={"examples": [True]})
+    plane: Optional[StrictStr] = Field(default=None, description="Plane of the rule (required)", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    priority: Optional[StrictStr] = Field(default=None, description="Priority of taking action against the rule (required)", json_schema_extra={"examples": ["10000000"]})
+    rule_id: Optional[StrictStr] = Field(default=None, description="Unique id of the rule (required)", alias="ruleId", json_schema_extra={"examples": ["example string"]})
+    rule_name: Optional[StrictStr] = Field(default=None, description="Name of the rule (required)", alias="ruleName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["alarmClear", "alarmSet", "allowCount", "category", "enabled", "plane", "priority", "ruleId", "ruleName"]
 
     model_config = ConfigDict(

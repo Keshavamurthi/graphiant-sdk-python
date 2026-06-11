@@ -28,12 +28,12 @@ class DiagnosticToolsHopStats(BaseModel):
     """
     DiagnosticToolsHopStats
     """ # noqa: E501
-    avg_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Time in milli seconds (required)", alias="avgTime")
-    max_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Time in milli seconds (required)", alias="maxTime")
-    min_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Time in milli seconds (required)", alias="minTime")
-    rx_packets: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Received packet count (required)", alias="rxPackets")
-    std_dev_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Standard deviation of the round-trip time in milli seconds (required)", alias="stdDevTime")
-    tx_packets: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Transmitted packet count (required)", alias="txPackets")
+    avg_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Time in milli seconds (required)", alias="avgTime", json_schema_extra={"examples": [3]})
+    max_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Time in milli seconds (required)", alias="maxTime", json_schema_extra={"examples": [10]})
+    min_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Time in milli seconds (required)", alias="minTime", json_schema_extra={"examples": [5]})
+    rx_packets: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Received packet count (required)", alias="rxPackets", json_schema_extra={"examples": [10]})
+    std_dev_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Standard deviation of the round-trip time in milli seconds (required)", alias="stdDevTime", json_schema_extra={"examples": [3]})
+    tx_packets: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Transmitted packet count (required)", alias="txPackets", json_schema_extra={"examples": [10]})
     __properties: ClassVar[List[str]] = ["avgTime", "maxTime", "minTime", "rxPackets", "stdDevTime", "txPackets"]
 
     model_config = ConfigDict(

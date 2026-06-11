@@ -27,8 +27,8 @@ class IamFailedUser(BaseModel):
     """
     IamFailedUser
     """ # noqa: E501
-    reason: Optional[StrictStr] = None
-    user_id: Optional[StrictStr] = Field(default=None, alias="userId")
+    reason: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    user_id: Optional[StrictStr] = Field(default=None, alias="userId", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["reason", "userId"]
 
     model_config = ConfigDict(

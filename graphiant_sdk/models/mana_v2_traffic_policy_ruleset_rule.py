@@ -31,12 +31,12 @@ class ManaV2TrafficPolicyRulesetRule(BaseModel):
     ManaV2TrafficPolicyRulesetRule
     """ # noqa: E501
     action: Optional[ManaV2TrafficPolicyRulesetRuleAction] = None
-    description: Optional[StrictStr] = None
-    id: Optional[StrictInt] = None
-    index: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    index: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     match: Optional[ManaV2ForwardingPolicyMatch] = None
-    name: Optional[StrictStr] = None
-    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["action", "description", "id", "index", "match", "name", "seq"]
 
     model_config = ConfigDict(

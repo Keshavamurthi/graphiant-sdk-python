@@ -27,8 +27,8 @@ class V1ExtranetB2bMonitoringPeeringServiceServiceHealthPostRequest(BaseModel):
     """
     V1ExtranetB2bMonitoringPeeringServiceServiceHealthPostRequest
     """ # noqa: E501
-    id: StrictInt = Field(description="the id of the service (required)")
-    is_provider: StrictBool = Field(description="whether the entity is a provider/producer or consumer (required)", alias="isProvider")
+    id: StrictInt = Field(description="the id of the service (required)", json_schema_extra={"examples": [1]})
+    is_provider: StrictBool = Field(description="whether the entity is a provider/producer or consumer (required)", alias="isProvider", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["id", "isProvider"]
 
     model_config = ConfigDict(

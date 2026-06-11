@@ -27,7 +27,7 @@ class V2RuleEnabledisablePostRequest(BaseModel):
     """
     V2RuleEnabledisablePostRequest
     """ # noqa: E501
-    enable: StrictBool = Field(description="Enable or disable. True means enable (required)")
+    enable: StrictBool = Field(description="Enable or disable. True means enable (required)", json_schema_extra={"examples": [True]})
     rule_id_list: List[StrictStr] = Field(alias="ruleIdList")
     __properties: ClassVar[List[str]] = ["enable", "ruleIdList"]
 

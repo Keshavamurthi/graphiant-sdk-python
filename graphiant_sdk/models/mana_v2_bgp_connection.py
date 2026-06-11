@@ -28,12 +28,12 @@ class ManaV2BgpConnection(BaseModel):
     """
     ManaV2BgpConnection
     """ # noqa: E501
-    local_address: Optional[StrictStr] = Field(default=None, alias="localAddress")
-    oper_status: Optional[StrictBool] = Field(default=None, alias="operStatus")
-    remote_address: Optional[StrictStr] = Field(default=None, alias="remoteAddress")
-    state: Optional[StrictStr] = None
+    local_address: Optional[StrictStr] = Field(default=None, alias="localAddress", json_schema_extra={"examples": ["example string"]})
+    oper_status: Optional[StrictBool] = Field(default=None, alias="operStatus", json_schema_extra={"examples": [True]})
+    remote_address: Optional[StrictStr] = Field(default=None, alias="remoteAddress", json_schema_extra={"examples": ["example string"]})
+    state: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     time_since_last_oper_change: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="timeSinceLastOperChange")
-    up: Optional[StrictBool] = None
+    up: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["localAddress", "operStatus", "remoteAddress", "state", "timeSinceLastOperChange", "up"]
 
     model_config = ConfigDict(

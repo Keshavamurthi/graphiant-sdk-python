@@ -28,7 +28,7 @@ class StatsmonV2DeviceSegments(BaseModel):
     """
     StatsmonV2DeviceSegments
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
     vrf_routes: Optional[List[StatsmonV2VrfRoutes]] = Field(default=None, alias="vrfRoutes")
     __properties: ClassVar[List[str]] = ["deviceId", "vrfRoutes"]
 

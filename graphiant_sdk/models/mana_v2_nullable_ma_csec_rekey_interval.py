@@ -27,7 +27,7 @@ class ManaV2NullableMaCsecRekeyInterval(BaseModel):
     """
     ManaV2NullableMaCsecRekeyInterval
     """ # noqa: E501
-    rekey_interval: Optional[StrictInt] = Field(default=None, alias="rekeyInterval")
+    rekey_interval: Optional[StrictInt] = Field(default=None, alias="rekeyInterval", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["rekeyInterval"]
 
     model_config = ConfigDict(

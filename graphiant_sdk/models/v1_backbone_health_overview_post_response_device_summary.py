@@ -28,15 +28,15 @@ class V1BackboneHealthOverviewPostResponseDeviceSummary(BaseModel):
     """
     V1BackboneHealthOverviewPostResponseDeviceSummary
     """ # noqa: E501
-    control_status: Optional[StrictStr] = Field(default=None, alias="controlStatus")
-    data_status: Optional[StrictStr] = Field(default=None, alias="dataStatus")
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName")
-    device_role: Optional[StrictStr] = Field(default=None, alias="deviceRole")
-    overall_status: Optional[StrictStr] = Field(default=None, alias="overallStatus")
+    control_status: Optional[StrictStr] = Field(default=None, alias="controlStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    data_status: Optional[StrictStr] = Field(default=None, alias="dataStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName", json_schema_extra={"examples": ["example string"]})
+    device_role: Optional[StrictStr] = Field(default=None, alias="deviceRole", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    overall_status: Optional[StrictStr] = Field(default=None, alias="overallStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
     region: Optional[StatsmonTroubleshootingRegion] = None
-    selected_status: Optional[StrictStr] = Field(default=None, alias="selectedStatus")
-    system_status: Optional[StrictStr] = Field(default=None, alias="systemStatus")
+    selected_status: Optional[StrictStr] = Field(default=None, alias="selectedStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    system_status: Optional[StrictStr] = Field(default=None, alias="systemStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["controlStatus", "dataStatus", "deviceId", "deviceName", "deviceRole", "overallStatus", "region", "selectedStatus", "systemStatus"]
 
     model_config = ConfigDict(

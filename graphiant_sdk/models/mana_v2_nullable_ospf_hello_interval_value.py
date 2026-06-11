@@ -28,7 +28,7 @@ class ManaV2NullableOspfHelloIntervalValue(BaseModel):
     """
     ManaV2NullableOspfHelloIntervalValue
     """ # noqa: E501
-    hello_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="helloInterval")
+    hello_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="helloInterval", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["helloInterval"]
 
     model_config = ConfigDict(

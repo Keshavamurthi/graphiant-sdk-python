@@ -28,9 +28,9 @@ class IpfixAppTopologySelector(BaseModel):
     """
     IpfixAppTopologySelector
     """ # noqa: E501
-    app_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Filter by app ID", alias="appId")
-    app_name: Optional[StrictStr] = Field(default=None, description="Filter by application name", alias="appName")
-    sla_class: Optional[StrictStr] = Field(default=None, description="Filter by SLA class", alias="slaClass")
+    app_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Filter by app ID", alias="appId", json_schema_extra={"examples": [123]})
+    app_name: Optional[StrictStr] = Field(default=None, description="Filter by application name", alias="appName", json_schema_extra={"examples": ["example string"]})
+    sla_class: Optional[StrictStr] = Field(default=None, description="Filter by SLA class", alias="slaClass", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["appId", "appName", "slaClass"]
 
     model_config = ConfigDict(
