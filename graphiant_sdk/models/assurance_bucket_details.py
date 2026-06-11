@@ -30,19 +30,19 @@ class AssuranceBucketDetails(BaseModel):
     """
     AssuranceBucketDetails
     """ # noqa: E501
-    app_count_threat_high: Optional[StrictInt] = Field(default=None, alias="appCountThreatHigh")
-    app_count_threat_low: Optional[StrictInt] = Field(default=None, alias="appCountThreatLow")
-    app_count_threat_medium: Optional[StrictInt] = Field(default=None, alias="appCountThreatMedium")
+    app_count_threat_high: Optional[StrictInt] = Field(default=None, alias="appCountThreatHigh", json_schema_extra={"examples": [1234567891011]})
+    app_count_threat_low: Optional[StrictInt] = Field(default=None, alias="appCountThreatLow", json_schema_extra={"examples": [1234567891011]})
+    app_count_threat_medium: Optional[StrictInt] = Field(default=None, alias="appCountThreatMedium", json_schema_extra={"examples": [1234567891011]})
     app_id_records: Optional[List[AssuranceAppIdRecord]] = Field(default=None, alias="appIdRecords")
     app_name_records: Optional[List[AssuranceAppNameRecord]] = Field(default=None, alias="appNameRecords")
-    bucket_name_to_display: Optional[StrictStr] = Field(default=None, alias="bucketNameToDisplay")
-    description: Optional[StrictStr] = None
-    display_ip_port: Optional[StrictBool] = Field(default=None, alias="displayIpPort")
-    flow_count: Optional[StrictInt] = Field(default=None, alias="flowCount")
-    new_ip_hint: Optional[StrictBool] = Field(default=None, alias="newIpHint")
-    recommendation: Optional[StrictStr] = None
+    bucket_name_to_display: Optional[StrictStr] = Field(default=None, alias="bucketNameToDisplay", json_schema_extra={"examples": ["example string"]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    display_ip_port: Optional[StrictBool] = Field(default=None, alias="displayIpPort", json_schema_extra={"examples": [True]})
+    flow_count: Optional[StrictInt] = Field(default=None, alias="flowCount", json_schema_extra={"examples": [1234567891011]})
+    new_ip_hint: Optional[StrictBool] = Field(default=None, alias="newIpHint", json_schema_extra={"examples": [True]})
+    recommendation: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     trend_value_list: Optional[List[AssuranceTrendValue]] = Field(default=None, alias="trendValueList")
-    unique_app_count: Optional[StrictInt] = Field(default=None, alias="uniqueAppCount")
+    unique_app_count: Optional[StrictInt] = Field(default=None, alias="uniqueAppCount", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["appCountThreatHigh", "appCountThreatLow", "appCountThreatMedium", "appIdRecords", "appNameRecords", "bucketNameToDisplay", "description", "displayIpPort", "flowCount", "newIpHint", "recommendation", "trendValueList", "uniqueAppCount"]
 
     model_config = ConfigDict(

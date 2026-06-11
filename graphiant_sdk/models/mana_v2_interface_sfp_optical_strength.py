@@ -28,11 +28,11 @@ class ManaV2InterfaceSfpOpticalStrength(BaseModel):
     """
     ManaV2InterfaceSfpOpticalStrength
     """ # noqa: E501
-    index: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    rx_power: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="rxPower")
-    tx_bias: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="txBias")
-    tx_power: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="txPower")
-    voltage: Optional[Union[StrictFloat, StrictInt]] = None
+    index: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    rx_power: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="rxPower", json_schema_extra={"examples": [12.34]})
+    tx_bias: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="txBias", json_schema_extra={"examples": [12.34]})
+    tx_power: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="txPower", json_schema_extra={"examples": [12.34]})
+    voltage: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [12.34]})
     __properties: ClassVar[List[str]] = ["index", "rxPower", "txBias", "txPower", "voltage"]
 
     model_config = ConfigDict(

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +27,8 @@ class V1GlobalSiteListsPostResponse(BaseModel):
     """
     V1GlobalSiteListsPostResponse
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    status: Optional[StrictStr] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["id", "status"]
 
     model_config = ConfigDict(

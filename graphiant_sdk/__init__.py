@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "26.4.0"
+__version__ = "26.5.0"
 
 # Define package exports
 __all__ = [
@@ -94,6 +94,8 @@ __all__ = [
     "AuditmonHistogram",
     "AuditmonSelector",
     "AuthPermissions",
+    "CommonBillingContract",
+    "CommonBillingTimePeriod",
     "CommonPageInfo",
     "CommonPageRequest",
     "CommonPermissions",
@@ -324,11 +326,13 @@ __all__ = [
     "ManaV2LacpConfig",
     "ManaV2LagInterface",
     "ManaV2LagInterfaceConfig",
+    "ManaV2LanSegmentSitesMap",
     "ManaV2LatencyBandwidth",
     "ManaV2LldpNeighbor",
     "ManaV2Location",
     "ManaV2MaCsecConfiguration",
     "ManaV2ManaConfiguration",
+    "ManaV2ManagedEnterpriseContractInfo",
     "ManaV2NATPolicyRulesetConfigNullableRule",
     "ManaV2NATPolicyRulesetConfigNullableRuleRule",
     "ManaV2NATPolicyRulesetRule",
@@ -486,6 +490,18 @@ __all__ = [
     "ManaV2PrometheusRuleGroupConfig",
     "ManaV2PrometheusSysDbMonitorConfig",
     "ManaV2PskConfiguration",
+    "ManaV2PublicVif",
+    "ManaV2PublicVifConsumerLanSegment",
+    "ManaV2PublicVifConsumerLanSegmentResponse",
+    "ManaV2PublicVifConsumerPolicy",
+    "ManaV2PublicVifConsumerPolicyResponse",
+    "ManaV2PublicVifDevice",
+    "ManaV2PublicVifDynamic",
+    "ManaV2PublicVifFixed",
+    "ManaV2PublicVifFixedNat",
+    "ManaV2PublicVifProducerPolicy",
+    "ManaV2PublicVifProducerPolicyResponse",
+    "ManaV2PublicVifSummary",
     "ManaV2QoSProfile",
     "ManaV2QoSProfileQueue",
     "ManaV2Region",
@@ -523,6 +539,9 @@ __all__ = [
     "ManaV2SingleRouteTagRouteTagElement",
     "ManaV2Site",
     "ManaV2SiteDeviceStub",
+    "ManaV2SiteDeviceSummary",
+    "ManaV2SiteInformation",
+    "ManaV2SiteLanSegmentDeviceBuckets",
     "ManaV2SiteList",
     "ManaV2SiteListEntry",
     "ManaV2SiteListSiteEntry",
@@ -753,12 +772,9 @@ __all__ = [
     "V1AuthErrorPostResponse",
     "V1AuthGcsPostRequest",
     "V1AuthGetResponse",
-    "V1AuthLoginCallbackPost500Response",
     "V1AuthLoginPostRequest",
     "V1AuthLoginPostResponse",
     "V1AuthLoginPreGetResponse",
-    "V1AuthLoginSamlGet401Response",
-    "V1AuthLoginSamlGet500Response",
     "V1AuthLoginTempPostRequest",
     "V1AuthMfaPatchRequest",
     "V1AuthMfaPost500Response",
@@ -768,11 +784,7 @@ __all__ = [
     "V1AuthPatchRequest",
     "V1AuthPutRequest",
     "V1AuthRefreshGet200Response",
-    "V1AuthRefreshGet403Response",
-    "V1AuthRefreshGet422Response",
     "V1AuthRefreshGetEntryPointResponse",
-    "V1AuthSessionGet403Response",
-    "V1AuthSessionGet422Response",
     "V1AuthUserGetResponse",
     "V1BackboneHealthDeviceDeviceIdPostRequest",
     "V1BackboneHealthDeviceDeviceIdPostResponse",
@@ -992,6 +1004,14 @@ __all__ = [
     "V1ExtranetB2bMonitoringPeeringServiceServiceHealthPostResponse",
     "V1ExtranetB2bMonitoringPeeringServiceServiceOvertimeConsumptionPostRequest",
     "V1ExtranetB2bMonitoringPeeringServiceServiceOvertimeConsumptionPostResponse",
+    "V1ExtranetPublicVifCheckPostRequest",
+    "V1ExtranetPublicVifCheckPostResponse",
+    "V1ExtranetPublicVifGetResponse",
+    "V1ExtranetPublicVifIdGetResponse",
+    "V1ExtranetPublicVifIdPutRequest",
+    "V1ExtranetPublicVifIdPutResponse",
+    "V1ExtranetPublicVifPostRequest",
+    "V1ExtranetPublicVifPostResponse",
     "V1ExtranetSitesUsageTopPostRequest",
     "V1ExtranetSitesUsageTopPostResponse",
     "V1ExtranetSitesUsageTopPostResponseSiteUsage",
@@ -1167,6 +1187,7 @@ __all__ = [
     "V1LldpInterfaceIdVendorsGetResponse",
     "V1LogsPostRequest",
     "V1LogsPostResponse",
+    "V1MspManagedEnterpriseContractInfoGetResponse",
     "V1NatEntriesDeviceIdGetResponse",
     "V1NatUtilizationDeviceIdGetResponse",
     "V1OnboardingCloudinitGetResponse",
@@ -1188,6 +1209,7 @@ __all__ = [
     "V1SiteIdDetailsInterfacesGetResponse",
     "V1SitesDetailsGetResponse",
     "V1SitesGetResponse",
+    "V1SitesMapDetailsGetResponse",
     "V1SitesPostRequest",
     "V1SitesPostResponse",
     "V1SitesSiteIdCircuitsGetResponse",
@@ -1495,6 +1517,8 @@ from graphiant_sdk.models.auditmon_audit_logs_v2_selector import AuditmonAuditLo
 from graphiant_sdk.models.auditmon_histogram import AuditmonHistogram as AuditmonHistogram
 from graphiant_sdk.models.auditmon_selector import AuditmonSelector as AuditmonSelector
 from graphiant_sdk.models.auth_permissions import AuthPermissions as AuthPermissions
+from graphiant_sdk.models.common_billing_contract import CommonBillingContract as CommonBillingContract
+from graphiant_sdk.models.common_billing_time_period import CommonBillingTimePeriod as CommonBillingTimePeriod
 from graphiant_sdk.models.common_page_info import CommonPageInfo as CommonPageInfo
 from graphiant_sdk.models.common_page_request import CommonPageRequest as CommonPageRequest
 from graphiant_sdk.models.common_permissions import CommonPermissions as CommonPermissions
@@ -1725,11 +1749,13 @@ from graphiant_sdk.models.mana_v2_l4_port_list_config import ManaV2L4PortListCon
 from graphiant_sdk.models.mana_v2_lacp_config import ManaV2LacpConfig as ManaV2LacpConfig
 from graphiant_sdk.models.mana_v2_lag_interface import ManaV2LagInterface as ManaV2LagInterface
 from graphiant_sdk.models.mana_v2_lag_interface_config import ManaV2LagInterfaceConfig as ManaV2LagInterfaceConfig
+from graphiant_sdk.models.mana_v2_lan_segment_sites_map import ManaV2LanSegmentSitesMap as ManaV2LanSegmentSitesMap
 from graphiant_sdk.models.mana_v2_latency_bandwidth import ManaV2LatencyBandwidth as ManaV2LatencyBandwidth
 from graphiant_sdk.models.mana_v2_lldp_neighbor import ManaV2LldpNeighbor as ManaV2LldpNeighbor
 from graphiant_sdk.models.mana_v2_location import ManaV2Location as ManaV2Location
 from graphiant_sdk.models.mana_v2_ma_csec_configuration import ManaV2MaCsecConfiguration as ManaV2MaCsecConfiguration
 from graphiant_sdk.models.mana_v2_mana_configuration import ManaV2ManaConfiguration as ManaV2ManaConfiguration
+from graphiant_sdk.models.mana_v2_managed_enterprise_contract_info import ManaV2ManagedEnterpriseContractInfo as ManaV2ManagedEnterpriseContractInfo
 from graphiant_sdk.models.mana_v2_nat_policy_ruleset_config_nullable_rule import ManaV2NATPolicyRulesetConfigNullableRule as ManaV2NATPolicyRulesetConfigNullableRule
 from graphiant_sdk.models.mana_v2_nat_policy_ruleset_config_nullable_rule_rule import ManaV2NATPolicyRulesetConfigNullableRuleRule as ManaV2NATPolicyRulesetConfigNullableRuleRule
 from graphiant_sdk.models.mana_v2_nat_policy_ruleset_rule import ManaV2NATPolicyRulesetRule as ManaV2NATPolicyRulesetRule
@@ -1887,6 +1913,18 @@ from graphiant_sdk.models.mana_v2_prometheus_rule_config import ManaV2Prometheus
 from graphiant_sdk.models.mana_v2_prometheus_rule_group_config import ManaV2PrometheusRuleGroupConfig as ManaV2PrometheusRuleGroupConfig
 from graphiant_sdk.models.mana_v2_prometheus_sys_db_monitor_config import ManaV2PrometheusSysDbMonitorConfig as ManaV2PrometheusSysDbMonitorConfig
 from graphiant_sdk.models.mana_v2_psk_configuration import ManaV2PskConfiguration as ManaV2PskConfiguration
+from graphiant_sdk.models.mana_v2_public_vif import ManaV2PublicVif as ManaV2PublicVif
+from graphiant_sdk.models.mana_v2_public_vif_consumer_lan_segment import ManaV2PublicVifConsumerLanSegment as ManaV2PublicVifConsumerLanSegment
+from graphiant_sdk.models.mana_v2_public_vif_consumer_lan_segment_response import ManaV2PublicVifConsumerLanSegmentResponse as ManaV2PublicVifConsumerLanSegmentResponse
+from graphiant_sdk.models.mana_v2_public_vif_consumer_policy import ManaV2PublicVifConsumerPolicy as ManaV2PublicVifConsumerPolicy
+from graphiant_sdk.models.mana_v2_public_vif_consumer_policy_response import ManaV2PublicVifConsumerPolicyResponse as ManaV2PublicVifConsumerPolicyResponse
+from graphiant_sdk.models.mana_v2_public_vif_device import ManaV2PublicVifDevice as ManaV2PublicVifDevice
+from graphiant_sdk.models.mana_v2_public_vif_dynamic import ManaV2PublicVifDynamic as ManaV2PublicVifDynamic
+from graphiant_sdk.models.mana_v2_public_vif_fixed import ManaV2PublicVifFixed as ManaV2PublicVifFixed
+from graphiant_sdk.models.mana_v2_public_vif_fixed_nat import ManaV2PublicVifFixedNat as ManaV2PublicVifFixedNat
+from graphiant_sdk.models.mana_v2_public_vif_producer_policy import ManaV2PublicVifProducerPolicy as ManaV2PublicVifProducerPolicy
+from graphiant_sdk.models.mana_v2_public_vif_producer_policy_response import ManaV2PublicVifProducerPolicyResponse as ManaV2PublicVifProducerPolicyResponse
+from graphiant_sdk.models.mana_v2_public_vif_summary import ManaV2PublicVifSummary as ManaV2PublicVifSummary
 from graphiant_sdk.models.mana_v2_qo_s_profile import ManaV2QoSProfile as ManaV2QoSProfile
 from graphiant_sdk.models.mana_v2_qo_s_profile_queue import ManaV2QoSProfileQueue as ManaV2QoSProfileQueue
 from graphiant_sdk.models.mana_v2_region import ManaV2Region as ManaV2Region
@@ -1924,6 +1962,9 @@ from graphiant_sdk.models.mana_v2_single_route_tag import ManaV2SingleRouteTag a
 from graphiant_sdk.models.mana_v2_single_route_tag_route_tag_element import ManaV2SingleRouteTagRouteTagElement as ManaV2SingleRouteTagRouteTagElement
 from graphiant_sdk.models.mana_v2_site import ManaV2Site as ManaV2Site
 from graphiant_sdk.models.mana_v2_site_device_stub import ManaV2SiteDeviceStub as ManaV2SiteDeviceStub
+from graphiant_sdk.models.mana_v2_site_device_summary import ManaV2SiteDeviceSummary as ManaV2SiteDeviceSummary
+from graphiant_sdk.models.mana_v2_site_information import ManaV2SiteInformation as ManaV2SiteInformation
+from graphiant_sdk.models.mana_v2_site_lan_segment_device_buckets import ManaV2SiteLanSegmentDeviceBuckets as ManaV2SiteLanSegmentDeviceBuckets
 from graphiant_sdk.models.mana_v2_site_list import ManaV2SiteList as ManaV2SiteList
 from graphiant_sdk.models.mana_v2_site_list_entry import ManaV2SiteListEntry as ManaV2SiteListEntry
 from graphiant_sdk.models.mana_v2_site_list_site_entry import ManaV2SiteListSiteEntry as ManaV2SiteListSiteEntry
@@ -2154,12 +2195,9 @@ from graphiant_sdk.models.v1_audit_logs_post_response import V1AuditLogsPostResp
 from graphiant_sdk.models.v1_auth_error_post_response import V1AuthErrorPostResponse as V1AuthErrorPostResponse
 from graphiant_sdk.models.v1_auth_gcs_post_request import V1AuthGcsPostRequest as V1AuthGcsPostRequest
 from graphiant_sdk.models.v1_auth_get_response import V1AuthGetResponse as V1AuthGetResponse
-from graphiant_sdk.models.v1_auth_login_callback_post500_response import V1AuthLoginCallbackPost500Response as V1AuthLoginCallbackPost500Response
 from graphiant_sdk.models.v1_auth_login_post_request import V1AuthLoginPostRequest as V1AuthLoginPostRequest
 from graphiant_sdk.models.v1_auth_login_post_response import V1AuthLoginPostResponse as V1AuthLoginPostResponse
 from graphiant_sdk.models.v1_auth_login_pre_get_response import V1AuthLoginPreGetResponse as V1AuthLoginPreGetResponse
-from graphiant_sdk.models.v1_auth_login_saml_get401_response import V1AuthLoginSamlGet401Response as V1AuthLoginSamlGet401Response
-from graphiant_sdk.models.v1_auth_login_saml_get500_response import V1AuthLoginSamlGet500Response as V1AuthLoginSamlGet500Response
 from graphiant_sdk.models.v1_auth_login_temp_post_request import V1AuthLoginTempPostRequest as V1AuthLoginTempPostRequest
 from graphiant_sdk.models.v1_auth_mfa_patch_request import V1AuthMfaPatchRequest as V1AuthMfaPatchRequest
 from graphiant_sdk.models.v1_auth_mfa_post500_response import V1AuthMfaPost500Response as V1AuthMfaPost500Response
@@ -2169,11 +2207,7 @@ from graphiant_sdk.models.v1_auth_mfa_types_put_request import V1AuthMfaTypesPut
 from graphiant_sdk.models.v1_auth_patch_request import V1AuthPatchRequest as V1AuthPatchRequest
 from graphiant_sdk.models.v1_auth_put_request import V1AuthPutRequest as V1AuthPutRequest
 from graphiant_sdk.models.v1_auth_refresh_get200_response import V1AuthRefreshGet200Response as V1AuthRefreshGet200Response
-from graphiant_sdk.models.v1_auth_refresh_get403_response import V1AuthRefreshGet403Response as V1AuthRefreshGet403Response
-from graphiant_sdk.models.v1_auth_refresh_get422_response import V1AuthRefreshGet422Response as V1AuthRefreshGet422Response
 from graphiant_sdk.models.v1_auth_refresh_get_entry_point_response import V1AuthRefreshGetEntryPointResponse as V1AuthRefreshGetEntryPointResponse
-from graphiant_sdk.models.v1_auth_session_get403_response import V1AuthSessionGet403Response as V1AuthSessionGet403Response
-from graphiant_sdk.models.v1_auth_session_get422_response import V1AuthSessionGet422Response as V1AuthSessionGet422Response
 from graphiant_sdk.models.v1_auth_user_get_response import V1AuthUserGetResponse as V1AuthUserGetResponse
 from graphiant_sdk.models.v1_backbone_health_device_device_id_post_request import V1BackboneHealthDeviceDeviceIdPostRequest as V1BackboneHealthDeviceDeviceIdPostRequest
 from graphiant_sdk.models.v1_backbone_health_device_device_id_post_response import V1BackboneHealthDeviceDeviceIdPostResponse as V1BackboneHealthDeviceDeviceIdPostResponse
@@ -2393,6 +2427,14 @@ from graphiant_sdk.models.v1_extranet_b2b_monitoring_peering_service_service_hea
 from graphiant_sdk.models.v1_extranet_b2b_monitoring_peering_service_service_health_post_response import V1ExtranetB2bMonitoringPeeringServiceServiceHealthPostResponse as V1ExtranetB2bMonitoringPeeringServiceServiceHealthPostResponse
 from graphiant_sdk.models.v1_extranet_b2b_monitoring_peering_service_service_overtime_consumption_post_request import V1ExtranetB2bMonitoringPeeringServiceServiceOvertimeConsumptionPostRequest as V1ExtranetB2bMonitoringPeeringServiceServiceOvertimeConsumptionPostRequest
 from graphiant_sdk.models.v1_extranet_b2b_monitoring_peering_service_service_overtime_consumption_post_response import V1ExtranetB2bMonitoringPeeringServiceServiceOvertimeConsumptionPostResponse as V1ExtranetB2bMonitoringPeeringServiceServiceOvertimeConsumptionPostResponse
+from graphiant_sdk.models.v1_extranet_public_vif_check_post_request import V1ExtranetPublicVifCheckPostRequest as V1ExtranetPublicVifCheckPostRequest
+from graphiant_sdk.models.v1_extranet_public_vif_check_post_response import V1ExtranetPublicVifCheckPostResponse as V1ExtranetPublicVifCheckPostResponse
+from graphiant_sdk.models.v1_extranet_public_vif_get_response import V1ExtranetPublicVifGetResponse as V1ExtranetPublicVifGetResponse
+from graphiant_sdk.models.v1_extranet_public_vif_id_get_response import V1ExtranetPublicVifIdGetResponse as V1ExtranetPublicVifIdGetResponse
+from graphiant_sdk.models.v1_extranet_public_vif_id_put_request import V1ExtranetPublicVifIdPutRequest as V1ExtranetPublicVifIdPutRequest
+from graphiant_sdk.models.v1_extranet_public_vif_id_put_response import V1ExtranetPublicVifIdPutResponse as V1ExtranetPublicVifIdPutResponse
+from graphiant_sdk.models.v1_extranet_public_vif_post_request import V1ExtranetPublicVifPostRequest as V1ExtranetPublicVifPostRequest
+from graphiant_sdk.models.v1_extranet_public_vif_post_response import V1ExtranetPublicVifPostResponse as V1ExtranetPublicVifPostResponse
 from graphiant_sdk.models.v1_extranet_sites_usage_top_post_request import V1ExtranetSitesUsageTopPostRequest as V1ExtranetSitesUsageTopPostRequest
 from graphiant_sdk.models.v1_extranet_sites_usage_top_post_response import V1ExtranetSitesUsageTopPostResponse as V1ExtranetSitesUsageTopPostResponse
 from graphiant_sdk.models.v1_extranet_sites_usage_top_post_response_site_usage import V1ExtranetSitesUsageTopPostResponseSiteUsage as V1ExtranetSitesUsageTopPostResponseSiteUsage
@@ -2568,6 +2610,7 @@ from graphiant_sdk.models.v1_lldp_interface_id_summary_get_response import V1Lld
 from graphiant_sdk.models.v1_lldp_interface_id_vendors_get_response import V1LldpInterfaceIdVendorsGetResponse as V1LldpInterfaceIdVendorsGetResponse
 from graphiant_sdk.models.v1_logs_post_request import V1LogsPostRequest as V1LogsPostRequest
 from graphiant_sdk.models.v1_logs_post_response import V1LogsPostResponse as V1LogsPostResponse
+from graphiant_sdk.models.v1_msp_managed_enterprise_contract_info_get_response import V1MspManagedEnterpriseContractInfoGetResponse as V1MspManagedEnterpriseContractInfoGetResponse
 from graphiant_sdk.models.v1_nat_entries_device_id_get_response import V1NatEntriesDeviceIdGetResponse as V1NatEntriesDeviceIdGetResponse
 from graphiant_sdk.models.v1_nat_utilization_device_id_get_response import V1NatUtilizationDeviceIdGetResponse as V1NatUtilizationDeviceIdGetResponse
 from graphiant_sdk.models.v1_onboarding_cloudinit_get_response import V1OnboardingCloudinitGetResponse as V1OnboardingCloudinitGetResponse
@@ -2589,6 +2632,7 @@ from graphiant_sdk.models.v1_site_details_sitelists_post_response import V1SiteD
 from graphiant_sdk.models.v1_site_id_details_interfaces_get_response import V1SiteIdDetailsInterfacesGetResponse as V1SiteIdDetailsInterfacesGetResponse
 from graphiant_sdk.models.v1_sites_details_get_response import V1SitesDetailsGetResponse as V1SitesDetailsGetResponse
 from graphiant_sdk.models.v1_sites_get_response import V1SitesGetResponse as V1SitesGetResponse
+from graphiant_sdk.models.v1_sites_map_details_get_response import V1SitesMapDetailsGetResponse as V1SitesMapDetailsGetResponse
 from graphiant_sdk.models.v1_sites_post_request import V1SitesPostRequest as V1SitesPostRequest
 from graphiant_sdk.models.v1_sites_post_response import V1SitesPostResponse as V1SitesPostResponse
 from graphiant_sdk.models.v1_sites_site_id_circuits_get_response import V1SitesSiteIdCircuitsGetResponse as V1SitesSiteIdCircuitsGetResponse

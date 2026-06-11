@@ -27,10 +27,10 @@ class V1AuthMfaPostRequest(BaseModel):
     """
     V1AuthMfaPostRequest
     """ # noqa: E501
-    email: StrictStr
-    mfa_type: StrictStr = Field(alias="mfaType")
-    code: StrictStr
-    state_token: Optional[StrictStr] = Field(default=None, alias="stateToken")
+    email: StrictStr = Field(json_schema_extra={"examples": ["user@example.com"]})
+    mfa_type: StrictStr = Field(alias="mfaType", json_schema_extra={"examples": ["TOTP"]})
+    code: StrictStr = Field(json_schema_extra={"examples": ["123456"]})
+    state_token: Optional[StrictStr] = Field(default=None, alias="stateToken", json_schema_extra={"examples": ["state-token-12345"]})
     __properties: ClassVar[List[str]] = ["email", "mfaType", "code", "stateToken"]
 
     model_config = ConfigDict(

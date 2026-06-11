@@ -28,14 +28,14 @@ class V1DevicesSummaryGetResponseSiteSummaryDeviceSummary(BaseModel):
     """
     V1DevicesSummaryGetResponseSiteSummaryDeviceSummary
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    is_virtual: Optional[StrictBool] = Field(default=None, alias="isVirtual")
-    name: Optional[StrictStr] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    is_virtual: Optional[StrictBool] = Field(default=None, alias="isVirtual", json_schema_extra={"examples": [True]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     override_region: Optional[ManaV2Region] = Field(default=None, alias="overrideRegion")
-    platform_name: Optional[StrictStr] = Field(default=None, alias="platformName")
+    platform_name: Optional[StrictStr] = Field(default=None, alias="platformName", json_schema_extra={"examples": ["example string"]})
     region: Optional[ManaV2Region] = None
-    role: Optional[StrictStr] = None
-    status: Optional[StrictStr] = None
+    role: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["id", "isVirtual", "name", "overrideRegion", "platformName", "region", "role", "status"]
 
     model_config = ConfigDict(

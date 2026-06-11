@@ -30,11 +30,11 @@ class V1ActivityLogsPostResponse(BaseModel):
     """
     V1ActivityLogsPostResponse
     """ # noqa: E501
-    cursor_ref: Optional[StrictStr] = Field(default=None, alias="cursorRef")
+    cursor_ref: Optional[StrictStr] = Field(default=None, alias="cursorRef", json_schema_extra={"examples": ["example string"]})
     details: Optional[List[AuditmonActivityDetails]] = None
     filter_entities: Optional[Dict[str, V1ActivityLogsPostResponseActivityItems]] = Field(default=None, alias="filterEntities")
     filter_job_types: Optional[List[StrictStr]] = Field(default=None, alias="filterJobTypes")
-    total_logs: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="totalLogs")
+    total_logs: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="totalLogs", json_schema_extra={"examples": [12345678910]})
     __properties: ClassVar[List[str]] = ["cursorRef", "details", "filterEntities", "filterJobTypes", "totalLogs"]
 
     model_config = ConfigDict(

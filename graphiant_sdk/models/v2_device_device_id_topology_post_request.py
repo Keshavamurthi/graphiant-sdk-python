@@ -31,7 +31,7 @@ class V2DeviceDeviceIdTopologyPostRequest(BaseModel):
     """ # noqa: E501
     snapshot_time: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="snapshotTime")
     time_window: Optional[StatsmonV2TimeWindow] = Field(default=None, alias="timeWindow")
-    version: Optional[StrictInt] = None
+    version: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["snapshotTime", "timeWindow", "version"]
 
     model_config = ConfigDict(

@@ -29,7 +29,7 @@ class RoutingOspfNetworkLsa(BaseModel):
     RoutingOspfNetworkLsa
     """ # noqa: E501
     attached_routers: Optional[List[StrictStr]] = Field(default=None, alias="attachedRouters")
-    network_mask: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="networkMask")
+    network_mask: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="networkMask", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["attachedRouters", "networkMask"]
 
     model_config = ConfigDict(

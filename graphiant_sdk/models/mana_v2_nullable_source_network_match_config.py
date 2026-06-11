@@ -27,7 +27,7 @@ class ManaV2NullableSourceNetworkMatchConfig(BaseModel):
     """
     ManaV2NullableSourceNetworkMatchConfig
     """ # noqa: E501
-    source_network: Optional[StrictStr] = Field(default=None, alias="sourceNetwork")
+    source_network: Optional[StrictStr] = Field(default=None, alias="sourceNetwork", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["sourceNetwork"]
 
     model_config = ConfigDict(

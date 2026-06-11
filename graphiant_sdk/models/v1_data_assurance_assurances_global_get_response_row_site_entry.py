@@ -27,7 +27,7 @@ class V1DataAssuranceAssurancesGlobalGetResponseRowSiteEntry(BaseModel):
     """
     V1DataAssuranceAssurancesGlobalGetResponseRowSiteEntry
     """ # noqa: E501
-    site_name: Optional[StrictStr] = Field(default=None, alias="siteName")
+    site_name: Optional[StrictStr] = Field(default=None, alias="siteName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["siteName"]
 
     model_config = ConfigDict(

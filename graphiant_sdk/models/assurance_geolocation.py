@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +27,8 @@ class AssuranceGeolocation(BaseModel):
     """
     AssuranceGeolocation
     """ # noqa: E501
-    lat: Optional[Union[StrictFloat, StrictInt]] = None
-    long: Optional[Union[StrictFloat, StrictInt]] = None
+    lat: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [12.34]})
+    long: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [12.34]})
     __properties: ClassVar[List[str]] = ["lat", "long"]
 
     model_config = ConfigDict(

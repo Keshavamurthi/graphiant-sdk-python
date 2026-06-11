@@ -28,10 +28,10 @@ class AlertserviceIntegrationDetails(BaseModel):
     """
     AlertserviceIntegrationDetails
     """ # noqa: E501
-    opsgenie_key: Optional[StrictStr] = Field(default=None, alias="opsgenieKey")
-    opsramp_details: Optional[StrictStr] = Field(default=None, alias="opsrampDetails")
-    pagerduty_routing_key: Optional[StrictStr] = Field(default=None, alias="pagerdutyRoutingKey")
-    webhook_url: Optional[StrictStr] = Field(default=None, alias="webhookUrl")
+    opsgenie_key: Optional[StrictStr] = Field(default=None, alias="opsgenieKey", json_schema_extra={"examples": ["example string"]})
+    opsramp_details: Optional[StrictStr] = Field(default=None, alias="opsrampDetails", json_schema_extra={"examples": ["example string"]})
+    pagerduty_routing_key: Optional[StrictStr] = Field(default=None, alias="pagerdutyRoutingKey", json_schema_extra={"examples": ["example string"]})
+    webhook_url: Optional[StrictStr] = Field(default=None, alias="webhookUrl", json_schema_extra={"examples": ["example string"]})
     zendesk_details: Optional[AlertserviceZendeskDetails] = Field(default=None, alias="zendeskDetails")
     __properties: ClassVar[List[str]] = ["opsgenieKey", "opsrampDetails", "pagerdutyRoutingKey", "webhookUrl", "zendeskDetails"]
 

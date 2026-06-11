@@ -30,11 +30,11 @@ class V1LogsPostRequest(BaseModel):
     """
     V1LogsPostRequest
     """ # noqa: E501
-    cursor_ref: Optional[StrictStr] = Field(default=None, alias="cursorRef")
-    customer_view: Optional[StrictBool] = Field(default=None, alias="customerView")
+    cursor_ref: Optional[StrictStr] = Field(default=None, alias="cursorRef", json_schema_extra={"examples": ["example string"]})
+    customer_view: Optional[StrictBool] = Field(default=None, alias="customerView", json_schema_extra={"examples": [True]})
     device_ids: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, alias="deviceIds")
-    histogram_bucket_size_sec: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="histogramBucketSizeSec")
-    num_logs: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="numLogs")
+    histogram_bucket_size_sec: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="histogramBucketSizeSec", json_schema_extra={"examples": [123]})
+    num_logs: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="numLogs", json_schema_extra={"examples": [123]})
     old_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="oldTs")
     recent_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="recentTs")
     selectors: Optional[List[SyslogmonSyslogsSelector]] = None

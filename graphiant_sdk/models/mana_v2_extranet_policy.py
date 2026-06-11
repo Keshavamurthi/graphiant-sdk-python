@@ -36,17 +36,17 @@ class ManaV2ExtranetPolicy(BaseModel):
     auto: Optional[ManaV2ExtranetAutoReverseRoutes] = None
     branches: Optional[ManaV2PolicyTarget] = None
     created_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="createdAt")
-    created_by: Optional[StrictStr] = Field(default=None, alias="createdBy")
-    description: Optional[StrictStr] = None
+    created_by: Optional[StrictStr] = Field(default=None, alias="createdBy", json_schema_extra={"examples": ["example string"]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     host_prefix_set: Optional[ManaV2EnterprisePrefixSet] = Field(default=None, alias="hostPrefixSet")
-    id: Optional[StrictInt] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     manual: Optional[ManaV2ExtranetManualReverseRoutes] = None
-    name: Optional[StrictStr] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     shared_prefixes: Optional[List[StrictStr]] = Field(default=None, alias="sharedPrefixes")
     shared_segment: Optional[ManaV2Vrf] = Field(default=None, alias="sharedSegment")
     source: Optional[ManaV2PolicyTarget] = None
     target_segments: Optional[List[ManaV2Vrf]] = Field(default=None, alias="targetSegments")
-    type: Optional[StrictStr] = None
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     updated_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="updatedAt")
     __properties: ClassVar[List[str]] = ["auto", "branches", "createdAt", "createdBy", "description", "hostPrefixSet", "id", "manual", "name", "sharedPrefixes", "sharedSegment", "source", "targetSegments", "type", "updatedAt"]
 

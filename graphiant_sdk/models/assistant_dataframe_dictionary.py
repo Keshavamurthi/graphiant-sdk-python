@@ -28,8 +28,8 @@ class AssistantDataframeDictionary(BaseModel):
     AssistantDataframeDictionary
     """ # noqa: E501
     dataframe_dictionary_map: Optional[Dict[str, StrictStr]] = Field(default=None, alias="dataframeDictionaryMap")
-    x_axis: Optional[StrictStr] = Field(default=None, alias="xAxis")
-    y_axis: Optional[StrictStr] = Field(default=None, alias="yAxis")
+    x_axis: Optional[StrictStr] = Field(default=None, alias="xAxis", json_schema_extra={"examples": ["example string"]})
+    y_axis: Optional[StrictStr] = Field(default=None, alias="yAxis", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["dataframeDictionaryMap", "xAxis", "yAxis"]
 
     model_config = ConfigDict(

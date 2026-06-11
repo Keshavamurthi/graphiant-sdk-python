@@ -28,7 +28,7 @@ class V1DevicesBringupTokenPostResponse(BaseModel):
     """
     V1DevicesBringupTokenPostResponse
     """ # noqa: E501
-    access_token: Optional[StrictStr] = Field(default=None, alias="accessToken")
+    access_token: Optional[StrictStr] = Field(default=None, alias="accessToken", json_schema_extra={"examples": ["example string"]})
     valid_till_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="validTillTs")
     __properties: ClassVar[List[str]] = ["accessToken", "validTillTs"]
 

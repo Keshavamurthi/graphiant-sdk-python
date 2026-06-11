@@ -38,9 +38,9 @@ class V1BackboneHealthDeviceDeviceIdPostResponse(BaseModel):
     data_plane: Optional[StatsmonBackbonehealthDataPlane] = Field(default=None, alias="dataPlane")
     issues: Optional[List[StatsmonTroubleshootingIssue]] = None
     qoe_matrix: Optional[StatsmonBackbonehealthGetQoeMatrixResponse] = Field(default=None, alias="qoeMatrix")
-    role: Optional[StrictStr] = None
-    status: Optional[StrictStr] = None
-    sw_version: Optional[StrictStr] = Field(default=None, alias="swVersion")
+    role: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    sw_version: Optional[StrictStr] = Field(default=None, alias="swVersion", json_schema_extra={"examples": ["example string"]})
     sw_version_v2: Optional[UpgradeSwVersion] = Field(default=None, alias="swVersionV2")
     system_plane: Optional[StatsmonBackbonehealthSystemPlane] = Field(default=None, alias="systemPlane")
     up_since_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="upSinceTs")

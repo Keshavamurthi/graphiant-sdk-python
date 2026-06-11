@@ -27,10 +27,10 @@ class V1ExtranetsB2bCustomerInfoIdGetResponse(BaseModel):
     """
     V1ExtranetsB2bCustomerInfoIdGetResponse
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    provider_enterprise_id: Optional[StrictInt] = Field(default=None, alias="providerEnterpriseId")
-    service_name: Optional[StrictStr] = Field(default=None, alias="serviceName")
-    status: Optional[StrictStr] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    provider_enterprise_id: Optional[StrictInt] = Field(default=None, alias="providerEnterpriseId", json_schema_extra={"examples": [1234567891011]})
+    service_name: Optional[StrictStr] = Field(default=None, alias="serviceName", json_schema_extra={"examples": ["example string"]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["id", "providerEnterpriseId", "serviceName", "status"]
 
     model_config = ConfigDict(

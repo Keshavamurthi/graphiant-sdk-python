@@ -27,12 +27,12 @@ class ManaV2SnmpUsmLocalUser(BaseModel):
     """
     ManaV2SnmpUsmLocalUser
     """ # noqa: E501
-    auth_passphrase: Optional[StrictStr] = Field(default=None, alias="authPassphrase")
-    auth_protocol: Optional[StrictStr] = Field(default=None, alias="authProtocol")
-    encryption_passphrase: Optional[StrictStr] = Field(default=None, alias="encryptionPassphrase")
-    encryption_protocol: Optional[StrictStr] = Field(default=None, alias="encryptionProtocol")
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
+    auth_passphrase: Optional[StrictStr] = Field(default=None, alias="authPassphrase", json_schema_extra={"examples": ["example string"]})
+    auth_protocol: Optional[StrictStr] = Field(default=None, alias="authProtocol", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    encryption_passphrase: Optional[StrictStr] = Field(default=None, alias="encryptionPassphrase", json_schema_extra={"examples": ["example string"]})
+    encryption_protocol: Optional[StrictStr] = Field(default=None, alias="encryptionProtocol", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["authPassphrase", "authProtocol", "encryptionPassphrase", "encryptionProtocol", "id", "name"]
 
     model_config = ConfigDict(

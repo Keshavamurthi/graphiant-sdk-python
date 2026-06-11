@@ -28,9 +28,9 @@ class V2AssuranceTopologyInventoryPostRequest(BaseModel):
     """
     V2AssuranceTopologyInventoryPostRequest
     """ # noqa: E501
-    bucket_id: Optional[StrictStr] = Field(default=None, alias="bucketId")
+    bucket_id: Optional[StrictStr] = Field(default=None, alias="bucketId", json_schema_extra={"examples": ["ENUM_VALUE"]})
     time_window: Optional[AssuranceTimeWindow] = Field(default=None, alias="timeWindow")
-    topology_type: Optional[StrictStr] = Field(default=None, alias="topologyType")
+    topology_type: Optional[StrictStr] = Field(default=None, alias="topologyType", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["bucketId", "timeWindow", "topologyType"]
 
     model_config = ConfigDict(

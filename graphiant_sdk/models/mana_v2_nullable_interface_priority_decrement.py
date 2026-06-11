@@ -28,8 +28,8 @@ class ManaV2NullableInterfacePriorityDecrement(BaseModel):
     """
     ManaV2NullableInterfacePriorityDecrement
     """ # noqa: E501
-    interface: Optional[StrictStr] = None
-    priority_decrement: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="priorityDecrement")
+    interface: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    priority_decrement: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="priorityDecrement", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["interface", "priorityDecrement"]
 
     model_config = ConfigDict(

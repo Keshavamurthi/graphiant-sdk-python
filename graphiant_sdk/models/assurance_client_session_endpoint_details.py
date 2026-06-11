@@ -32,13 +32,13 @@ class AssuranceClientSessionEndpointDetails(BaseModel):
     """ # noqa: E501
     circuits: Optional[List[StrictStr]] = None
     edges: Optional[List[AssuranceEdge]] = None
-    is_gateway: Optional[StrictBool] = Field(default=None, alias="isGateway")
+    is_gateway: Optional[StrictBool] = Field(default=None, alias="isGateway", json_schema_extra={"examples": [True]})
     jitter: Optional[AssuranceClientSessionEndpointDetailsStatistics] = None
     latency: Optional[AssuranceClientSessionEndpointDetailsStatistics] = None
     loss: Optional[AssuranceClientSessionEndpointDetailsStatistics] = None
     site: Optional[AssuranceSite] = None
-    total_downlink_usage: Optional[StrictInt] = Field(default=None, alias="totalDownlinkUsage")
-    total_uplink_usage: Optional[StrictInt] = Field(default=None, alias="totalUplinkUsage")
+    total_downlink_usage: Optional[StrictInt] = Field(default=None, alias="totalDownlinkUsage", json_schema_extra={"examples": [1234567891011]})
+    total_uplink_usage: Optional[StrictInt] = Field(default=None, alias="totalUplinkUsage", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["circuits", "edges", "isGateway", "jitter", "latency", "loss", "site", "totalDownlinkUsage", "totalUplinkUsage"]
 
     model_config = ConfigDict(

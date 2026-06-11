@@ -29,10 +29,10 @@ class ManaV2GlobalContentFilterConfig(BaseModel):
     ManaV2GlobalContentFilterConfig
     """ # noqa: E501
     lan_names: Optional[List[StrictStr]] = Field(default=None, alias="lanNames")
-    name: Optional[StrictStr] = Field(default=None, description="Display name for this global content filter configuration.")
+    name: Optional[StrictStr] = Field(default=None, description="Display name for this global content filter configuration.", json_schema_extra={"examples": ["example string"]})
     rules: Optional[List[ManaV2GlobalContentFilterRule]] = None
-    site_list_id: Optional[StrictInt] = Field(default=None, description="Site list whose members this content filter applies to; omit the oneof when no site scope is set.", alias="siteListId")
-    use_all_sites: Optional[StrictBool] = Field(default=None, description="When true, the filter applies to all sites in the tenant (must be the constant true).", alias="useAllSites")
+    site_list_id: Optional[StrictInt] = Field(default=None, description="Site list whose members this content filter applies to; omit the oneof when no site scope is set.", alias="siteListId", json_schema_extra={"examples": [1234567891011]})
+    use_all_sites: Optional[StrictBool] = Field(default=None, description="When true, the filter applies to all sites in the tenant (must be the constant true).", alias="useAllSites", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["lanNames", "name", "rules", "siteListId", "useAllSites"]
 
     model_config = ConfigDict(

@@ -28,12 +28,12 @@ class V2MonitoringIkeErrorHistoryPostResponseData(BaseModel):
     """
     V2MonitoringIkeErrorHistoryPostResponseData
     """ # noqa: E501
-    destination_address: Optional[StrictStr] = Field(default=None, alias="destinationAddress")
-    destination_port: Optional[StrictStr] = Field(default=None, alias="destinationPort")
-    error_type: Optional[StrictStr] = Field(default=None, alias="errorType")
-    message: Optional[StrictStr] = None
+    destination_address: Optional[StrictStr] = Field(default=None, alias="destinationAddress", json_schema_extra={"examples": ["example string"]})
+    destination_port: Optional[StrictStr] = Field(default=None, alias="destinationPort", json_schema_extra={"examples": ["example string"]})
+    error_type: Optional[StrictStr] = Field(default=None, alias="errorType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    message: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     timestamp: Optional[GoogleProtobufTimestamp] = None
-    tunnel_name: Optional[StrictStr] = Field(default=None, alias="tunnelName")
+    tunnel_name: Optional[StrictStr] = Field(default=None, alias="tunnelName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["destinationAddress", "destinationPort", "errorType", "message", "timestamp", "tunnelName"]
 
     model_config = ConfigDict(

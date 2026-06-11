@@ -29,18 +29,18 @@ class ManaV2SecurityPolicyRulesetRule(BaseModel):
     """
     ManaV2SecurityPolicyRulesetRule
     """ # noqa: E501
-    action: Optional[StrictStr] = None
-    description: Optional[StrictStr] = None
-    downlink_burst_rate: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="downlinkBurstRate")
-    downlink_policer_rate: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="downlinkPolicerRate")
-    id: Optional[StrictInt] = None
-    index: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    logging: Optional[StrictBool] = None
+    action: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    downlink_burst_rate: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="downlinkBurstRate", json_schema_extra={"examples": [123]})
+    downlink_policer_rate: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="downlinkPolicerRate", json_schema_extra={"examples": [123]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    index: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    logging: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     match: Optional[ManaV2ForwardingPolicyMatch] = None
-    name: Optional[StrictStr] = None
-    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    uplink_burst_rate: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="uplinkBurstRate")
-    uplink_policer_rate: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="uplinkPolicerRate")
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    uplink_burst_rate: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="uplinkBurstRate", json_schema_extra={"examples": [123]})
+    uplink_policer_rate: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="uplinkPolicerRate", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["action", "description", "downlinkBurstRate", "downlinkPolicerRate", "id", "index", "logging", "match", "name", "seq", "uplinkBurstRate", "uplinkPolicerRate"]
 
     model_config = ConfigDict(

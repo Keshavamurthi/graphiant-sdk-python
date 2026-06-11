@@ -27,10 +27,10 @@ class ManaV2DeviceFilter(BaseModel):
     """
     ManaV2DeviceFilter
     """ # noqa: E501
-    hostname: Optional[StrictStr] = None
-    list: Optional[StrictStr] = None
-    role: Optional[StrictStr] = None
-    site_id: Optional[StrictInt] = Field(default=None, alias="siteId")
+    hostname: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    list: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    role: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    site_id: Optional[StrictInt] = Field(default=None, alias="siteId", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["hostname", "list", "role", "siteId"]
 
     model_config = ConfigDict(

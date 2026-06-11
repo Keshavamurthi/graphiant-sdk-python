@@ -29,7 +29,7 @@ class ManaV2SnmpVacmViewConfig(BaseModel):
     ManaV2SnmpVacmViewConfig
     """ # noqa: E501
     include_exclude_list: Optional[Dict[str, ManaV2SnmpVacmViewIncludeConfig]] = Field(default=None, alias="includeExcludeList")
-    name: Optional[StrictStr] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["includeExcludeList", "name"]
 
     model_config = ConfigDict(

@@ -27,7 +27,7 @@ class ManaV2NullablePrefixSet(BaseModel):
     """
     ManaV2NullablePrefixSet
     """ # noqa: E501
-    prefix_set: Optional[StrictStr] = Field(default=None, alias="prefixSet")
+    prefix_set: Optional[StrictStr] = Field(default=None, alias="prefixSet", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["prefixSet"]
 
     model_config = ConfigDict(

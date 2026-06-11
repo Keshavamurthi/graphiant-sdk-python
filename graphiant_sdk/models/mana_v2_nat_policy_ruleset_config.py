@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.mana_v2_nat_policy_ruleset_config_nullable_rule import ManaV2NATPolicyRulesetConfigNullableRule
 from typing import Optional, Set
@@ -28,8 +28,8 @@ class ManaV2NatPolicyRulesetConfig(BaseModel):
     """
     ManaV2NatPolicyRulesetConfig
     """ # noqa: E501
-    description: Optional[StrictStr] = None
-    name: Optional[StrictStr] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     rules: Optional[Dict[str, ManaV2NATPolicyRulesetConfigNullableRule]] = None
     __properties: ClassVar[List[str]] = ["description", "name", "rules"]
 

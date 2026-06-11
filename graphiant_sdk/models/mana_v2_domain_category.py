@@ -27,10 +27,10 @@ class ManaV2DomainCategory(BaseModel):
     """
     ManaV2DomainCategory
     """ # noqa: E501
-    description: Optional[StrictStr] = Field(default=None, description="Optional longer text describing what sites or traffic belong in this category.")
-    id: Optional[StrictInt] = Field(default=None, description="Stable identifier for this domain category in the content-filter catalog.")
-    name: Optional[StrictStr] = Field(default=None, description="Human-readable name of the domain category.")
-    type: Optional[StrictStr] = Field(default=None, description="Optional category classifier or grouping hint from the catalog (e.g. vendor-specific type).")
+    description: Optional[StrictStr] = Field(default=None, description="Optional longer text describing what sites or traffic belong in this category.", json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictInt] = Field(default=None, description="Stable identifier for this domain category in the content-filter catalog.", json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, description="Human-readable name of the domain category.", json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, description="Optional category classifier or grouping hint from the catalog (e.g. vendor-specific type).", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["description", "id", "name", "type"]
 
     model_config = ConfigDict(

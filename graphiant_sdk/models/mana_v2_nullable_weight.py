@@ -28,7 +28,7 @@ class ManaV2NullableWeight(BaseModel):
     """
     ManaV2NullableWeight
     """ # noqa: E501
-    weight: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    weight: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["weight"]
 
     model_config = ConfigDict(

@@ -27,8 +27,8 @@ class ManaV2SnmpCommunity(BaseModel):
     """
     ManaV2SnmpCommunity
     """ # noqa: E501
-    community_string: Optional[StrictStr] = Field(default=None, alias="communityString")
-    id: Optional[StrictInt] = None
+    community_string: Optional[StrictStr] = Field(default=None, alias="communityString", json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["communityString", "id"]
 
     model_config = ConfigDict(

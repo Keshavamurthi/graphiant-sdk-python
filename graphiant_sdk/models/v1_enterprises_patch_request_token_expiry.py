@@ -27,8 +27,8 @@ class V1EnterprisesPatchRequestTokenExpiry(BaseModel):
     """
     V1EnterprisesPatchRequestTokenExpiry
     """ # noqa: E501
-    length: Optional[StrictInt] = None
-    time_unit: Optional[StrictStr] = Field(default=None, alias="timeUnit")
+    length: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [123]})
+    time_unit: Optional[StrictStr] = Field(default=None, alias="timeUnit", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["length", "timeUnit"]
 
     model_config = ConfigDict(

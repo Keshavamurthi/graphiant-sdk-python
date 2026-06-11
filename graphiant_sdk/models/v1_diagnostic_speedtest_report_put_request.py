@@ -28,8 +28,8 @@ class V1DiagnosticSpeedtestReportPutRequest(BaseModel):
     """
     V1DiagnosticSpeedtestReportPutRequest
     """ # noqa: E501
-    device_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="Unique identifier for a specific device (required)", alias="deviceId")
-    history_length: Annotated[int, Field(strict=True, ge=0)] = Field(description="Number of most recent speedtest records to return for a specific device (required)", alias="historyLength")
+    device_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="Unique identifier for a specific device (required)", alias="deviceId", json_schema_extra={"examples": [30000000555]})
+    history_length: Annotated[int, Field(strict=True, ge=0)] = Field(description="Number of most recent speedtest records to return for a specific device (required)", alias="historyLength", json_schema_extra={"examples": [5]})
     __properties: ClassVar[List[str]] = ["deviceId", "historyLength"]
 
     model_config = ConfigDict(

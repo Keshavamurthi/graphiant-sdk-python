@@ -28,10 +28,10 @@ class StatsmonBandwidthtrackerBwUsageByRegion(BaseModel):
     """
     StatsmonBandwidthtrackerBwUsageByRegion
     """ # noqa: E501
-    region_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="regionId")
-    region_name: Optional[StrictStr] = Field(default=None, alias="regionName")
-    site_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="siteCount")
-    usage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usageKbps")
+    region_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="regionId", json_schema_extra={"examples": [12345678910]})
+    region_name: Optional[StrictStr] = Field(default=None, alias="regionName", json_schema_extra={"examples": ["example string"]})
+    site_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="siteCount", json_schema_extra={"examples": [12345678910]})
+    usage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usageKbps", json_schema_extra={"examples": [123.45]})
     __properties: ClassVar[List[str]] = ["regionId", "regionName", "siteCount", "usageKbps"]
 
     model_config = ConfigDict(

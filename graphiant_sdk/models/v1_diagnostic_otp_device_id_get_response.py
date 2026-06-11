@@ -27,7 +27,7 @@ class V1DiagnosticOtpDeviceIdGetResponse(BaseModel):
     """
     V1DiagnosticOtpDeviceIdGetResponse
     """ # noqa: E501
-    pass_code: Optional[StrictStr] = Field(default=None, description="six digit one-time passcode to access the device", alias="passCode")
+    pass_code: Optional[StrictStr] = Field(default=None, description="six digit one-time passcode to access the device", alias="passCode", json_schema_extra={"examples": ["123456"]})
     __properties: ClassVar[List[str]] = ["passCode"]
 
     model_config = ConfigDict(

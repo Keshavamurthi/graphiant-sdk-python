@@ -33,18 +33,18 @@ class V1ExtranetsB2bPeeringConsumerCustomerIdConsumerDetailsGetResponse(BaseMode
     """
     V1ExtranetsB2bPeeringConsumerCustomerIdConsumerDetailsGetResponse
     """ # noqa: E501
-    consumer_id: Optional[StrictInt] = Field(default=None, alias="consumerId")
-    consumer_name: Optional[StrictStr] = Field(default=None, alias="consumerName")
+    consumer_id: Optional[StrictInt] = Field(default=None, alias="consumerId", json_schema_extra={"examples": [1234567891011]})
+    consumer_name: Optional[StrictStr] = Field(default=None, alias="consumerName", json_schema_extra={"examples": ["example string"]})
     emails: Optional[List[StrictStr]] = None
     global_object_device_summaries: Optional[Dict[str, ManaV2GlobalObjectServiceSummaries]] = Field(default=None, alias="globalObjectDeviceSummaries")
     global_object_summaries: Optional[Dict[str, ManaV2GlobalObjectServiceSummaries]] = Field(default=None, alias="globalObjectSummaries")
     ipsec_tunnel_config: Optional[List[V1ExtranetsB2bPeeringConsumerCustomerIdConsumerDetailsGetResponseIpsecVpnTunnelConfig]] = Field(default=None, alias="ipsecTunnelConfig")
     match_details: Optional[ManaV2B2bExtranetServiceCustomerMatchDetails] = Field(default=None, alias="matchDetails")
-    peer_type: Optional[StrictStr] = Field(default=None, alias="peerType")
+    peer_type: Optional[StrictStr] = Field(default=None, alias="peerType", json_schema_extra={"examples": ["ENUM_VALUE"]})
     policy: Optional[List[ManaV2B2bExtranetPeeringServiceConsumerLanSegmentPolicy]] = None
     site_information: Optional[List[ManaV2B2bSiteInformation]] = Field(default=None, alias="siteInformation")
     site_to_site_vpn: Optional[ManaV2GuestConsumerSiteToSiteVpnConfig] = Field(default=None, alias="siteToSiteVpn")
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["consumerId", "consumerName", "emails", "globalObjectDeviceSummaries", "globalObjectSummaries", "ipsecTunnelConfig", "matchDetails", "peerType", "policy", "siteInformation", "siteToSiteVpn", "status"]
 
     model_config = ConfigDict(

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,7 +27,7 @@ class V1PolicyRouteTagSetsPostResponse(BaseModel):
     """
     V1PolicyRouteTagSetsPostResponse
     """ # noqa: E501
-    id: Optional[StrictInt] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["id"]
 
     model_config = ConfigDict(

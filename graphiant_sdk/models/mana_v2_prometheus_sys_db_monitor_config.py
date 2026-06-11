@@ -28,8 +28,8 @@ class ManaV2PrometheusSysDbMonitorConfig(BaseModel):
     """
     ManaV2PrometheusSysDbMonitorConfig
     """ # noqa: E501
-    interval_seconds: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="intervalSeconds")
-    name: Optional[StrictStr] = None
+    interval_seconds: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="intervalSeconds", json_schema_extra={"examples": [123]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     xpaths: Optional[List[StrictStr]] = None
     __properties: ClassVar[List[str]] = ["intervalSeconds", "name", "xpaths"]
 

@@ -28,8 +28,8 @@ class ManaV2PortRangeConfig(BaseModel):
     """
     ManaV2PortRangeConfig
     """ # noqa: E501
-    lower: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    upper: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    lower: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    upper: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["lower", "upper"]
 
     model_config = ConfigDict(

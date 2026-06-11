@@ -28,10 +28,10 @@ class V2AssuranceBucketAppServersPostRequest(BaseModel):
     """
     V2AssuranceBucketAppServersPostRequest
     """ # noqa: E501
-    app_name: Optional[StrictStr] = Field(default=None, alias="appName")
-    bucket_id: Optional[StrictStr] = Field(default=None, alias="bucketId")
-    exchange_service_id: Optional[StrictInt] = Field(default=None, alias="exchangeServiceId")
-    flex_algo_id: Optional[StrictInt] = Field(default=None, alias="flexAlgoId")
+    app_name: Optional[StrictStr] = Field(default=None, alias="appName", json_schema_extra={"examples": ["example string"]})
+    bucket_id: Optional[StrictStr] = Field(default=None, alias="bucketId", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    exchange_service_id: Optional[StrictInt] = Field(default=None, alias="exchangeServiceId", json_schema_extra={"examples": [1234567891011]})
+    flex_algo_id: Optional[StrictInt] = Field(default=None, alias="flexAlgoId", json_schema_extra={"examples": [1234567891011]})
     time_window: Optional[AssuranceTimeWindow] = Field(default=None, alias="timeWindow")
     __properties: ClassVar[List[str]] = ["appName", "bucketId", "exchangeServiceId", "flexAlgoId", "timeWindow"]
 

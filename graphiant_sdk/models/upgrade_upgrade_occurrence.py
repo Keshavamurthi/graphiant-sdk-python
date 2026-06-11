@@ -27,12 +27,12 @@ class UpgradeUpgradeOccurrence(BaseModel):
     """
     UpgradeUpgradeOccurrence
     """ # noqa: E501
-    day_of_week: Optional[StrictStr] = Field(default=None, alias="dayOfWeek")
-    hour: Optional[StrictInt] = None
-    minute: Optional[StrictInt] = None
-    occurrence_in_month: Optional[StrictInt] = Field(default=None, alias="occurrenceInMonth")
-    ordinal: Optional[StrictStr] = None
-    weekday: Optional[StrictStr] = None
+    day_of_week: Optional[StrictStr] = Field(default=None, alias="dayOfWeek", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    hour: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [123]})
+    minute: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [123]})
+    occurrence_in_month: Optional[StrictInt] = Field(default=None, alias="occurrenceInMonth", json_schema_extra={"examples": [123]})
+    ordinal: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    weekday: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["dayOfWeek", "hour", "minute", "occurrenceInMonth", "ordinal", "weekday"]
 
     model_config = ConfigDict(

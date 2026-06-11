@@ -29,7 +29,7 @@ class ManaV2DhcpRelay(BaseModel):
     """ # noqa: E501
     dhcpv4_relays: Optional[List[StrictStr]] = Field(default=None, alias="dhcpv4Relays")
     dhcpv6_relays: Optional[List[StrictStr]] = Field(default=None, alias="dhcpv6Relays")
-    id: Optional[StrictInt] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["dhcpv4Relays", "dhcpv6Relays", "id"]
 
     model_config = ConfigDict(

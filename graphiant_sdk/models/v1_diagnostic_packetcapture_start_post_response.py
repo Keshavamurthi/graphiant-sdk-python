@@ -27,7 +27,7 @@ class V1DiagnosticPacketcaptureStartPostResponse(BaseModel):
     """
     V1DiagnosticPacketcaptureStartPostResponse
     """ # noqa: E501
-    pcap_id: Optional[StrictInt] = Field(default=None, description="Unique identifier for a specific packet capture", alias="pcapId")
+    pcap_id: Optional[StrictInt] = Field(default=None, description="Unique identifier for a specific packet capture", alias="pcapId", json_schema_extra={"examples": [1000000]})
     __properties: ClassVar[List[str]] = ["pcapId"]
 
     model_config = ConfigDict(

@@ -38,7 +38,7 @@ class StatsmonTroubleshootingSystemPlane(BaseModel):
     last_crash: Optional[StatsmonTroubleshootingLastCrash] = Field(default=None, alias="lastCrash")
     maintenance_windows: Optional[List[StatsmonTroubleshootingMaintenanceWindow]] = Field(default=None, alias="maintenanceWindows")
     memory: Optional[List[StatsmonTroubleshootingSystemStat]] = None
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     temperature: Optional[List[StatsmonTroubleshootingOverheating]] = None
     temperature_series: Optional[List[StatsmonTroubleshootingSystemStat]] = Field(default=None, alias="temperatureSeries")
     __properties: ClassVar[List[str]] = ["cpu", "crashes", "disk", "lastCrash", "maintenanceWindows", "memory", "status", "temperature", "temperatureSeries"]

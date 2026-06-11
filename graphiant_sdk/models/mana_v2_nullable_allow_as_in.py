@@ -28,7 +28,7 @@ class ManaV2NullableAllowAsIn(BaseModel):
     """
     ManaV2NullableAllowAsIn
     """ # noqa: E501
-    count: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["count"]
 
     model_config = ConfigDict(

@@ -27,8 +27,8 @@ class ManaV2AwsCredentials(BaseModel):
     """
     ManaV2AwsCredentials
     """ # noqa: E501
-    access_key_id: Optional[StrictStr] = Field(default=None, alias="accessKeyId")
-    secret_access_key: Optional[StrictStr] = Field(default=None, alias="secretAccessKey")
+    access_key_id: Optional[StrictStr] = Field(default=None, alias="accessKeyId", json_schema_extra={"examples": ["example string"]})
+    secret_access_key: Optional[StrictStr] = Field(default=None, alias="secretAccessKey", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["accessKeyId", "secretAccessKey"]
 
     model_config = ConfigDict(

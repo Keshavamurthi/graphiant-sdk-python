@@ -27,8 +27,8 @@ class V2AssistantUpdateConversationNamePostRequest(BaseModel):
     """
     V2AssistantUpdateConversationNamePostRequest
     """ # noqa: E501
-    conversation_header: Optional[StrictStr] = Field(default=None, alias="conversationHeader")
-    conversation_id: Optional[StrictStr] = Field(default=None, alias="conversationId")
+    conversation_header: Optional[StrictStr] = Field(default=None, alias="conversationHeader", json_schema_extra={"examples": ["example string"]})
+    conversation_id: Optional[StrictStr] = Field(default=None, alias="conversationId", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["conversationHeader", "conversationId"]
 
     model_config = ConfigDict(

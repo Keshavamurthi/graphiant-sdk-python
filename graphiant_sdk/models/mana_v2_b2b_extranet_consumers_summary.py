@@ -29,17 +29,17 @@ class ManaV2B2bExtranetConsumersSummary(BaseModel):
     """
     ManaV2B2bExtranetConsumersSummary
     """ # noqa: E501
-    b2b_status: Optional[StrictStr] = Field(default=None, alias="b2bStatus")
+    b2b_status: Optional[StrictStr] = Field(default=None, alias="b2bStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
     created_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="createdAt")
-    id: Optional[StrictInt] = None
-    num_edges: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="numEdges")
-    num_segments: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="numSegments")
-    num_sites: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="numSites")
-    provider_name: Optional[StrictStr] = Field(default=None, alias="providerName")
-    publisher_name: Optional[StrictStr] = Field(default=None, alias="publisherName")
-    service_name: Optional[StrictStr] = Field(default=None, alias="serviceName")
-    status: Optional[StrictStr] = None
-    type: Optional[StrictStr] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    num_edges: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="numEdges", json_schema_extra={"examples": [123]})
+    num_segments: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="numSegments", json_schema_extra={"examples": [123]})
+    num_sites: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="numSites", json_schema_extra={"examples": [123]})
+    provider_name: Optional[StrictStr] = Field(default=None, alias="providerName", json_schema_extra={"examples": ["example string"]})
+    publisher_name: Optional[StrictStr] = Field(default=None, alias="publisherName", json_schema_extra={"examples": ["example string"]})
+    service_name: Optional[StrictStr] = Field(default=None, alias="serviceName", json_schema_extra={"examples": ["example string"]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["b2bStatus", "createdAt", "id", "numEdges", "numSegments", "numSites", "providerName", "publisherName", "serviceName", "status", "type"]
 
     model_config = ConfigDict(

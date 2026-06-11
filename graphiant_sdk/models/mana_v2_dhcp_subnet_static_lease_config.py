@@ -27,9 +27,9 @@ class ManaV2DhcpSubnetStaticLeaseConfig(BaseModel):
     """
     ManaV2DhcpSubnetStaticLeaseConfig
     """ # noqa: E501
-    hostname: Optional[StrictStr] = None
-    ip_address: Optional[StrictStr] = Field(default=None, alias="ipAddress")
-    mac_address: Optional[StrictStr] = Field(default=None, alias="macAddress")
+    hostname: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    ip_address: Optional[StrictStr] = Field(default=None, alias="ipAddress", json_schema_extra={"examples": ["example string"]})
+    mac_address: Optional[StrictStr] = Field(default=None, alias="macAddress", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["hostname", "ipAddress", "macAddress"]
 
     model_config = ConfigDict(

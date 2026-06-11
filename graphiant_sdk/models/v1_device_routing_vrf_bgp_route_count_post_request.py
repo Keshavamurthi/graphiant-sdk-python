@@ -27,7 +27,7 @@ class V1DeviceRoutingVrfBgpRouteCountPostRequest(BaseModel):
     """
     V1DeviceRoutingVrfBgpRouteCountPostRequest
     """ # noqa: E501
-    device_id: StrictInt = Field(description="Valid configured device ID > 0 (required)", alias="deviceId")
+    device_id: StrictInt = Field(description="Valid configured device ID > 0 (required)", alias="deviceId", json_schema_extra={"examples": [1000000]})
     vrf_name: List[StrictStr] = Field(alias="vrfName")
     __properties: ClassVar[List[str]] = ["deviceId", "vrfName"]
 

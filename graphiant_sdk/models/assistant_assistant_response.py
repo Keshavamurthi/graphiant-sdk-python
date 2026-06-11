@@ -29,15 +29,15 @@ class AssistantAssistantResponse(BaseModel):
     """
     AssistantAssistantResponse
     """ # noqa: E501
-    conversation_id: Optional[StrictStr] = Field(default=None, alias="conversationId")
+    conversation_id: Optional[StrictStr] = Field(default=None, alias="conversationId", json_schema_extra={"examples": ["example string"]})
     dataframe_dictionary: Optional[List[AssistantDataframeDictionary]] = Field(default=None, alias="dataframeDictionary")
     original_question: Optional[AssistantAssistantQuestion] = Field(default=None, alias="originalQuestion")
-    response_id: Optional[StrictStr] = Field(default=None, alias="responseId")
-    response_language: Optional[StrictStr] = Field(default=None, alias="responseLanguage")
-    response_text: Optional[StrictStr] = Field(default=None, alias="responseText")
-    response_timestamp: Optional[StrictInt] = Field(default=None, alias="responseTimestamp")
-    response_type: Optional[StrictStr] = Field(default=None, alias="responseType")
-    visualization_summary: Optional[StrictStr] = Field(default=None, alias="visualizationSummary")
+    response_id: Optional[StrictStr] = Field(default=None, alias="responseId", json_schema_extra={"examples": ["example string"]})
+    response_language: Optional[StrictStr] = Field(default=None, alias="responseLanguage", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    response_text: Optional[StrictStr] = Field(default=None, alias="responseText", json_schema_extra={"examples": ["example string"]})
+    response_timestamp: Optional[StrictInt] = Field(default=None, alias="responseTimestamp", json_schema_extra={"examples": [1234567891011]})
+    response_type: Optional[StrictStr] = Field(default=None, alias="responseType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    visualization_summary: Optional[StrictStr] = Field(default=None, alias="visualizationSummary", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["conversationId", "dataframeDictionary", "originalQuestion", "responseId", "responseLanguage", "responseText", "responseTimestamp", "responseType", "visualizationSummary"]
 
     model_config = ConfigDict(

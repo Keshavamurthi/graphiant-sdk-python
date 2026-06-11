@@ -41,12 +41,12 @@ class ManaV2CoreDeviceConfig(BaseModel):
     interfaces: Optional[Dict[str, ManaV2NullableInterfaceCoreConfig]] = None
     ipfix_exporters: Optional[Dict[str, ManaV2NullableIpfixExporterConfig]] = Field(default=None, alias="ipfixExporters")
     isp_vrfs: Optional[Dict[str, ManaV2VrfConfig]] = Field(default=None, alias="ispVrfs")
-    maintenance_mode: Optional[StrictBool] = Field(default=None, alias="maintenanceMode")
-    name: Optional[StrictStr] = None
+    maintenance_mode: Optional[StrictBool] = Field(default=None, alias="maintenanceMode", json_schema_extra={"examples": [True]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     prefix_sets: Optional[Dict[str, ManaV2NullablePrefixSetConfig]] = Field(default=None, alias="prefixSets")
     prometheus: Optional[ManaV2PrometheusConfig] = None
-    region: Optional[StrictStr] = None
-    region_name: Optional[StrictStr] = Field(default=None, alias="regionName")
+    region: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    region_name: Optional[StrictStr] = Field(default=None, alias="regionName", json_schema_extra={"examples": ["example string"]})
     route_policies: Optional[Dict[str, ManaV2NullableRoutingPolicyConfig]] = Field(default=None, alias="routePolicies")
     site: Optional[ManaV2NewSite] = None
     traffic_policy: Optional[ManaV2ForwardingPolicyConfig] = Field(default=None, alias="trafficPolicy")

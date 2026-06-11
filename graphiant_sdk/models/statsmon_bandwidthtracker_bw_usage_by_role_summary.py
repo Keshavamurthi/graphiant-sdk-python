@@ -28,9 +28,9 @@ class StatsmonBandwidthtrackerBwUsageByRoleSummary(BaseModel):
     """
     StatsmonBandwidthtrackerBwUsageByRoleSummary
     """ # noqa: E501
-    role_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="roleId")
-    role_name: Optional[StrictStr] = Field(default=None, alias="roleName")
-    usage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usageKbps")
+    role_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="roleId", json_schema_extra={"examples": [12345678910]})
+    role_name: Optional[StrictStr] = Field(default=None, alias="roleName", json_schema_extra={"examples": ["example string"]})
+    usage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usageKbps", json_schema_extra={"examples": [123.45]})
     __properties: ClassVar[List[str]] = ["roleId", "roleName", "usageKbps"]
 
     model_config = ConfigDict(

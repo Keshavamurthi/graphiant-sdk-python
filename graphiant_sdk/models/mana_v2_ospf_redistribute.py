@@ -28,9 +28,9 @@ class ManaV2OspfRedistribute(BaseModel):
     """
     ManaV2OspfRedistribute
     """ # noqa: E501
-    metric: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    metric_type: Optional[StrictStr] = Field(default=None, alias="metricType")
-    redist_type: Optional[StrictStr] = Field(default=None, alias="redistType")
+    metric: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    metric_type: Optional[StrictStr] = Field(default=None, alias="metricType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    redist_type: Optional[StrictStr] = Field(default=None, alias="redistType", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["metric", "metricType", "redistType"]
 
     model_config = ConfigDict(

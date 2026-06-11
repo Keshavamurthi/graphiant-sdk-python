@@ -27,8 +27,8 @@ class V1AuthGcsPostRequest(BaseModel):
     """
     V1AuthGcsPostRequest
     """ # noqa: E501
-    gcs_name: StrictStr = Field(alias="gcsName")
-    api_key: StrictStr = Field(alias="apiKey")
+    gcs_name: StrictStr = Field(alias="gcsName", json_schema_extra={"examples": ["my-gcs-instance"]})
+    api_key: StrictStr = Field(alias="apiKey", json_schema_extra={"examples": ["api-key-12345"]})
     __properties: ClassVar[List[str]] = ["gcsName", "apiKey"]
 
     model_config = ConfigDict(

@@ -27,9 +27,9 @@ class AssuranceScoreBucketCount(BaseModel):
     """
     AssuranceScoreBucketCount
     """ # noqa: E501
-    curr_score: Optional[StrictInt] = Field(default=None, alias="currScore")
-    max_score: Optional[StrictInt] = Field(default=None, alias="maxScore")
-    score_bucket_id: Optional[StrictStr] = Field(default=None, alias="scoreBucketId")
+    curr_score: Optional[StrictInt] = Field(default=None, alias="currScore", json_schema_extra={"examples": [1234567891011]})
+    max_score: Optional[StrictInt] = Field(default=None, alias="maxScore", json_schema_extra={"examples": [1234567891011]})
+    score_bucket_id: Optional[StrictStr] = Field(default=None, alias="scoreBucketId", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["currScore", "maxScore", "scoreBucketId"]
 
     model_config = ConfigDict(

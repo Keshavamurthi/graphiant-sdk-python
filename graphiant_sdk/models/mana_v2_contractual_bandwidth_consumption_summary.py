@@ -29,9 +29,9 @@ class ManaV2ContractualBandwidthConsumptionSummary(BaseModel):
     ManaV2ContractualBandwidthConsumptionSummary
     """ # noqa: E501
     expiration_date: Optional[ManaV2TimePeriod] = Field(default=None, alias="expirationDate")
-    total_consumed_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="All credits consumed over the entirety the enterprise's contracts", alias="totalConsumedCredits")
-    total_contracted_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Number of credits agreed upon for the entirety of the current contract", alias="totalContractedCredits")
-    total_remaining_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Number of unused credits remaining under the current contract", alias="totalRemainingCredits")
+    total_consumed_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="All credits consumed over the entirety the enterprise's contracts", alias="totalConsumedCredits", json_schema_extra={"examples": [12.34]})
+    total_contracted_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Number of credits agreed upon for the entirety of the current contract", alias="totalContractedCredits", json_schema_extra={"examples": [12.34]})
+    total_remaining_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Number of unused credits remaining under the current contract", alias="totalRemainingCredits", json_schema_extra={"examples": [12.34]})
     __properties: ClassVar[List[str]] = ["expirationDate", "totalConsumedCredits", "totalContractedCredits", "totalRemainingCredits"]
 
     model_config = ConfigDict(

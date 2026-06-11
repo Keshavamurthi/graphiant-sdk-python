@@ -33,7 +33,7 @@ class V1GlobalConfigPatchResponse(BaseModel):
     prefix_sets: Optional[Dict[str, StrictInt]] = Field(default=None, alias="prefixSets")
     routing_policies: Optional[Dict[str, StrictInt]] = Field(default=None, alias="routingPolicies")
     snmps: Optional[Dict[str, StrictInt]] = None
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     syslog_servers: Optional[Dict[str, StrictInt]] = Field(default=None, alias="syslogServers")
     traffic_policies: Optional[Dict[str, StrictInt]] = Field(default=None, alias="trafficPolicies")
     vpn_profiles: Optional[Dict[str, StrictInt]] = Field(default=None, alias="vpnProfiles")

@@ -31,7 +31,7 @@ class V1ExtranetB2bMonitoringPeeringServiceConsumptionOverviewPostResponse(BaseM
     first_level: Optional[List[IpfixConnectionMap]] = Field(default=None, alias="firstLevel")
     second_level: Optional[List[IpfixConnectionMap]] = Field(default=None, alias="secondLevel")
     third_level: Optional[List[IpfixConnectionMap]] = Field(default=None, alias="thirdLevel")
-    total_usage: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="total service usage in kilo bytes", alias="totalUsage")
+    total_usage: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="total service usage in kilo bytes", alias="totalUsage", json_schema_extra={"examples": [1000000]})
     __properties: ClassVar[List[str]] = ["firstLevel", "secondLevel", "thirdLevel", "totalUsage"]
 
     model_config = ConfigDict(

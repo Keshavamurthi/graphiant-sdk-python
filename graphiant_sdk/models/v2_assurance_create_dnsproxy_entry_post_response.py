@@ -27,7 +27,7 @@ class V2AssuranceCreateDnsproxyEntryPostResponse(BaseModel):
     """
     V2AssuranceCreateDnsproxyEntryPostResponse
     """ # noqa: E501
-    dnsproxy_entry_id: Optional[StrictStr] = Field(default=None, description="dns proxy table entry id (required)", alias="dnsproxyEntryId")
+    dnsproxy_entry_id: Optional[StrictStr] = Field(default=None, description="dns proxy table entry id (required)", alias="dnsproxyEntryId", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["dnsproxyEntryId"]
 
     model_config = ConfigDict(

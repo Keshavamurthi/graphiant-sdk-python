@@ -27,13 +27,13 @@ class ManaV2RouteTagSummary(BaseModel):
     """
     ManaV2RouteTagSummary
     """ # noqa: E501
-    device_count: Optional[StrictInt] = Field(default=None, alias="deviceCount")
-    level_one: Optional[StrictInt] = Field(default=None, alias="levelOne")
-    level_one_tag: Optional[StrictStr] = Field(default=None, alias="levelOneTag")
-    level_two: Optional[StrictInt] = Field(default=None, alias="levelTwo")
-    level_two_tag: Optional[StrictStr] = Field(default=None, alias="levelTwoTag")
-    level_zero: Optional[StrictInt] = Field(default=None, alias="levelZero")
-    level_zero_tag: Optional[StrictStr] = Field(default=None, alias="levelZeroTag")
+    device_count: Optional[StrictInt] = Field(default=None, alias="deviceCount", json_schema_extra={"examples": [123]})
+    level_one: Optional[StrictInt] = Field(default=None, alias="levelOne", json_schema_extra={"examples": [1234567891011]})
+    level_one_tag: Optional[StrictStr] = Field(default=None, alias="levelOneTag", json_schema_extra={"examples": ["example string"]})
+    level_two: Optional[StrictInt] = Field(default=None, alias="levelTwo", json_schema_extra={"examples": [1234567891011]})
+    level_two_tag: Optional[StrictStr] = Field(default=None, alias="levelTwoTag", json_schema_extra={"examples": ["example string"]})
+    level_zero: Optional[StrictInt] = Field(default=None, alias="levelZero", json_schema_extra={"examples": [1234567891011]})
+    level_zero_tag: Optional[StrictStr] = Field(default=None, alias="levelZeroTag", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["deviceCount", "levelOne", "levelOneTag", "levelTwo", "levelTwoTag", "levelZero", "levelZeroTag"]
 
     model_config = ConfigDict(

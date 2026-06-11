@@ -27,7 +27,7 @@ class V1AuthRefreshGetEntryPointResponse(BaseModel):
     """
     V1AuthRefreshGetEntryPointResponse
     """ # noqa: E501
-    entry_point: Optional[StrictStr] = Field(default=None, alias="entryPoint")
+    entry_point: Optional[StrictStr] = Field(default=None, alias="entryPoint", json_schema_extra={"examples": ["https://saml.example.com/sso"]})
     __properties: ClassVar[List[str]] = ["entryPoint"]
 
     model_config = ConfigDict(

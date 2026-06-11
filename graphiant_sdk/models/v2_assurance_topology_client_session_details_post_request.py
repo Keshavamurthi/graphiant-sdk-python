@@ -27,7 +27,7 @@ class V2AssuranceTopologyClientSessionDetailsPostRequest(BaseModel):
     """
     V2AssuranceTopologyClientSessionDetailsPostRequest
     """ # noqa: E501
-    session_id: Optional[StrictStr] = Field(default=None, alias="sessionId")
+    session_id: Optional[StrictStr] = Field(default=None, alias="sessionId", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["sessionId"]
 
     model_config = ConfigDict(

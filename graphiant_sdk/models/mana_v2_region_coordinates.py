@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +27,8 @@ class ManaV2RegionCoordinates(BaseModel):
     """
     ManaV2RegionCoordinates
     """ # noqa: E501
-    latitude: Optional[Union[StrictFloat, StrictInt]] = None
-    longitude: Optional[Union[StrictFloat, StrictInt]] = None
+    latitude: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [123.45]})
+    longitude: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [123.45]})
     __properties: ClassVar[List[str]] = ["latitude", "longitude"]
 
     model_config = ConfigDict(

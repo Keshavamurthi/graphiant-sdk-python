@@ -29,8 +29,8 @@ class V1GlobalAppsGraphiantGetResponseEntry(BaseModel):
     V1GlobalAppsGraphiantGetResponseEntry
     """ # noqa: E501
     app: Optional[ManaV2App] = None
-    app_list_reference_count: Optional[StrictInt] = Field(default=None, alias="appListReferenceCount")
-    policy_reference_count: Optional[StrictInt] = Field(default=None, alias="policyReferenceCount")
+    app_list_reference_count: Optional[StrictInt] = Field(default=None, alias="appListReferenceCount", json_schema_extra={"examples": [123]})
+    policy_reference_count: Optional[StrictInt] = Field(default=None, alias="policyReferenceCount", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["app", "appListReferenceCount", "policyReferenceCount"]
 
     model_config = ConfigDict(

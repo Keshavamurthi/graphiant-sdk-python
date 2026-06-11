@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **region_id** | **int** |  | [optional] 
+**site_enterprise_name** | **str** |  | [optional] 
 **site_id** | **int** |  | [optional] 
 **site_name** | **str** |  | [optional] 
 

@@ -33,8 +33,8 @@ class ManaV2TrafficPolicyRulesetConfigNullableRuleRuleAction(BaseModel):
     """ # noqa: E501
     backup_circuit: Optional[ManaV2NullableSetCircuitConfig] = Field(default=None, alias="backupCircuit")
     backup_circuit_label: Optional[ManaV2NullableSetCircuitLabelConfig] = Field(default=None, alias="backupCircuitLabel")
-    egress: Optional[StrictStr] = None
-    logging: Optional[StrictBool] = None
+    egress: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    logging: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     primary_circuit: Optional[ManaV2NullableSetCircuitConfig] = Field(default=None, alias="primaryCircuit")
     primary_circuit_label: Optional[ManaV2NullableSetCircuitLabelConfig] = Field(default=None, alias="primaryCircuitLabel")
     remark: Optional[ManaV2NullableSetDscpConfig] = None

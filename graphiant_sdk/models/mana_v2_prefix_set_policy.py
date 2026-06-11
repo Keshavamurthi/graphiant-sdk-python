@@ -27,9 +27,9 @@ class ManaV2PrefixSetPolicy(BaseModel):
     """
     ManaV2PrefixSetPolicy
     """ # noqa: E501
-    attach_point: Optional[StrictStr] = Field(default=None, alias="attachPoint")
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
+    attach_point: Optional[StrictStr] = Field(default=None, alias="attachPoint", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["attachPoint", "id", "name"]
 
     model_config = ConfigDict(

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.v1_global_lan_segments_vrf_id_devices_get_response_entry import V1GlobalLanSegmentsVrfIdDevicesGetResponseEntry
 from typing import Optional, Set
@@ -29,7 +29,7 @@ class V1GlobalLanSegmentsVrfIdDevicesGetResponse(BaseModel):
     V1GlobalLanSegmentsVrfIdDevicesGetResponse
     """ # noqa: E501
     entries: Optional[List[V1GlobalLanSegmentsVrfIdDevicesGetResponseEntry]] = None
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["entries", "status"]
 
     model_config = ConfigDict(

@@ -32,10 +32,10 @@ class V1DevicesDeviceIdConfigPutRequest(BaseModel):
     """ # noqa: E501
     configuration_metadata: Optional[ManaV2ConfigurationMetadata] = Field(default=None, alias="configurationMetadata")
     core: Optional[ManaV2CoreDeviceConfig] = None
-    description: Optional[StrictStr] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     edge: Optional[ManaV2EdgeDeviceConfig] = None
-    local_web_server_password: Optional[StrictStr] = Field(default=None, alias="localWebServerPassword")
-    replace: Optional[StrictBool] = None
+    local_web_server_password: Optional[StrictStr] = Field(default=None, alias="localWebServerPassword", json_schema_extra={"examples": ["example string"]})
+    replace: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["configurationMetadata", "core", "description", "edge", "localWebServerPassword", "replace"]
 
     model_config = ConfigDict(

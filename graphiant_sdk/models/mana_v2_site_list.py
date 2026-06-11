@@ -28,10 +28,10 @@ class ManaV2SiteList(BaseModel):
     """
     ManaV2SiteList
     """ # noqa: E501
-    name: Optional[StrictStr] = None
-    policy_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="policyCount")
-    site_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="siteCount")
-    site_list_id: Optional[StrictInt] = Field(default=None, alias="siteListId")
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    policy_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="policyCount", json_schema_extra={"examples": [123]})
+    site_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="siteCount", json_schema_extra={"examples": [123]})
+    site_list_id: Optional[StrictInt] = Field(default=None, alias="siteListId", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["name", "policyCount", "siteCount", "siteListId"]
 
     model_config = ConfigDict(

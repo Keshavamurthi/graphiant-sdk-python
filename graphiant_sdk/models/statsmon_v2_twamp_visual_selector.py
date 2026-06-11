@@ -27,9 +27,9 @@ class StatsmonV2TwampVisualSelector(BaseModel):
     """
     StatsmonV2TwampVisualSelector
     """ # noqa: E501
-    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName")
-    core_location: Optional[StrictStr] = Field(default=None, alias="coreLocation")
-    type: Optional[StrictStr] = None
+    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName", json_schema_extra={"examples": ["example string"]})
+    core_location: Optional[StrictStr] = Field(default=None, alias="coreLocation", json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["circuitName", "coreLocation", "type"]
 
     model_config = ConfigDict(

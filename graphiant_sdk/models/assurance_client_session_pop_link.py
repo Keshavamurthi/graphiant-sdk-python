@@ -27,11 +27,11 @@ class AssuranceClientSessionPopLink(BaseModel):
     """
     AssuranceClientSessionPopLink
     """ # noqa: E501
-    first_pop_name: Optional[StrictStr] = Field(default=None, alias="firstPopName")
-    jitter: Optional[Union[StrictFloat, StrictInt]] = None
-    latency: Optional[Union[StrictFloat, StrictInt]] = None
-    loss: Optional[Union[StrictFloat, StrictInt]] = None
-    second_pop_name: Optional[StrictStr] = Field(default=None, alias="secondPopName")
+    first_pop_name: Optional[StrictStr] = Field(default=None, alias="firstPopName", json_schema_extra={"examples": ["example string"]})
+    jitter: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [12.34]})
+    latency: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [12.34]})
+    loss: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [12.34]})
+    second_pop_name: Optional[StrictStr] = Field(default=None, alias="secondPopName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["firstPopName", "jitter", "latency", "loss", "secondPopName"]
 
     model_config = ConfigDict(

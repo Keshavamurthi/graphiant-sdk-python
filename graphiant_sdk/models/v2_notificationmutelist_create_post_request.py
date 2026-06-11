@@ -27,8 +27,8 @@ class V2NotificationmutelistCreatePostRequest(BaseModel):
     """
     V2NotificationmutelistCreatePostRequest
     """ # noqa: E501
-    alert_id: StrictStr = Field(description="Alert id of the alert to create allowlist/mutelist for (required)", alias="alertId")
-    note_text: Optional[StrictStr] = Field(default=None, description="Optional note", alias="noteText")
+    alert_id: StrictStr = Field(description="Alert id of the alert to create allowlist/mutelist for (required)", alias="alertId", json_schema_extra={"examples": ["example string"]})
+    note_text: Optional[StrictStr] = Field(default=None, description="Optional note", alias="noteText", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["alertId", "noteText"]
 
     model_config = ConfigDict(

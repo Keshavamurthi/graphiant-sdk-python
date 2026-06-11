@@ -33,14 +33,14 @@ class V1TroubleshootingDeviceDeviceIdPostResponse(BaseModel):
     """
     V1TroubleshootingDeviceDeviceIdPostResponse
     """ # noqa: E501
-    maintenance_mode: Optional[StrictBool] = Field(default=None, alias="MaintenanceMode")
-    colr_active: Optional[StrictBool] = Field(default=None, alias="colrActive")
+    maintenance_mode: Optional[StrictBool] = Field(default=None, alias="MaintenanceMode", json_schema_extra={"examples": [True]})
+    colr_active: Optional[StrictBool] = Field(default=None, alias="colrActive", json_schema_extra={"examples": [True]})
     control_plane: Optional[StatsmonTroubleshootingControlPlane] = Field(default=None, alias="controlPlane")
     data_plane: Optional[StatsmonTroubleshootingDataPlane] = Field(default=None, alias="dataPlane")
     issues: Optional[List[StatsmonTroubleshootingIssue]] = None
-    lifecycle_status: Optional[StrictStr] = Field(default=None, alias="lifecycleStatus")
-    status: Optional[StrictStr] = None
-    sw_version: Optional[StrictStr] = Field(default=None, alias="swVersion")
+    lifecycle_status: Optional[StrictStr] = Field(default=None, alias="lifecycleStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    sw_version: Optional[StrictStr] = Field(default=None, alias="swVersion", json_schema_extra={"examples": ["example string"]})
     sw_version_v2: Optional[UpgradeSwVersion] = Field(default=None, alias="swVersionV2")
     system_plane: Optional[StatsmonTroubleshootingSystemPlane] = Field(default=None, alias="systemPlane")
     up_since_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="upSinceTs")

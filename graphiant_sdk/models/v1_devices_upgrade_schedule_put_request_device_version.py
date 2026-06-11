@@ -28,7 +28,7 @@ class V1DevicesUpgradeSchedulePutRequestDeviceVersion(BaseModel):
     """
     V1DevicesUpgradeSchedulePutRequestDeviceVersion
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
     version: Optional[UpgradeSwVersion] = None
     __properties: ClassVar[List[str]] = ["deviceId", "version"]
 

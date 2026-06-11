@@ -31,8 +31,8 @@ class UpgradeReleaseSummary(BaseModel):
     """ # noqa: E501
     eos_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="eosTs")
     key: Optional[UpgradeInventoryKey] = None
-    name: Optional[StrictStr] = None
-    release: Optional[StrictStr] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    release: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     release_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="releaseTs")
     __properties: ClassVar[List[str]] = ["eosTs", "key", "name", "release", "releaseTs"]
 

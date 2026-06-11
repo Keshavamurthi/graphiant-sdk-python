@@ -27,9 +27,9 @@ class ManaV2SingleRouteTagRouteTagElement(BaseModel):
     """
     ManaV2SingleRouteTagRouteTagElement
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    tag: Optional[StrictStr] = None
-    tag_value: Optional[StrictInt] = Field(default=None, alias="tagValue")
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    tag: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    tag_value: Optional[StrictInt] = Field(default=None, alias="tagValue", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["id", "tag", "tagValue"]
 
     model_config = ConfigDict(

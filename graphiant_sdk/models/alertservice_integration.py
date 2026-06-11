@@ -28,15 +28,15 @@ class AlertserviceIntegration(BaseModel):
     """
     AlertserviceIntegration
     """ # noqa: E501
-    created_by: Optional[StrictStr] = Field(default=None, alias="createdBy")
-    created_on: Optional[StrictStr] = Field(default=None, alias="createdOn")
+    created_by: Optional[StrictStr] = Field(default=None, alias="createdBy", json_schema_extra={"examples": ["example string"]})
+    created_on: Optional[StrictStr] = Field(default=None, alias="createdOn", json_schema_extra={"examples": ["example string"]})
     details: Optional[AlertserviceIntegrationDetails] = None
-    enterprise_id: Optional[StrictStr] = Field(default=None, alias="enterpriseId")
-    id: Optional[StrictInt] = None
-    is_active: Optional[StrictBool] = Field(default=None, alias="isActive")
-    last_scanned: Optional[StrictInt] = Field(default=None, description="last scanned time for integrations (zendesk)", alias="lastScanned")
-    nick_name: Optional[StrictStr] = Field(default=None, alias="nickName")
-    type: Optional[StrictStr] = None
+    enterprise_id: Optional[StrictStr] = Field(default=None, alias="enterpriseId", json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    is_active: Optional[StrictBool] = Field(default=None, alias="isActive", json_schema_extra={"examples": [True]})
+    last_scanned: Optional[StrictInt] = Field(default=None, description="last scanned time for integrations (zendesk)", alias="lastScanned", json_schema_extra={"examples": [1234567891011]})
+    nick_name: Optional[StrictStr] = Field(default=None, alias="nickName", json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["createdBy", "createdOn", "details", "enterpriseId", "id", "isActive", "lastScanned", "nickName", "type"]
 
     model_config = ConfigDict(

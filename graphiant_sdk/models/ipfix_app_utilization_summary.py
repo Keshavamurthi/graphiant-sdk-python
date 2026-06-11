@@ -28,9 +28,9 @@ class IpfixAppUtilizationSummary(BaseModel):
     """
     IpfixAppUtilizationSummary
     """ # noqa: E501
-    app_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="appId")
-    app_name: Optional[StrictStr] = Field(default=None, alias="appName")
-    usage: Optional[StrictInt] = Field(default=None, description="application usage in kilo bytes")
+    app_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="appId", json_schema_extra={"examples": [123]})
+    app_name: Optional[StrictStr] = Field(default=None, alias="appName", json_schema_extra={"examples": ["example string"]})
+    usage: Optional[StrictInt] = Field(default=None, description="application usage in kilo bytes", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["appId", "appName", "usage"]
 
     model_config = ConfigDict(

@@ -30,7 +30,7 @@ class StatsmonV2CircuitIncidentsDataSample(BaseModel):
     StatsmonV2CircuitIncidentsDataSample
     """ # noqa: E501
     dl_incidents: Optional[StatsmonV2CircuitIncidentsDataSampleIncidents] = Field(default=None, alias="dlIncidents")
-    overall_status: Optional[StrictStr] = Field(default=None, description="Overall circuit status based on num of poor/fair incidents.", alias="overallStatus")
+    overall_status: Optional[StrictStr] = Field(default=None, description="Overall circuit status based on num of poor/fair incidents.", alias="overallStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
     total_incidents: Optional[StatsmonV2CircuitIncidentsDataSampleIncidents] = Field(default=None, alias="totalIncidents")
     ts: Optional[GoogleProtobufTimestamp] = None
     ul_incidents: Optional[StatsmonV2CircuitIncidentsDataSampleIncidents] = Field(default=None, alias="ulIncidents")

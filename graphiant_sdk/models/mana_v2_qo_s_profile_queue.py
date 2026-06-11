@@ -28,9 +28,9 @@ class ManaV2QoSProfileQueue(BaseModel):
     """
     ManaV2QoSProfileQueue
     """ # noqa: E501
-    bandwidth_percent: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="bandwidthPercent")
-    default_queue: Optional[StrictBool] = Field(default=None, alias="defaultQueue")
-    sla_class: Optional[StrictStr] = Field(default=None, alias="slaClass")
+    bandwidth_percent: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="bandwidthPercent", json_schema_extra={"examples": [123]})
+    default_queue: Optional[StrictBool] = Field(default=None, alias="defaultQueue", json_schema_extra={"examples": [True]})
+    sla_class: Optional[StrictStr] = Field(default=None, alias="slaClass", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["bandwidthPercent", "defaultQueue", "slaClass"]
 
     model_config = ConfigDict(

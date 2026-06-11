@@ -42,23 +42,23 @@ class ManaV2Vrf(BaseModel):
     bgp_multipath: Optional[ManaV2BgpMultipath] = Field(default=None, alias="bgpMultipath")
     bgp_neighbors: Optional[List[ManaV2BgpNeighbor]] = Field(default=None, alias="bgpNeighbors")
     bgp_redistributions: Optional[ManaV2BgpRedistribute] = Field(default=None, alias="bgpRedistributions")
-    description: Optional[StrictStr] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     dhcp_subnets: Optional[List[ManaV2DhcpServerPool]] = Field(default=None, alias="dhcpSubnets")
-    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId")
-    function: Optional[StrictStr] = None
-    id: Optional[StrictInt] = None
+    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId", json_schema_extra={"examples": [1234567891011]})
+    function: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     ipfix_exporters: Optional[List[ManaV2IpfixExporter]] = Field(default=None, alias="ipfixExporters")
-    name: Optional[StrictStr] = None
-    nat_ruleset: Optional[StrictStr] = Field(default=None, alias="natRuleset")
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    nat_ruleset: Optional[StrictStr] = Field(default=None, alias="natRuleset", json_schema_extra={"examples": ["example string"]})
     networks: Optional[List[StrictStr]] = None
     ospfv2_process: Optional[ManaV2OspFv2Process] = Field(default=None, alias="ospfv2Process")
     ospfv3_process: Optional[ManaV2OspFv3Process] = Field(default=None, alias="ospfv3Process")
     overlay_filters: Optional[ManaV2OverlayFilters] = Field(default=None, alias="overlayFilters")
-    routable: Optional[StrictBool] = None
-    route_distinguisher: Optional[StrictStr] = Field(default=None, alias="routeDistinguisher")
+    routable: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    route_distinguisher: Optional[StrictStr] = Field(default=None, alias="routeDistinguisher", json_schema_extra={"examples": ["example string"]})
     static_routes: Optional[List[ManaV2StaticRoute]] = Field(default=None, alias="staticRoutes")
     syslog_targets: Optional[List[ManaV2SyslogCollector]] = Field(default=None, alias="syslogTargets")
-    traffic_ruleset: Optional[StrictStr] = Field(default=None, alias="trafficRuleset")
+    traffic_ruleset: Optional[StrictStr] = Field(default=None, alias="trafficRuleset", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["bgpAggregations", "bgpMultipath", "bgpNeighbors", "bgpRedistributions", "description", "dhcpSubnets", "enterpriseId", "function", "id", "ipfixExporters", "name", "natRuleset", "networks", "ospfv2Process", "ospfv3Process", "overlayFilters", "routable", "routeDistinguisher", "staticRoutes", "syslogTargets", "trafficRuleset"]
 
     model_config = ConfigDict(

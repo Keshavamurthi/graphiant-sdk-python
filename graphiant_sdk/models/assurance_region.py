@@ -27,9 +27,9 @@ class AssuranceRegion(BaseModel):
     """
     AssuranceRegion
     """ # noqa: E501
-    region_id: Optional[StrictInt] = Field(default=None, alias="regionId")
-    region_iso_code: Optional[StrictStr] = Field(default=None, alias="regionIsoCode")
-    region_name: Optional[StrictStr] = Field(default=None, alias="regionName")
+    region_id: Optional[StrictInt] = Field(default=None, alias="regionId", json_schema_extra={"examples": [123]})
+    region_iso_code: Optional[StrictStr] = Field(default=None, alias="regionIsoCode", json_schema_extra={"examples": ["example string"]})
+    region_name: Optional[StrictStr] = Field(default=None, alias="regionName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["regionId", "regionIsoCode", "regionName"]
 
     model_config = ConfigDict(

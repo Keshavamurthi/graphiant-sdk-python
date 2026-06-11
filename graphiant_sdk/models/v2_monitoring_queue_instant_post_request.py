@@ -30,9 +30,9 @@ class V2MonitoringQueueInstantPostRequest(BaseModel):
     """
     V2MonitoringQueueInstantPostRequest
     """ # noqa: E501
-    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId")
-    is_delta: Optional[StrictBool] = Field(default=None, alias="isDelta")
-    is_total: Optional[StrictBool] = Field(default=None, alias="isTotal")
+    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [12345678910]})
+    is_delta: Optional[StrictBool] = Field(default=None, alias="isDelta", json_schema_extra={"examples": [True]})
+    is_total: Optional[StrictBool] = Field(default=None, alias="isTotal", json_schema_extra={"examples": [True]})
     selectors: Optional[List[StatsmonV2QueueInstantStatsSelector]] = None
     time_window: Optional[StatsmonV2TimeWindow] = Field(default=None, alias="timeWindow")
     __properties: ClassVar[List[str]] = ["deviceId", "isDelta", "isTotal", "selectors", "timeWindow"]

@@ -29,7 +29,7 @@ class AssuranceTimeWindow(BaseModel):
     """
     AssuranceTimeWindow
     """ # noqa: E501
-    bucket_size_sec: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="bucketSizeSec")
+    bucket_size_sec: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="bucketSizeSec", json_schema_extra={"examples": [123]})
     old_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="oldTs")
     recent_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="recentTs")
     __properties: ClassVar[List[str]] = ["bucketSizeSec", "oldTs", "recentTs"]

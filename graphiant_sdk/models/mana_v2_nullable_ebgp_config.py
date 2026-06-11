@@ -28,7 +28,7 @@ class ManaV2NullableEbgpConfig(BaseModel):
     """
     ManaV2NullableEbgpConfig
     """ # noqa: E501
-    multi_hop: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="multiHop")
+    multi_hop: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="multiHop", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["multiHop"]
 
     model_config = ConfigDict(

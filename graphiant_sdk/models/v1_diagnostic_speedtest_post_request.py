@@ -29,7 +29,7 @@ class V1DiagnosticSpeedtestPostRequest(BaseModel):
     """
     V1DiagnosticSpeedtestPostRequest
     """ # noqa: E501
-    device_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="Unique identifier for a specific device (required)", alias="deviceId")
+    device_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="Unique identifier for a specific device (required)", alias="deviceId", json_schema_extra={"examples": [30000000555]})
     params: Optional[DiagnosticToolsSpeedtestParams] = None
     __properties: ClassVar[List[str]] = ["deviceId", "params"]
 

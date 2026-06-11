@@ -27,13 +27,13 @@ class V1AuthLoginPostResponse(BaseModel):
     """
     V1AuthLoginPostResponse
     """ # noqa: E501
-    auth: Optional[StrictBool] = None
-    token: Optional[StrictStr] = None
-    account_type: Optional[StrictStr] = Field(default=None, alias="accountType")
-    email: Optional[StrictStr] = Field(default=None, description="User email address (returned for MFA users)")
-    mfa_type: Optional[StrictStr] = Field(default=None, description="MFA type (returned for MFA users)", alias="mfaType")
-    state_token: Optional[StrictStr] = Field(default=None, description="State token for MFA verification (returned for MFA users)", alias="stateToken")
-    status: Optional[StrictStr] = Field(default=None, description="Authentication status (returned for MFA users)")
+    auth: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    token: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["gr-auth-12345678-1234-1234-1234-123456789012-87654321-4321-4321-4321-210987654321"]})
+    account_type: Optional[StrictStr] = Field(default=None, alias="accountType", json_schema_extra={"examples": ["enterprise"]})
+    email: Optional[StrictStr] = Field(default=None, description="User email address (returned for MFA users)", json_schema_extra={"examples": ["user@example.com"]})
+    mfa_type: Optional[StrictStr] = Field(default=None, description="MFA type (returned for MFA users)", alias="mfaType", json_schema_extra={"examples": ["TOTP"]})
+    state_token: Optional[StrictStr] = Field(default=None, description="State token for MFA verification (returned for MFA users)", alias="stateToken", json_schema_extra={"examples": ["state-token-12345"]})
+    status: Optional[StrictStr] = Field(default=None, description="Authentication status (returned for MFA users)", json_schema_extra={"examples": ["AwaitingMfa"]})
     __properties: ClassVar[List[str]] = ["auth", "token", "accountType", "email", "mfaType", "stateToken", "status"]
 
     @field_validator('account_type')

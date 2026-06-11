@@ -27,10 +27,10 @@ class V1AccountMfaConfirmationPostRequest(BaseModel):
     """
     V1AccountMfaConfirmationPostRequest
     """ # noqa: E501
-    code: StrictStr = Field(description=" (required)")
-    confirmed: StrictBool = Field(description=" (required)")
-    id: StrictStr = Field(description=" (required)")
-    type: StrictStr = Field(description=" (required)")
+    code: StrictStr = Field(description=" (required)", json_schema_extra={"examples": ["example string"]})
+    confirmed: StrictBool = Field(description=" (required)", json_schema_extra={"examples": [True]})
+    id: StrictStr = Field(description=" (required)", json_schema_extra={"examples": ["example string"]})
+    type: StrictStr = Field(description=" (required)", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["code", "confirmed", "id", "type"]
 
     model_config = ConfigDict(

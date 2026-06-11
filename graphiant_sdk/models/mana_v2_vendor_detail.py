@@ -27,8 +27,8 @@ class ManaV2VendorDetail(BaseModel):
     """
     ManaV2VendorDetail
     """ # noqa: E501
-    name: Optional[StrictStr] = None
-    neighbor_count: Optional[StrictInt] = Field(default=None, alias="neighborCount")
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    neighbor_count: Optional[StrictInt] = Field(default=None, alias="neighborCount", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["name", "neighborCount"]
 
     model_config = ConfigDict(

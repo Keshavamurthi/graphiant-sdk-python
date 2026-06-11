@@ -30,16 +30,16 @@ class ManaV2IPsecGatewayDetails(BaseModel):
     """
     ManaV2IPsecGatewayDetails
     """ # noqa: E501
-    destination_address: Optional[StrictStr] = Field(default=None, alias="destinationAddress")
-    ike_initiator: Optional[StrictBool] = Field(default=None, alias="ikeInitiator")
-    mtu: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    name: Optional[StrictStr] = None
-    remote_ike_peer_identity: Optional[StrictStr] = Field(default=None, alias="remoteIkePeerIdentity")
+    destination_address: Optional[StrictStr] = Field(default=None, alias="destinationAddress", json_schema_extra={"examples": ["example string"]})
+    ike_initiator: Optional[StrictBool] = Field(default=None, alias="ikeInitiator", json_schema_extra={"examples": [True]})
+    mtu: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    remote_ike_peer_identity: Optional[StrictStr] = Field(default=None, alias="remoteIkePeerIdentity", json_schema_extra={"examples": ["example string"]})
     routing: Optional[ManaV2IpsecRoutingConfig] = None
-    tcp_mss: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="tcpMss")
+    tcp_mss: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="tcpMss", json_schema_extra={"examples": [123]})
     tunnel1: Optional[ManaV2IPsecGatewayTunnelDetails] = None
     tunnel2: Optional[ManaV2IPsecGatewayTunnelDetails] = None
-    vpn_profile: Optional[StrictStr] = Field(default=None, alias="vpnProfile")
+    vpn_profile: Optional[StrictStr] = Field(default=None, alias="vpnProfile", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["destinationAddress", "ikeInitiator", "mtu", "name", "remoteIkePeerIdentity", "routing", "tcpMss", "tunnel1", "tunnel2", "vpnProfile"]
 
     model_config = ConfigDict(

@@ -30,9 +30,9 @@ class V1AppsVisualizationPostResponse(BaseModel):
     V1AppsVisualizationPostResponse
     """ # noqa: E501
     app_health: Optional[Dict[str, Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, alias="appHealth")
-    apps_on_device_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="appsOnDeviceCount")
+    apps_on_device_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="appsOnDeviceCount", json_schema_extra={"examples": [123]})
     apps_visualization: Optional[List[IpfixAppVisualization]] = Field(default=None, alias="appsVisualization")
-    average_qoe: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="averageQoe")
+    average_qoe: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="averageQoe", json_schema_extra={"examples": [123.45]})
     __properties: ClassVar[List[str]] = ["appHealth", "appsOnDeviceCount", "appsVisualization", "averageQoe"]
 
     model_config = ConfigDict(

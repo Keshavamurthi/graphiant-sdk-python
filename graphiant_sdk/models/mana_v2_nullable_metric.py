@@ -28,8 +28,8 @@ class ManaV2NullableMetric(BaseModel):
     """
     ManaV2NullableMetric
     """ # noqa: E501
-    absolute: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    modifier: Optional[StrictInt] = None
+    absolute: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    modifier: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["absolute", "modifier"]
 
     model_config = ConfigDict(

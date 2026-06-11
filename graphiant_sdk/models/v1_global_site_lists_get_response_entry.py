@@ -29,12 +29,12 @@ class V1GlobalSiteListsGetResponseEntry(BaseModel):
     V1GlobalSiteListsGetResponseEntry
     """ # noqa: E501
     created_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="createdAt")
-    description: Optional[StrictStr] = None
-    edge_references: Optional[StrictInt] = Field(default=None, alias="edgeReferences")
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
-    policy_references: Optional[StrictInt] = Field(default=None, alias="policyReferences")
-    site_list_references: Optional[StrictInt] = Field(default=None, alias="siteListReferences")
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    edge_references: Optional[StrictInt] = Field(default=None, alias="edgeReferences", json_schema_extra={"examples": [123]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    policy_references: Optional[StrictInt] = Field(default=None, alias="policyReferences", json_schema_extra={"examples": [123]})
+    site_list_references: Optional[StrictInt] = Field(default=None, alias="siteListReferences", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["createdAt", "description", "edgeReferences", "id", "name", "policyReferences", "siteListReferences"]
 
     model_config = ConfigDict(

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **app_id_key** | **str** |  | [optional] 
 **app_name** | **str** |  | [optional] 
 **bucket_id** | **str** |  | [optional] 
+**exchange_service_id** | **int** |  | [optional] 
 **flex_algo_id** | **int** |  | [optional] 
 **time_window** | [**AssuranceTimeWindow**](AssuranceTimeWindow.md) |  | [optional] 
 

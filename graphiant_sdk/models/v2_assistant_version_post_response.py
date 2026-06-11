@@ -27,7 +27,7 @@ class V2AssistantVersionPostResponse(BaseModel):
     """
     V2AssistantVersionPostResponse
     """ # noqa: E501
-    version_id: Optional[StrictStr] = Field(default=None, alias="versionId")
+    version_id: Optional[StrictStr] = Field(default=None, alias="versionId", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["versionId"]
 
     model_config = ConfigDict(

@@ -28,11 +28,11 @@ class V1ExtranetsB2bPeeringMatchServiceToCustomerIdGetResponse(BaseModel):
     """
     V1ExtranetsB2bPeeringMatchServiceToCustomerIdGetResponse
     """ # noqa: E501
-    customer_name: Optional[StrictStr] = Field(default=None, alias="customerName")
+    customer_name: Optional[StrictStr] = Field(default=None, alias="customerName", json_schema_extra={"examples": ["example string"]})
     match_details: Optional[ManaV2B2bExtranetMatchServiceToCustomer] = Field(default=None, alias="matchDetails")
-    match_id: Optional[StrictInt] = Field(default=None, alias="matchId")
-    service_name: Optional[StrictStr] = Field(default=None, alias="serviceName")
-    status: Optional[StrictStr] = None
+    match_id: Optional[StrictInt] = Field(default=None, alias="matchId", json_schema_extra={"examples": [1234567891011]})
+    service_name: Optional[StrictStr] = Field(default=None, alias="serviceName", json_schema_extra={"examples": ["example string"]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["customerName", "matchDetails", "matchId", "serviceName", "status"]
 
     model_config = ConfigDict(

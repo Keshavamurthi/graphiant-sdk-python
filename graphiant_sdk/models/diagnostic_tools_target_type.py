@@ -27,8 +27,8 @@ class DiagnosticToolsTargetType(BaseModel):
     """
     DiagnosticToolsTargetType
     """ # noqa: E501
-    interface: Optional[StrictStr] = Field(default=None, description="Source Interface name")
-    vrf_name: Optional[StrictStr] = Field(default=None, description="Configured VRF Name", alias="vrfName")
+    interface: Optional[StrictStr] = Field(default=None, description="Source Interface name", json_schema_extra={"examples": ["ethernet1/0"]})
+    vrf_name: Optional[StrictStr] = Field(default=None, description="Configured VRF Name", alias="vrfName", json_schema_extra={"examples": ["isp-red"]})
     __properties: ClassVar[List[str]] = ["interface", "vrfName"]
 
     model_config = ConfigDict(

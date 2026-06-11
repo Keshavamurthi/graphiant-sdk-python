@@ -27,8 +27,8 @@ class V1GatewaysIpsecRegionsRegionIdVrfsVrfIdInsideSubnetGetResponse(BaseModel):
     """
     V1GatewaysIpsecRegionsRegionIdVrfsVrfIdInsideSubnetGetResponse
     """ # noqa: E501
-    ipv4_subnet: Optional[StrictStr] = Field(default=None, alias="ipv4Subnet")
-    ipv6_subnet: Optional[StrictStr] = Field(default=None, alias="ipv6Subnet")
+    ipv4_subnet: Optional[StrictStr] = Field(default=None, alias="ipv4Subnet", json_schema_extra={"examples": ["example string"]})
+    ipv6_subnet: Optional[StrictStr] = Field(default=None, alias="ipv6Subnet", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["ipv4Subnet", "ipv6Subnet"]
 
     model_config = ConfigDict(

@@ -29,12 +29,12 @@ class AssuranceBucketApp(BaseModel):
     """
     AssuranceBucketApp
     """ # noqa: E501
-    app_name: Optional[StrictStr] = Field(default=None, alias="appName")
-    builtin_app_id: Optional[StrictInt] = Field(default=None, alias="builtinAppId")
-    custom_app_id: Optional[StrictInt] = Field(default=None, alias="customAppId")
+    app_name: Optional[StrictStr] = Field(default=None, alias="appName", json_schema_extra={"examples": ["example string"]})
+    builtin_app_id: Optional[StrictInt] = Field(default=None, alias="builtinAppId", json_schema_extra={"examples": [1234567891011]})
+    custom_app_id: Optional[StrictInt] = Field(default=None, alias="customAppId", json_schema_extra={"examples": [1234567891011]})
     exchange_service: Optional[AssuranceExchangeServiceIdentifier] = Field(default=None, alias="exchangeService")
     flex_algo: Optional[AssuranceFlexAlgoIdentifier] = Field(default=None, alias="flexAlgo")
-    is_domain: Optional[StrictBool] = Field(default=None, alias="isDomain")
+    is_domain: Optional[StrictBool] = Field(default=None, alias="isDomain", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["appName", "builtinAppId", "customAppId", "exchangeService", "flexAlgo", "isDomain"]
 
     model_config = ConfigDict(

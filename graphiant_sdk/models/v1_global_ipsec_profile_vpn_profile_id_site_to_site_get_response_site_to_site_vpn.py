@@ -28,10 +28,10 @@ class V1GlobalIpsecProfileVpnProfileIdSiteToSiteGetResponseSiteToSiteVpn(BaseMod
     """
     V1GlobalIpsecProfileVpnProfileIdSiteToSiteGetResponseSiteToSiteVpn
     """ # noqa: E501
-    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId")
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
-    type: Optional[StrictStr] = None
+    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [12345678910]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["deviceId", "id", "name", "type"]
 
     model_config = ConfigDict(

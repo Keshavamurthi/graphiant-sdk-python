@@ -27,10 +27,10 @@ class AssuranceBucketStats(BaseModel):
     """
     AssuranceBucketStats
     """ # noqa: E501
-    prev_unique_app_count: Optional[StrictInt] = Field(default=None, alias="prevUniqueAppCount")
-    prev_unique_threat_count: Optional[StrictInt] = Field(default=None, alias="prevUniqueThreatCount")
-    unique_app_count: Optional[StrictInt] = Field(default=None, alias="uniqueAppCount")
-    unique_threat_count: Optional[StrictInt] = Field(default=None, alias="uniqueThreatCount")
+    prev_unique_app_count: Optional[StrictInt] = Field(default=None, alias="prevUniqueAppCount", json_schema_extra={"examples": [1234567891011]})
+    prev_unique_threat_count: Optional[StrictInt] = Field(default=None, alias="prevUniqueThreatCount", json_schema_extra={"examples": [1234567891011]})
+    unique_app_count: Optional[StrictInt] = Field(default=None, alias="uniqueAppCount", json_schema_extra={"examples": [1234567891011]})
+    unique_threat_count: Optional[StrictInt] = Field(default=None, alias="uniqueThreatCount", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["prevUniqueAppCount", "prevUniqueThreatCount", "uniqueAppCount", "uniqueThreatCount"]
 
     model_config = ConfigDict(

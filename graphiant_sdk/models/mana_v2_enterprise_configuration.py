@@ -27,8 +27,8 @@ class ManaV2EnterpriseConfiguration(BaseModel):
     """
     ManaV2EnterpriseConfiguration
     """ # noqa: E501
-    encryption: Optional[StrictStr] = None
-    use_encryption: Optional[StrictBool] = Field(default=None, alias="useEncryption")
+    encryption: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    use_encryption: Optional[StrictBool] = Field(default=None, alias="useEncryption", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["encryption", "useEncryption"]
 
     model_config = ConfigDict(

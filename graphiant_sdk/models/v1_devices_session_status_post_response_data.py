@@ -27,10 +27,10 @@ class V1DevicesSessionStatusPostResponseData(BaseModel):
     """
     V1DevicesSessionStatusPostResponseData
     """ # noqa: E501
-    core_bgp_neighbors_count: Optional[StrictInt] = Field(default=None, alias="coreBgpNeighborsCount")
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    odp_bgp_neighbors_count: Optional[StrictInt] = Field(default=None, alias="odpBgpNeighborsCount")
-    wan_interfaces_count: Optional[StrictInt] = Field(default=None, alias="wanInterfacesCount")
+    core_bgp_neighbors_count: Optional[StrictInt] = Field(default=None, alias="coreBgpNeighborsCount", json_schema_extra={"examples": [123]})
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    odp_bgp_neighbors_count: Optional[StrictInt] = Field(default=None, alias="odpBgpNeighborsCount", json_schema_extra={"examples": [123]})
+    wan_interfaces_count: Optional[StrictInt] = Field(default=None, alias="wanInterfacesCount", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["coreBgpNeighborsCount", "deviceId", "odpBgpNeighborsCount", "wanInterfacesCount"]
 
     model_config = ConfigDict(

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.mana_v2_device_snapshot import ManaV2DeviceSnapshot
 from typing import Optional, Set
@@ -28,7 +28,7 @@ class ManaV2DeviceSnapshotList(BaseModel):
     """
     ManaV2DeviceSnapshotList
     """ # noqa: E501
-    count: Optional[StrictInt] = None
+    count: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [123]})
     snapshots: Optional[List[ManaV2DeviceSnapshot]] = None
     __properties: ClassVar[List[str]] = ["count", "snapshots"]
 

@@ -31,11 +31,11 @@ class UpgradeRollout(BaseModel):
     UpgradeRollout
     """ # noqa: E501
     devices: Optional[List[UpgradeRolloutDevice]] = None
-    has_failed: Optional[StrictBool] = Field(default=None, description="True if any device in the rollout has a failed upgrade state.", alias="hasFailed")
-    id: Optional[StrictInt] = Field(default=None, description="Server-assigned rollout identifier.")
+    has_failed: Optional[StrictBool] = Field(default=None, description="True if any device in the rollout has a failed upgrade state.", alias="hasFailed", json_schema_extra={"examples": [True]})
+    id: Optional[StrictInt] = Field(default=None, description="Server-assigned rollout identifier.", json_schema_extra={"examples": [42]})
     last_run_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="lastRunTs")
     next_run_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="nextRunTs")
-    num_devices: Optional[StrictInt] = Field(default=None, description="Count of devices associated with the rollout.", alias="numDevices")
+    num_devices: Optional[StrictInt] = Field(default=None, description="Count of devices associated with the rollout.", alias="numDevices", json_schema_extra={"examples": [3]})
     rollout_config: Optional[UpgradeRolloutConfig] = Field(default=None, alias="rolloutConfig")
     __properties: ClassVar[List[str]] = ["devices", "hasFailed", "id", "lastRunTs", "nextRunTs", "numDevices", "rolloutConfig"]
 

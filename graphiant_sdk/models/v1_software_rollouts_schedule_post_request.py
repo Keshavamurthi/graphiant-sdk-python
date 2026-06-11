@@ -28,8 +28,8 @@ class V1SoftwareRolloutsSchedulePostRequest(BaseModel):
     """
     V1SoftwareRolloutsSchedulePostRequest
     """ # noqa: E501
-    failed_only: Optional[StrictBool] = Field(default=None, description="When true, only devices previously marked failed are rescheduled.", alias="failedOnly")
-    id: StrictInt = Field(description="Rollout identifier to schedule. (required)")
+    failed_only: Optional[StrictBool] = Field(default=None, description="When true, only devices previously marked failed are rescheduled.", alias="failedOnly", json_schema_extra={"examples": [True]})
+    id: StrictInt = Field(description="Rollout identifier to schedule. (required)", json_schema_extra={"examples": [42]})
     ts: Optional[GoogleProtobufTimestamp] = None
     __properties: ClassVar[List[str]] = ["failedOnly", "id", "ts"]
 

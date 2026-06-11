@@ -28,9 +28,9 @@ class StatsmonExtranetServiceHealth(BaseModel):
     """
     StatsmonExtranetServiceHealth
     """ # noqa: E501
-    customer_name: Optional[StrictStr] = Field(default=None, description="the name of the customer", alias="customerName")
+    customer_name: Optional[StrictStr] = Field(default=None, description="the name of the customer", alias="customerName", json_schema_extra={"examples": ["Customer 1"]})
     customer_prefix_health: Optional[StatsmonExtranetPrefixHealth] = Field(default=None, alias="customerPrefixHealth")
-    overall_health: Optional[StrictStr] = Field(default=None, description="the overall connectivity status of the service (Healthy, Impaired, Down)", alias="overallHealth")
+    overall_health: Optional[StrictStr] = Field(default=None, description="the overall connectivity status of the service (Healthy, Impaired, Down)", alias="overallHealth", json_schema_extra={"examples": ["Impaired"]})
     producer_prefix_health: Optional[StatsmonExtranetPrefixHealth] = Field(default=None, alias="producerPrefixHealth")
     __properties: ClassVar[List[str]] = ["customerName", "customerPrefixHealth", "overallHealth", "producerPrefixHealth"]
 

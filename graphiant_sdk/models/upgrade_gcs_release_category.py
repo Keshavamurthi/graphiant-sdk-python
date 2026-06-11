@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +27,8 @@ class UpgradeGcsReleaseCategory(BaseModel):
     """
     UpgradeGcsReleaseCategory
     """ # noqa: E501
-    content: Optional[StrictStr] = None
-    title: Optional[StrictStr] = None
+    content: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    title: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["content", "title"]
 
     model_config = ConfigDict(

@@ -30,17 +30,17 @@ class UpgradeUpgradeSummary(BaseModel):
     """
     UpgradeUpgradeSummary
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    end_of_life: Optional[StrictBool] = Field(default=None, alias="endOfLife")
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    end_of_life: Optional[StrictBool] = Field(default=None, alias="endOfLife", json_schema_extra={"examples": [True]})
     last_discovered_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="lastDiscoveredTs")
     last_running_version: Optional[UpgradeSwVersion] = Field(default=None, alias="lastRunningVersion")
     last_upgrade_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="lastUpgradeTs")
     ready_for_activation_version: Optional[UpgradeSwVersion] = Field(default=None, alias="readyForActivationVersion")
-    rollout_id: Optional[StrictInt] = Field(default=None, alias="rolloutId")
-    rollout_name: Optional[StrictStr] = Field(default=None, alias="rolloutName")
+    rollout_id: Optional[StrictInt] = Field(default=None, alias="rolloutId", json_schema_extra={"examples": [1234567891011]})
+    rollout_name: Optional[StrictStr] = Field(default=None, alias="rolloutName", json_schema_extra={"examples": ["example string"]})
     running_version: Optional[UpgradeSwVersion] = Field(default=None, alias="runningVersion")
     schedule: Optional[UpgradeSchedule] = None
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["deviceId", "endOfLife", "lastDiscoveredTs", "lastRunningVersion", "lastUpgradeTs", "readyForActivationVersion", "rolloutId", "rolloutName", "runningVersion", "schedule", "status"]
 
     model_config = ConfigDict(

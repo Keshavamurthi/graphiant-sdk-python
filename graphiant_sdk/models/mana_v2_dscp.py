@@ -28,7 +28,7 @@ class ManaV2Dscp(BaseModel):
     """
     ManaV2Dscp
     """ # noqa: E501
-    code_point: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="codePoint")
+    code_point: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="codePoint", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["codePoint"]
 
     model_config = ConfigDict(

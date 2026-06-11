@@ -27,7 +27,7 @@ class V2AssuranceBucketServicesPostRequest(BaseModel):
     """
     V2AssuranceBucketServicesPostRequest
     """ # noqa: E501
-    bucket_id: Optional[StrictStr] = Field(default=None, alias="bucketId")
+    bucket_id: Optional[StrictStr] = Field(default=None, alias="bucketId", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["bucketId"]
 
     model_config = ConfigDict(

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.mana_v2_site_list_entry import ManaV2SiteListEntry
 from typing import Optional, Set
@@ -28,9 +28,9 @@ class V1GlobalSiteListsPostRequest(BaseModel):
     """
     V1GlobalSiteListsPostRequest
     """ # noqa: E501
-    description: Optional[StrictStr] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     entries: Optional[List[ManaV2SiteListEntry]] = None
-    name: Optional[StrictStr] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["description", "entries", "name"]
 
     model_config = ConfigDict(

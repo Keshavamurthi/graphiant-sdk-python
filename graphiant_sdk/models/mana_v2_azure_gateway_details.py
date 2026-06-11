@@ -28,9 +28,9 @@ class ManaV2AzureGatewayDetails(BaseModel):
     """
     ManaV2AzureGatewayDetails
     """ # noqa: E501
-    ms_peering_vlan_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="msPeeringVlanId")
-    routing_policy: Optional[StrictStr] = Field(default=None, alias="routingPolicy")
-    service_key: Optional[StrictStr] = Field(default=None, alias="serviceKey")
+    ms_peering_vlan_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="msPeeringVlanId", json_schema_extra={"examples": [123]})
+    routing_policy: Optional[StrictStr] = Field(default=None, alias="routingPolicy", json_schema_extra={"examples": ["example string"]})
+    service_key: Optional[StrictStr] = Field(default=None, alias="serviceKey", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["msPeeringVlanId", "routingPolicy", "serviceKey"]
 
     model_config = ConfigDict(

@@ -29,8 +29,8 @@ class IpfixAppIncidentsData(BaseModel):
     """
     IpfixAppIncidentsData
     """ # noqa: E501
-    app_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="number of apps running in this time bucket", alias="appCount")
-    app_status: Optional[StrictStr] = Field(default=None, alias="appStatus")
+    app_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="number of apps running in this time bucket", alias="appCount", json_schema_extra={"examples": [123]})
+    app_status: Optional[StrictStr] = Field(default=None, alias="appStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
     ts: Optional[GoogleProtobufTimestamp] = None
     __properties: ClassVar[List[str]] = ["appCount", "appStatus", "ts"]
 

@@ -27,10 +27,10 @@ class ManaV2SecurityZone(BaseModel):
     """
     ManaV2SecurityZone
     """ # noqa: E501
-    inside: Optional[StrictStr] = None
-    outside: Optional[StrictStr] = None
-    ruleset: Optional[StrictStr] = None
-    tcp_protection: Optional[StrictBool] = Field(default=None, alias="tcpProtection")
+    inside: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    outside: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    ruleset: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    tcp_protection: Optional[StrictBool] = Field(default=None, alias="tcpProtection", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["inside", "outside", "ruleset", "tcpProtection"]
 
     model_config = ConfigDict(

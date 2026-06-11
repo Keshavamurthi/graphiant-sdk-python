@@ -29,7 +29,7 @@ class V1ExtranetsIdApplyPostResponse(BaseModel):
     V1ExtranetsIdApplyPostResponse
     """ # noqa: E501
     devices: Optional[List[ManaV2ExtranetDeviceStatus]] = None
-    job_id: Optional[StrictInt] = Field(default=None, alias="jobId")
+    job_id: Optional[StrictInt] = Field(default=None, alias="jobId", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["devices", "jobId"]
 
     model_config = ConfigDict(

@@ -27,11 +27,11 @@ class V1AuthLoginPreGetResponse(BaseModel):
     """
     V1AuthLoginPreGetResponse
     """ # noqa: E501
-    method: StrictStr = Field(description="Authentication method to use")
-    email: StrictStr = Field(description="User email address")
-    iam: Optional[StrictStr] = Field(default=None, description="Identity provider name (Azure/Okta)")
-    relay_state: Optional[StrictStr] = Field(default=None, description="State to relay after authentication", alias="relayState")
-    entry_point: Optional[StrictStr] = Field(default=None, description="SSO entry point URL", alias="entryPoint")
+    method: StrictStr = Field(description="Authentication method to use", json_schema_extra={"examples": ["PASSWORD"]})
+    email: StrictStr = Field(description="User email address", json_schema_extra={"examples": ["user@example.com"]})
+    iam: Optional[StrictStr] = Field(default=None, description="Identity provider name (Azure/Okta)", json_schema_extra={"examples": ["Azure"]})
+    relay_state: Optional[StrictStr] = Field(default=None, description="State to relay after authentication", alias="relayState", json_schema_extra={"examples": ["information-to-relay"]})
+    entry_point: Optional[StrictStr] = Field(default=None, description="SSO entry point URL", alias="entryPoint", json_schema_extra={"examples": ["https://saml.example.com/sso"]})
     __properties: ClassVar[List[str]] = ["method", "email", "iam", "relayState", "entryPoint"]
 
     @field_validator('method')

@@ -27,7 +27,7 @@ class V2AssuranceCreateclassifiedapplicationPostResponse(BaseModel):
     """
     V2AssuranceCreateclassifiedapplicationPostResponse
     """ # noqa: E501
-    classification_entry_id: Optional[StrictStr] = Field(default=None, alias="classificationEntryId")
+    classification_entry_id: Optional[StrictStr] = Field(default=None, alias="classificationEntryId", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["classificationEntryId"]
 
     model_config = ConfigDict(

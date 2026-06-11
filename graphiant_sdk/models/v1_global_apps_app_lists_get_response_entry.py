@@ -28,9 +28,9 @@ class V1GlobalAppsAppListsGetResponseEntry(BaseModel):
     """
     V1GlobalAppsAppListsGetResponseEntry
     """ # noqa: E501
-    app_count: Optional[StrictInt] = Field(default=None, alias="appCount")
+    app_count: Optional[StrictInt] = Field(default=None, alias="appCount", json_schema_extra={"examples": [123]})
     app_list: Optional[ManaV2App] = Field(default=None, alias="appList")
-    policy_reference_count: Optional[StrictInt] = Field(default=None, alias="policyReferenceCount")
+    policy_reference_count: Optional[StrictInt] = Field(default=None, alias="policyReferenceCount", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["appCount", "appList", "policyReferenceCount"]
 
     model_config = ConfigDict(

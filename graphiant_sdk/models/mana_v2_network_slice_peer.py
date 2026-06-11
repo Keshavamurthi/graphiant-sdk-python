@@ -31,12 +31,12 @@ class ManaV2NetworkSlicePeer(BaseModel):
     ManaV2NetworkSlicePeer
     """ # noqa: E501
     bgp_connection: Optional[ManaV2BgpConnection] = Field(default=None, alias="bgpConnection")
-    connection_quality: Optional[StrictStr] = Field(default=None, alias="connectionQuality")
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    gdi: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    hostname: Optional[StrictStr] = None
+    connection_quality: Optional[StrictStr] = Field(default=None, alias="connectionQuality", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    gdi: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    hostname: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     ipsec_connection: Optional[ManaV2InterfaceTunnel] = Field(default=None, alias="ipsecConnection")
-    state: Optional[StrictStr] = None
+    state: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     wan_addresses: Optional[List[StrictStr]] = Field(default=None, alias="wanAddresses")
     __properties: ClassVar[List[str]] = ["bgpConnection", "connectionQuality", "deviceId", "gdi", "hostname", "ipsecConnection", "state", "wanAddresses"]
 

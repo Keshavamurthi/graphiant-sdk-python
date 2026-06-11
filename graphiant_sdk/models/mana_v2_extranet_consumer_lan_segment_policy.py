@@ -28,7 +28,7 @@ class ManaV2ExtranetConsumerLanSegmentPolicy(BaseModel):
     """
     ManaV2ExtranetConsumerLanSegmentPolicy
     """ # noqa: E501
-    consumer_lan_segment: Optional[StrictInt] = Field(default=None, alias="consumerLanSegment")
+    consumer_lan_segment: Optional[StrictInt] = Field(default=None, alias="consumerLanSegment", json_schema_extra={"examples": [1234567891011]})
     restricted_prefixes: Optional[List[StrictStr]] = Field(default=None, alias="restrictedPrefixes")
     rules: Optional[List[ManaV2ExtranetConsumerNatRule]] = None
     __properties: ClassVar[List[str]] = ["consumerLanSegment", "restrictedPrefixes", "rules"]

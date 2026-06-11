@@ -27,7 +27,7 @@ class ManaV2ExtranetAutoReverseRoutes(BaseModel):
     """
     ManaV2ExtranetAutoReverseRoutes
     """ # noqa: E501
-    auto_propagate: Optional[StrictBool] = Field(default=None, alias="autoPropagate")
+    auto_propagate: Optional[StrictBool] = Field(default=None, alias="autoPropagate", json_schema_extra={"examples": [True]})
     excluded_prefixes: Optional[List[StrictStr]] = Field(default=None, alias="excludedPrefixes")
     __properties: ClassVar[List[str]] = ["autoPropagate", "excludedPrefixes"]
 

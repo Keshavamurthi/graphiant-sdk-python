@@ -29,11 +29,11 @@ class StatsmonExtranetEdgeStatus(BaseModel):
     StatsmonExtranetEdgeStatus
     """ # noqa: E501
     created_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="createdAt")
-    disconnected_reason: Optional[StrictStr] = Field(default=None, description="the reason for the edge being disconnected", alias="disconnectedReason")
-    hostname: Optional[StrictStr] = Field(default=None, description="the hostname of the edge")
-    id: Optional[StrictInt] = Field(default=None, description="the id of the edge/device")
-    site_name: Optional[StrictStr] = Field(default=None, description="the name of the site", alias="siteName")
-    status: Optional[StrictStr] = Field(default=None, description="the health status of the edge (Healthy, Impaired, Down)")
+    disconnected_reason: Optional[StrictStr] = Field(default=None, description="the reason for the edge being disconnected", alias="disconnectedReason", json_schema_extra={"examples": ["No route to the server"]})
+    hostname: Optional[StrictStr] = Field(default=None, description="the hostname of the edge", json_schema_extra={"examples": ["edge1"]})
+    id: Optional[StrictInt] = Field(default=None, description="the id of the edge/device", json_schema_extra={"examples": [30000000001]})
+    site_name: Optional[StrictStr] = Field(default=None, description="the name of the site", alias="siteName", json_schema_extra={"examples": ["site1"]})
+    status: Optional[StrictStr] = Field(default=None, description="the health status of the edge (Healthy, Impaired, Down)", json_schema_extra={"examples": ["Healthy"]})
     __properties: ClassVar[List[str]] = ["createdAt", "disconnectedReason", "hostname", "id", "siteName", "status"]
 
     model_config = ConfigDict(

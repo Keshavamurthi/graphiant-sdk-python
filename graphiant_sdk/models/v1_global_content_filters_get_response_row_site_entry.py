@@ -27,7 +27,7 @@ class V1GlobalContentFiltersGetResponseRowSiteEntry(BaseModel):
     """
     V1GlobalContentFiltersGetResponseRowSiteEntry
     """ # noqa: E501
-    site_name: Optional[StrictStr] = Field(default=None, description="Display name of a site included in this filter's global or site-list-bounded scope.", alias="siteName")
+    site_name: Optional[StrictStr] = Field(default=None, description="Display name of a site included in this filter's global or site-list-bounded scope.", alias="siteName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["siteName"]
 
     model_config = ConfigDict(

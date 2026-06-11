@@ -27,11 +27,11 @@ class ManaV2B2BExtranetServiceCustomerMatchDetailsService(BaseModel):
     """
     ManaV2B2BExtranetServiceCustomerMatchDetailsService
     """ # noqa: E501
-    company_name: Optional[StrictStr] = Field(default=None, alias="companyName")
+    company_name: Optional[StrictStr] = Field(default=None, alias="companyName", json_schema_extra={"examples": ["example string"]})
     contact_email: Optional[List[StrictStr]] = Field(default=None, alias="contactEmail")
-    description: Optional[StrictStr] = None
-    id: Optional[StrictInt] = None
-    service_name: Optional[StrictStr] = Field(default=None, alias="serviceName")
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    service_name: Optional[StrictStr] = Field(default=None, alias="serviceName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["companyName", "contactEmail", "description", "id", "serviceName"]
 
     model_config = ConfigDict(

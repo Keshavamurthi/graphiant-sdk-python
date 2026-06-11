@@ -28,22 +28,22 @@ class StatsmonV2NodeCircuitInfo(BaseModel):
     """
     StatsmonV2NodeCircuitInfo
     """ # noqa: E501
-    average_downlink_utilization: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="averageDownlinkUtilization")
-    average_uplink_utilization: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="averageUplinkUtilization")
-    circuit_carrier: Optional[StrictStr] = Field(default=None, alias="circuitCarrier")
-    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName")
-    connected_region_name: Optional[StrictStr] = Field(default=None, alias="connectedRegionName")
-    current_downlink_utilization: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="currentDownlinkUtilization")
-    current_uplink_utilization: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="currentUplinkUtilization")
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName")
-    jitter: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    label: Optional[StrictStr] = None
-    last_resort: Optional[StrictBool] = Field(default=None, alias="lastResort")
-    latency: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    loss: Optional[Union[StrictFloat, StrictInt]] = None
-    qoe: Optional[Union[StrictFloat, StrictInt]] = None
-    quality: Optional[StrictStr] = None
+    average_downlink_utilization: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="averageDownlinkUtilization", json_schema_extra={"examples": [123.45]})
+    average_uplink_utilization: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="averageUplinkUtilization", json_schema_extra={"examples": [123.45]})
+    circuit_carrier: Optional[StrictStr] = Field(default=None, alias="circuitCarrier", json_schema_extra={"examples": ["example string"]})
+    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName", json_schema_extra={"examples": ["example string"]})
+    connected_region_name: Optional[StrictStr] = Field(default=None, alias="connectedRegionName", json_schema_extra={"examples": ["example string"]})
+    current_downlink_utilization: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="currentDownlinkUtilization", json_schema_extra={"examples": [123.45]})
+    current_uplink_utilization: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="currentUplinkUtilization", json_schema_extra={"examples": [123.45]})
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName", json_schema_extra={"examples": ["example string"]})
+    jitter: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [12345678910]})
+    label: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    last_resort: Optional[StrictBool] = Field(default=None, alias="lastResort", json_schema_extra={"examples": [True]})
+    latency: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [12345678910]})
+    loss: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [12.34]})
+    qoe: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [12.34]})
+    quality: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["averageDownlinkUtilization", "averageUplinkUtilization", "circuitCarrier", "circuitName", "connectedRegionName", "currentDownlinkUtilization", "currentUplinkUtilization", "deviceId", "interfaceName", "jitter", "label", "lastResort", "latency", "loss", "qoe", "quality"]
 
     model_config = ConfigDict(

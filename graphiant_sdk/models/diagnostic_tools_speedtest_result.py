@@ -29,15 +29,15 @@ class DiagnosticToolsSpeedtestResult(BaseModel):
     """
     DiagnosticToolsSpeedtestResult
     """ # noqa: E501
-    avg_ping_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Avg Ping Time in milli seconds (required)", alias="avgPingTime")
+    avg_ping_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Avg Ping Time in milli seconds (required)", alias="avgPingTime", json_schema_extra={"examples": [3]})
     date_time: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="dateTime")
-    download_speed: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Download speed in Mbps (required)", alias="downloadSpeed")
-    isp: Optional[StrictStr] = Field(default=None, description="ISP details (required)")
-    max_ping_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Max PingTime in milli seconds (required)", alias="maxPingTime")
-    min_ping_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Min Ping Time in milli seconds (required)", alias="minPingTime")
-    result: Optional[StrictStr] = Field(default=None, description="Status of the speedtest operation (required)")
+    download_speed: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Download speed in Mbps (required)", alias="downloadSpeed", json_schema_extra={"examples": [30.1]})
+    isp: Optional[StrictStr] = Field(default=None, description="ISP details (required)", json_schema_extra={"examples": ["Google Fiber"]})
+    max_ping_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Max PingTime in milli seconds (required)", alias="maxPingTime", json_schema_extra={"examples": [5]})
+    min_ping_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Min Ping Time in milli seconds (required)", alias="minPingTime", json_schema_extra={"examples": [10]})
+    result: Optional[StrictStr] = Field(default=None, description="Status of the speedtest operation (required)", json_schema_extra={"examples": ["Failed"]})
     server_details: Optional[DiagnosticToolsSpeedtestServer] = Field(default=None, alias="serverDetails")
-    upload_speed: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Upload speed in Mbps (required)", alias="uploadSpeed")
+    upload_speed: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Upload speed in Mbps (required)", alias="uploadSpeed", json_schema_extra={"examples": [21]})
     __properties: ClassVar[List[str]] = ["avgPingTime", "dateTime", "downloadSpeed", "isp", "maxPingTime", "minPingTime", "result", "serverDetails", "uploadSpeed"]
 
     model_config = ConfigDict(

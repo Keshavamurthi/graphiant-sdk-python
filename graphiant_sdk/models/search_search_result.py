@@ -28,9 +28,9 @@ class SearchSearchResult(BaseModel):
     """
     SearchSearchResult
     """ # noqa: E501
-    context: Optional[StrictStr] = Field(default=None, description="A search context from the SearchContext enum (required)")
-    id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="A search context from the SearchContext enum (required)")
-    result: Optional[StrictStr] = Field(default=None, description="A search result (required)")
+    context: Optional[StrictStr] = Field(default=None, description="A search context from the SearchContext enum (required)", json_schema_extra={"examples": ["1"]})
+    id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="A search context from the SearchContext enum (required)", json_schema_extra={"examples": [1234]})
+    result: Optional[StrictStr] = Field(default=None, description="A search result (required)", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["context", "id", "result"]
 
     model_config = ConfigDict(

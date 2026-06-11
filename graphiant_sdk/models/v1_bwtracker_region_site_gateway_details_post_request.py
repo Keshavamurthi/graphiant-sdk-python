@@ -29,8 +29,8 @@ class V1BwtrackerRegionSiteGatewayDetailsPostRequest(BaseModel):
     """
     V1BwtrackerRegionSiteGatewayDetailsPostRequest
     """ # noqa: E501
-    region_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="regionId")
-    site_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="siteId")
+    region_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="regionId", json_schema_extra={"examples": [12345678910]})
+    site_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="siteId", json_schema_extra={"examples": [12345678910]})
     time_window: Optional[StatsmonBandwidthtrackerTimeWindow] = Field(default=None, alias="timeWindow")
     __properties: ClassVar[List[str]] = ["regionId", "siteId", "timeWindow"]
 

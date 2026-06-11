@@ -27,10 +27,10 @@ class StatsmonV2VrfRoute(BaseModel):
     """
     StatsmonV2VrfRoute
     """ # noqa: E501
-    ipv4_routes: Optional[StrictInt] = Field(default=None, alias="ipv4Routes")
-    ipv6_routes: Optional[StrictInt] = Field(default=None, alias="ipv6Routes")
-    total_routes: Optional[StrictInt] = Field(default=None, alias="totalRoutes")
-    vrf_name: Optional[StrictStr] = Field(default=None, alias="vrfName")
+    ipv4_routes: Optional[StrictInt] = Field(default=None, alias="ipv4Routes", json_schema_extra={"examples": [1234567891011]})
+    ipv6_routes: Optional[StrictInt] = Field(default=None, alias="ipv6Routes", json_schema_extra={"examples": [1234567891011]})
+    total_routes: Optional[StrictInt] = Field(default=None, alias="totalRoutes", json_schema_extra={"examples": [1234567891011]})
+    vrf_name: Optional[StrictStr] = Field(default=None, alias="vrfName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["ipv4Routes", "ipv6Routes", "totalRoutes", "vrfName"]
 
     model_config = ConfigDict(

@@ -27,7 +27,7 @@ class V1GlobalContentFiltersGetResponseRowRuleEntry(BaseModel):
     """
     V1GlobalContentFiltersGetResponseRowRuleEntry
     """ # noqa: E501
-    domain_category: Optional[StrictStr] = Field(default=None, description="Name of the domain category whose traffic is blocked by this rule.", alias="domainCategory")
+    domain_category: Optional[StrictStr] = Field(default=None, description="Name of the domain category whose traffic is blocked by this rule.", alias="domainCategory", json_schema_extra={"examples": ["example string"]})
     exception_wildcards: Optional[List[StrictStr]] = Field(default=None, alias="exceptionWildcards")
     __properties: ClassVar[List[str]] = ["domainCategory", "exceptionWildcards"]
 

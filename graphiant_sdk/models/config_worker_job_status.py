@@ -30,10 +30,10 @@ class ConfigWorkerJobStatus(BaseModel):
     """ # noqa: E501
     completed_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="completedAt")
     created_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="createdAt")
-    error: Optional[StrictStr] = None
-    error_count: Optional[StrictInt] = Field(default=None, alias="errorCount")
-    job_id: Optional[StrictInt] = Field(default=None, alias="jobId")
-    job_state: Optional[StrictStr] = Field(default=None, alias="jobState")
+    error: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    error_count: Optional[StrictInt] = Field(default=None, alias="errorCount", json_schema_extra={"examples": [123]})
+    job_id: Optional[StrictInt] = Field(default=None, alias="jobId", json_schema_extra={"examples": [1234567891011]})
+    job_state: Optional[StrictStr] = Field(default=None, alias="jobState", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["completedAt", "createdAt", "error", "errorCount", "jobId", "jobState"]
 
     model_config = ConfigDict(

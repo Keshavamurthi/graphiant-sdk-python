@@ -30,13 +30,13 @@ class ManaV2OspFv2Process(BaseModel):
     """
     ManaV2OspFv2Process
     """ # noqa: E501
-    admin_distance: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Administrative Distance for routes installed", alias="adminDistance")
+    admin_distance: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Administrative Distance for routes installed", alias="adminDistance", json_schema_extra={"examples": [100]})
     areas: Optional[List[ManaV2OspfArea]] = None
-    auto_router_id: Optional[StrictBool] = Field(default=None, alias="autoRouterId")
-    default_originate: Optional[StrictStr] = Field(default=None, alias="defaultOriginate")
-    id: Optional[StrictInt] = None
+    auto_router_id: Optional[StrictBool] = Field(default=None, alias="autoRouterId", json_schema_extra={"examples": [True]})
+    default_originate: Optional[StrictStr] = Field(default=None, alias="defaultOriginate", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     redistributed_protocols: Optional[List[ManaV2OspfRedistribute]] = Field(default=None, alias="redistributedProtocols")
-    router_id: Optional[StrictStr] = Field(default=None, alias="routerId")
+    router_id: Optional[StrictStr] = Field(default=None, alias="routerId", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["adminDistance", "areas", "autoRouterId", "defaultOriginate", "id", "redistributedProtocols", "routerId"]
 
     model_config = ConfigDict(

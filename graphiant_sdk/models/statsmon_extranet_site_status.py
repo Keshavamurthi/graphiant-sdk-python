@@ -28,9 +28,9 @@ class StatsmonExtranetSiteStatus(BaseModel):
     """
     StatsmonExtranetSiteStatus
     """ # noqa: E501
-    id: Optional[StrictInt] = Field(default=None, description="the id of the site")
-    name: Optional[StrictStr] = Field(default=None, description="the name of the site")
-    status: Optional[StrictStr] = Field(default=None, description="the status of the site (Healthy, Impaired, Down)")
+    id: Optional[StrictInt] = Field(default=None, description="the id of the site", json_schema_extra={"examples": [1]})
+    name: Optional[StrictStr] = Field(default=None, description="the name of the site", json_schema_extra={"examples": ["site1"]})
+    status: Optional[StrictStr] = Field(default=None, description="the status of the site (Healthy, Impaired, Down)", json_schema_extra={"examples": ["Healthy"]})
     statuses: Optional[List[StatsmonExtranetServerStatus]] = None
     __properties: ClassVar[List[str]] = ["id", "name", "status", "statuses"]
 

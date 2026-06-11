@@ -27,9 +27,9 @@ class V1AccountInfoPatchRequest(BaseModel):
     """
     V1AccountInfoPatchRequest
     """ # noqa: E501
-    first_name: Optional[StrictStr] = Field(default=None, alias="firstName")
-    last_name: Optional[StrictStr] = Field(default=None, alias="lastName")
-    time_zone: Optional[StrictStr] = Field(default=None, alias="timeZone")
+    first_name: Optional[StrictStr] = Field(default=None, alias="firstName", json_schema_extra={"examples": ["example string"]})
+    last_name: Optional[StrictStr] = Field(default=None, alias="lastName", json_schema_extra={"examples": ["example string"]})
+    time_zone: Optional[StrictStr] = Field(default=None, alias="timeZone", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["firstName", "lastName", "timeZone"]
 
     model_config = ConfigDict(

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +27,8 @@ class ManaV2TimePeriod(BaseModel):
     """
     ManaV2TimePeriod
     """ # noqa: E501
-    month: Optional[StrictInt] = None
-    year: Optional[StrictInt] = None
+    month: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [123]})
+    year: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["month", "year"]
 
     model_config = ConfigDict(

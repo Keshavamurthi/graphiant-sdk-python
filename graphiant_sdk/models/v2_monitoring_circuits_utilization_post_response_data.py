@@ -30,7 +30,7 @@ class V2MonitoringCircuitsUtilizationPostResponseData(BaseModel):
     """
     V2MonitoringCircuitsUtilizationPostResponseData
     """ # noqa: E501
-    config_link_up_speed_mbps: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="configLinkUpSpeedMbps")
+    config_link_up_speed_mbps: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="configLinkUpSpeedMbps", json_schema_extra={"examples": [123]})
     queue_utilization: Optional[List[StatsmonV2QueueUtilization]] = Field(default=None, alias="queueUtilization")
     selector: Optional[StatsmonV2CircuitUtilizationSelector] = None
     __properties: ClassVar[List[str]] = ["configLinkUpSpeedMbps", "queueUtilization", "selector"]

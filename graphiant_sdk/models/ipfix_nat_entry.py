@@ -28,18 +28,18 @@ class IpfixNatEntry(BaseModel):
     """
     IpfixNatEntry
     """ # noqa: E501
-    destination_ip_address: Optional[StrictStr] = Field(default=None, alias="destinationIpAddress")
-    destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destinationPort")
-    inside_global_ip_address: Optional[StrictStr] = Field(default=None, alias="insideGlobalIpAddress")
-    inside_global_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="insideGlobalPort")
-    inside_local_ip_address: Optional[StrictStr] = Field(default=None, alias="insideLocalIpAddress")
-    inside_local_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="insideLocalPort")
-    nat_type: Optional[StrictStr] = Field(default=None, alias="natType")
-    outside_global_ip_address: Optional[StrictStr] = Field(default=None, alias="outsideGlobalIpAddress")
-    outside_global_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="outsideGlobalPort")
-    pre_destination_ip_address: Optional[StrictStr] = Field(default=None, alias="preDestinationIpAddress")
-    pre_destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="preDestinationPort")
-    vrf_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="vrfId")
+    destination_ip_address: Optional[StrictStr] = Field(default=None, alias="destinationIpAddress", json_schema_extra={"examples": ["example string"]})
+    destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destinationPort", json_schema_extra={"examples": [123]})
+    inside_global_ip_address: Optional[StrictStr] = Field(default=None, alias="insideGlobalIpAddress", json_schema_extra={"examples": ["example string"]})
+    inside_global_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="insideGlobalPort", json_schema_extra={"examples": [123]})
+    inside_local_ip_address: Optional[StrictStr] = Field(default=None, alias="insideLocalIpAddress", json_schema_extra={"examples": ["example string"]})
+    inside_local_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="insideLocalPort", json_schema_extra={"examples": [123]})
+    nat_type: Optional[StrictStr] = Field(default=None, alias="natType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    outside_global_ip_address: Optional[StrictStr] = Field(default=None, alias="outsideGlobalIpAddress", json_schema_extra={"examples": ["example string"]})
+    outside_global_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="outsideGlobalPort", json_schema_extra={"examples": [123]})
+    pre_destination_ip_address: Optional[StrictStr] = Field(default=None, alias="preDestinationIpAddress", json_schema_extra={"examples": ["example string"]})
+    pre_destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="preDestinationPort", json_schema_extra={"examples": [123]})
+    vrf_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="vrfId", json_schema_extra={"examples": [12345678910]})
     __properties: ClassVar[List[str]] = ["destinationIpAddress", "destinationPort", "insideGlobalIpAddress", "insideGlobalPort", "insideLocalIpAddress", "insideLocalPort", "natType", "outsideGlobalIpAddress", "outsideGlobalPort", "preDestinationIpAddress", "preDestinationPort", "vrfId"]
 
     model_config = ConfigDict(

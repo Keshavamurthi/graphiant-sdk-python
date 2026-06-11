@@ -29,7 +29,7 @@ class V1DiagnosticPingPostResponse(BaseModel):
     V1DiagnosticPingPostResponse
     """ # noqa: E501
     result: Optional[DiagnosticToolsDiagnosticResult] = None
-    token: Optional[StrictStr] = Field(default=None, description="Token to be sent in subsequent lookup (required)")
+    token: Optional[StrictStr] = Field(default=None, description="Token to be sent in subsequent lookup (required)", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["result", "token"]
 
     model_config = ConfigDict(

@@ -27,10 +27,10 @@ class AssistantAssistantQuestion(BaseModel):
     """
     AssistantAssistantQuestion
     """ # noqa: E501
-    conversation_id: Optional[StrictStr] = Field(default=None, alias="conversationId")
-    question_language: Optional[StrictStr] = Field(default=None, alias="questionLanguage")
-    question_text: Optional[StrictStr] = Field(default=None, alias="questionText")
-    question_timestamp: Optional[StrictInt] = Field(default=None, alias="questionTimestamp")
+    conversation_id: Optional[StrictStr] = Field(default=None, alias="conversationId", json_schema_extra={"examples": ["example string"]})
+    question_language: Optional[StrictStr] = Field(default=None, alias="questionLanguage", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    question_text: Optional[StrictStr] = Field(default=None, alias="questionText", json_schema_extra={"examples": ["example string"]})
+    question_timestamp: Optional[StrictInt] = Field(default=None, alias="questionTimestamp", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["conversationId", "questionLanguage", "questionText", "questionTimestamp"]
 
     model_config = ConfigDict(

@@ -28,10 +28,10 @@ class ManaV2ConsumerDeviceInformation(BaseModel):
     """
     ManaV2ConsumerDeviceInformation
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
     last_updated: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="lastUpdated")
-    site: Optional[StrictInt] = None
-    status: Optional[StrictStr] = None
+    site: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["deviceId", "lastUpdated", "site", "status"]
 
     model_config = ConfigDict(

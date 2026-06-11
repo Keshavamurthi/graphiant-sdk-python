@@ -29,10 +29,10 @@ class ManaV2B2bExtranetStatusSummary(BaseModel):
     ManaV2B2bExtranetStatusSummary
     """ # noqa: E501
     created_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="createdAt")
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    device_status: Optional[StrictStr] = Field(default=None, alias="deviceStatus")
-    location: Optional[StrictInt] = None
-    status: Optional[StrictStr] = None
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    device_status: Optional[StrictStr] = Field(default=None, alias="deviceStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    location: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["createdAt", "deviceId", "deviceStatus", "location", "status"]
 
     model_config = ConfigDict(

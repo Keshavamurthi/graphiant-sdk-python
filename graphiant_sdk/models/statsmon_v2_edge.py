@@ -30,12 +30,12 @@ class StatsmonV2Edge(BaseModel):
     """
     StatsmonV2Edge
     """ # noqa: E501
-    a: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    b: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    a: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    b: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     circuits_info: Optional[List[StatsmonV2EdgeedgeCircuitInfo]] = Field(default=None, alias="circuitsInfo")
     connections: Optional[List[StatsmonV2Connection]] = None
-    name: Optional[StrictStr] = None
-    quality: Optional[StrictStr] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    quality: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["a", "b", "circuitsInfo", "connections", "name", "quality"]
 
     model_config = ConfigDict(

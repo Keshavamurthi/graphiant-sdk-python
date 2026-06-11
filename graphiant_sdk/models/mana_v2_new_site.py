@@ -34,8 +34,8 @@ class ManaV2NewSite(BaseModel):
     ipfix_exporter_ops: Optional[Dict[str, StrictStr]] = Field(default=None, alias="ipfixExporterOps")
     ipfix_exporter_ops_v2: Optional[Dict[str, ManaV2GlobalObjectOperationConfig]] = Field(default=None, alias="ipfixExporterOpsV2")
     location: Optional[ManaV2Location] = None
-    name: Optional[StrictStr] = None
-    notes: Optional[StrictStr] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    notes: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     ntp_ops: Optional[Dict[str, StrictStr]] = Field(default=None, alias="ntpOps")
     prefix_set_ops: Optional[Dict[str, StrictStr]] = Field(default=None, alias="prefixSetOps")
     route_tag: Optional[ManaV2RouteTag] = Field(default=None, alias="routeTag")

@@ -31,12 +31,12 @@ class ManaV2DeviceSnapshot(BaseModel):
     ManaV2DeviceSnapshot
     """ # noqa: E501
     author: Optional[CommonUserInfo] = None
-    category: Optional[StrictStr] = None
+    category: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     created_on: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="createdOn")
     data: Optional[ManaV2DeviceSnapshotData] = None
-    golden: Optional[StrictBool] = None
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = Field(default=None, description="name for the snapshot")
+    golden: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, description="name for the snapshot", json_schema_extra={"examples": ["6-1-24-status-check"]})
     __properties: ClassVar[List[str]] = ["author", "category", "createdOn", "data", "golden", "id", "name"]
 
     model_config = ConfigDict(

@@ -28,13 +28,13 @@ class ManaV2BucketApp(BaseModel):
     """
     ManaV2BucketApp
     """ # noqa: E501
-    bucket_id: Optional[StrictInt] = Field(default=None, alias="bucketId")
-    builtin_app_id: Optional[StrictInt] = Field(default=None, alias="builtinAppId")
-    custom_app_id: Optional[StrictInt] = Field(default=None, alias="customAppId")
-    is_domain: Optional[StrictBool] = Field(default=None, alias="isDomain")
-    name: Optional[StrictStr] = None
+    bucket_id: Optional[StrictInt] = Field(default=None, alias="bucketId", json_schema_extra={"examples": [123]})
+    builtin_app_id: Optional[StrictInt] = Field(default=None, alias="builtinAppId", json_schema_extra={"examples": [1234567891011]})
+    custom_app_id: Optional[StrictInt] = Field(default=None, alias="customAppId", json_schema_extra={"examples": [1234567891011]})
+    is_domain: Optional[StrictBool] = Field(default=None, alias="isDomain", json_schema_extra={"examples": [True]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     servers: Optional[List[ManaV2BucketAppServer]] = None
-    use_all_servers: Optional[StrictBool] = Field(default=None, alias="useAllServers")
+    use_all_servers: Optional[StrictBool] = Field(default=None, alias="useAllServers", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["bucketId", "builtinAppId", "customAppId", "isDomain", "name", "servers", "useAllServers"]
 
     model_config = ConfigDict(

@@ -28,8 +28,8 @@ class V1ExtranetB2bMonitoringPeeringServiceServiceCustomerListPostRequest(BaseMo
     """
     V1ExtranetB2bMonitoringPeeringServiceServiceCustomerListPostRequest
     """ # noqa: E501
-    id: StrictInt = Field(description="service id (required)")
-    is_provider: StrictBool = Field(description="whether the entity is a provider or consumer (required)", alias="isProvider")
+    id: StrictInt = Field(description="service id (required)", json_schema_extra={"examples": [1]})
+    is_provider: StrictBool = Field(description="whether the entity is a provider or consumer (required)", alias="isProvider", json_schema_extra={"examples": [True]})
     time_window: StatsmonTimeWindow = Field(alias="timeWindow")
     __properties: ClassVar[List[str]] = ["id", "isProvider", "timeWindow"]
 

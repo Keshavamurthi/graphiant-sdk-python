@@ -29,7 +29,7 @@ class RoutingOspfSummaryLsa(BaseModel):
     """
     RoutingOspfSummaryLsa
     """ # noqa: E501
-    network_mask: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="networkMask")
+    network_mask: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="networkMask", json_schema_extra={"examples": [123]})
     tos_metric: Optional[RoutingOspflsaTosMetric] = Field(default=None, alias="tosMetric")
     __properties: ClassVar[List[str]] = ["networkMask", "tosMetric"]
 

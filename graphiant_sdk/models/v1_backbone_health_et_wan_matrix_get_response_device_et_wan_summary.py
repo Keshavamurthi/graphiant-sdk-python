@@ -28,11 +28,11 @@ class V1BackboneHealthEtWanMatrixGetResponseDeviceEtWanSummary(BaseModel):
     """
     V1BackboneHealthEtWanMatrixGetResponseDeviceEtWanSummary
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName")
-    provider: Optional[StrictStr] = None
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName", json_schema_extra={"examples": ["example string"]})
+    provider: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     region: Optional[StatsmonTroubleshootingRegion] = None
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["deviceId", "deviceName", "provider", "region", "status"]
 
     model_config = ConfigDict(

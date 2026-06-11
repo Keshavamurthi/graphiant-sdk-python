@@ -30,9 +30,9 @@ class ManaV2RegionalBandwidthConsumptionSummary(BaseModel):
     ManaV2RegionalBandwidthConsumptionSummary
     """ # noqa: E501
     allocation: Optional[ManaV2BandwidthInfo] = None
-    consumed_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Credits billed for the region. It equals the higher value between total credits allocated and used plus any additional dia consumption", alias="consumedCredits")
-    core_conversion_factor: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Conversion rate from gigabytes per second to Graphiant credits used for calculating credits on core networks for this region", alias="coreConversionFactor")
-    gw_conversion_factor: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Conversion rate from gigabytes per second to Graphiant credits used for calculating credits on core networks for this region", alias="gwConversionFactor")
+    consumed_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Credits billed for the region. It equals the higher value between total credits allocated and used plus any additional dia consumption", alias="consumedCredits", json_schema_extra={"examples": [12.34]})
+    core_conversion_factor: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Conversion rate from gigabytes per second to Graphiant credits used for calculating credits on core networks for this region", alias="coreConversionFactor", json_schema_extra={"examples": [12.34]})
+    gw_conversion_factor: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Conversion rate from gigabytes per second to Graphiant credits used for calculating credits on core networks for this region", alias="gwConversionFactor", json_schema_extra={"examples": [12.34]})
     internet_consumption: Optional[ManaV2InternetAccessBandwidthInfo] = Field(default=None, alias="internetConsumption")
     usage: Optional[ManaV2BandwidthInfo] = None
     __properties: ClassVar[List[str]] = ["allocation", "consumedCredits", "coreConversionFactor", "gwConversionFactor", "internetConsumption", "usage"]

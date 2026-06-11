@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.mana_v2_dnsip_addresses import ManaV2DnsipAddresses
 from typing import Optional, Set
@@ -28,7 +28,7 @@ class ManaV2DynamicDnsServers(BaseModel):
     """
     ManaV2DynamicDnsServers
     """ # noqa: E501
-    circuit: Optional[StrictStr] = None
+    circuit: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     servers: Optional[Dict[str, ManaV2DnsipAddresses]] = None
     __properties: ClassVar[List[str]] = ["circuit", "servers"]
 

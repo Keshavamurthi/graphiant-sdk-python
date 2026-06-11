@@ -28,12 +28,12 @@ class ManaV2SnmpEngineEndpoint(BaseModel):
     ManaV2SnmpEngineEndpoint
     """ # noqa: E501
     addresses: Optional[List[StrictStr]] = None
-    auto_ipv4: Optional[StrictBool] = Field(default=None, alias="autoIpv4")
-    auto_ipv6: Optional[StrictBool] = Field(default=None, alias="autoIpv6")
-    id: Optional[StrictInt] = None
-    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName")
-    lan_segment: Optional[StrictStr] = Field(default=None, alias="lanSegment")
-    name: Optional[StrictStr] = None
+    auto_ipv4: Optional[StrictBool] = Field(default=None, alias="autoIpv4", json_schema_extra={"examples": [True]})
+    auto_ipv6: Optional[StrictBool] = Field(default=None, alias="autoIpv6", json_schema_extra={"examples": [True]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName", json_schema_extra={"examples": ["example string"]})
+    lan_segment: Optional[StrictStr] = Field(default=None, alias="lanSegment", json_schema_extra={"examples": ["example string"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["addresses", "autoIpv4", "autoIpv6", "id", "interfaceName", "lanSegment", "name"]
 
     model_config = ConfigDict(

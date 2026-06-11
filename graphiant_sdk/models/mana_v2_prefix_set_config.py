@@ -28,12 +28,12 @@ class ManaV2PrefixSetConfig(BaseModel):
     """
     ManaV2PrefixSetConfig
     """ # noqa: E501
-    description: Optional[StrictStr] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     entries: Optional[Dict[str, ManaV2PrefixSetConfigNullableEntry]] = None
-    global_id: Optional[StrictInt] = Field(default=None, alias="globalId")
-    is_global_sync: Optional[StrictBool] = Field(default=None, alias="isGlobalSync")
-    mode: Optional[StrictStr] = None
-    name: Optional[StrictStr] = None
+    global_id: Optional[StrictInt] = Field(default=None, alias="globalId", json_schema_extra={"examples": [1234567891011]})
+    is_global_sync: Optional[StrictBool] = Field(default=None, alias="isGlobalSync", json_schema_extra={"examples": [True]})
+    mode: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["description", "entries", "globalId", "isGlobalSync", "mode", "name"]
 
     model_config = ConfigDict(

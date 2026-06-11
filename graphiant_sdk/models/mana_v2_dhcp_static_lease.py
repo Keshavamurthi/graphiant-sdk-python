@@ -27,11 +27,11 @@ class ManaV2DhcpStaticLease(BaseModel):
     """
     ManaV2DhcpStaticLease
     """ # noqa: E501
-    hostname: Optional[StrictStr] = None
-    id: Optional[StrictInt] = None
-    ip_address: Optional[StrictStr] = Field(default=None, alias="ipAddress")
-    mac_address: Optional[StrictStr] = Field(default=None, alias="macAddress")
-    vrf: Optional[StrictStr] = None
+    hostname: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    ip_address: Optional[StrictStr] = Field(default=None, alias="ipAddress", json_schema_extra={"examples": ["example string"]})
+    mac_address: Optional[StrictStr] = Field(default=None, alias="macAddress", json_schema_extra={"examples": ["example string"]})
+    vrf: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["hostname", "id", "ipAddress", "macAddress", "vrf"]
 
     model_config = ConfigDict(

@@ -30,11 +30,11 @@ class PokedexDeviceMappingInfo(BaseModel):
     PokedexDeviceMappingInfo
     """ # noqa: E501
     connect_time: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="connectTime")
-    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId")
-    enterprise_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="enterpriseId")
-    hostname: Optional[StrictStr] = None
-    ipaddress: Optional[StrictStr] = None
-    tt_identity: Optional[StrictStr] = Field(default=None, alias="ttIdentity")
+    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [12345678910]})
+    enterprise_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="enterpriseId", json_schema_extra={"examples": [12345678910]})
+    hostname: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    ipaddress: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    tt_identity: Optional[StrictStr] = Field(default=None, alias="ttIdentity", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["connectTime", "deviceId", "enterpriseId", "hostname", "ipaddress", "ttIdentity"]
 
     model_config = ConfigDict(

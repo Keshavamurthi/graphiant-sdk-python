@@ -27,7 +27,7 @@ class V1GlobalContentFiltersGetResponseRowLanEntry(BaseModel):
     """
     V1GlobalContentFiltersGetResponseRowLanEntry
     """ # noqa: E501
-    lan_name: Optional[StrictStr] = Field(default=None, description="Name of a LAN segment that the filter is applied on.", alias="lanName")
+    lan_name: Optional[StrictStr] = Field(default=None, description="Name of a LAN segment that the filter is applied on.", alias="lanName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["lanName"]
 
     model_config = ConfigDict(

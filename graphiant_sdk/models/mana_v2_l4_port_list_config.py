@@ -28,7 +28,7 @@ class ManaV2L4PortListConfig(BaseModel):
     """
     ManaV2L4PortListConfig
     """ # noqa: E501
-    name: Optional[StrictStr] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     ports: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = None
     __properties: ClassVar[List[str]] = ["name", "ports"]
 

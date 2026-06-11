@@ -30,11 +30,11 @@ class StatsmonBackbonehealthGetQOEMatrixResponseQoeSessionSummary(BaseModel):
     StatsmonBackbonehealthGetQOEMatrixResponseQoeSessionSummary
     """ # noqa: E501
     box: Optional[List[StatsmonBackbonehealthGetQOEMatrixResponseQoeSessionSummaryQoeSessionBox]] = None
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
     device_region: Optional[StatsmonTroubleshootingRegion] = Field(default=None, alias="deviceRegion")
-    peer_device_id: Optional[StrictInt] = Field(default=None, alias="peerDeviceId")
+    peer_device_id: Optional[StrictInt] = Field(default=None, alias="peerDeviceId", json_schema_extra={"examples": [1234567891011]})
     peer_device_region: Optional[StatsmonTroubleshootingRegion] = Field(default=None, alias="peerDeviceRegion")
-    session_name: Optional[StrictStr] = Field(default=None, alias="sessionName")
+    session_name: Optional[StrictStr] = Field(default=None, alias="sessionName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["box", "deviceId", "deviceRegion", "peerDeviceId", "peerDeviceRegion", "sessionName"]
 
     model_config = ConfigDict(

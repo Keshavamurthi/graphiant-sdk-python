@@ -29,10 +29,10 @@ class ManaV2LagInterface(BaseModel):
     """
     ManaV2LagInterface
     """ # noqa: E501
-    id: Optional[StrictInt] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     lacp_config: Optional[ManaV2LacpConfig] = Field(default=None, alias="lacpConfig")
     members: Optional[List[StrictInt]] = None
-    minimum_members: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="minimumMembers")
+    minimum_members: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="minimumMembers", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["id", "lacpConfig", "members", "minimumMembers"]
 
     model_config = ConfigDict(

@@ -31,8 +31,8 @@ class V1ActivityLogsPostRequest(BaseModel):
     """
     V1ActivityLogsPostRequest
     """ # noqa: E501
-    cursor_ref: Optional[StrictStr] = Field(default=None, alias="cursorRef")
-    num_logs: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="numLogs")
+    cursor_ref: Optional[StrictStr] = Field(default=None, alias="cursorRef", json_schema_extra={"examples": ["example string"]})
+    num_logs: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="numLogs", json_schema_extra={"examples": [123]})
     old_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="oldTs")
     recent_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="recentTs")
     selector: Optional[AuditmonActivityLogsSelector] = None

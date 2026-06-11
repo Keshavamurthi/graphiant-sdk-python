@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.upgrade_upgrade_canary_profile import UpgradeUpgradeCanaryProfile
 from typing import Optional, Set
@@ -29,7 +29,7 @@ class V1SoftwareAutoUpgradeDefaultGetResponse(BaseModel):
     V1SoftwareAutoUpgradeDefaultGetResponse
     """ # noqa: E501
     profile: Optional[UpgradeUpgradeCanaryProfile] = None
-    release: Optional[StrictStr] = None
+    release: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["profile", "release"]
 
     model_config = ConfigDict(

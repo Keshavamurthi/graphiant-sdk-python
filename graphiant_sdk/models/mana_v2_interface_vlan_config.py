@@ -32,22 +32,22 @@ class ManaV2InterfaceVlanConfig(BaseModel):
     """
     ManaV2InterfaceVlanConfig
     """ # noqa: E501
-    admin_status: Optional[StrictBool] = Field(default=None, alias="adminStatus")
-    alias: Optional[StrictStr] = None
-    circuit: Optional[StrictStr] = None
-    description: Optional[StrictStr] = None
+    admin_status: Optional[StrictBool] = Field(default=None, alias="adminStatus", json_schema_extra={"examples": [True]})
+    alias: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    circuit: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     ipv4: Optional[ManaV2InterfaceIpConfig] = None
     ipv6: Optional[ManaV2InterfaceIpConfig] = None
-    lan: Optional[StrictStr] = None
-    lldp_enabled: Optional[StrictBool] = Field(default=None, alias="lldpEnabled")
-    max_transmission_unit: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="maxTransmissionUnit")
-    security_zone: Optional[StrictStr] = Field(default=None, alias="securityZone")
-    tcp_mss: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="tcpMss")
-    tcp_mss_v4: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="tcpMssV4")
-    tcp_mss_v6: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="tcpMssV6")
+    lan: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    lldp_enabled: Optional[StrictBool] = Field(default=None, alias="lldpEnabled", json_schema_extra={"examples": [True]})
+    max_transmission_unit: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="maxTransmissionUnit", json_schema_extra={"examples": [123]})
+    security_zone: Optional[StrictStr] = Field(default=None, alias="securityZone", json_schema_extra={"examples": ["example string"]})
+    tcp_mss: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="tcpMss", json_schema_extra={"examples": [123]})
+    tcp_mss_v4: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="tcpMssV4", json_schema_extra={"examples": [123]})
+    tcp_mss_v6: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="tcpMssV6", json_schema_extra={"examples": [123]})
     v4_tcp_mss: Optional[ManaV2NullableTcpMssV4] = Field(default=None, alias="v4TcpMss")
     v6_tcp_mss: Optional[ManaV2NullableTcpMssV6] = Field(default=None, alias="v6TcpMss")
-    vlan: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    vlan: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     vrrp: Optional[ManaV2NullableVrrpGroupConfig] = None
     __properties: ClassVar[List[str]] = ["adminStatus", "alias", "circuit", "description", "ipv4", "ipv6", "lan", "lldpEnabled", "maxTransmissionUnit", "securityZone", "tcpMss", "tcpMssV4", "tcpMssV6", "v4TcpMss", "v6TcpMss", "vlan", "vrrp"]
 

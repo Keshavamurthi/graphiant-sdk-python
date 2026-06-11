@@ -28,13 +28,13 @@ class ManaV2GlobalAppConfig(BaseModel):
     """
     ManaV2GlobalAppConfig
     """ # noqa: E501
-    description: Optional[StrictStr] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     ip_lists: Optional[List[StrictStr]] = Field(default=None, alias="ipLists")
     ip_prefixes: Optional[List[StrictStr]] = Field(default=None, alias="ipPrefixes")
-    ip_protocol: Optional[StrictStr] = Field(default=None, alias="ipProtocol")
-    name: Optional[StrictStr] = None
+    ip_protocol: Optional[StrictStr] = Field(default=None, alias="ipProtocol", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     port_ranges: Optional[List[ManaV2GlobalAppPortRange]] = Field(default=None, alias="portRanges")
-    url: Optional[StrictStr] = None
+    url: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["description", "ipLists", "ipPrefixes", "ipProtocol", "name", "portRanges", "url"]
 
     model_config = ConfigDict(

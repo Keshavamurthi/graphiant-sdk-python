@@ -29,8 +29,8 @@ class ManaV2AwsTransitGateway(BaseModel):
     """
     ManaV2AwsTransitGateway
     """ # noqa: E501
-    asn: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    id: Optional[StrictStr] = None
+    asn: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    id: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     vpcs: Optional[List[ManaV2AWSTransitGatewayVpc]] = None
     __properties: ClassVar[List[str]] = ["asn", "id", "vpcs"]
 

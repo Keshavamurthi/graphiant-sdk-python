@@ -29,9 +29,9 @@ class V1GatewaysStatusPostRequest(BaseModel):
     V1GatewaysStatusPostRequest
     """ # noqa: E501
     device_info: Optional[List[V1GatewaysStatusPostRequestDeviceInfo]] = Field(default=None, alias="deviceInfo")
-    id: Optional[StrictInt] = None
-    status: Optional[StrictStr] = None
-    support_status: Optional[StrictStr] = Field(default=None, alias="supportStatus")
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    support_status: Optional[StrictStr] = Field(default=None, alias="supportStatus", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["deviceInfo", "id", "status", "supportStatus"]
 
     model_config = ConfigDict(

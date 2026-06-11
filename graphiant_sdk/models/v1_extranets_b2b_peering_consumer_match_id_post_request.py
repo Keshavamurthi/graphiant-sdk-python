@@ -32,9 +32,9 @@ class V1ExtranetsB2bPeeringConsumerMatchIdPostRequest(BaseModel):
     """
     V1ExtranetsB2bPeeringConsumerMatchIdPostRequest
     """ # noqa: E501
-    customer_id: Optional[StrictInt] = Field(default=None, alias="customerId")
+    customer_id: Optional[StrictInt] = Field(default=None, alias="customerId", json_schema_extra={"examples": [1234567891011]})
     global_object_ops: Optional[Dict[str, ManaV2GlobalObjectServiceOps]] = Field(default=None, alias="globalObjectOps")
-    id: StrictInt = Field(description="ID of the service which is being consumed by the customer (required)")
+    id: StrictInt = Field(description="ID of the service which is being consumed by the customer (required)", json_schema_extra={"examples": [1234567891011]})
     nat: List[ManaV2B2bNat]
     policy: List[ManaV2B2bExtranetPeeringServiceConsumerLanSegmentPolicy]
     site_information: List[ManaV2B2bSiteInformation] = Field(alias="siteInformation")

@@ -27,7 +27,7 @@ class ManaV2NullableIpProtocol(BaseModel):
     """
     ManaV2NullableIpProtocol
     """ # noqa: E501
-    ip_protocol: Optional[StrictStr] = Field(default=None, alias="ipProtocol")
+    ip_protocol: Optional[StrictStr] = Field(default=None, alias="ipProtocol", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["ipProtocol"]
 
     model_config = ConfigDict(

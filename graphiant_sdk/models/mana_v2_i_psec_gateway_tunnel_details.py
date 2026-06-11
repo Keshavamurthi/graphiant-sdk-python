@@ -27,10 +27,10 @@ class ManaV2IPsecGatewayTunnelDetails(BaseModel):
     """
     ManaV2IPsecGatewayTunnelDetails
     """ # noqa: E501
-    inside_ipv4_cidr: Optional[StrictStr] = Field(default=None, alias="insideIpv4Cidr")
-    inside_ipv6_cidr: Optional[StrictStr] = Field(default=None, alias="insideIpv6Cidr")
-    local_ike_peer_identity: Optional[StrictStr] = Field(default=None, alias="localIkePeerIdentity")
-    psk: Optional[StrictStr] = None
+    inside_ipv4_cidr: Optional[StrictStr] = Field(default=None, alias="insideIpv4Cidr", json_schema_extra={"examples": ["example string"]})
+    inside_ipv6_cidr: Optional[StrictStr] = Field(default=None, alias="insideIpv6Cidr", json_schema_extra={"examples": ["example string"]})
+    local_ike_peer_identity: Optional[StrictStr] = Field(default=None, alias="localIkePeerIdentity", json_schema_extra={"examples": ["example string"]})
+    psk: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["insideIpv4Cidr", "insideIpv6Cidr", "localIkePeerIdentity", "psk"]
 
     model_config = ConfigDict(

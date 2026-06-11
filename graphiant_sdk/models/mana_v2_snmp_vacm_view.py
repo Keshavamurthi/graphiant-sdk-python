@@ -28,9 +28,9 @@ class ManaV2SnmpVacmView(BaseModel):
     """
     ManaV2SnmpVacmView
     """ # noqa: E501
-    id: Optional[StrictInt] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     include_exclude: Optional[List[ManaV2SnmpVacmViewInclude]] = Field(default=None, alias="includeExclude")
-    name: Optional[StrictStr] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["id", "includeExclude", "name"]
 
     model_config = ConfigDict(

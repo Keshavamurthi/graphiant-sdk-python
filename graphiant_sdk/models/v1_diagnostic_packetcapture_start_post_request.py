@@ -30,10 +30,10 @@ class V1DiagnosticPacketcaptureStartPostRequest(BaseModel):
     """
     V1DiagnosticPacketcaptureStartPostRequest
     """ # noqa: E501
-    device_id: StrictInt = Field(description="Unique identifier for a specific device (required)", alias="deviceId")
-    duration: Annotated[int, Field(strict=True, ge=0)] = Field(description="Packet capture duration. Accepted values are 30, 60, 180 (required)")
+    device_id: StrictInt = Field(description="Unique identifier for a specific device (required)", alias="deviceId", json_schema_extra={"examples": [30000000555]})
+    duration: Annotated[int, Field(strict=True, ge=0)] = Field(description="Packet capture duration. Accepted values are 30, 60, 180 (required)", json_schema_extra={"examples": [30]})
     filter: Optional[DiagnosticToolsPCapFilter] = None
-    max_packet_counter: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Packet capture limit.", alias="maxPacketCounter")
+    max_packet_counter: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Packet capture limit.", alias="maxPacketCounter", json_schema_extra={"examples": [300]})
     target: DiagnosticToolsTargetType
     __properties: ClassVar[List[str]] = ["deviceId", "duration", "filter", "maxPacketCounter", "target"]
 

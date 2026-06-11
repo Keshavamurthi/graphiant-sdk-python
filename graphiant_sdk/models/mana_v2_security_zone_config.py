@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.mana_v2_nullable_security_zone_pair_config import ManaV2NullableSecurityZonePairConfig
 from typing import Optional, Set
@@ -28,7 +28,7 @@ class ManaV2SecurityZoneConfig(BaseModel):
     """
     ManaV2SecurityZoneConfig
     """ # noqa: E501
-    inside: Optional[StrictStr] = None
+    inside: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     pairs: Optional[Dict[str, ManaV2NullableSecurityZonePairConfig]] = None
     __properties: ClassVar[List[str]] = ["inside", "pairs"]
 

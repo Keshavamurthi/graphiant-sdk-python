@@ -27,9 +27,9 @@ class AssuranceTrendValue(BaseModel):
     """
     AssuranceTrendValue
     """ # noqa: E501
-    end_time: Optional[StrictInt] = Field(default=None, alias="endTime")
-    flow_count: Optional[StrictInt] = Field(default=None, alias="flowCount")
-    start_time: Optional[StrictInt] = Field(default=None, alias="startTime")
+    end_time: Optional[StrictInt] = Field(default=None, alias="endTime", json_schema_extra={"examples": [1234567891011]})
+    flow_count: Optional[StrictInt] = Field(default=None, alias="flowCount", json_schema_extra={"examples": [1234567891011]})
+    start_time: Optional[StrictInt] = Field(default=None, alias="startTime", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["endTime", "flowCount", "startTime"]
 
     model_config = ConfigDict(

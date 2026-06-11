@@ -27,7 +27,7 @@ class ManaV2NullableMaCsecReplayProtectionWindowSize(BaseModel):
     """
     ManaV2NullableMaCsecReplayProtectionWindowSize
     """ # noqa: E501
-    replay_protection_window_size: Optional[StrictInt] = Field(default=None, alias="replayProtectionWindowSize")
+    replay_protection_window_size: Optional[StrictInt] = Field(default=None, alias="replayProtectionWindowSize", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["replayProtectionWindowSize"]
 
     model_config = ConfigDict(

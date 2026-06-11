@@ -30,11 +30,11 @@ class ManaV2B2bExtranetCustomerServicesSummary(BaseModel):
     ManaV2B2bExtranetCustomerServicesSummary
     """ # noqa: E501
     admin_emails: Optional[List[StrictStr]] = Field(default=None, alias="adminEmails")
-    id: Optional[StrictInt] = None
-    matched_services: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="matchedServices")
-    name: Optional[StrictStr] = None
-    status: Optional[StrictStr] = None
-    type: Optional[StrictStr] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    matched_services: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="matchedServices", json_schema_extra={"examples": [123]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     updated_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="updatedAt")
     __properties: ClassVar[List[str]] = ["adminEmails", "id", "matchedServices", "name", "status", "type", "updatedAt"]
 

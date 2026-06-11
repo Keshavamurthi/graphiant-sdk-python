@@ -27,7 +27,7 @@ class ManaV2NullableProtocolRouteType(BaseModel):
     """
     ManaV2NullableProtocolRouteType
     """ # noqa: E501
-    route_type: Optional[StrictStr] = Field(default=None, alias="routeType")
+    route_type: Optional[StrictStr] = Field(default=None, alias="routeType", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["routeType"]
 
     model_config = ConfigDict(

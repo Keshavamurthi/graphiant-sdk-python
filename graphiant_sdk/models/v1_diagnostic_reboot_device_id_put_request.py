@@ -27,7 +27,7 @@ class V1DiagnosticRebootDeviceIdPutRequest(BaseModel):
     """
     V1DiagnosticRebootDeviceIdPutRequest
     """ # noqa: E501
-    reason: StrictStr = Field(description="Reason for reboot (required)")
+    reason: StrictStr = Field(description="Reason for reboot (required)", json_schema_extra={"examples": ["User requested reboot"]})
     __properties: ClassVar[List[str]] = ["reason"]
 
     model_config = ConfigDict(

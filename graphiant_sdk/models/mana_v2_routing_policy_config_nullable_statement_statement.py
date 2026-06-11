@@ -32,7 +32,7 @@ class ManaV2RoutingPolicyConfigNullableStatementStatement(BaseModel):
     """ # noqa: E501
     actions: Optional[Dict[str, ManaV2RoutingPolicyConfigNullableStatementStatementNullableAction]] = None
     matches: Optional[Dict[str, ManaV2RoutingPolicyConfigNullableStatementStatementNullableMatch]] = None
-    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["actions", "matches", "seq"]
 
     model_config = ConfigDict(

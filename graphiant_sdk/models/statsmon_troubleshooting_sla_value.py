@@ -28,12 +28,12 @@ class StatsmonTroubleshootingSlaValue(BaseModel):
     """
     StatsmonTroubleshootingSlaValue
     """ # noqa: E501
-    delay_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="delayValue")
-    jitter_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="jitterValue")
-    loss_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="lossValue")
-    status: Optional[StrictStr] = None
+    delay_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="delayValue", json_schema_extra={"examples": [123.45]})
+    jitter_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="jitterValue", json_schema_extra={"examples": [123.45]})
+    loss_value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="lossValue", json_schema_extra={"examples": [123.45]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     time: Optional[GoogleProtobufTimestamp] = None
-    value: Optional[Union[StrictFloat, StrictInt]] = None
+    value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [123.45]})
     __properties: ClassVar[List[str]] = ["delayValue", "jitterValue", "lossValue", "status", "time", "value"]
 
     model_config = ConfigDict(

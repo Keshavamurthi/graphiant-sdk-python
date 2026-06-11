@@ -28,12 +28,13 @@ class V2AssuranceApplicationdetailsbynamePostRequest(BaseModel):
     """
     V2AssuranceApplicationdetailsbynamePostRequest
     """ # noqa: E501
-    app_id_key: Optional[StrictStr] = Field(default=None, alias="appIdKey")
-    app_name: Optional[StrictStr] = Field(default=None, alias="appName")
-    bucket_id: Optional[StrictStr] = Field(default=None, alias="bucketId")
-    flex_algo_id: Optional[StrictInt] = Field(default=None, alias="flexAlgoId")
+    app_id_key: Optional[StrictStr] = Field(default=None, alias="appIdKey", json_schema_extra={"examples": ["example string"]})
+    app_name: Optional[StrictStr] = Field(default=None, alias="appName", json_schema_extra={"examples": ["example string"]})
+    bucket_id: Optional[StrictStr] = Field(default=None, alias="bucketId", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    exchange_service_id: Optional[StrictInt] = Field(default=None, alias="exchangeServiceId", json_schema_extra={"examples": [1234567891011]})
+    flex_algo_id: Optional[StrictInt] = Field(default=None, alias="flexAlgoId", json_schema_extra={"examples": [1234567891011]})
     time_window: Optional[AssuranceTimeWindow] = Field(default=None, alias="timeWindow")
-    __properties: ClassVar[List[str]] = ["appIdKey", "appName", "bucketId", "flexAlgoId", "timeWindow"]
+    __properties: ClassVar[List[str]] = ["appIdKey", "appName", "bucketId", "exchangeServiceId", "flexAlgoId", "timeWindow"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -92,6 +93,7 @@ class V2AssuranceApplicationdetailsbynamePostRequest(BaseModel):
             "appIdKey": obj.get("appIdKey"),
             "appName": obj.get("appName"),
             "bucketId": obj.get("bucketId"),
+            "exchangeServiceId": obj.get("exchangeServiceId"),
             "flexAlgoId": obj.get("flexAlgoId"),
             "timeWindow": AssuranceTimeWindow.from_dict(obj["timeWindow"]) if obj.get("timeWindow") is not None else None
         })

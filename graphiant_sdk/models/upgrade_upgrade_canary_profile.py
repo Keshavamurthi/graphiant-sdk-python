@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.upgrade_upgrade_occurrence import UpgradeUpgradeOccurrence
 from typing import Optional, Set
@@ -28,10 +28,10 @@ class UpgradeUpgradeCanaryProfile(BaseModel):
     """
     UpgradeUpgradeCanaryProfile
     """ # noqa: E501
-    action: Optional[StrictStr] = None
-    name: Optional[StrictStr] = None
+    action: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     occurrence: Optional[UpgradeUpgradeOccurrence] = None
-    release: Optional[StrictStr] = None
+    release: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["action", "name", "occurrence", "release"]
 
     model_config = ConfigDict(

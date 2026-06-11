@@ -28,14 +28,14 @@ class ManaV2TrafficPolicyRulesetRuleAction(BaseModel):
     """
     ManaV2TrafficPolicyRulesetRuleAction
     """ # noqa: E501
-    backup_circuit: Optional[StrictStr] = Field(default=None, alias="backupCircuit")
-    backup_circuit_label: Optional[StrictStr] = Field(default=None, alias="backupCircuitLabel")
-    egress: Optional[StrictStr] = None
-    logging: Optional[StrictBool] = None
-    primary_circuit: Optional[StrictStr] = Field(default=None, alias="primaryCircuit")
-    primary_circuit_label: Optional[StrictStr] = Field(default=None, alias="primaryCircuitLabel")
+    backup_circuit: Optional[StrictStr] = Field(default=None, alias="backupCircuit", json_schema_extra={"examples": ["example string"]})
+    backup_circuit_label: Optional[StrictStr] = Field(default=None, alias="backupCircuitLabel", json_schema_extra={"examples": ["example string"]})
+    egress: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    logging: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    primary_circuit: Optional[StrictStr] = Field(default=None, alias="primaryCircuit", json_schema_extra={"examples": ["example string"]})
+    primary_circuit_label: Optional[StrictStr] = Field(default=None, alias="primaryCircuitLabel", json_schema_extra={"examples": ["example string"]})
     remark: Optional[ManaV2Dscp] = None
-    sla_class: Optional[StrictStr] = Field(default=None, alias="slaClass")
+    sla_class: Optional[StrictStr] = Field(default=None, alias="slaClass", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["backupCircuit", "backupCircuitLabel", "egress", "logging", "primaryCircuit", "primaryCircuitLabel", "remark", "slaClass"]
 
     model_config = ConfigDict(

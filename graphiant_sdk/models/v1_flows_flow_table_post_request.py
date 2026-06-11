@@ -31,12 +31,12 @@ class V1FlowsFlowTablePostRequest(BaseModel):
     """
     V1FlowsFlowTablePostRequest
     """ # noqa: E501
-    app_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="the app ID in the question from overall visuals view", alias="appId")
-    app_name: Optional[StrictStr] = Field(default=None, alias="appName")
+    app_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="the app ID in the question from overall visuals view", alias="appId", json_schema_extra={"examples": [123]})
+    app_name: Optional[StrictStr] = Field(default=None, alias="appName", json_schema_extra={"examples": ["example string"]})
     cursor_ref: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="cursorRef")
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    is_dia: Optional[StrictBool] = Field(default=None, alias="isDia")
-    num_flow_records: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Number of app flow records requested by UI.", alias="numFlowRecords")
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    is_dia: Optional[StrictBool] = Field(default=None, alias="isDia", json_schema_extra={"examples": [True]})
+    num_flow_records: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Number of app flow records requested by UI.", alias="numFlowRecords", json_schema_extra={"examples": [123]})
     selector: Optional[IpfixAppFlowTableSelector] = None
     time_window: Optional[StatsmonTimeWindow] = Field(default=None, alias="timeWindow")
     __properties: ClassVar[List[str]] = ["appId", "appName", "cursorRef", "deviceId", "isDia", "numFlowRecords", "selector", "timeWindow"]

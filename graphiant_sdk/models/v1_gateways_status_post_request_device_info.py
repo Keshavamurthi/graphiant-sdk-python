@@ -27,8 +27,8 @@ class V1GatewaysStatusPostRequestDeviceInfo(BaseModel):
     """
     V1GatewaysStatusPostRequestDeviceInfo
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    interface_id: Optional[StrictInt] = Field(default=None, alias="interfaceId")
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    interface_id: Optional[StrictInt] = Field(default=None, alias="interfaceId", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["deviceId", "interfaceId"]
 
     model_config = ConfigDict(

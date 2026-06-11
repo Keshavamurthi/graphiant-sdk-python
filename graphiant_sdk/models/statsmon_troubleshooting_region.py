@@ -27,8 +27,8 @@ class StatsmonTroubleshootingRegion(BaseModel):
     """
     StatsmonTroubleshootingRegion
     """ # noqa: E501
-    region_id: Optional[StrictInt] = Field(default=None, alias="regionId")
-    region_name: Optional[StrictStr] = Field(default=None, alias="regionName")
+    region_id: Optional[StrictInt] = Field(default=None, alias="regionId", json_schema_extra={"examples": [123]})
+    region_name: Optional[StrictStr] = Field(default=None, alias="regionName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["regionId", "regionName"]
 
     model_config = ConfigDict(

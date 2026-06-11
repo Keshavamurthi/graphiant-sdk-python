@@ -29,17 +29,17 @@ class ManaV2CoreInterfaceConfig(BaseModel):
     """
     ManaV2CoreInterfaceConfig
     """ # noqa: E501
-    admin_status: Optional[StrictBool] = Field(default=None, alias="adminStatus")
-    alias: Optional[StrictStr] = None
-    description: Optional[StrictStr] = None
-    duplex: Optional[StrictStr] = None
+    admin_status: Optional[StrictBool] = Field(default=None, alias="adminStatus", json_schema_extra={"examples": [True]})
+    alias: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    duplex: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     ipv4: Optional[ManaV2InterfaceIpConfig] = None
     ipv6: Optional[ManaV2InterfaceIpConfig] = None
-    max_transmission_unit: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="maxTransmissionUnit")
-    mpls_enabled: Optional[StrictBool] = Field(default=None, alias="mplsEnabled")
-    tcp_mss_v4: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="tcpMssV4")
-    tcp_mss_v6: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="tcpMssV6")
-    x_talk_filter: Optional[StrictBool] = Field(default=None, alias="xTalkFilter")
+    max_transmission_unit: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="maxTransmissionUnit", json_schema_extra={"examples": [123]})
+    mpls_enabled: Optional[StrictBool] = Field(default=None, alias="mplsEnabled", json_schema_extra={"examples": [True]})
+    tcp_mss_v4: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="tcpMssV4", json_schema_extra={"examples": [123]})
+    tcp_mss_v6: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="tcpMssV6", json_schema_extra={"examples": [123]})
+    x_talk_filter: Optional[StrictBool] = Field(default=None, alias="xTalkFilter", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["adminStatus", "alias", "description", "duplex", "ipv4", "ipv6", "maxTransmissionUnit", "mplsEnabled", "tcpMssV4", "tcpMssV6", "xTalkFilter"]
 
     model_config = ConfigDict(

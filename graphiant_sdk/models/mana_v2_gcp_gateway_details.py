@@ -27,9 +27,9 @@ class ManaV2GcpGatewayDetails(BaseModel):
     """
     ManaV2GcpGatewayDetails
     """ # noqa: E501
-    description: Optional[StrictStr] = None
-    pairing_key: Optional[StrictStr] = Field(default=None, alias="pairingKey")
-    routing_policy: Optional[StrictStr] = Field(default=None, alias="routingPolicy")
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    pairing_key: Optional[StrictStr] = Field(default=None, alias="pairingKey", json_schema_extra={"examples": ["example string"]})
+    routing_policy: Optional[StrictStr] = Field(default=None, alias="routingPolicy", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["description", "pairingKey", "routingPolicy"]
 
     model_config = ConfigDict(

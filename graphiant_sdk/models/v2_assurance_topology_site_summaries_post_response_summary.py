@@ -28,9 +28,9 @@ class V2AssuranceTopologySiteSummariesPostResponseSummary(BaseModel):
     """
     V2AssuranceTopologySiteSummariesPostResponseSummary
     """ # noqa: E501
-    app_name: Optional[StrictStr] = Field(default=None, alias="appName")
+    app_name: Optional[StrictStr] = Field(default=None, alias="appName", json_schema_extra={"examples": ["example string"]})
     lan_segments: Optional[List[StrictStr]] = Field(default=None, alias="lanSegments")
-    session_count: Optional[StrictInt] = Field(default=None, alias="sessionCount")
+    session_count: Optional[StrictInt] = Field(default=None, alias="sessionCount", json_schema_extra={"examples": [123]})
     site: Optional[AssuranceSite] = None
     __properties: ClassVar[List[str]] = ["appName", "lanSegments", "sessionCount", "site"]
 

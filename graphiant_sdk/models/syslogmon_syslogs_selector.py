@@ -27,7 +27,7 @@ class SyslogmonSyslogsSelector(BaseModel):
     """
     SyslogmonSyslogsSelector
     """ # noqa: E501
-    var_field: Optional[StrictStr] = Field(default=None, alias="field")
+    var_field: Optional[StrictStr] = Field(default=None, alias="field", json_schema_extra={"examples": ["ENUM_VALUE"]})
     values: Optional[List[StrictStr]] = None
     __properties: ClassVar[List[str]] = ["field", "values"]
 

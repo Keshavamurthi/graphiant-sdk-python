@@ -27,7 +27,7 @@ class ManaV2GlobalContentFilterRule(BaseModel):
     """
     ManaV2GlobalContentFilterRule
     """ # noqa: E501
-    domain_category_id: Optional[StrictInt] = Field(default=None, description="ID of the category whose traffic will be blocked by the content filter.", alias="domainCategoryId")
+    domain_category_id: Optional[StrictInt] = Field(default=None, description="ID of the category whose traffic will be blocked by the content filter.", alias="domainCategoryId", json_schema_extra={"examples": [1234567891011]})
     exception_wildcards: Optional[List[StrictStr]] = Field(default=None, alias="exceptionWildcards")
     __properties: ClassVar[List[str]] = ["domainCategoryId", "exceptionWildcards"]
 

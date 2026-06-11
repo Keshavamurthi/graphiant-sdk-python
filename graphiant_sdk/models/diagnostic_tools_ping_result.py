@@ -28,12 +28,12 @@ class DiagnosticToolsPingResult(BaseModel):
     """
     DiagnosticToolsPingResult
     """ # noqa: E501
-    avg_loss: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="% loss (required)", alias="avgLoss")
-    avg_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Time in milli seconds (required)", alias="avgTime")
+    avg_loss: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="% loss (required)", alias="avgLoss", json_schema_extra={"examples": [64]})
+    avg_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Time in milli seconds (required)", alias="avgTime", json_schema_extra={"examples": [3]})
     completed_time: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="completedTime")
-    max_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Time in milli seconds (required)", alias="maxTime")
-    min_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Time in milli seconds (required)", alias="minTime")
-    result: Optional[StrictStr] = Field(default=None, description="Success or Failed (required)")
+    max_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Time in milli seconds (required)", alias="maxTime", json_schema_extra={"examples": [10]})
+    min_time: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Time in milli seconds (required)", alias="minTime", json_schema_extra={"examples": [5]})
+    result: Optional[StrictStr] = Field(default=None, description="Success or Failed (required)", json_schema_extra={"examples": ["Success"]})
     __properties: ClassVar[List[str]] = ["avgLoss", "avgTime", "completedTime", "maxTime", "minTime", "result"]
 
     model_config = ConfigDict(

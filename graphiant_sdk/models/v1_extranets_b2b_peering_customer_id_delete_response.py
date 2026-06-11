@@ -27,8 +27,8 @@ class V1ExtranetsB2bPeeringCustomerIdDeleteResponse(BaseModel):
     """
     V1ExtranetsB2bPeeringCustomerIdDeleteResponse
     """ # noqa: E501
-    activity_id: Optional[StrictStr] = Field(default=None, alias="activityId")
-    consumer_activity_id: Optional[StrictStr] = Field(default=None, alias="consumerActivityId")
+    activity_id: Optional[StrictStr] = Field(default=None, alias="activityId", json_schema_extra={"examples": ["example string"]})
+    consumer_activity_id: Optional[StrictStr] = Field(default=None, alias="consumerActivityId", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["activityId", "consumerActivityId"]
 
     model_config = ConfigDict(

@@ -28,13 +28,13 @@ class V1GlobalSyncPostRequest(BaseModel):
     V1GlobalSyncPostRequest
     """ # noqa: E501
     device_ids: Optional[List[StrictInt]] = Field(default=None, alias="deviceIds")
-    ipfix_exported_id: Optional[StrictInt] = Field(default=None, alias="ipfixExportedId")
-    ntp_id: Optional[StrictInt] = Field(default=None, alias="ntpId")
-    prefix_set_id: Optional[StrictInt] = Field(default=None, alias="prefixSetId")
-    routing_policy_id: Optional[StrictInt] = Field(default=None, alias="routingPolicyId")
-    snmp_id: Optional[StrictInt] = Field(default=None, alias="snmpId")
-    syslog_server_id: Optional[StrictInt] = Field(default=None, alias="syslogServerId")
-    traffic_policy_id: Optional[StrictInt] = Field(default=None, alias="trafficPolicyId")
+    ipfix_exported_id: Optional[StrictInt] = Field(default=None, alias="ipfixExportedId", json_schema_extra={"examples": [1234567891011]})
+    ntp_id: Optional[StrictInt] = Field(default=None, alias="ntpId", json_schema_extra={"examples": [1234567891011]})
+    prefix_set_id: Optional[StrictInt] = Field(default=None, alias="prefixSetId", json_schema_extra={"examples": [1234567891011]})
+    routing_policy_id: Optional[StrictInt] = Field(default=None, alias="routingPolicyId", json_schema_extra={"examples": [1234567891011]})
+    snmp_id: Optional[StrictInt] = Field(default=None, alias="snmpId", json_schema_extra={"examples": [1234567891011]})
+    syslog_server_id: Optional[StrictInt] = Field(default=None, alias="syslogServerId", json_schema_extra={"examples": [1234567891011]})
+    traffic_policy_id: Optional[StrictInt] = Field(default=None, alias="trafficPolicyId", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["deviceIds", "ipfixExportedId", "ntpId", "prefixSetId", "routingPolicyId", "snmpId", "syslogServerId", "trafficPolicyId"]
 
     model_config = ConfigDict(

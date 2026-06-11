@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.mana_v2_qo_s_profile_queue import ManaV2QoSProfileQueue
 from typing import Optional, Set
@@ -28,8 +28,8 @@ class ManaV2QoSProfile(BaseModel):
     """
     ManaV2QoSProfile
     """ # noqa: E501
-    kind: Optional[StrictStr] = None
-    profile: Optional[StrictStr] = None
+    kind: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    profile: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     queues: Optional[List[ManaV2QoSProfileQueue]] = None
     __properties: ClassVar[List[str]] = ["kind", "profile", "queues"]
 

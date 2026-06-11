@@ -30,24 +30,24 @@ class AuditmonActivityDetails(BaseModel):
     """
     AuditmonActivityDetails
     """ # noqa: E501
-    action: Optional[StrictStr] = None
+    action: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     attributes: Optional[List[AuditActivityItem]] = None
-    category: Optional[StrictStr] = None
-    disable_auto_timeout: Optional[StrictBool] = Field(default=None, alias="disableAutoTimeout")
+    category: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    disable_auto_timeout: Optional[StrictBool] = Field(default=None, alias="disableAutoTimeout", json_schema_extra={"examples": [True]})
     end_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="endTs")
-    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId")
-    id: Optional[StrictStr] = None
-    initiator_type: Optional[StrictStr] = Field(default=None, alias="initiatorType")
+    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId", json_schema_extra={"examples": [1234567891011]})
+    id: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    initiator_type: Optional[StrictStr] = Field(default=None, alias="initiatorType", json_schema_extra={"examples": ["ENUM_VALUE"]})
     job_entities: Optional[List[AuditActivityItem]] = Field(default=None, alias="jobEntities")
-    job_type: Optional[StrictStr] = Field(default=None, alias="jobType")
-    original_enterprise_id: Optional[StrictInt] = Field(default=None, alias="originalEnterpriseId")
+    job_type: Optional[StrictStr] = Field(default=None, alias="jobType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    original_enterprise_id: Optional[StrictInt] = Field(default=None, alias="originalEnterpriseId", json_schema_extra={"examples": [1234567891011]})
     start_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="startTs")
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     targets: Optional[List[AuditmonActivityDetailsTarget]] = None
-    trace_session_id: Optional[StrictStr] = Field(default=None, alias="traceSessionId")
-    usage: Optional[StrictStr] = None
-    user: Optional[StrictStr] = None
-    user_id: Optional[StrictStr] = Field(default=None, alias="userId")
+    trace_session_id: Optional[StrictStr] = Field(default=None, alias="traceSessionId", json_schema_extra={"examples": ["example string"]})
+    usage: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    user: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    user_id: Optional[StrictStr] = Field(default=None, alias="userId", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["action", "attributes", "category", "disableAutoTimeout", "endTs", "enterpriseId", "id", "initiatorType", "jobEntities", "jobType", "originalEnterpriseId", "startTs", "status", "targets", "traceSessionId", "usage", "user", "userId"]
 
     model_config = ConfigDict(

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +27,8 @@ class ManaV2Subnet(BaseModel):
     """
     ManaV2Subnet
     """ # noqa: E501
-    cidr: Optional[StrictStr] = None
-    id: Optional[StrictStr] = None
+    cidr: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["cidr", "id"]
 
     model_config = ConfigDict(

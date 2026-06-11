@@ -28,9 +28,9 @@ class ManaV2SnmpNotifyFilterProfile(BaseModel):
     """
     ManaV2SnmpNotifyFilterProfile
     """ # noqa: E501
-    id: Optional[StrictInt] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     include_exclude_list: Optional[List[ManaV2NotifyFilterProfileInclude]] = Field(default=None, alias="includeExcludeList")
-    name: Optional[StrictStr] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["id", "includeExcludeList", "name"]
 
     model_config = ConfigDict(

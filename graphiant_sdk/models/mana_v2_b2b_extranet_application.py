@@ -30,16 +30,16 @@ class ManaV2B2bExtranetApplication(BaseModel):
     ManaV2B2bExtranetApplication
     """ # noqa: E501
     created_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="createdAt")
-    id: Optional[StrictInt] = None
-    is_publisher: Optional[StrictBool] = Field(default=None, alias="isPublisher")
-    lan_segment: Optional[StrictInt] = Field(default=None, alias="lanSegment")
-    matched_customers: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="matchedCustomers")
-    name: Optional[StrictStr] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    is_publisher: Optional[StrictBool] = Field(default=None, alias="isPublisher", json_schema_extra={"examples": [True]})
+    lan_segment: Optional[StrictInt] = Field(default=None, alias="lanSegment", json_schema_extra={"examples": [1234567891011]})
+    matched_customers: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="matchedCustomers", json_schema_extra={"examples": [123]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     server_ip_address: Optional[List[StrictStr]] = Field(default=None, alias="serverIpAddress")
-    status: Optional[StrictStr] = None
-    total_customers: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="totalCustomers")
-    total_sites: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="totalSites")
-    type: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    total_customers: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="totalCustomers", json_schema_extra={"examples": [123]})
+    total_sites: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="totalSites", json_schema_extra={"examples": [123]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     updated_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="updatedAt")
     __properties: ClassVar[List[str]] = ["createdAt", "id", "isPublisher", "lanSegment", "matchedCustomers", "name", "serverIpAddress", "status", "totalCustomers", "totalSites", "type", "updatedAt"]
 

@@ -27,12 +27,12 @@ class AssuranceDnsProxyEntry(BaseModel):
     """
     AssuranceDnsProxyEntry
     """ # noqa: E501
-    dnsproxy_entry_id: StrictStr = Field(description="dns proxy table entry id (required)", alias="dnsproxyEntryId")
+    dnsproxy_entry_id: StrictStr = Field(description="dns proxy table entry id (required)", alias="dnsproxyEntryId", json_schema_extra={"examples": ["example string"]})
     ip_list: List[StrictStr] = Field(alias="ipList")
-    name: StrictStr = Field(description="name of the entry  (required)")
-    name_text: StrictStr = Field(description="user defined name of the record (required)", alias="nameText")
+    name: StrictStr = Field(description="name of the entry  (required)", json_schema_extra={"examples": ["DNSPROXY_EXCEPTION_DNS"]})
+    name_text: StrictStr = Field(description="user defined name of the record (required)", alias="nameText", json_schema_extra={"examples": ["example string"]})
     port_list: List[StrictStr] = Field(alias="portList")
-    protocol: StrictStr = Field(description="protocol to exclude (required)")
+    protocol: StrictStr = Field(description="protocol to exclude (required)", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["dnsproxyEntryId", "ipList", "name", "nameText", "portList", "protocol"]
 
     model_config = ConfigDict(

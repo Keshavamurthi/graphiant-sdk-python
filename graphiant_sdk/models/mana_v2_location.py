@@ -27,17 +27,17 @@ class ManaV2Location(BaseModel):
     """
     ManaV2Location
     """ # noqa: E501
-    address_line1: Optional[StrictStr] = Field(default=None, alias="addressLine1")
-    address_line2: Optional[StrictStr] = Field(default=None, alias="addressLine2")
-    city: Optional[StrictStr] = None
-    country: Optional[StrictStr] = None
-    country_code: Optional[StrictStr] = Field(default=None, alias="countryCode")
-    latitude: Optional[Union[StrictFloat, StrictInt]] = None
-    longitude: Optional[Union[StrictFloat, StrictInt]] = None
-    notes: Optional[StrictStr] = None
-    province_code: Optional[StrictStr] = Field(default=None, alias="provinceCode")
-    state: Optional[StrictStr] = None
-    state_code: Optional[StrictStr] = Field(default=None, alias="stateCode")
+    address_line1: Optional[StrictStr] = Field(default=None, alias="addressLine1", json_schema_extra={"examples": ["example string"]})
+    address_line2: Optional[StrictStr] = Field(default=None, alias="addressLine2", json_schema_extra={"examples": ["example string"]})
+    city: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    country: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    country_code: Optional[StrictStr] = Field(default=None, alias="countryCode", json_schema_extra={"examples": ["example string"]})
+    latitude: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [123.45]})
+    longitude: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [123.45]})
+    notes: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    province_code: Optional[StrictStr] = Field(default=None, alias="provinceCode", json_schema_extra={"examples": ["example string"]})
+    state: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    state_code: Optional[StrictStr] = Field(default=None, alias="stateCode", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["addressLine1", "addressLine2", "city", "country", "countryCode", "latitude", "longitude", "notes", "provinceCode", "state", "stateCode"]
 
     model_config = ConfigDict(

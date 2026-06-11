@@ -29,12 +29,12 @@ class RoutingOspfNextHop(BaseModel):
     """
     RoutingOspfNextHop
     """ # noqa: E501
-    egress_interface: Optional[StrictStr] = Field(default=None, description="Interface name (required)", alias="egressInterface")
+    egress_interface: Optional[StrictStr] = Field(default=None, description="Interface name (required)", alias="egressInterface", json_schema_extra={"examples": ["ATTInterface"]})
     last_modified: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="lastModified")
-    metric: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="value > 0 (required)")
-    next_hop: Optional[StrictStr] = Field(default=None, description="IPv4 or IPv6 Nexthop (required)", alias="nextHop")
-    tag: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="admin assigned number (required)")
-    type: Optional[StrictStr] = Field(default=None, description="route type (required)")
+    metric: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="value > 0 (required)", json_schema_extra={"examples": [120]})
+    next_hop: Optional[StrictStr] = Field(default=None, description="IPv4 or IPv6 Nexthop (required)", alias="nextHop", json_schema_extra={"examples": ["10.1.1.1"]})
+    tag: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="admin assigned number (required)", json_schema_extra={"examples": [12312]})
+    type: Optional[StrictStr] = Field(default=None, description="route type (required)", json_schema_extra={"examples": ["internal or external"]})
     __properties: ClassVar[List[str]] = ["egressInterface", "lastModified", "metric", "nextHop", "tag", "type"]
 
     model_config = ConfigDict(

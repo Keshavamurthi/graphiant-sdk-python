@@ -30,7 +30,7 @@ class OnboardingCloudInitTokenToken(BaseModel):
     """ # noqa: E501
     created_by_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="createdByTs")
     expiry_by_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="expiryByTs")
-    token: Optional[StrictStr] = None
+    token: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["createdByTs", "expiryByTs", "token"]
 
     model_config = ConfigDict(

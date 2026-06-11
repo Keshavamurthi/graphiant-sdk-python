@@ -27,11 +27,11 @@ class ManaV2StaticRouteNexthopConfig(BaseModel):
     """
     ManaV2StaticRouteNexthopConfig
     """ # noqa: E501
-    address: Optional[StrictStr] = None
-    circuit: Optional[StrictStr] = None
-    interface: Optional[StrictStr] = None
-    next_hop_address: Optional[StrictStr] = Field(default=None, alias="nextHopAddress")
-    third_party_ipsec_tunnel: Optional[StrictStr] = Field(default=None, alias="thirdPartyIpsecTunnel")
+    address: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    circuit: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    interface: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    next_hop_address: Optional[StrictStr] = Field(default=None, alias="nextHopAddress", json_schema_extra={"examples": ["example string"]})
+    third_party_ipsec_tunnel: Optional[StrictStr] = Field(default=None, alias="thirdPartyIpsecTunnel", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["address", "circuit", "interface", "nextHopAddress", "thirdPartyIpsecTunnel"]
 
     model_config = ConfigDict(

@@ -27,8 +27,8 @@ class V2MonitoringMacsecDeviceIdStatusGetResponseMaCsecStatus(BaseModel):
     """
     V2MonitoringMacsecDeviceIdStatusGetResponseMaCsecStatus
     """ # noqa: E501
-    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName")
-    status: Optional[StrictStr] = None
+    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName", json_schema_extra={"examples": ["example string"]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["interfaceName", "status"]
 
     model_config = ConfigDict(

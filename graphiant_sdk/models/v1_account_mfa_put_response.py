@@ -27,10 +27,10 @@ class V1AccountMfaPutResponse(BaseModel):
     """
     V1AccountMfaPutResponse
     """ # noqa: E501
-    confirmed: Optional[StrictBool] = None
-    id: Optional[StrictStr] = None
-    qr_code: Optional[StrictStr] = Field(default=None, alias="qrCode")
-    shared_secret: Optional[StrictStr] = Field(default=None, alias="sharedSecret")
+    confirmed: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    id: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    qr_code: Optional[StrictStr] = Field(default=None, alias="qrCode", json_schema_extra={"examples": ["example string"]})
+    shared_secret: Optional[StrictStr] = Field(default=None, alias="sharedSecret", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["confirmed", "id", "qrCode", "sharedSecret"]
 
     model_config = ConfigDict(

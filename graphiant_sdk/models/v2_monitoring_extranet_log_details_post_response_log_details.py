@@ -28,10 +28,10 @@ class V2MonitoringExtranetLogDetailsPostResponseLogDetails(BaseModel):
     """
     V2MonitoringExtranetLogDetailsPostResponseLogDetails
     """ # noqa: E501
-    hostname: Optional[StrictStr] = Field(default=None, description="the hostname of the log")
-    reason: Optional[StrictStr] = Field(default=None, description="the reason for the log")
-    server_address: Optional[StrictStr] = Field(default=None, description="the address of the server", alias="serverAddress")
-    site_name: Optional[StrictStr] = Field(default=None, description="the name of the site", alias="siteName")
+    hostname: Optional[StrictStr] = Field(default=None, description="the hostname of the log", json_schema_extra={"examples": ["hostname1"]})
+    reason: Optional[StrictStr] = Field(default=None, description="the reason for the log", json_schema_extra={"examples": ["Reason 1"]})
+    server_address: Optional[StrictStr] = Field(default=None, description="the address of the server", alias="serverAddress", json_schema_extra={"examples": ["192.168.1.1"]})
+    site_name: Optional[StrictStr] = Field(default=None, description="the name of the site", alias="siteName", json_schema_extra={"examples": ["site1"]})
     ts: Optional[GoogleProtobufTimestamp] = None
     __properties: ClassVar[List[str]] = ["hostname", "reason", "serverAddress", "siteName", "ts"]
 

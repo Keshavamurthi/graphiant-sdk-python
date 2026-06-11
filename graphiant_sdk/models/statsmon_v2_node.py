@@ -33,12 +33,12 @@ class StatsmonV2Node(BaseModel):
     """ # noqa: E501
     circuit_info: Optional[List[StatsmonV2NodeCircuitInfo]] = Field(default=None, alias="circuitInfo")
     connections: Optional[List[StatsmonV2NodeConnection]] = None
-    id: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    name: Optional[StrictStr] = None
+    id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     node_info: Optional[StatsmonV2NodeDeviceInfo] = Field(default=None, alias="nodeInfo")
-    preferred_region_name: Optional[StrictStr] = Field(default=None, alias="preferredRegionName")
-    quality: Optional[StrictStr] = None
-    type: Optional[StrictStr] = None
+    preferred_region_name: Optional[StrictStr] = Field(default=None, alias="preferredRegionName", json_schema_extra={"examples": ["example string"]})
+    quality: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["circuitInfo", "connections", "id", "name", "nodeInfo", "preferredRegionName", "quality", "type"]
 
     model_config = ConfigDict(

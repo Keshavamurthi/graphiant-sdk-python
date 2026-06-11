@@ -28,10 +28,10 @@ class V1AuthUserGetResponse(BaseModel):
     """
     V1AuthUserGetResponse
     """ # noqa: E501
-    user_id: StrictStr = Field(description="User identifier", alias="userId")
-    enterprise_id: StrictInt = Field(description="Enterprise identifier", alias="enterpriseId")
+    user_id: StrictStr = Field(description="User identifier", alias="userId", json_schema_extra={"examples": ["user-12345"]})
+    enterprise_id: StrictInt = Field(description="Enterprise identifier", alias="enterpriseId", json_schema_extra={"examples": [1234567891011]})
     permissions: AuthPermissions
-    time_zone: StrictStr = Field(description="User timezone", alias="timeZone")
+    time_zone: StrictStr = Field(description="User timezone", alias="timeZone", json_schema_extra={"examples": ["America/New_York"]})
     __properties: ClassVar[List[str]] = ["userId", "enterpriseId", "permissions", "timeZone"]
 
     model_config = ConfigDict(

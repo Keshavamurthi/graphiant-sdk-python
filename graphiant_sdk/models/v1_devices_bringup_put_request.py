@@ -29,7 +29,7 @@ class V1DevicesBringupPutRequest(BaseModel):
     V1DevicesBringupPutRequest
     """ # noqa: E501
     device_ids: Optional[List[Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, alias="deviceIds")
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["deviceIds", "status"]
 
     model_config = ConfigDict(

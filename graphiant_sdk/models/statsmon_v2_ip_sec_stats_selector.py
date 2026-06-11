@@ -27,8 +27,8 @@ class StatsmonV2IpSecStatsSelector(BaseModel):
     """
     StatsmonV2IpSecStatsSelector
     """ # noqa: E501
-    peer_gdi: Optional[StrictStr] = Field(default=None, alias="peerGdi")
-    type: Optional[StrictStr] = None
+    peer_gdi: Optional[StrictStr] = Field(default=None, alias="peerGdi", json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["peerGdi", "type"]
 
     model_config = ConfigDict(

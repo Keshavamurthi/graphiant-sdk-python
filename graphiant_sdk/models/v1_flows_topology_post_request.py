@@ -30,7 +30,7 @@ class V1FlowsTopologyPostRequest(BaseModel):
     V1FlowsTopologyPostRequest
     """ # noqa: E501
     app_selector: Optional[IpfixAppTopologySelector] = Field(default=None, alias="appSelector")
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
     time_window: Optional[StatsmonTimeWindow] = Field(default=None, alias="timeWindow")
     __properties: ClassVar[List[str]] = ["appSelector", "deviceId", "timeWindow"]
 

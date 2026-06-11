@@ -30,14 +30,14 @@ class ManaV2SecurityPolicyRulesetConfigNullableRuleRule(BaseModel):
     """
     ManaV2SecurityPolicyRulesetConfigNullableRuleRule
     """ # noqa: E501
-    action: Optional[StrictStr] = None
-    description: Optional[StrictStr] = None
+    action: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     downlink_burst_rate: Optional[ManaV2NullableMeterRates] = Field(default=None, alias="downlinkBurstRate")
     downlink_policer_rate: Optional[ManaV2NullableMeterRates] = Field(default=None, alias="downlinkPolicerRate")
-    logging: Optional[StrictBool] = None
+    logging: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     match: Optional[ManaV2ForwardingPolicyMatchConfig] = None
-    name: Optional[StrictStr] = None
-    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     uplink_burst_rate: Optional[ManaV2NullableMeterRates] = Field(default=None, alias="uplinkBurstRate")
     uplink_policer_rate: Optional[ManaV2NullableMeterRates] = Field(default=None, alias="uplinkPolicerRate")
     __properties: ClassVar[List[str]] = ["action", "description", "downlinkBurstRate", "downlinkPolicerRate", "logging", "match", "name", "seq", "uplinkBurstRate", "uplinkPolicerRate"]

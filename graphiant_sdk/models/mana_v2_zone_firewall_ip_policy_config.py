@@ -28,9 +28,9 @@ class ManaV2ZoneFirewallIpPolicyConfig(BaseModel):
     """
     ManaV2ZoneFirewallIpPolicyConfig
     """ # noqa: E501
-    block_land_attacks: Optional[StrictBool] = Field(default=None, alias="blockLandAttacks")
+    block_land_attacks: Optional[StrictBool] = Field(default=None, alias="blockLandAttacks", json_schema_extra={"examples": [True]})
     session_limit: Optional[ManaV2NullableSessionLimit] = Field(default=None, alias="sessionLimit")
-    urpf: Optional[StrictStr] = None
+    urpf: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["blockLandAttacks", "sessionLimit", "urpf"]
 
     model_config = ConfigDict(

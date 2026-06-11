@@ -33,10 +33,10 @@ class ManaV2OspfProcessConfig(BaseModel):
     address_families: Optional[List[StrictStr]] = Field(default=None, alias="addressFamilies")
     admin_distance: Optional[ManaV2NullableOspfAdminDistanceValue] = Field(default=None, alias="adminDistance")
     areas: Optional[Dict[str, ManaV2NullableOspfAreaConfig]] = None
-    auto: Optional[StrictBool] = None
-    default_originate: Optional[StrictStr] = Field(default=None, alias="defaultOriginate")
-    manual: Optional[StrictStr] = None
-    name: Optional[StrictStr] = None
+    auto: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    default_originate: Optional[StrictStr] = Field(default=None, alias="defaultOriginate", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    manual: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     redistribution: Optional[Dict[str, ManaV2NullableOspfRedistributeProtocolConfig]] = None
     __properties: ClassVar[List[str]] = ["addressFamilies", "adminDistance", "areas", "auto", "defaultOriginate", "manual", "name", "redistribution"]
 

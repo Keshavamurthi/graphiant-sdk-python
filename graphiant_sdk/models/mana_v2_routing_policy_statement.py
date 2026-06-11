@@ -31,9 +31,9 @@ class ManaV2RoutingPolicyStatement(BaseModel):
     ManaV2RoutingPolicyStatement
     """ # noqa: E501
     actions: Optional[List[ManaV2RoutingPolicyStatementAction]] = None
-    id: Optional[StrictInt] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     matches: Optional[List[ManaV2RoutingPolicyStatementMatch]] = None
-    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["actions", "id", "matches", "seq"]
 
     model_config = ConfigDict(

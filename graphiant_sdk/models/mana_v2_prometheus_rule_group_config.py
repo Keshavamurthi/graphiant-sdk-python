@@ -29,9 +29,9 @@ class ManaV2PrometheusRuleGroupConfig(BaseModel):
     """
     ManaV2PrometheusRuleGroupConfig
     """ # noqa: E501
-    description: Optional[StrictStr] = None
-    interval_seconds: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="intervalSeconds")
-    name: Optional[StrictStr] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    interval_seconds: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="intervalSeconds", json_schema_extra={"examples": [123]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     rules: Optional[Dict[str, ManaV2NullablePrometheusRuleConfig]] = None
     __properties: ClassVar[List[str]] = ["description", "intervalSeconds", "name", "rules"]
 

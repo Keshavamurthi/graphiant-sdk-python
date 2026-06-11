@@ -27,13 +27,13 @@ class ManaV2LldpNeighbor(BaseModel):
     """
     ManaV2LldpNeighbor
     """ # noqa: E501
-    id: Optional[StrictInt] = None
-    interface: Optional[StrictStr] = None
-    ip_address: Optional[StrictStr] = Field(default=None, alias="ipAddress")
-    mac_address: Optional[StrictStr] = Field(default=None, alias="macAddress")
-    port: Optional[StrictStr] = None
-    system_name: Optional[StrictStr] = Field(default=None, alias="systemName")
-    vendor: Optional[StrictStr] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    interface: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    ip_address: Optional[StrictStr] = Field(default=None, alias="ipAddress", json_schema_extra={"examples": ["example string"]})
+    mac_address: Optional[StrictStr] = Field(default=None, alias="macAddress", json_schema_extra={"examples": ["example string"]})
+    port: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    system_name: Optional[StrictStr] = Field(default=None, alias="systemName", json_schema_extra={"examples": ["example string"]})
+    vendor: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["id", "interface", "ipAddress", "macAddress", "port", "systemName", "vendor"]
 
     model_config = ConfigDict(

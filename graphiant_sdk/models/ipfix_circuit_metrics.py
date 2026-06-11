@@ -28,11 +28,11 @@ class IpfixCircuitMetrics(BaseModel):
     """
     IpfixCircuitMetrics
     """ # noqa: E501
-    name: Optional[StrictStr] = Field(default=None, description="circuit name")
-    sla_class: Optional[StrictStr] = Field(default=None, alias="slaClass")
+    name: Optional[StrictStr] = Field(default=None, description="circuit name", json_schema_extra={"examples": ["example string"]})
+    sla_class: Optional[StrictStr] = Field(default=None, alias="slaClass", json_schema_extra={"examples": ["ENUM_VALUE"]})
     stats: Optional[IpfixTwampMetrics] = None
-    usage: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="usage of the circuit by the application in kilo bytes")
-    usage_pct: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usagePct")
+    usage: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="usage of the circuit by the application in kilo bytes", json_schema_extra={"examples": [123.45]})
+    usage_pct: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usagePct", json_schema_extra={"examples": [12.34]})
     __properties: ClassVar[List[str]] = ["name", "slaClass", "stats", "usage", "usagePct"]
 
     model_config = ConfigDict(

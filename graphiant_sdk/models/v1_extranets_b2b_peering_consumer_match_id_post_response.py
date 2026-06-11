@@ -29,9 +29,9 @@ class V1ExtranetsB2bPeeringConsumerMatchIdPostResponse(BaseModel):
     """
     V1ExtranetsB2bPeeringConsumerMatchIdPostResponse
     """ # noqa: E501
-    consumer_activity_id: Optional[StrictStr] = Field(default=None, alias="consumerActivityId")
-    id: Optional[StrictInt] = None
-    lan_segment: Optional[StrictInt] = Field(default=None, alias="lanSegment")
+    consumer_activity_id: Optional[StrictStr] = Field(default=None, alias="consumerActivityId", json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    lan_segment: Optional[StrictInt] = Field(default=None, alias="lanSegment", json_schema_extra={"examples": [1234567891011]})
     nat: Optional[List[ManaV2B2bNat]] = None
     site_information: Optional[List[ManaV2B2bSiteInformation]] = Field(default=None, alias="siteInformation")
     __properties: ClassVar[List[str]] = ["consumerActivityId", "id", "lanSegment", "nat", "siteInformation"]

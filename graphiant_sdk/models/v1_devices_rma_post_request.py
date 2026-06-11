@@ -28,8 +28,8 @@ class V1DevicesRmaPostRequest(BaseModel):
     """
     V1DevicesRmaPostRequest
     """ # noqa: E501
-    current_device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="currentDeviceId")
-    new_device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="newDeviceId")
+    current_device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="currentDeviceId", json_schema_extra={"examples": [12345678910]})
+    new_device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="newDeviceId", json_schema_extra={"examples": [12345678910]})
     __properties: ClassVar[List[str]] = ["currentDeviceId", "newDeviceId"]
 
     model_config = ConfigDict(

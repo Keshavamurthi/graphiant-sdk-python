@@ -30,7 +30,7 @@ class IpfixConnectionMap(BaseModel):
     """ # noqa: E501
     connections: Optional[Dict[str, Annotated[int, Field(strict=True, ge=0)]]] = None
     connections_v2: Optional[Dict[str, Union[StrictFloat, StrictInt]]] = Field(default=None, alias="connectionsV2")
-    name: Optional[StrictStr] = Field(default=None, description="the name of the connection")
+    name: Optional[StrictStr] = Field(default=None, description="the name of the connection", json_schema_extra={"examples": ["Site 1"]})
     __properties: ClassVar[List[str]] = ["connections", "connectionsV2", "name"]
 
     model_config = ConfigDict(

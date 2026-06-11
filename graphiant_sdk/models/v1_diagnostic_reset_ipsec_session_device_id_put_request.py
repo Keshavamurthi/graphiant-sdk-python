@@ -27,9 +27,9 @@ class V1DiagnosticResetIpsecSessionDeviceIdPutRequest(BaseModel):
     """
     V1DiagnosticResetIpsecSessionDeviceIdPutRequest
     """ # noqa: E501
-    all3_rd_party: Optional[StrictBool] = Field(default=None, description="All 3rd Party IPSec sessions", alias="all3RdParty")
-    all_controllers: Optional[StrictBool] = Field(default=None, description="All Graphiant controllers IPSec sessions", alias="allControllers")
-    all_e2_e: Optional[StrictBool] = Field(default=None, description="All Edge to Edge sessions", alias="allE2E")
+    all3_rd_party: Optional[StrictBool] = Field(default=None, description="All 3rd Party IPSec sessions", alias="all3RdParty", json_schema_extra={"examples": [True]})
+    all_controllers: Optional[StrictBool] = Field(default=None, description="All Graphiant controllers IPSec sessions", alias="allControllers", json_schema_extra={"examples": [True]})
+    all_e2_e: Optional[StrictBool] = Field(default=None, description="All Edge to Edge sessions", alias="allE2E", json_schema_extra={"examples": [True]})
     vrf: Optional[List[StrictStr]] = None
     __properties: ClassVar[List[str]] = ["all3RdParty", "allControllers", "allE2E", "vrf"]
 

@@ -27,10 +27,10 @@ class AlertserviceZendeskDetails(BaseModel):
     """
     AlertserviceZendeskDetails
     """ # noqa: E501
-    zendesk_api_token: StrictStr = Field(description="zendesk api token (required)", alias="zendeskApiToken")
-    zendesk_assignee_id: StrictStr = Field(description="zendesk assignee id (required)", alias="zendeskAssigneeId")
-    zendesk_base_url: StrictStr = Field(description="zendesk base url (required)", alias="zendeskBaseUrl")
-    zendesk_email: StrictStr = Field(description="zendesk email (required)", alias="zendeskEmail")
+    zendesk_api_token: StrictStr = Field(description="zendesk api token (required)", alias="zendeskApiToken", json_schema_extra={"examples": ["example string"]})
+    zendesk_assignee_id: StrictStr = Field(description="zendesk assignee id (required)", alias="zendeskAssigneeId", json_schema_extra={"examples": ["example string"]})
+    zendesk_base_url: StrictStr = Field(description="zendesk base url (required)", alias="zendeskBaseUrl", json_schema_extra={"examples": ["example string"]})
+    zendesk_email: StrictStr = Field(description="zendesk email (required)", alias="zendeskEmail", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["zendeskApiToken", "zendeskAssigneeId", "zendeskBaseUrl", "zendeskEmail"]
 
     model_config = ConfigDict(

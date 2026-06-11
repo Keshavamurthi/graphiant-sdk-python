@@ -27,7 +27,7 @@ class ManaV2NullableBgpSetNextHop(BaseModel):
     """
     ManaV2NullableBgpSetNextHop
     """ # noqa: E501
-    next_hop: Optional[StrictStr] = Field(default=None, alias="nextHop")
+    next_hop: Optional[StrictStr] = Field(default=None, alias="nextHop", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["nextHop"]
 
     model_config = ConfigDict(

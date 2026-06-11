@@ -29,7 +29,7 @@ class StatsmonBandwidthtrackerBwUsageChart(BaseModel):
     StatsmonBandwidthtrackerBwUsageChart
     """ # noqa: E501
     bwusage_chart: Optional[List[StatsmonBandwidthtrackerBwUsageChartValue]] = Field(default=None, alias="bwusageChart")
-    percentile_usage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="percentileUsageKbps")
+    percentile_usage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="percentileUsageKbps", json_schema_extra={"examples": [123.45]})
     __properties: ClassVar[List[str]] = ["bwusageChart", "percentileUsageKbps"]
 
     model_config = ConfigDict(

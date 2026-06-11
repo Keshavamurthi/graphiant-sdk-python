@@ -31,7 +31,7 @@ class StatsmonTroubleshootingDataPlane(BaseModel):
     """ # noqa: E501
     down_transitions: Optional[List[StatsmonTroubleshootingTransitions]] = Field(default=None, alias="downTransitions")
     session_slas: Optional[List[StatsmonTroubleshootingSessionSla]] = Field(default=None, alias="sessionSlas")
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["downTransitions", "sessionSlas", "status"]
 
     model_config = ConfigDict(

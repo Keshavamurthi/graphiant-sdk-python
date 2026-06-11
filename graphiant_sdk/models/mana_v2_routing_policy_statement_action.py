@@ -29,18 +29,18 @@ class ManaV2RoutingPolicyStatementAction(BaseModel):
     """
     ManaV2RoutingPolicyStatementAction
     """ # noqa: E501
-    administrative_distance: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="administrativeDistance")
-    aspath_prepend: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="aspathPrepend")
-    bgp_set_next_hop: Optional[StrictStr] = Field(default=None, alias="bgpSetNextHop")
-    call_policy: Optional[StrictStr] = Field(default=None, alias="callPolicy")
+    administrative_distance: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="administrativeDistance", json_schema_extra={"examples": [123]})
+    aspath_prepend: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="aspathPrepend", json_schema_extra={"examples": [123]})
+    bgp_set_next_hop: Optional[StrictStr] = Field(default=None, alias="bgpSetNextHop", json_schema_extra={"examples": ["example string"]})
+    call_policy: Optional[StrictStr] = Field(default=None, alias="callPolicy", json_schema_extra={"examples": ["example string"]})
     community: Optional[ManaV2CommunityType] = None
-    id: Optional[StrictInt] = None
-    local_pref: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="localPref")
-    metric_absolute: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="metricAbsolute")
-    metric_modifier: Optional[StrictInt] = Field(default=None, alias="metricModifier")
-    result: Optional[StrictStr] = None
-    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    weight: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    local_pref: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="localPref", json_schema_extra={"examples": [123]})
+    metric_absolute: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="metricAbsolute", json_schema_extra={"examples": [123]})
+    metric_modifier: Optional[StrictInt] = Field(default=None, alias="metricModifier", json_schema_extra={"examples": [123]})
+    result: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    weight: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["administrativeDistance", "aspathPrepend", "bgpSetNextHop", "callPolicy", "community", "id", "localPref", "metricAbsolute", "metricModifier", "result", "seq", "weight"]
 
     model_config = ConfigDict(

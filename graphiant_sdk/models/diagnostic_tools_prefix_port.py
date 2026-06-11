@@ -28,8 +28,8 @@ class DiagnosticToolsPrefixPort(BaseModel):
     """
     DiagnosticToolsPrefixPort
     """ # noqa: E501
-    port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Filters the capture for the specified port")
-    prefix: Optional[StrictStr] = Field(default=None, description="Filters the capture for the specified prefix")
+    port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="Filters the capture for the specified port", json_schema_extra={"examples": [80]})
+    prefix: Optional[StrictStr] = Field(default=None, description="Filters the capture for the specified prefix", json_schema_extra={"examples": ["1.1.1.0/24"]})
     __properties: ClassVar[List[str]] = ["port", "prefix"]
 
     model_config = ConfigDict(

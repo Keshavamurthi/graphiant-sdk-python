@@ -27,7 +27,7 @@ class V1DataAssuranceAssurancesGlobalGetResponseRowAppEntry(BaseModel):
     """
     V1DataAssuranceAssurancesGlobalGetResponseRowAppEntry
     """ # noqa: E501
-    app_name: Optional[StrictStr] = Field(default=None, alias="appName")
+    app_name: Optional[StrictStr] = Field(default=None, alias="appName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["appName"]
 
     model_config = ConfigDict(

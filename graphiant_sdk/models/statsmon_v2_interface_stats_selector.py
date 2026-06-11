@@ -27,8 +27,8 @@ class StatsmonV2InterfaceStatsSelector(BaseModel):
     """
     StatsmonV2InterfaceStatsSelector
     """ # noqa: E501
-    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName")
-    type: Optional[StrictStr] = None
+    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName", json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["interfaceName", "type"]
 
     model_config = ConfigDict(

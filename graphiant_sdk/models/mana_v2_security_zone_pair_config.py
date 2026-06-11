@@ -27,9 +27,9 @@ class ManaV2SecurityZonePairConfig(BaseModel):
     """
     ManaV2SecurityZonePairConfig
     """ # noqa: E501
-    outside: Optional[StrictStr] = None
-    ruleset: Optional[StrictStr] = None
-    tcp_protection: Optional[StrictBool] = Field(default=None, alias="tcpProtection")
+    outside: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    ruleset: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    tcp_protection: Optional[StrictBool] = Field(default=None, alias="tcpProtection", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["outside", "ruleset", "tcpProtection"]
 
     model_config = ConfigDict(

@@ -28,7 +28,7 @@ class ManaV2NullableKeepAliveTimer(BaseModel):
     """
     ManaV2NullableKeepAliveTimer
     """ # noqa: E501
-    timer: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    timer: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["timer"]
 
     model_config = ConfigDict(

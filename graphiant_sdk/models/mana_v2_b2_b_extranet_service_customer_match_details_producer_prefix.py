@@ -27,9 +27,9 @@ class ManaV2B2BExtranetServiceCustomerMatchDetailsProducerPrefix(BaseModel):
     """
     ManaV2B2BExtranetServiceCustomerMatchDetailsProducerPrefix
     """ # noqa: E501
-    customer_translated_prefix: Optional[StrictStr] = Field(default=None, alias="customerTranslatedPrefix")
-    prefix: Optional[StrictStr] = None
-    tag: Optional[StrictStr] = None
+    customer_translated_prefix: Optional[StrictStr] = Field(default=None, alias="customerTranslatedPrefix", json_schema_extra={"examples": ["example string"]})
+    prefix: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    tag: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["customerTranslatedPrefix", "prefix", "tag"]
 
     model_config = ConfigDict(

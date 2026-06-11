@@ -27,7 +27,7 @@ class V1DevicesOauthAuthorizationGetResponse(BaseModel):
     """
     V1DevicesOauthAuthorizationGetResponse
     """ # noqa: E501
-    auth_code: Optional[StrictStr] = Field(default=None, description="OAuth authorization code")
+    auth_code: Optional[StrictStr] = Field(default=None, description="OAuth authorization code", json_schema_extra={"examples": ["auth-code-12345"]})
     __properties: ClassVar[List[str]] = ["auth_code"]
 
     model_config = ConfigDict(

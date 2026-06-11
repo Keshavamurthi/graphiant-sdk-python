@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.audit_target import AuditTarget
 from typing import Optional, Set
@@ -28,8 +28,8 @@ class AuditTargetResult(BaseModel):
     """
     AuditTargetResult
     """ # noqa: E501
-    reason: Optional[StrictStr] = None
-    status: Optional[StrictStr] = None
+    reason: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     target: Optional[AuditTarget] = None
     __properties: ClassVar[List[str]] = ["reason", "status", "target"]
 

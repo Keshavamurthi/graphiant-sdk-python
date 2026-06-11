@@ -27,10 +27,10 @@ class V1SoftwareRunningDetailsGetResponseDevice(BaseModel):
     """
     V1SoftwareRunningDetailsGetResponseDevice
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId")
-    enterprise_name: Optional[StrictStr] = Field(default=None, alias="enterpriseName")
-    hostname: Optional[StrictStr] = None
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId", json_schema_extra={"examples": [1234567891011]})
+    enterprise_name: Optional[StrictStr] = Field(default=None, alias="enterpriseName", json_schema_extra={"examples": ["example string"]})
+    hostname: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["deviceId", "enterpriseId", "enterpriseName", "hostname"]
 
     model_config = ConfigDict(

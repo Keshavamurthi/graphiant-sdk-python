@@ -29,10 +29,10 @@ class V1DiagnosticPingPostRequest(BaseModel):
     """
     V1DiagnosticPingPostRequest
     """ # noqa: E501
-    device_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="Valid Provisioned device ID (required)", alias="deviceId")
+    device_id: Annotated[int, Field(strict=True, ge=0)] = Field(description="Valid Provisioned device ID (required)", alias="deviceId", json_schema_extra={"examples": [10000000]})
     params: Optional[DiagnosticToolsDiagnosticParams] = None
-    token: Optional[StrictStr] = Field(default=None, description="Identifier which was received in initial response")
-    transport_type: StrictStr = Field(description="ICMP or TCP (required)", alias="transportType")
+    token: Optional[StrictStr] = Field(default=None, description="Identifier which was received in initial response", json_schema_extra={"examples": ["example string"]})
+    transport_type: StrictStr = Field(description="ICMP or TCP (required)", alias="transportType", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["deviceId", "params", "token", "transportType"]
 
     model_config = ConfigDict(

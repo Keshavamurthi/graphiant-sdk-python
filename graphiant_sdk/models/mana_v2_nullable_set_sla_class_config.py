@@ -27,7 +27,7 @@ class ManaV2NullableSetSlaClassConfig(BaseModel):
     """
     ManaV2NullableSetSlaClassConfig
     """ # noqa: E501
-    var_class: Optional[StrictStr] = Field(default=None, alias="class")
+    var_class: Optional[StrictStr] = Field(default=None, alias="class", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["class"]
 
     model_config = ConfigDict(

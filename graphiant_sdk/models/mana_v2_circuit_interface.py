@@ -27,11 +27,11 @@ class ManaV2CircuitInterface(BaseModel):
     """
     ManaV2CircuitInterface
     """ # noqa: E501
-    admin_status: Optional[StrictBool] = Field(default=None, alias="adminStatus")
-    id: Optional[StrictInt] = None
-    index: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
-    oper_status: Optional[StrictBool] = Field(default=None, alias="operStatus")
+    admin_status: Optional[StrictBool] = Field(default=None, alias="adminStatus", json_schema_extra={"examples": [True]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    index: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    oper_status: Optional[StrictBool] = Field(default=None, alias="operStatus", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["adminStatus", "id", "index", "name", "operStatus"]
 
     model_config = ConfigDict(

@@ -28,9 +28,9 @@ class ManaV2BfdInstanceConfig(BaseModel):
     """
     ManaV2BfdInstanceConfig
     """ # noqa: E501
-    enabled: Optional[StrictBool] = None
-    local_multiplier: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="localMultiplier")
-    minimum_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="minimumInterval")
+    enabled: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    local_multiplier: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="localMultiplier", json_schema_extra={"examples": [123]})
+    minimum_interval: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="minimumInterval", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["enabled", "localMultiplier", "minimumInterval"]
 
     model_config = ConfigDict(

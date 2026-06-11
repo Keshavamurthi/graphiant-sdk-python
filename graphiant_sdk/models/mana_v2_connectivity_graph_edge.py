@@ -29,10 +29,10 @@ class ManaV2ConnectivityGraphEdge(BaseModel):
     """
     ManaV2ConnectivityGraphEdge
     """ # noqa: E501
-    a: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    b: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    a: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    b: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     connections: Optional[ManaV2GraphiantConnections] = None
-    quality: Optional[StrictStr] = None
+    quality: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["a", "b", "connections", "quality"]
 
     model_config = ConfigDict(

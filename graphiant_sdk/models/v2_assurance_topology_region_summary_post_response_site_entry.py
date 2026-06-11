@@ -27,12 +27,12 @@ class V2AssuranceTopologyRegionSummaryPostResponseSiteEntry(BaseModel):
     """
     V2AssuranceTopologyRegionSummaryPostResponseSiteEntry
     """ # noqa: E501
-    edge_count: Optional[StrictInt] = Field(default=None, alias="edgeCount")
+    edge_count: Optional[StrictInt] = Field(default=None, alias="edgeCount", json_schema_extra={"examples": [123]})
     lan_segments: Optional[List[StrictStr]] = Field(default=None, alias="lanSegments")
     pop_names: Optional[List[StrictStr]] = Field(default=None, alias="popNames")
-    region_name: Optional[StrictStr] = Field(default=None, alias="regionName")
-    site_id: Optional[StrictInt] = Field(default=None, alias="siteId")
-    site_name: Optional[StrictStr] = Field(default=None, alias="siteName")
+    region_name: Optional[StrictStr] = Field(default=None, alias="regionName", json_schema_extra={"examples": ["example string"]})
+    site_id: Optional[StrictInt] = Field(default=None, alias="siteId", json_schema_extra={"examples": [1234567891011]})
+    site_name: Optional[StrictStr] = Field(default=None, alias="siteName", json_schema_extra={"examples": ["example string"]})
     tags: Optional[List[StrictStr]] = None
     __properties: ClassVar[List[str]] = ["edgeCount", "lanSegments", "popNames", "regionName", "siteId", "siteName", "tags"]
 

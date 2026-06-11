@@ -27,7 +27,7 @@ class V2AssuranceCreateclassifiedapplicationPostRequest(BaseModel):
     """
     V2AssuranceCreateclassifiedapplicationPostRequest
     """ # noqa: E501
-    app_name: Optional[StrictStr] = Field(default=None, alias="appName")
+    app_name: Optional[StrictStr] = Field(default=None, alias="appName", json_schema_extra={"examples": ["example string"]})
     ip_prefix_list: Optional[List[StrictStr]] = Field(default=None, alias="ipPrefixList")
     port_list: Optional[List[StrictStr]] = Field(default=None, alias="portList")
     protocol_list: Optional[List[StrictStr]] = Field(default=None, alias="protocolList")

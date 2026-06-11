@@ -30,16 +30,16 @@ class ManaV2PrefixSet(BaseModel):
     """
     ManaV2PrefixSet
     """ # noqa: E501
-    description: Optional[StrictStr] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     entries: Optional[List[ManaV2PrefixSetEntry]] = None
-    error_message: Optional[StrictStr] = Field(default=None, alias="errorMessage")
-    global_id: Optional[StrictInt] = Field(default=None, alias="globalId")
-    id: Optional[StrictInt] = None
-    mode: Optional[StrictStr] = None
-    name: Optional[StrictStr] = None
+    error_message: Optional[StrictStr] = Field(default=None, alias="errorMessage", json_schema_extra={"examples": ["example string"]})
+    global_id: Optional[StrictInt] = Field(default=None, alias="globalId", json_schema_extra={"examples": [1234567891011]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    mode: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     policies: Optional[List[ManaV2PrefixSetPolicy]] = None
-    policy_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="policyCount")
-    status: Optional[StrictStr] = None
+    policy_count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="policyCount", json_schema_extra={"examples": [123]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["description", "entries", "errorMessage", "globalId", "id", "mode", "name", "policies", "policyCount", "status"]
 
     model_config = ConfigDict(

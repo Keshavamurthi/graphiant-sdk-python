@@ -27,19 +27,19 @@ class AlertserviceAllowAlertNotifcationListRecord(BaseModel):
     """
     AlertserviceAllowAlertNotifcationListRecord
     """ # noqa: E501
-    create_time: Optional[StrictInt] = Field(default=None, alias="createTime")
-    device_interface: Optional[StrictStr] = Field(default=None, alias="deviceInterface")
-    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName")
-    enterprise_name: Optional[StrictStr] = Field(default=None, alias="enterpriseName")
-    entity_id: Optional[StrictStr] = Field(default=None, alias="entityId")
-    is_wan_circuit: Optional[StrictBool] = Field(default=None, alias="isWanCircuit")
-    note_text: Optional[StrictStr] = Field(default=None, alias="noteText")
-    peer_device_interface: Optional[StrictStr] = Field(default=None, alias="peerDeviceInterface")
-    peer_device_name: Optional[StrictStr] = Field(default=None, alias="peerDeviceName")
-    rule_id: Optional[StrictStr] = Field(default=None, alias="ruleId")
-    rule_name: Optional[StrictStr] = Field(default=None, alias="ruleName")
-    site_name: Optional[StrictStr] = Field(default=None, alias="siteName")
-    vrf_id: Optional[StrictStr] = Field(default=None, alias="vrfId")
+    create_time: Optional[StrictInt] = Field(default=None, alias="createTime", json_schema_extra={"examples": [1234567891011]})
+    device_interface: Optional[StrictStr] = Field(default=None, alias="deviceInterface", json_schema_extra={"examples": ["example string"]})
+    device_name: Optional[StrictStr] = Field(default=None, alias="deviceName", json_schema_extra={"examples": ["example string"]})
+    enterprise_name: Optional[StrictStr] = Field(default=None, alias="enterpriseName", json_schema_extra={"examples": ["example string"]})
+    entity_id: Optional[StrictStr] = Field(default=None, alias="entityId", json_schema_extra={"examples": ["example string"]})
+    is_wan_circuit: Optional[StrictBool] = Field(default=None, alias="isWanCircuit", json_schema_extra={"examples": [True]})
+    note_text: Optional[StrictStr] = Field(default=None, alias="noteText", json_schema_extra={"examples": ["example string"]})
+    peer_device_interface: Optional[StrictStr] = Field(default=None, alias="peerDeviceInterface", json_schema_extra={"examples": ["example string"]})
+    peer_device_name: Optional[StrictStr] = Field(default=None, alias="peerDeviceName", json_schema_extra={"examples": ["example string"]})
+    rule_id: Optional[StrictStr] = Field(default=None, alias="ruleId", json_schema_extra={"examples": ["example string"]})
+    rule_name: Optional[StrictStr] = Field(default=None, alias="ruleName", json_schema_extra={"examples": ["example string"]})
+    site_name: Optional[StrictStr] = Field(default=None, alias="siteName", json_schema_extra={"examples": ["example string"]})
+    vrf_id: Optional[StrictStr] = Field(default=None, alias="vrfId", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["createTime", "deviceInterface", "deviceName", "enterpriseName", "entityId", "isWanCircuit", "noteText", "peerDeviceInterface", "peerDeviceName", "ruleId", "ruleName", "siteName", "vrfId"]
 
     model_config = ConfigDict(

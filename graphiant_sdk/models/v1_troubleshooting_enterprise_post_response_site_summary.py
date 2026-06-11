@@ -28,14 +28,14 @@ class V1TroubleshootingEnterprisePostResponseSiteSummary(BaseModel):
     """
     V1TroubleshootingEnterprisePostResponseSiteSummary
     """ # noqa: E501
-    control_status: Optional[StrictStr] = Field(default=None, alias="controlStatus")
-    data_status: Optional[StrictStr] = Field(default=None, alias="dataStatus")
-    overall_status: Optional[StrictStr] = Field(default=None, alias="overallStatus")
+    control_status: Optional[StrictStr] = Field(default=None, alias="controlStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    data_status: Optional[StrictStr] = Field(default=None, alias="dataStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    overall_status: Optional[StrictStr] = Field(default=None, alias="overallStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
     region: Optional[StatsmonTroubleshootingRegion] = None
-    selected_status: Optional[StrictStr] = Field(default=None, alias="selectedStatus")
-    site_id: Optional[StrictInt] = Field(default=None, alias="siteId")
-    site_name: Optional[StrictStr] = Field(default=None, alias="siteName")
-    system_status: Optional[StrictStr] = Field(default=None, alias="systemStatus")
+    selected_status: Optional[StrictStr] = Field(default=None, alias="selectedStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    site_id: Optional[StrictInt] = Field(default=None, alias="siteId", json_schema_extra={"examples": [1234567891011]})
+    site_name: Optional[StrictStr] = Field(default=None, alias="siteName", json_schema_extra={"examples": ["example string"]})
+    system_status: Optional[StrictStr] = Field(default=None, alias="systemStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["controlStatus", "dataStatus", "overallStatus", "region", "selectedStatus", "siteId", "siteName", "systemStatus"]
 
     model_config = ConfigDict(

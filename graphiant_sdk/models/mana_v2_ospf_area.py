@@ -30,13 +30,13 @@ class ManaV2OspfArea(BaseModel):
     """
     ManaV2OspfArea
     """ # noqa: E501
-    area_id: Optional[StrictStr] = Field(default=None, alias="areaId")
+    area_id: Optional[StrictStr] = Field(default=None, alias="areaId", json_schema_extra={"examples": ["example string"]})
     bfd: Optional[ManaV2BfdInstance] = None
     bfd_neighbors: Optional[List[ManaV2BfdNeighbor]] = Field(default=None, alias="bfdNeighbors")
-    id: Optional[StrictInt] = None
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     interfaces: Optional[List[ManaV2OspfInterface]] = None
-    name: Optional[StrictStr] = None
-    type: Optional[StrictStr] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["areaId", "bfd", "bfdNeighbors", "id", "interfaces", "name", "type"]
 
     model_config = ConfigDict(

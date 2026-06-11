@@ -33,15 +33,15 @@ class ManaV2ExtranetPolicyInput(BaseModel):
     """ # noqa: E501
     auto: Optional[ManaV2ExtranetAutoReverseRoutes] = None
     branches: Optional[ManaV2PolicyTargetInput] = None
-    description: Optional[StrictStr] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     host_prefix_set: Optional[ManaV2EnterprisePrefixSetInput] = Field(default=None, alias="hostPrefixSet")
     manual: Optional[ManaV2ExtranetManualReverseRoutes] = None
-    name: Optional[StrictStr] = None
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     shared_prefixes: Optional[List[StrictStr]] = Field(default=None, alias="sharedPrefixes")
-    shared_segment: Optional[StrictInt] = Field(default=None, alias="sharedSegment")
+    shared_segment: Optional[StrictInt] = Field(default=None, alias="sharedSegment", json_schema_extra={"examples": [1234567891011]})
     source: Optional[ManaV2PolicyTargetInput] = None
     target_segments: Optional[List[StrictInt]] = Field(default=None, alias="targetSegments")
-    type: Optional[StrictStr] = None
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["auto", "branches", "description", "hostPrefixSet", "manual", "name", "sharedPrefixes", "sharedSegment", "source", "targetSegments", "type"]
 
     model_config = ConfigDict(

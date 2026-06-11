@@ -32,29 +32,30 @@ class AssuranceClientSession(BaseModel):
     """
     AssuranceClientSession
     """ # noqa: E501
-    app_name: Optional[StrictStr] = Field(default=None, alias="appName")
-    bucket: Optional[StrictStr] = None
+    app_name: Optional[StrictStr] = Field(default=None, alias="appName", json_schema_extra={"examples": ["example string"]})
+    bucket: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     client_endpoint: Optional[AssuranceClientSessionEndpointDetails] = Field(default=None, alias="clientEndpoint")
-    client_flex_algo: Optional[StrictStr] = Field(default=None, alias="clientFlexAlgo")
-    client_ip: Optional[StrictStr] = Field(default=None, alias="clientIp")
+    client_flex_algo: Optional[StrictStr] = Field(default=None, alias="clientFlexAlgo", json_schema_extra={"examples": ["example string"]})
+    client_ip: Optional[StrictStr] = Field(default=None, alias="clientIp", json_schema_extra={"examples": ["example string"]})
     client_links: Optional[List[AssuranceClientSessionEndpointLink]] = Field(default=None, alias="clientLinks")
-    client_username: Optional[StrictStr] = Field(default=None, alias="clientUsername")
+    client_username: Optional[StrictStr] = Field(default=None, alias="clientUsername", json_schema_extra={"examples": ["example string"]})
+    exchange_service_name: Optional[StrictStr] = Field(default=None, alias="exchangeServiceName", json_schema_extra={"examples": ["example string"]})
     first_seen_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="firstSeenTs")
     lan_segment: Optional[List[StrictStr]] = Field(default=None, alias="lanSegment")
     last_seen_ts: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="lastSeenTs")
     local_dia_links: Optional[List[AssuranceClientSessionDiaLink]] = Field(default=None, alias="localDiaLinks")
     pop_links: Optional[List[AssuranceClientSessionPopLink]] = Field(default=None, alias="popLinks")
     remote_dia_links: Optional[List[AssuranceClientSessionDiaLink]] = Field(default=None, alias="remoteDiaLinks")
-    risk_status: Optional[StrictStr] = Field(default=None, alias="riskStatus")
+    risk_status: Optional[StrictStr] = Field(default=None, alias="riskStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
     server_endpoint: Optional[AssuranceClientSessionEndpointDetails] = Field(default=None, alias="serverEndpoint")
     server_flex_algos: Optional[List[StrictStr]] = Field(default=None, alias="serverFlexAlgos")
-    server_ip: Optional[StrictStr] = Field(default=None, alias="serverIp")
+    server_ip: Optional[StrictStr] = Field(default=None, alias="serverIp", json_schema_extra={"examples": ["example string"]})
     server_links: Optional[List[AssuranceClientSessionEndpointLink]] = Field(default=None, alias="serverLinks")
-    server_port: Optional[StrictInt] = Field(default=None, alias="serverPort")
-    session_id: Optional[StrictStr] = Field(default=None, alias="sessionId")
-    sla: Optional[StrictStr] = None
-    sla_class: Optional[StrictStr] = Field(default=None, alias="slaClass")
-    __properties: ClassVar[List[str]] = ["appName", "bucket", "clientEndpoint", "clientFlexAlgo", "clientIp", "clientLinks", "clientUsername", "firstSeenTs", "lanSegment", "lastSeenTs", "localDiaLinks", "popLinks", "remoteDiaLinks", "riskStatus", "serverEndpoint", "serverFlexAlgos", "serverIp", "serverLinks", "serverPort", "sessionId", "sla", "slaClass"]
+    server_port: Optional[StrictInt] = Field(default=None, alias="serverPort", json_schema_extra={"examples": [123]})
+    session_id: Optional[StrictStr] = Field(default=None, alias="sessionId", json_schema_extra={"examples": ["example string"]})
+    sla: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    sla_class: Optional[StrictStr] = Field(default=None, alias="slaClass", json_schema_extra={"examples": ["example string"]})
+    __properties: ClassVar[List[str]] = ["appName", "bucket", "clientEndpoint", "clientFlexAlgo", "clientIp", "clientLinks", "clientUsername", "exchangeServiceName", "firstSeenTs", "lanSegment", "lastSeenTs", "localDiaLinks", "popLinks", "remoteDiaLinks", "riskStatus", "serverEndpoint", "serverFlexAlgos", "serverIp", "serverLinks", "serverPort", "sessionId", "sla", "slaClass"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -161,6 +162,7 @@ class AssuranceClientSession(BaseModel):
             "clientIp": obj.get("clientIp"),
             "clientLinks": [AssuranceClientSessionEndpointLink.from_dict(_item) for _item in obj["clientLinks"]] if obj.get("clientLinks") is not None else None,
             "clientUsername": obj.get("clientUsername"),
+            "exchangeServiceName": obj.get("exchangeServiceName"),
             "firstSeenTs": GoogleProtobufTimestamp.from_dict(obj["firstSeenTs"]) if obj.get("firstSeenTs") is not None else None,
             "lanSegment": obj.get("lanSegment"),
             "lastSeenTs": GoogleProtobufTimestamp.from_dict(obj["lastSeenTs"]) if obj.get("lastSeenTs") is not None else None,

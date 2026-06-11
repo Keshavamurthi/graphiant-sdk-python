@@ -27,10 +27,10 @@ class AssuranceBucketStatsWithId(BaseModel):
     """
     AssuranceBucketStatsWithId
     """ # noqa: E501
-    assurance_bucket: Optional[StrictStr] = Field(default=None, alias="assuranceBucket")
-    bucket_name_to_display: Optional[StrictStr] = Field(default=None, alias="bucketNameToDisplay")
-    prev_unique_app_count: Optional[StrictInt] = Field(default=None, alias="prevUniqueAppCount")
-    unique_app_count: Optional[StrictInt] = Field(default=None, alias="uniqueAppCount")
+    assurance_bucket: Optional[StrictStr] = Field(default=None, alias="assuranceBucket", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    bucket_name_to_display: Optional[StrictStr] = Field(default=None, alias="bucketNameToDisplay", json_schema_extra={"examples": ["example string"]})
+    prev_unique_app_count: Optional[StrictInt] = Field(default=None, alias="prevUniqueAppCount", json_schema_extra={"examples": [1234567891011]})
+    unique_app_count: Optional[StrictInt] = Field(default=None, alias="uniqueAppCount", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["assuranceBucket", "bucketNameToDisplay", "prevUniqueAppCount", "uniqueAppCount"]
 
     model_config = ConfigDict(

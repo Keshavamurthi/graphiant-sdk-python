@@ -27,11 +27,11 @@ class ManaV2GlobalBandwidthConsumptionSummary(BaseModel):
     """
     ManaV2GlobalBandwidthConsumptionSummary
     """ # noqa: E501
-    allocated_monthly_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Credits allocated for the current month", alias="allocatedMonthlyCredits")
-    consumed_monthly_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Credits billed for the current month. It equals the the higher value between the credits allocated and used for the month", alias="consumedMonthlyCredits")
-    prior_allocated_monthly_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Credits allocated for the prior month", alias="priorAllocatedMonthlyCredits")
-    prior_consumed_monthly_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Credits billed for the prior month.", alias="priorConsumedMonthlyCredits")
-    recommended_monthly_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Expected amount of credits to allocate for the month to match the overall contracted amount. For monthly-contracted enterprises, this is equivalent to the monthly number of credits being billed while for term-based-contracted enterprises, this is equivalent to the number of credits to use up in this and the following months to use up exactly the number of credits remaining in the contract.", alias="recommendedMonthlyCredits")
+    allocated_monthly_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Credits allocated for the current month", alias="allocatedMonthlyCredits", json_schema_extra={"examples": [12.34]})
+    consumed_monthly_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Credits billed for the current month. It equals the the higher value between the credits allocated and used for the month", alias="consumedMonthlyCredits", json_schema_extra={"examples": [12.34]})
+    prior_allocated_monthly_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Credits allocated for the prior month", alias="priorAllocatedMonthlyCredits", json_schema_extra={"examples": [12.34]})
+    prior_consumed_monthly_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Credits billed for the prior month.", alias="priorConsumedMonthlyCredits", json_schema_extra={"examples": [12.34]})
+    recommended_monthly_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="Expected amount of credits to allocate for the month to match the overall contracted amount. For monthly-contracted enterprises, this is equivalent to the monthly number of credits being billed while for term-based-contracted enterprises, this is equivalent to the number of credits to use up in this and the following months to use up exactly the number of credits remaining in the contract.", alias="recommendedMonthlyCredits", json_schema_extra={"examples": [12.34]})
     __properties: ClassVar[List[str]] = ["allocatedMonthlyCredits", "consumedMonthlyCredits", "priorAllocatedMonthlyCredits", "priorConsumedMonthlyCredits", "recommendedMonthlyCredits"]
 
     model_config = ConfigDict(

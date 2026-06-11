@@ -30,7 +30,7 @@ class StatsmonBackbonehealthControlPlane(BaseModel):
     """ # noqa: E501
     control_transitions: Optional[StatsmonBackbonehealthTransitionSeries] = Field(default=None, alias="controlTransitions")
     management_transitions: Optional[StatsmonBackbonehealthTransitionSeries] = Field(default=None, alias="managementTransitions")
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["controlTransitions", "managementTransitions", "status"]
 
     model_config = ConfigDict(

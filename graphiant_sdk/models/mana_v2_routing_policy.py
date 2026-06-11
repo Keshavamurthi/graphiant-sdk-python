@@ -28,15 +28,15 @@ class ManaV2RoutingPolicy(BaseModel):
     """
     ManaV2RoutingPolicy
     """ # noqa: E501
-    attach_point: Optional[StrictStr] = Field(default=None, alias="attachPoint")
-    default_action: Optional[StrictStr] = Field(default=None, alias="defaultAction")
-    description: Optional[StrictStr] = None
-    error_message: Optional[StrictStr] = Field(default=None, alias="errorMessage")
-    global_id: Optional[StrictInt] = Field(default=None, alias="globalId")
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
+    attach_point: Optional[StrictStr] = Field(default=None, alias="attachPoint", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    default_action: Optional[StrictStr] = Field(default=None, alias="defaultAction", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    error_message: Optional[StrictStr] = Field(default=None, alias="errorMessage", json_schema_extra={"examples": ["example string"]})
+    global_id: Optional[StrictInt] = Field(default=None, alias="globalId", json_schema_extra={"examples": [1234567891011]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     statements: Optional[List[ManaV2RoutingPolicyStatement]] = None
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["attachPoint", "defaultAction", "description", "errorMessage", "globalId", "id", "name", "statements", "status"]
 
     model_config = ConfigDict(

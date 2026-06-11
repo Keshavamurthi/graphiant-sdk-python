@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from graphiant_sdk.models.google_protobuf_timestamp import GoogleProtobufTimestamp
 from typing import Optional, Set
@@ -28,9 +28,9 @@ class StatsmonV2StatsSample(BaseModel):
     """
     StatsmonV2StatsSample
     """ # noqa: E501
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     ts: Optional[GoogleProtobufTimestamp] = None
-    value: Optional[Union[StrictFloat, StrictInt]] = None
+    value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [123.45]})
     __properties: ClassVar[List[str]] = ["status", "ts", "value"]
 
     model_config = ConfigDict(

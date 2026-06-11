@@ -28,16 +28,16 @@ class ManaV2IpfixExporterConfig(BaseModel):
     """
     ManaV2IpfixExporterConfig
     """ # noqa: E501
-    destination_address: Optional[StrictStr] = Field(default=None, alias="destinationAddress")
-    destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destinationPort")
-    global_id: Optional[StrictInt] = Field(default=None, alias="globalId")
-    is_global_sync: Optional[StrictBool] = Field(default=None, alias="isGlobalSync")
+    destination_address: Optional[StrictStr] = Field(default=None, alias="destinationAddress", json_schema_extra={"examples": ["example string"]})
+    destination_port: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="destinationPort", json_schema_extra={"examples": [123]})
+    global_id: Optional[StrictInt] = Field(default=None, alias="globalId", json_schema_extra={"examples": [1234567891011]})
+    is_global_sync: Optional[StrictBool] = Field(default=None, alias="isGlobalSync", json_schema_extra={"examples": [True]})
     monitored_segments: Optional[List[StrictStr]] = Field(default=None, alias="monitoredSegments")
-    name: Optional[StrictStr] = None
-    sample_mode: Optional[StrictStr] = Field(default=None, alias="sampleMode")
-    sample_rate: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="sampleRate")
-    source_interface_name: Optional[StrictStr] = Field(default=None, alias="sourceInterfaceName")
-    vrf_id: Optional[StrictInt] = Field(default=None, alias="vrfId")
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    sample_mode: Optional[StrictStr] = Field(default=None, alias="sampleMode", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    sample_rate: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="sampleRate", json_schema_extra={"examples": [123]})
+    source_interface_name: Optional[StrictStr] = Field(default=None, alias="sourceInterfaceName", json_schema_extra={"examples": ["example string"]})
+    vrf_id: Optional[StrictInt] = Field(default=None, alias="vrfId", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["destinationAddress", "destinationPort", "globalId", "isGlobalSync", "monitoredSegments", "name", "sampleMode", "sampleRate", "sourceInterfaceName", "vrfId"]
 
     model_config = ConfigDict(

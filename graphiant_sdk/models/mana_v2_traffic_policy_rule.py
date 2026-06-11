@@ -32,8 +32,8 @@ class ManaV2TrafficPolicyRule(BaseModel):
     """ # noqa: E501
     action: Optional[ManaV2TrafficPolicyAction] = None
     match: Optional[ManaV2PolicyMatch] = None
-    policy_rule_index: Optional[StrictInt] = Field(default=None, alias="policyRuleIndex")
-    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    policy_rule_index: Optional[StrictInt] = Field(default=None, alias="policyRuleIndex", json_schema_extra={"examples": [1234567891011]})
+    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["action", "match", "policyRuleIndex", "seq"]
 
     model_config = ConfigDict(

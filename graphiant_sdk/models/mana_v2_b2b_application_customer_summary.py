@@ -28,11 +28,11 @@ class ManaV2B2bApplicationCustomerSummary(BaseModel):
     """
     ManaV2B2bApplicationCustomerSummary
     """ # noqa: E501
-    admin_email: Optional[StrictStr] = Field(default=None, alias="adminEmail")
-    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId")
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
-    status: Optional[StrictStr] = None
+    admin_email: Optional[StrictStr] = Field(default=None, alias="adminEmail", json_schema_extra={"examples": ["example string"]})
+    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId", json_schema_extra={"examples": [1234567891011]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     updated_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="updatedAt")
     __properties: ClassVar[List[str]] = ["adminEmail", "enterpriseId", "id", "name", "status", "updatedAt"]
 

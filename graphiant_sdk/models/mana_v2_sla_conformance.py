@@ -27,9 +27,9 @@ class ManaV2SlaConformance(BaseModel):
     """
     ManaV2SlaConformance
     """ # noqa: E501
-    dampening_factor: Optional[StrictInt] = Field(default=None, alias="dampeningFactor")
-    duration: Optional[StrictInt] = None
-    interval: Optional[StrictInt] = None
+    dampening_factor: Optional[StrictInt] = Field(default=None, alias="dampeningFactor", json_schema_extra={"examples": [1234567891011]})
+    duration: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    interval: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["dampeningFactor", "duration", "interval"]
 
     model_config = ConfigDict(

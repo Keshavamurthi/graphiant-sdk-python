@@ -28,11 +28,11 @@ class V1ExtranetsB2bPeeringCustomerIdGetResponse(BaseModel):
     """
     V1ExtranetsB2bPeeringCustomerIdGetResponse
     """ # noqa: E501
-    customer_name: Optional[StrictStr] = Field(default=None, alias="customerName")
+    customer_name: Optional[StrictStr] = Field(default=None, alias="customerName", json_schema_extra={"examples": ["example string"]})
     emails: Optional[List[StrictStr]] = None
-    num_sites: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="numSites")
-    status: Optional[StrictStr] = None
-    type: Optional[StrictStr] = None
+    num_sites: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="numSites", json_schema_extra={"examples": [123]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["customerName", "emails", "numSites", "status", "type"]
 
     model_config = ConfigDict(

@@ -28,13 +28,13 @@ class V1GlobalLanSegmentsGetResponseEntry(BaseModel):
     """
     V1GlobalLanSegmentsGetResponseEntry
     """ # noqa: E501
-    associated_interfaces: Optional[StrictInt] = Field(default=None, alias="associatedInterfaces")
+    associated_interfaces: Optional[StrictInt] = Field(default=None, alias="associatedInterfaces", json_schema_extra={"examples": [123]})
     created_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="createdAt")
-    description: Optional[StrictStr] = None
-    edge_references: Optional[StrictInt] = Field(default=None, alias="edgeReferences")
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
-    site_list_references: Optional[StrictInt] = Field(default=None, alias="siteListReferences")
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    edge_references: Optional[StrictInt] = Field(default=None, alias="edgeReferences", json_schema_extra={"examples": [123]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    site_list_references: Optional[StrictInt] = Field(default=None, alias="siteListReferences", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["associatedInterfaces", "createdAt", "description", "edgeReferences", "id", "name", "siteListReferences"]
 
     model_config = ConfigDict(

@@ -27,12 +27,12 @@ class DiagnosticToolsSpeedtestServer(BaseModel):
     """
     DiagnosticToolsSpeedtestServer
     """ # noqa: E501
-    country: Optional[StrictStr] = Field(default=None, description="Country of the speedtest server (required)")
-    host: Optional[StrictStr] = Field(default=None, description="Hostname of the speedtest server (required)")
-    id: Optional[StrictStr] = Field(default=None, description="Server Id. Internal mapping to a server.")
-    ip_address: Optional[StrictStr] = Field(default=None, description="IPv4 or IPv6 address (required)", alias="ipAddress")
-    location: Optional[StrictStr] = Field(default=None, description="Location of the speedtest server (required)")
-    name: Optional[StrictStr] = Field(default=None, description="Name of the speedtest server (required)")
+    country: Optional[StrictStr] = Field(default=None, description="Country of the speedtest server (required)", json_schema_extra={"examples": ["United Kingdom"]})
+    host: Optional[StrictStr] = Field(default=None, description="Hostname of the speedtest server (required)", json_schema_extra={"examples": ["speedtest.fastmetrics.com"]})
+    id: Optional[StrictStr] = Field(default=None, description="Server Id. Internal mapping to a server.", json_schema_extra={"examples": ["29113"]})
+    ip_address: Optional[StrictStr] = Field(default=None, description="IPv4 or IPv6 address (required)", alias="ipAddress", json_schema_extra={"examples": ["1213:1::6451"]})
+    location: Optional[StrictStr] = Field(default=None, description="Location of the speedtest server (required)", json_schema_extra={"examples": ["Sheffield"]})
+    name: Optional[StrictStr] = Field(default=None, description="Name of the speedtest server (required)", json_schema_extra={"examples": ["Google Fiber"]})
     __properties: ClassVar[List[str]] = ["country", "host", "id", "ipAddress", "location", "name"]
 
     model_config = ConfigDict(

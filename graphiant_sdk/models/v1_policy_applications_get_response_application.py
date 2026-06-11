@@ -27,10 +27,10 @@ class V1PolicyApplicationsGetResponseApplication(BaseModel):
     """
     V1PolicyApplicationsGetResponseApplication
     """ # noqa: E501
-    app_id: Optional[StrictInt] = Field(default=None, alias="appId")
-    description: Optional[StrictStr] = None
-    kind: Optional[StrictStr] = None
-    name: Optional[StrictStr] = None
+    app_id: Optional[StrictInt] = Field(default=None, alias="appId", json_schema_extra={"examples": [1234567891011]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    kind: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["appId", "description", "kind", "name"]
 
     model_config = ConfigDict(

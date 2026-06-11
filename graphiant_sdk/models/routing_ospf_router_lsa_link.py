@@ -29,10 +29,10 @@ class RoutingOspfRouterLsaLink(BaseModel):
     """
     RoutingOspfRouterLsaLink
     """ # noqa: E501
-    link_data: Optional[StrictStr] = Field(default=None, alias="linkData")
-    link_id: Optional[StrictStr] = Field(default=None, alias="linkId")
-    link_type: Optional[StrictStr] = Field(default=None, alias="linkType")
-    metric: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    link_data: Optional[StrictStr] = Field(default=None, alias="linkData", json_schema_extra={"examples": ["example string"]})
+    link_id: Optional[StrictStr] = Field(default=None, alias="linkId", json_schema_extra={"examples": ["example string"]})
+    link_type: Optional[StrictStr] = Field(default=None, alias="linkType", json_schema_extra={"examples": ["example string"]})
+    metric: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     tos_metric: Optional[RoutingOspflsaTosMetric] = Field(default=None, alias="tosMetric")
     __properties: ClassVar[List[str]] = ["linkData", "linkId", "linkType", "metric", "tosMetric"]
 

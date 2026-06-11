@@ -28,9 +28,9 @@ class V1GlobalIpsecProfileGetResponseIPsecProfileCount(BaseModel):
     """
     V1GlobalIpsecProfileGetResponseIPsecProfileCount
     """ # noqa: E501
-    count: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    id: Optional[StrictInt] = None
-    ipsec_profile_name: Optional[StrictStr] = Field(default=None, alias="ipsecProfileName")
+    count: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    ipsec_profile_name: Optional[StrictStr] = Field(default=None, alias="ipsecProfileName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["count", "id", "ipsecProfileName"]
 
     model_config = ConfigDict(

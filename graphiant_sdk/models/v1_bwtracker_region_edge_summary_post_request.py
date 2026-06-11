@@ -29,7 +29,7 @@ class V1BwtrackerRegionEdgeSummaryPostRequest(BaseModel):
     """
     V1BwtrackerRegionEdgeSummaryPostRequest
     """ # noqa: E501
-    region_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="regionId")
+    region_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="regionId", json_schema_extra={"examples": [12345678910]})
     time_window: Optional[StatsmonBandwidthtrackerTimeWindow] = Field(default=None, alias="timeWindow")
     __properties: ClassVar[List[str]] = ["regionId", "timeWindow"]
 

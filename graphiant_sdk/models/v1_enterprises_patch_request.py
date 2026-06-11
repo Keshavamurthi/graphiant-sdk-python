@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from graphiant_sdk.models.common_billing_contract import CommonBillingContract
 from graphiant_sdk.models.v1_enterprises_patch_request_token_expiry import V1EnterprisesPatchRequestTokenExpiry
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,20 +29,21 @@ class V1EnterprisesPatchRequest(BaseModel):
     """
     V1EnterprisesPatchRequest
     """ # noqa: E501
-    admin_email: Optional[StrictStr] = Field(default=None, alias="adminEmail")
-    cloud_provider: Optional[StrictStr] = Field(default=None, alias="cloudProvider")
-    company_name: Optional[StrictStr] = Field(default=None, alias="companyName")
-    credit_limit: Optional[StrictInt] = Field(default=None, alias="creditLimit")
-    description: Optional[StrictStr] = None
-    enterprise_id: StrictInt = Field(description=" (required)", alias="enterpriseId")
-    impersonation_enabled: Optional[StrictBool] = Field(default=None, alias="impersonationEnabled")
-    logo: Optional[StrictStr] = None
-    marketplace_id: Optional[StrictStr] = Field(default=None, alias="marketplaceId")
-    portal_banner: Optional[StrictStr] = Field(default=None, alias="portalBanner")
-    proxy_tenant_id: Optional[StrictInt] = Field(default=None, alias="proxyTenantId")
-    small_logo: Optional[StrictStr] = Field(default=None, alias="smallLogo")
+    admin_email: Optional[StrictStr] = Field(default=None, alias="adminEmail", json_schema_extra={"examples": ["example string"]})
+    cloud_provider: Optional[StrictStr] = Field(default=None, alias="cloudProvider", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    company_name: Optional[StrictStr] = Field(default=None, alias="companyName", json_schema_extra={"examples": ["example string"]})
+    credit_limit: Optional[StrictInt] = Field(default=None, alias="creditLimit", json_schema_extra={"examples": [123]})
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    enterprise_contract: Optional[CommonBillingContract] = Field(default=None, alias="enterpriseContract")
+    enterprise_id: StrictInt = Field(description=" (required)", alias="enterpriseId", json_schema_extra={"examples": [1234567891011]})
+    impersonation_enabled: Optional[StrictBool] = Field(default=None, alias="impersonationEnabled", json_schema_extra={"examples": [True]})
+    logo: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    marketplace_id: Optional[StrictStr] = Field(default=None, alias="marketplaceId", json_schema_extra={"examples": ["example string"]})
+    portal_banner: Optional[StrictStr] = Field(default=None, alias="portalBanner", json_schema_extra={"examples": ["example string"]})
+    proxy_tenant_id: Optional[StrictInt] = Field(default=None, alias="proxyTenantId", json_schema_extra={"examples": [1234567891011]})
+    small_logo: Optional[StrictStr] = Field(default=None, alias="smallLogo", json_schema_extra={"examples": ["example string"]})
     token_expiry: Optional[V1EnterprisesPatchRequestTokenExpiry] = Field(default=None, alias="tokenExpiry")
-    __properties: ClassVar[List[str]] = ["adminEmail", "cloudProvider", "companyName", "creditLimit", "description", "enterpriseId", "impersonationEnabled", "logo", "marketplaceId", "portalBanner", "proxyTenantId", "smallLogo", "tokenExpiry"]
+    __properties: ClassVar[List[str]] = ["adminEmail", "cloudProvider", "companyName", "creditLimit", "description", "enterpriseContract", "enterpriseId", "impersonationEnabled", "logo", "marketplaceId", "portalBanner", "proxyTenantId", "smallLogo", "tokenExpiry"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -82,6 +84,9 @@ class V1EnterprisesPatchRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of enterprise_contract
+        if self.enterprise_contract:
+            _dict['enterpriseContract'] = self.enterprise_contract.to_dict()
         # override the default output from pydantic by calling `to_dict()` of token_expiry
         if self.token_expiry:
             _dict['tokenExpiry'] = self.token_expiry.to_dict()
@@ -102,6 +107,7 @@ class V1EnterprisesPatchRequest(BaseModel):
             "companyName": obj.get("companyName"),
             "creditLimit": obj.get("creditLimit"),
             "description": obj.get("description"),
+            "enterpriseContract": CommonBillingContract.from_dict(obj["enterpriseContract"]) if obj.get("enterpriseContract") is not None else None,
             "enterpriseId": obj.get("enterpriseId"),
             "impersonationEnabled": obj.get("impersonationEnabled"),
             "logo": obj.get("logo"),

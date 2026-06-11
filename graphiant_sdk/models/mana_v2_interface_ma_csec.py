@@ -29,13 +29,13 @@ class ManaV2InterfaceMaCsec(BaseModel):
     """
     ManaV2InterfaceMaCsec
     """ # noqa: E501
-    enabled: Optional[StrictBool] = None
-    encryption_enforcement_mode: Optional[StrictStr] = Field(default=None, alias="encryptionEnforcementMode")
-    key_server_priority: Optional[StrictInt] = Field(default=None, alias="keyServerPriority")
+    enabled: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    encryption_enforcement_mode: Optional[StrictStr] = Field(default=None, alias="encryptionEnforcementMode", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    key_server_priority: Optional[StrictInt] = Field(default=None, alias="keyServerPriority", json_schema_extra={"examples": [1234567891011]})
     psk_configurations: Optional[List[ManaV2PskConfiguration]] = Field(default=None, alias="pskConfigurations")
     sak_configurations: Optional[List[ManaV2SakConfiguration]] = Field(default=None, alias="sakConfigurations")
-    split_sak_config_by_lag_member: Optional[StrictBool] = Field(default=None, alias="splitSakConfigByLagMember")
-    transparent_vlan: Optional[StrictBool] = Field(default=None, alias="transparentVlan")
+    split_sak_config_by_lag_member: Optional[StrictBool] = Field(default=None, alias="splitSakConfigByLagMember", json_schema_extra={"examples": [True]})
+    transparent_vlan: Optional[StrictBool] = Field(default=None, alias="transparentVlan", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["enabled", "encryptionEnforcementMode", "keyServerPriority", "pskConfigurations", "sakConfigurations", "splitSakConfigByLagMember", "transparentVlan"]
 
     model_config = ConfigDict(

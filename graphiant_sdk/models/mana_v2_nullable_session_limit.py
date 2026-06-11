@@ -28,7 +28,7 @@ class ManaV2NullableSessionLimit(BaseModel):
     """
     ManaV2NullableSessionLimit
     """ # noqa: E501
-    limit: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    limit: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["limit"]
 
     model_config = ConfigDict(

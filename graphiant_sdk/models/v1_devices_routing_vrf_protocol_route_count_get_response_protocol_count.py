@@ -28,7 +28,7 @@ class V1DevicesRoutingVrfProtocolRouteCountGetResponseProtocolCount(BaseModel):
     """
     V1DevicesRoutingVrfProtocolRouteCountGetResponseProtocolCount
     """ # noqa: E501
-    protocol: Optional[StrictStr] = Field(default=None, description="Configured protocol (required)")
+    protocol: Optional[StrictStr] = Field(default=None, description="Configured protocol (required)", json_schema_extra={"examples": ["OSPF"]})
     route_count: Optional[RoutingAfiRouteCount] = Field(default=None, alias="routeCount")
     __properties: ClassVar[List[str]] = ["protocol", "routeCount"]
 

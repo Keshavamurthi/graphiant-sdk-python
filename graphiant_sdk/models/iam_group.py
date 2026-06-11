@@ -29,15 +29,15 @@ class IamGroup(BaseModel):
     """
     IamGroup
     """ # noqa: E501
-    description: Optional[StrictStr] = None
+    description: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     enterprise_ids: Optional[List[StrictInt]] = Field(default=None, alias="enterpriseIds")
     enterprise_permissions: Optional[Dict[str, IamEnterprisePermissions]] = Field(default=None, alias="enterprisePermissions")
-    group_type: Optional[StrictStr] = Field(default=None, alias="groupType")
-    id: Optional[StrictStr] = None
-    name: Optional[StrictStr] = None
+    group_type: Optional[StrictStr] = Field(default=None, alias="groupType", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    id: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     permissions: Optional[CommonPermissions] = None
-    time_window_end: Optional[StrictInt] = Field(default=None, alias="timeWindowEnd")
-    time_window_start: Optional[StrictInt] = Field(default=None, alias="timeWindowStart")
+    time_window_end: Optional[StrictInt] = Field(default=None, alias="timeWindowEnd", json_schema_extra={"examples": [1234567891011]})
+    time_window_start: Optional[StrictInt] = Field(default=None, alias="timeWindowStart", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["description", "enterpriseIds", "enterprisePermissions", "groupType", "id", "name", "permissions", "timeWindowEnd", "timeWindowStart"]
 
     model_config = ConfigDict(

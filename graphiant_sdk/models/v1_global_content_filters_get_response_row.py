@@ -32,8 +32,8 @@ class V1GlobalContentFiltersGetResponseRow(BaseModel):
     V1GlobalContentFiltersGetResponseRow
     """ # noqa: E501
     created_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="createdAt")
-    global_content_filter_id: Optional[StrictInt] = Field(default=None, description="ID for the global content filter.", alias="globalContentFilterId")
-    global_content_filter_name: Optional[StrictStr] = Field(default=None, description="Given name of this global content filter.", alias="globalContentFilterName")
+    global_content_filter_id: Optional[StrictInt] = Field(default=None, description="ID for the global content filter.", alias="globalContentFilterId", json_schema_extra={"examples": [1234567891011]})
+    global_content_filter_name: Optional[StrictStr] = Field(default=None, description="Given name of this global content filter.", alias="globalContentFilterName", json_schema_extra={"examples": ["example string"]})
     lans: Optional[List[V1GlobalContentFiltersGetResponseRowLanEntry]] = None
     rules: Optional[List[V1GlobalContentFiltersGetResponseRowRuleEntry]] = None
     sites: Optional[List[V1GlobalContentFiltersGetResponseRowSiteEntry]] = None

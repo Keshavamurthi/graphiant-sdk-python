@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from graphiant_sdk.models.mana_v2_nullable_site_interface_name import ManaV2NullableSiteInterfaceName
 from typing import Optional, Set
@@ -29,7 +29,7 @@ class ManaV2GlobalObjectOperationConfig(BaseModel):
     ManaV2GlobalObjectOperationConfig
     """ # noqa: E501
     interface: Optional[ManaV2NullableSiteInterfaceName] = None
-    operation: Optional[StrictStr] = None
+    operation: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["interface", "operation"]
 
     model_config = ConfigDict(

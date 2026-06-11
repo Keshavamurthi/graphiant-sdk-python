@@ -27,9 +27,9 @@ class ManaV2BgpAggregationsConfig(BaseModel):
     """
     ManaV2BgpAggregationsConfig
     """ # noqa: E501
-    as_set: Optional[StrictBool] = Field(default=None, alias="asSet")
-    prefix: Optional[StrictStr] = None
-    summary_only: Optional[StrictBool] = Field(default=None, alias="summaryOnly")
+    as_set: Optional[StrictBool] = Field(default=None, alias="asSet", json_schema_extra={"examples": [True]})
+    prefix: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    summary_only: Optional[StrictBool] = Field(default=None, alias="summaryOnly", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["asSet", "prefix", "summaryOnly"]
 
     model_config = ConfigDict(

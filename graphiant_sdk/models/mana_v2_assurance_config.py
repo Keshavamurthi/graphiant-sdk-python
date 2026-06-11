@@ -29,11 +29,11 @@ class ManaV2AssuranceConfig(BaseModel):
     ManaV2AssuranceConfig
     """ # noqa: E501
     apps: Optional[List[ManaV2BucketApp]] = None
-    flex_algo: Optional[StrictStr] = Field(default=None, alias="flexAlgo")
+    flex_algo: Optional[StrictStr] = Field(default=None, alias="flexAlgo", json_schema_extra={"examples": ["example string"]})
     lan_names: Optional[List[StrictStr]] = Field(default=None, alias="lanNames")
-    name: Optional[StrictStr] = None
-    site_list_id: Optional[StrictInt] = Field(default=None, alias="siteListId")
-    use_all_sites: Optional[StrictBool] = Field(default=None, alias="useAllSites")
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    site_list_id: Optional[StrictInt] = Field(default=None, alias="siteListId", json_schema_extra={"examples": [1234567891011]})
+    use_all_sites: Optional[StrictBool] = Field(default=None, alias="useAllSites", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["apps", "flexAlgo", "lanNames", "name", "siteListId", "useAllSites"]
 
     model_config = ConfigDict(

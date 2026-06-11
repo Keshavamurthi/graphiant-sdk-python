@@ -6,8 +6,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [26.5.0] - 2026-06-10
+
+### Added
+- **API spec:** `graphiant_api_docs_v26.5.0.json`
+- **Extranet public VIF:** **`GET`/`POST /v1/extranet-public-vif`**, **`POST /v1/extranet-public-vif/check`**, **`GET`/`PUT`/`DELETE /v1/extranet-public-vif/{id}`**; models **`V1ExtranetPublicVif*`** and **`ManaV2PublicVif*`** (consumer/producer policy, fixed/dynamic VIF, device and summary types)
+- **MSP billing:** **`GET /v1/msp/managed-enterprise-contract-info`** with **`V1MspManagedEnterpriseContractInfoGetResponse`** and **`ManaV2ManagedEnterpriseContractInfo`**
+- **Site map:** **`GET /v1/sites/map/details`** with **`V1SitesMapDetailsGetResponse`**, **`ManaV2LanSegmentSitesMap`**, **`ManaV2SiteInformation`**, **`ManaV2SiteDeviceSummary`**, **`ManaV2SiteLanSegmentDeviceBuckets`**
+- **Billing (common):** **`CommonBillingContract`**, **`CommonBillingTimePeriod`**
+
+### Changed
+- **Version:** Package **26.5.0**; OpenAPI bundle **`graphiant_api_docs_v26.5.0.json`** (replaces **26.4.0** bundle in-repo).
+- **Schemas / docs (updated):** **`AssuranceClientSession`**, **`AssuranceSite`**, **`SearchEdgeSummary`**, **`ManaV2ApplicationProfile`**, enterprise contract/patch/put request types, assurance topology request types, **`DefaultApi`**, README and generated **`docs/`** model pages.
+- **SDK (generated):** Refreshed **`default_api`**, **`api_client`**, **`configuration`**, and model exports to match the **26.5.0** spec (including OpenAPI **example** metadata on many generated Pydantic fields).
+
+### Removed
+- **API spec:** removed **`graphiant_api_docs_v26.4.0.json`** (superseded by **26.5.0** bundle).
+
 ### Security
-- **urllib3**: lock **2.7.0** in **Poetry** to pick up fixes for decompression-bomb resource-exhaustion issues in parts of the streaming API and sensitive-header forwarding across origins in proxied low-level redirects. The declared runtime range already allows the patched release.
+- **urllib3:** lock **2.7.0** in **Poetry** to pick up fixes for decompression-bomb resource-exhaustion issues in parts of the streaming API and sensitive-header forwarding across origins in proxied low-level redirects. The declared runtime range already allows the patched release.
 
 ## [26.4.0] - 2026-04-30
 

@@ -28,11 +28,11 @@ class V1DiagnosticPacketcapturePcapIdGetResponse(BaseModel):
     """
     V1DiagnosticPacketcapturePcapIdGetResponse
     """ # noqa: E501
-    failure_reason: Optional[StrictStr] = Field(default=None, description="Error message if the packet capture generation/upload failed", alias="failureReason")
-    file_name: Optional[StrictStr] = Field(default=None, description="The PCap file name.", alias="fileName")
-    status: Optional[StrictStr] = Field(default=None, description="The status of the requested packet capture")
-    upload_progress: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="upload progress in percentage", alias="uploadProgress")
-    url: Optional[StrictStr] = Field(default=None, description="The URL to download this packet capture.")
+    failure_reason: Optional[StrictStr] = Field(default=None, description="Error message if the packet capture generation/upload failed", alias="failureReason", json_schema_extra={"examples": ["failed to access the cloud"]})
+    file_name: Optional[StrictStr] = Field(default=None, description="The PCap file name.", alias="fileName", json_schema_extra={"examples": ["12000.tar.zst.gpg"]})
+    status: Optional[StrictStr] = Field(default=None, description="The status of the requested packet capture", json_schema_extra={"examples": ["Uploaded"]})
+    upload_progress: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, description="upload progress in percentage", alias="uploadProgress", json_schema_extra={"examples": [60]})
+    url: Optional[StrictStr] = Field(default=None, description="The URL to download this packet capture.", json_schema_extra={"examples": ["graphiant.com/pcaps/134"]})
     __properties: ClassVar[List[str]] = ["failureReason", "fileName", "status", "uploadProgress", "url"]
 
     model_config = ConfigDict(

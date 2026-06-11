@@ -43,8 +43,8 @@ class ManaV2RoutingPolicyConfigNullableStatementStatementNullableActionAction(Ba
     communities: Optional[ManaV2NullableCommunities] = None
     local_pref: Optional[ManaV2NullableLocalPreferance] = Field(default=None, alias="localPref")
     metric: Optional[ManaV2NullableMetric] = None
-    result: Optional[StrictStr] = None
-    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    result: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     weight: Optional[ManaV2NullableWeight] = None
     __properties: ClassVar[List[str]] = ["administrativeDistance", "aspathPrepend", "bgpSetNextHop", "callPolicy", "communities", "localPref", "metric", "result", "seq", "weight"]
 

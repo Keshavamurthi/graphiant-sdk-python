@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **is_hardware** | **bool** |  | [optional] 
 **is_new** | **bool** |  | [optional] 
 **is_requested** | **bool** |  | [optional] 
+**is_requested_status** | **str** |  | [optional] 
 **last_booted_at** | [**GoogleProtobufTimestamp**](GoogleProtobufTimestamp.md) |  | [optional] 
 **location** | [**ManaV2Location**](ManaV2Location.md) |  | [optional] 
 **model** | **str** |  | [optional] 

@@ -30,11 +30,11 @@ class UpgradeSchedule(BaseModel):
     """
     UpgradeSchedule
     """ # noqa: E501
-    action: Optional[StrictStr] = None
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    download_progress: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="downloadProgress")
-    failure_reason: Optional[StrictStr] = Field(default=None, alias="failureReason")
-    state: Optional[StrictStr] = None
+    action: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    download_progress: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="downloadProgress", json_schema_extra={"examples": [123]})
+    failure_reason: Optional[StrictStr] = Field(default=None, alias="failureReason", json_schema_extra={"examples": ["example string"]})
+    state: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     ts: Optional[GoogleProtobufTimestamp] = None
     version: Optional[UpgradeSwVersion] = None
     __properties: ClassVar[List[str]] = ["action", "deviceId", "downloadProgress", "failureReason", "state", "ts", "version"]

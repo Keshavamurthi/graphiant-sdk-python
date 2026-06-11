@@ -31,16 +31,16 @@ class ManaV2MaCsecConfiguration(BaseModel):
     """
     ManaV2MaCsecConfiguration
     """ # noqa: E501
-    enabled: StrictBool = Field(description="Whether MACsec is enabled or disabled (required)")
-    encryption_enforcement_mode: StrictStr = Field(description="The encryption enforcement mode (required)", alias="encryptionEnforcementMode")
+    enabled: StrictBool = Field(description="Whether MACsec is enabled or disabled (required)", json_schema_extra={"examples": [True]})
+    encryption_enforcement_mode: StrictStr = Field(description="The encryption enforcement mode (required)", alias="encryptionEnforcementMode", json_schema_extra={"examples": ["MACSEC_ENFORCEMENT_MODE_SHOULD_ENCRYPT"]})
     global_sak_configuration: ManaV2NullableSakConfiguration = Field(alias="globalSakConfiguration")
-    key_server_priority: Optional[StrictInt] = Field(default=None, description="The priority of the key server. Lower number means higher priority.", alias="keyServerPriority")
+    key_server_priority: Optional[StrictInt] = Field(default=None, description="The priority of the key server. Lower number means higher priority.", alias="keyServerPriority", json_schema_extra={"examples": [255]})
     psk_configurations: Optional[List[ManaV2PskConfiguration]] = Field(default=None, alias="pskConfigurations")
     psk_configurations_by_nickname: Dict[str, ManaV2NullablePskConfiguration] = Field(alias="pskConfigurationsByNickname")
     sak_configurations: Optional[List[ManaV2SakConfiguration]] = Field(default=None, alias="sakConfigurations")
     sak_configurations_by_lag_member_interface_id: Dict[str, ManaV2NullableSakConfiguration] = Field(alias="sakConfigurationsByLagMemberInterfaceId")
-    split_sak_config_by_lag_member: Optional[StrictBool] = Field(default=None, description="Whether to allow individual SAK configurations for each lag member", alias="splitSakConfigByLagMember")
-    transparent_vlan: Optional[StrictBool] = Field(default=None, description="Whether transparent VLAN is enabled or disabled", alias="transparentVlan")
+    split_sak_config_by_lag_member: Optional[StrictBool] = Field(default=None, description="Whether to allow individual SAK configurations for each lag member", alias="splitSakConfigByLagMember", json_schema_extra={"examples": [True]})
+    transparent_vlan: Optional[StrictBool] = Field(default=None, description="Whether transparent VLAN is enabled or disabled", alias="transparentVlan", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["enabled", "encryptionEnforcementMode", "globalSakConfiguration", "keyServerPriority", "pskConfigurations", "pskConfigurationsByNickname", "sakConfigurations", "sakConfigurationsByLagMemberInterfaceId", "splitSakConfigByLagMember", "transparentVlan"]
 
     model_config = ConfigDict(

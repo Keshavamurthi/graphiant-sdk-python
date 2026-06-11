@@ -27,7 +27,7 @@ class ManaV2NullableMd5Password(BaseModel):
     """
     ManaV2NullableMd5Password
     """ # noqa: E501
-    md5_password: Optional[StrictStr] = Field(default=None, alias="md5Password")
+    md5_password: Optional[StrictStr] = Field(default=None, alias="md5Password", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["md5Password"]
 
     model_config = ConfigDict(

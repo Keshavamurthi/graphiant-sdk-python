@@ -27,13 +27,13 @@ class ManaV2DnsipAddress(BaseModel):
     """
     ManaV2DnsipAddress
     """ # noqa: E501
-    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName")
-    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName")
-    ipv4: Optional[StrictStr] = None
-    ipv6: Optional[StrictStr] = None
-    source: Optional[StrictStr] = None
-    stale: Optional[StrictBool] = None
-    type: Optional[StrictStr] = None
+    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName", json_schema_extra={"examples": ["example string"]})
+    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName", json_schema_extra={"examples": ["example string"]})
+    ipv4: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    ipv6: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    source: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    stale: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["circuitName", "interfaceName", "ipv4", "ipv6", "source", "stale", "type"]
 
     model_config = ConfigDict(

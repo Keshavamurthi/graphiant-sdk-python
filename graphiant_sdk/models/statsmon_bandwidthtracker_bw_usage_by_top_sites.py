@@ -28,9 +28,9 @@ class StatsmonBandwidthtrackerBwUsageByTopSites(BaseModel):
     """
     StatsmonBandwidthtrackerBwUsageByTopSites
     """ # noqa: E501
-    site_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="siteId")
-    site_name: Optional[StrictStr] = Field(default=None, alias="siteName")
-    usage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usageKbps")
+    site_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="siteId", json_schema_extra={"examples": [12345678910]})
+    site_name: Optional[StrictStr] = Field(default=None, alias="siteName", json_schema_extra={"examples": ["example string"]})
+    usage_kbps: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="usageKbps", json_schema_extra={"examples": [123.45]})
     __properties: ClassVar[List[str]] = ["siteId", "siteName", "usageKbps"]
 
     model_config = ConfigDict(

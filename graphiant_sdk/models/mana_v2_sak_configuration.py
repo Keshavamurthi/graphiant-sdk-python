@@ -29,12 +29,12 @@ class ManaV2SakConfiguration(BaseModel):
     """
     ManaV2SakConfiguration
     """ # noqa: E501
-    cipher_suite: Optional[StrictStr] = Field(default=None, alias="cipherSuite")
-    lag_member_interface_id: Optional[StrictInt] = Field(default=None, description="The interface ID (required for when each lag member has a different MACsec configuration - when split_sak_config_by_lag_member is true) (required)", alias="lagMemberInterfaceId")
+    cipher_suite: Optional[StrictStr] = Field(default=None, alias="cipherSuite", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    lag_member_interface_id: Optional[StrictInt] = Field(default=None, description="The interface ID (required for when each lag member has a different MACsec configuration - when split_sak_config_by_lag_member is true) (required)", alias="lagMemberInterfaceId", json_schema_extra={"examples": [1]})
     nullable_rekey_interval: Optional[ManaV2NullableMaCsecRekeyInterval] = Field(default=None, alias="nullableRekeyInterval")
     nullable_replay_protection_window_size: Optional[ManaV2NullableMaCsecReplayProtectionWindowSize] = Field(default=None, alias="nullableReplayProtectionWindowSize")
-    rekey_interval: Optional[StrictInt] = Field(default=None, alias="rekeyInterval")
-    replay_protection_window_size: Optional[StrictInt] = Field(default=None, alias="replayProtectionWindowSize")
+    rekey_interval: Optional[StrictInt] = Field(default=None, alias="rekeyInterval", json_schema_extra={"examples": [1234567891011]})
+    replay_protection_window_size: Optional[StrictInt] = Field(default=None, alias="replayProtectionWindowSize", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["cipherSuite", "lagMemberInterfaceId", "nullableRekeyInterval", "nullableReplayProtectionWindowSize", "rekeyInterval", "replayProtectionWindowSize"]
 
     model_config = ConfigDict(

@@ -28,10 +28,10 @@ class V1AppsVisualizationPostRequest(BaseModel):
     """
     V1AppsVisualizationPostRequest
     """ # noqa: E501
-    circuit_name: Optional[StrictStr] = Field(default=None, description="Circuit name is specified if circuit apps utilization data is desired.", alias="circuitName")
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    is_dia: Optional[StrictBool] = Field(default=None, alias="isDia")
-    sla_class: Optional[StrictStr] = Field(default=None, description="SLA class is specified if queue apps utilization data is desired. Circuit name must be provided.", alias="slaClass")
+    circuit_name: Optional[StrictStr] = Field(default=None, description="Circuit name is specified if circuit apps utilization data is desired.", alias="circuitName", json_schema_extra={"examples": ["example string"]})
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    is_dia: Optional[StrictBool] = Field(default=None, alias="isDia", json_schema_extra={"examples": [True]})
+    sla_class: Optional[StrictStr] = Field(default=None, description="SLA class is specified if queue apps utilization data is desired. Circuit name must be provided.", alias="slaClass", json_schema_extra={"examples": ["ENUM_VALUE"]})
     time_window: Optional[StatsmonTimeWindow] = Field(default=None, alias="timeWindow")
     __properties: ClassVar[List[str]] = ["circuitName", "deviceId", "isDia", "slaClass", "timeWindow"]
 

@@ -28,7 +28,7 @@ class V1ExtranetsB2bConsumerDeviceStatusIdGetResponse(BaseModel):
     """
     V1ExtranetsB2bConsumerDeviceStatusIdGetResponse
     """ # noqa: E501
-    service_status: Optional[StrictStr] = Field(default=None, alias="serviceStatus")
+    service_status: Optional[StrictStr] = Field(default=None, alias="serviceStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
     summary: Optional[List[ManaV2B2bExtranetStatusSummary]] = None
     __properties: ClassVar[List[str]] = ["serviceStatus", "summary"]
 

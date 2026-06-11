@@ -27,9 +27,9 @@ class ManaV2Zone(BaseModel):
     """
     ManaV2Zone
     """ # noqa: E501
-    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId")
-    id: Optional[StrictInt] = None
-    name: Optional[StrictStr] = None
+    enterprise_id: Optional[StrictInt] = Field(default=None, alias="enterpriseId", json_schema_extra={"examples": [1234567891011]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["enterpriseId", "id", "name"]
 
     model_config = ConfigDict(

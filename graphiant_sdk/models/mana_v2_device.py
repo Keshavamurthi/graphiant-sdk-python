@@ -49,52 +49,52 @@ class ManaV2Device(BaseModel):
     ManaV2Device
     """ # noqa: E501
     bgp: Optional[ManaV2BgpInstance] = None
-    bgp_enabled: Optional[StrictBool] = Field(default=None, alias="bgpEnabled")
+    bgp_enabled: Optional[StrictBool] = Field(default=None, alias="bgpEnabled", json_schema_extra={"examples": [True]})
     circuits: Optional[List[ManaV2Circuit]] = None
     config_updated_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="configUpdatedAt")
     created_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="createdAt")
-    dhcp_server_enabled: Optional[StrictBool] = Field(default=None, alias="dhcpServerEnabled")
+    dhcp_server_enabled: Optional[StrictBool] = Field(default=None, alias="dhcpServerEnabled", json_schema_extra={"examples": [True]})
     dns: Optional[ManaV2Dns] = None
-    gdi: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    hostname: Optional[StrictStr] = None
-    id: Optional[StrictInt] = None
+    gdi: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    hostname: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
     interfaces: Optional[List[ManaV2Interface]] = None
-    internal_state: Optional[StrictStr] = Field(default=None, alias="internalState")
-    ipfix_enabled: Optional[StrictBool] = Field(default=None, alias="ipfixEnabled")
+    internal_state: Optional[StrictStr] = Field(default=None, alias="internalState", json_schema_extra={"examples": ["ENUM_VALUE"]})
+    ipfix_enabled: Optional[StrictBool] = Field(default=None, alias="ipfixEnabled", json_schema_extra={"examples": [True]})
     ipfix_exporters: Optional[List[ManaV2IpfixExporter]] = Field(default=None, alias="ipfixExporters")
     ipsec_tunnels: Optional[List[ManaV2SiteToSiteIPsec]] = Field(default=None, alias="ipsecTunnels")
     last_booted_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="lastBootedAt")
-    lldp_enabled: Optional[StrictBool] = Field(default=None, alias="lldpEnabled")
+    lldp_enabled: Optional[StrictBool] = Field(default=None, alias="lldpEnabled", json_schema_extra={"examples": [True]})
     local_route_tag: Optional[ManaV2RouteTag] = Field(default=None, alias="localRouteTag")
-    local_web_server_password: Optional[StrictStr] = Field(default=None, alias="localWebServerPassword")
+    local_web_server_password: Optional[StrictStr] = Field(default=None, alias="localWebServerPassword", json_schema_extra={"examples": ["example string"]})
     location: Optional[ManaV2Location] = None
-    maintenance_mode: Optional[StrictBool] = Field(default=None, alias="maintenanceMode")
+    maintenance_mode: Optional[StrictBool] = Field(default=None, alias="maintenanceMode", json_schema_extra={"examples": [True]})
     nat_policy: Optional[ManaV2NatPolicy] = Field(default=None, alias="natPolicy")
-    notes: Optional[StrictStr] = None
+    notes: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     ntp: Optional[ManaV2Ntp] = None
-    oper_staled: Optional[StrictBool] = Field(default=None, alias="operStaled")
+    oper_staled: Optional[StrictBool] = Field(default=None, alias="operStaled", json_schema_extra={"examples": [True]})
     oper_staled_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="operStaledAt")
     oper_updated_at: Optional[GoogleProtobufTimestamp] = Field(default=None, alias="operUpdatedAt")
-    ospfv2_enabled: Optional[StrictBool] = Field(default=None, alias="ospfv2Enabled")
-    ospfv3_enabled: Optional[StrictBool] = Field(default=None, alias="ospfv3Enabled")
-    platform: Optional[StrictStr] = None
+    ospfv2_enabled: Optional[StrictBool] = Field(default=None, alias="ospfv2Enabled", json_schema_extra={"examples": [True]})
+    ospfv3_enabled: Optional[StrictBool] = Field(default=None, alias="ospfv3Enabled", json_schema_extra={"examples": [True]})
+    platform: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     prefix_sets: Optional[List[ManaV2PrefixSet]] = Field(default=None, alias="prefixSets")
-    reboot_reason: Optional[StrictStr] = Field(default=None, alias="rebootReason")
+    reboot_reason: Optional[StrictStr] = Field(default=None, alias="rebootReason", json_schema_extra={"examples": ["example string"]})
     region: Optional[ManaV2Region] = None
     region_override: Optional[ManaV2Region] = Field(default=None, alias="regionOverride")
-    role: Optional[StrictStr] = None
+    role: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     routing_policies: Optional[List[ManaV2RoutingPolicy]] = Field(default=None, alias="routingPolicies")
     segments: Optional[List[ManaV2Vrf]] = None
-    serial_number: Optional[StrictStr] = Field(default=None, alias="serialNumber")
+    serial_number: Optional[StrictStr] = Field(default=None, alias="serialNumber", json_schema_extra={"examples": ["example string"]})
     site: Optional[ManaV2Site] = None
     sla_conformance: Optional[ManaV2SlaConformance] = Field(default=None, alias="slaConformance")
     snmp: Optional[ManaV2Snmp] = None
-    software_version: Optional[StrictStr] = Field(default=None, alias="softwareVersion")
-    static_routes_enabled: Optional[StrictBool] = Field(default=None, alias="staticRoutesEnabled")
-    status: Optional[StrictStr] = None
+    software_version: Optional[StrictStr] = Field(default=None, alias="softwareVersion", json_schema_extra={"examples": ["example string"]})
+    static_routes_enabled: Optional[StrictBool] = Field(default=None, alias="staticRoutesEnabled", json_schema_extra={"examples": [True]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     traffic_policy: Optional[ManaV2ForwardingPolicy] = Field(default=None, alias="trafficPolicy")
     uptime: Optional[GoogleProtobufDuration] = None
-    vrrp_enabled: Optional[StrictBool] = Field(default=None, alias="vrrpEnabled")
+    vrrp_enabled: Optional[StrictBool] = Field(default=None, alias="vrrpEnabled", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["bgp", "bgpEnabled", "circuits", "configUpdatedAt", "createdAt", "dhcpServerEnabled", "dns", "gdi", "hostname", "id", "interfaces", "internalState", "ipfixEnabled", "ipfixExporters", "ipsecTunnels", "lastBootedAt", "lldpEnabled", "localRouteTag", "localWebServerPassword", "location", "maintenanceMode", "natPolicy", "notes", "ntp", "operStaled", "operStaledAt", "operUpdatedAt", "ospfv2Enabled", "ospfv3Enabled", "platform", "prefixSets", "rebootReason", "region", "regionOverride", "role", "routingPolicies", "segments", "serialNumber", "site", "slaConformance", "snmp", "softwareVersion", "staticRoutesEnabled", "status", "trafficPolicy", "uptime", "vrrpEnabled"]
 
     model_config = ConfigDict(

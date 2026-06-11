@@ -30,8 +30,8 @@ class StatsmonBandwidthtrackerBwUsageByTopRegions(BaseModel):
     StatsmonBandwidthtrackerBwUsageByTopRegions
     """ # noqa: E501
     bwusage_role_summary: Optional[List[StatsmonBandwidthtrackerBwUsageByRoleSummary]] = Field(default=None, alias="bwusageRoleSummary")
-    region_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="regionId")
-    region_name: Optional[StrictStr] = Field(default=None, alias="regionName")
+    region_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="regionId", json_schema_extra={"examples": [12345678910]})
+    region_name: Optional[StrictStr] = Field(default=None, alias="regionName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["bwusageRoleSummary", "regionId", "regionName"]
 
     model_config = ConfigDict(

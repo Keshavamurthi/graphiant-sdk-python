@@ -29,11 +29,11 @@ class IpfixAppVisualization(BaseModel):
     """
     IpfixAppVisualization
     """ # noqa: E501
-    app_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="appId")
-    app_name: Optional[StrictStr] = Field(default=None, alias="appName")
+    app_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="appId", json_schema_extra={"examples": [123]})
+    app_name: Optional[StrictStr] = Field(default=None, alias="appName", json_schema_extra={"examples": ["example string"]})
     circuit_availability: Optional[Dict[str, Annotated[int, Field(strict=True, ge=0)]]] = Field(default=None, alias="circuitAvailability")
     circuit_map: Optional[Dict[str, IpfixCircuitMetrics]] = Field(default=None, alias="circuitMap")
-    current_status: Optional[StrictStr] = Field(default=None, description="current status of the app.", alias="currentStatus")
+    current_status: Optional[StrictStr] = Field(default=None, description="current status of the app.", alias="currentStatus", json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["appId", "appName", "circuitAvailability", "circuitMap", "currentStatus"]
 
     model_config = ConfigDict(

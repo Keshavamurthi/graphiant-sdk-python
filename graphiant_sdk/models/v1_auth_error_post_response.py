@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,9 +27,9 @@ class V1AuthErrorPostResponse(BaseModel):
     """
     V1AuthErrorPostResponse
     """ # noqa: E501
-    auth: StrictBool
+    auth: StrictBool = Field(json_schema_extra={"examples": [False]})
     token: Optional[StrictStr]
-    error: StrictStr
+    error: StrictStr = Field(json_schema_extra={"examples": ["email not provided"]})
     __properties: ClassVar[List[str]] = ["auth", "token", "error"]
 
     model_config = ConfigDict(

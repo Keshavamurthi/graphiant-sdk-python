@@ -28,7 +28,7 @@ class ManaV2BgpNeighborAddressFamilyConfig(BaseModel):
     """
     ManaV2BgpNeighborAddressFamilyConfig
     """ # noqa: E501
-    address_family: Optional[StrictStr] = Field(default=None, alias="addressFamily")
+    address_family: Optional[StrictStr] = Field(default=None, alias="addressFamily", json_schema_extra={"examples": ["ENUM_VALUE"]})
     inbound_policy: Optional[ManaV2NullablePolicyName] = Field(default=None, alias="inboundPolicy")
     outbound_policy: Optional[ManaV2NullablePolicyName] = Field(default=None, alias="outboundPolicy")
     __properties: ClassVar[List[str]] = ["addressFamily", "inboundPolicy", "outboundPolicy"]

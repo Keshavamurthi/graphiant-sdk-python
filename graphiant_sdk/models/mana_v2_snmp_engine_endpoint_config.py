@@ -29,11 +29,11 @@ class ManaV2SnmpEngineEndpointConfig(BaseModel):
     ManaV2SnmpEngineEndpointConfig
     """ # noqa: E501
     addresses: Optional[Dict[str, ManaV2NullableSnmpEngineEndpointsAddress]] = None
-    auto_ipv4: Optional[StrictBool] = Field(default=None, alias="autoIpv4")
-    auto_ipv6: Optional[StrictBool] = Field(default=None, alias="autoIpv6")
-    interface: Optional[StrictStr] = None
-    lan_segment: Optional[StrictStr] = Field(default=None, alias="lanSegment")
-    name: Optional[StrictStr] = None
+    auto_ipv4: Optional[StrictBool] = Field(default=None, alias="autoIpv4", json_schema_extra={"examples": [True]})
+    auto_ipv6: Optional[StrictBool] = Field(default=None, alias="autoIpv6", json_schema_extra={"examples": [True]})
+    interface: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    lan_segment: Optional[StrictStr] = Field(default=None, alias="lanSegment", json_schema_extra={"examples": ["example string"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["addresses", "autoIpv4", "autoIpv6", "interface", "lanSegment", "name"]
 
     model_config = ConfigDict(

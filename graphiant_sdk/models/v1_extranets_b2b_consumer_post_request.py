@@ -30,8 +30,8 @@ class V1ExtranetsB2bConsumerPostRequest(BaseModel):
     V1ExtranetsB2bConsumerPostRequest
     """ # noqa: E501
     policy: Optional[List[ManaV2ExtranetConsumerLanSegmentPolicy]] = None
-    provider_enterprise_id: Optional[StrictInt] = Field(default=None, alias="providerEnterpriseId")
-    service_name: Optional[StrictStr] = Field(default=None, alias="serviceName")
+    provider_enterprise_id: Optional[StrictInt] = Field(default=None, alias="providerEnterpriseId", json_schema_extra={"examples": [1234567891011]})
+    service_name: Optional[StrictStr] = Field(default=None, alias="serviceName", json_schema_extra={"examples": ["example string"]})
     site_information: Optional[List[ManaV2B2bSiteInformation]] = Field(default=None, alias="siteInformation")
     __properties: ClassVar[List[str]] = ["policy", "providerEnterpriseId", "serviceName", "siteInformation"]
 

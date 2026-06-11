@@ -30,7 +30,7 @@ class V2MonitoringPolicyPostRequest(BaseModel):
     """
     V2MonitoringPolicyPostRequest
     """ # noqa: E501
-    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId")
+    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [12345678910]})
     selectors: Optional[List[StatsmonV2PolicyStatsSelector]] = None
     time_window: Optional[StatsmonV2TimeWindow] = Field(default=None, alias="timeWindow")
     __properties: ClassVar[List[str]] = ["deviceId", "selectors", "timeWindow"]

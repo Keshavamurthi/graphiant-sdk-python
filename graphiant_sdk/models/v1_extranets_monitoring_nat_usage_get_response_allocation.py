@@ -27,11 +27,11 @@ class V1ExtranetsMonitoringNatUsageGetResponseAllocation(BaseModel):
     """
     V1ExtranetsMonitoringNatUsageGetResponseAllocation
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    hostname: Optional[StrictStr] = None
-    ip_address: Optional[StrictStr] = Field(default=None, alias="ipAddress")
-    site_id: Optional[StrictInt] = Field(default=None, alias="siteId")
-    site_name: Optional[StrictStr] = Field(default=None, alias="siteName")
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    hostname: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    ip_address: Optional[StrictStr] = Field(default=None, alias="ipAddress", json_schema_extra={"examples": ["example string"]})
+    site_id: Optional[StrictInt] = Field(default=None, alias="siteId", json_schema_extra={"examples": [1234567891011]})
+    site_name: Optional[StrictStr] = Field(default=None, alias="siteName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["deviceId", "hostname", "ipAddress", "siteId", "siteName"]
 
     model_config = ConfigDict(

@@ -27,10 +27,10 @@ class ManaV2BgpAggregation(BaseModel):
     """
     ManaV2BgpAggregation
     """ # noqa: E501
-    as_set: Optional[StrictBool] = Field(default=None, alias="asSet")
-    id: Optional[StrictInt] = None
-    prefix: Optional[StrictStr] = None
-    summary_only: Optional[StrictBool] = Field(default=None, alias="summaryOnly")
+    as_set: Optional[StrictBool] = Field(default=None, alias="asSet", json_schema_extra={"examples": [True]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    prefix: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    summary_only: Optional[StrictBool] = Field(default=None, alias="summaryOnly", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["asSet", "id", "prefix", "summaryOnly"]
 
     model_config = ConfigDict(

@@ -29,9 +29,9 @@ class V2MonitoringIkeErrorHistoryPostRequest(BaseModel):
     """
     V2MonitoringIkeErrorHistoryPostRequest
     """ # noqa: E501
-    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId")
+    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [12345678910]})
     time_window: Optional[StatsmonV2TimeWindow] = Field(default=None, alias="timeWindow")
-    tunnel_name: Optional[StrictStr] = Field(default=None, alias="tunnelName")
+    tunnel_name: Optional[StrictStr] = Field(default=None, alias="tunnelName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["deviceId", "timeWindow", "tunnelName"]
 
     model_config = ConfigDict(

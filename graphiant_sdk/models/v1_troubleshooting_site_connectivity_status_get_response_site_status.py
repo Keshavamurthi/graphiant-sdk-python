@@ -27,8 +27,8 @@ class V1TroubleshootingSiteConnectivityStatusGetResponseSiteStatus(BaseModel):
     """
     V1TroubleshootingSiteConnectivityStatusGetResponseSiteStatus
     """ # noqa: E501
-    site_id: Optional[StrictInt] = Field(default=None, alias="siteId")
-    status: Optional[StrictStr] = None
+    site_id: Optional[StrictInt] = Field(default=None, alias="siteId", json_schema_extra={"examples": [1234567891011]})
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["siteId", "status"]
 
     model_config = ConfigDict(

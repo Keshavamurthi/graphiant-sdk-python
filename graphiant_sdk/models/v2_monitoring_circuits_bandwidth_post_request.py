@@ -30,7 +30,7 @@ class V2MonitoringCircuitsBandwidthPostRequest(BaseModel):
     """
     V2MonitoringCircuitsBandwidthPostRequest
     """ # noqa: E501
-    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId")
+    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [12345678910]})
     selectors: Optional[List[StatsmonV2CircuitBandwidthStatsSelector]] = None
     time_window: Optional[StatsmonV2TimeWindow] = Field(default=None, alias="timeWindow")
     __properties: ClassVar[List[str]] = ["deviceId", "selectors", "timeWindow"]

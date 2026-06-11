@@ -27,8 +27,8 @@ class StatsmonExtranetServerStatus(BaseModel):
     """
     StatsmonExtranetServerStatus
     """ # noqa: E501
-    address: Optional[StrictStr] = Field(default=None, description="the IP address of the server")
-    status: Optional[StrictStr] = Field(default=None, description="the health status of the server (Healthy, Impaired, Down)")
+    address: Optional[StrictStr] = Field(default=None, description="the IP address of the server", json_schema_extra={"examples": ["192.168.1.1"]})
+    status: Optional[StrictStr] = Field(default=None, description="the health status of the server (Healthy, Impaired, Down)", json_schema_extra={"examples": ["Healthy"]})
     __properties: ClassVar[List[str]] = ["address", "status"]
 
     model_config = ConfigDict(

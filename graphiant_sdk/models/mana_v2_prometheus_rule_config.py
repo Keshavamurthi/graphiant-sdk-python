@@ -28,12 +28,12 @@ class ManaV2PrometheusRuleConfig(BaseModel):
     """
     ManaV2PrometheusRuleConfig
     """ # noqa: E501
-    alert: Optional[StrictBool] = None
-    expression: Optional[StrictStr] = None
-    name: Optional[StrictStr] = None
-    severity: Optional[StrictStr] = None
-    template: Optional[StrictStr] = None
-    trigger_seconds: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="triggerSeconds")
+    alert: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
+    expression: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    name: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    severity: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    template: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    trigger_seconds: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="triggerSeconds", json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["alert", "expression", "name", "severity", "template", "triggerSeconds"]
 
     model_config = ConfigDict(

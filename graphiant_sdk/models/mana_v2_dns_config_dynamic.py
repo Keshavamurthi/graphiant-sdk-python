@@ -27,8 +27,8 @@ class ManaV2DNSConfigDynamic(BaseModel):
     """
     ManaV2DNSConfigDynamic
     """ # noqa: E501
-    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName")
-    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName")
+    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName", json_schema_extra={"examples": ["example string"]})
+    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["circuitName", "interfaceName"]
 
     model_config = ConfigDict(

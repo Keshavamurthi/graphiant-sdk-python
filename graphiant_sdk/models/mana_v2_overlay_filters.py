@@ -27,8 +27,8 @@ class ManaV2OverlayFilters(BaseModel):
     """
     ManaV2OverlayFilters
     """ # noqa: E501
-    inbound_filter: Optional[StrictStr] = Field(default=None, alias="inboundFilter")
-    outbound_filter: Optional[StrictStr] = Field(default=None, alias="outboundFilter")
+    inbound_filter: Optional[StrictStr] = Field(default=None, alias="inboundFilter", json_schema_extra={"examples": ["example string"]})
+    outbound_filter: Optional[StrictStr] = Field(default=None, alias="outboundFilter", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["inboundFilter", "outboundFilter"]
 
     model_config = ConfigDict(

@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **app_name** | **str** |  | [optional] 
 **app_server_key** | **str** |  | [optional] 
 **bucket_id** | **str** |  | [optional] 
+**exchange_service_id** | **int** |  | [optional] 
 **filter** | [**V2AssuranceTopologyOverviewPostRequestTopologyFilter**](V2AssuranceTopologyOverviewPostRequestTopologyFilter.md) |  | [optional] 
 **flex_algo_id** | **int** |  | [optional] 
 **slider_time_window** | [**AssuranceTimeWindow**](AssuranceTimeWindow.md) |  | [optional] 

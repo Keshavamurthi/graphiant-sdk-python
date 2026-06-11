@@ -28,7 +28,7 @@ class V1GlobalAppsCategoriesGetResponseEntry(BaseModel):
     """
     V1GlobalAppsCategoriesGetResponseEntry
     """ # noqa: E501
-    app_count: Optional[StrictInt] = Field(default=None, alias="appCount")
+    app_count: Optional[StrictInt] = Field(default=None, alias="appCount", json_schema_extra={"examples": [123]})
     category: Optional[ManaV2App] = None
     __properties: ClassVar[List[str]] = ["appCount", "category"]
 

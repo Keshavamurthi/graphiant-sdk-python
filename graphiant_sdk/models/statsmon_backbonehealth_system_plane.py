@@ -39,7 +39,7 @@ class StatsmonBackbonehealthSystemPlane(BaseModel):
     maintenance_windows: Optional[List[StatsmonTroubleshootingMaintenanceWindow]] = Field(default=None, alias="maintenanceWindows")
     memory: Optional[List[StatsmonTroubleshootingSystemStat]] = None
     overheating: Optional[List[StatsmonTroubleshootingOverheating]] = None
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     temperature_series: Optional[List[StatsmonTroubleshootingSystemStat]] = Field(default=None, alias="temperatureSeries")
     __properties: ClassVar[List[str]] = ["cpu", "crashes", "disk", "lastCrash", "maintenanceWindows", "memory", "overheating", "status", "temperatureSeries"]
 

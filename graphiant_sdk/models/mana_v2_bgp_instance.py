@@ -28,9 +28,9 @@ class ManaV2BgpInstance(BaseModel):
     """
     ManaV2BgpInstance
     """ # noqa: E501
-    asn: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    id: Optional[StrictInt] = None
-    router_id: Optional[StrictStr] = Field(default=None, alias="routerId")
+    asn: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    id: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    router_id: Optional[StrictStr] = Field(default=None, alias="routerId", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["asn", "id", "routerId"]
 
     model_config = ConfigDict(

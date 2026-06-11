@@ -29,11 +29,11 @@ class ManaV2SecurityPolicyRule(BaseModel):
     """
     ManaV2SecurityPolicyRule
     """ # noqa: E501
-    action: Optional[StrictStr] = None
-    implicit: Optional[StrictBool] = None
+    action: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    implicit: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     match: Optional[ManaV2PolicyMatch] = None
-    policy_rule_index: Optional[StrictInt] = Field(default=None, alias="policyRuleIndex")
-    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    policy_rule_index: Optional[StrictInt] = Field(default=None, alias="policyRuleIndex", json_schema_extra={"examples": [1234567891011]})
+    seq: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     __properties: ClassVar[List[str]] = ["action", "implicit", "match", "policyRuleIndex", "seq"]
 
     model_config = ConfigDict(

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,8 +27,8 @@ class V1AuthLoginPostRequest(BaseModel):
     """
     V1AuthLoginPostRequest
     """ # noqa: E501
-    username: StrictStr
-    password: StrictStr
+    username: StrictStr = Field(json_schema_extra={"examples": ["user@example.com"]})
+    password: StrictStr = Field(json_schema_extra={"examples": ["password123"]})
     __properties: ClassVar[List[str]] = ["username", "password"]
 
     model_config = ConfigDict(

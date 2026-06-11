@@ -33,16 +33,16 @@ class ManaV2OspfInterfaceConfig(BaseModel):
     ManaV2OspfInterfaceConfig
     """ # noqa: E501
     bfd: Optional[ManaV2NullableBfdInstanceConfig] = None
-    cost: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    cost: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     dead_interval_value: Optional[ManaV2NullableOspfDeadIntervalValue] = Field(default=None, alias="deadIntervalValue")
-    dr_priority: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="drPriority")
+    dr_priority: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="drPriority", json_schema_extra={"examples": [123]})
     hello_interval_value: Optional[ManaV2NullableOspfHelloIntervalValue] = Field(default=None, alias="helloIntervalValue")
-    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName")
-    mtu: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    mtu_ignore: Optional[StrictBool] = Field(default=None, alias="mtuIgnore")
-    prefix_sid: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="prefixSid")
+    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName", json_schema_extra={"examples": ["example string"]})
+    mtu: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    mtu_ignore: Optional[StrictBool] = Field(default=None, alias="mtuIgnore", json_schema_extra={"examples": [True]})
+    prefix_sid: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="prefixSid", json_schema_extra={"examples": [123]})
     retransmit_interval_value: Optional[ManaV2NullableOspfRetransmitIntervalValue] = Field(default=None, alias="retransmitIntervalValue")
-    type: Optional[StrictStr] = None
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["bfd", "cost", "deadIntervalValue", "drPriority", "helloIntervalValue", "interfaceName", "mtu", "mtuIgnore", "prefixSid", "retransmitIntervalValue", "type"]
 
     model_config = ConfigDict(

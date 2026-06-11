@@ -27,10 +27,10 @@ class ManaV2GatewaySummaryGatewayDeviceSummary(BaseModel):
     """
     ManaV2GatewaySummaryGatewayDeviceSummary
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    hostname: Optional[StrictStr] = None
-    interface_id: Optional[StrictInt] = Field(default=None, alias="interfaceId")
-    maintenance_mode: Optional[StrictBool] = Field(default=None, alias="maintenanceMode")
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    hostname: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    interface_id: Optional[StrictInt] = Field(default=None, alias="interfaceId", json_schema_extra={"examples": [1234567891011]})
+    maintenance_mode: Optional[StrictBool] = Field(default=None, alias="maintenanceMode", json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["deviceId", "hostname", "interfaceId", "maintenanceMode"]
 
     model_config = ConfigDict(

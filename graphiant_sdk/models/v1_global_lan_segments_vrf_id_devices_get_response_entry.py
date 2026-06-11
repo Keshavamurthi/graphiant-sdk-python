@@ -27,11 +27,11 @@ class V1GlobalLanSegmentsVrfIdDevicesGetResponseEntry(BaseModel):
     """
     V1GlobalLanSegmentsVrfIdDevicesGetResponseEntry
     """ # noqa: E501
-    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId")
-    host_name: Optional[StrictStr] = Field(default=None, alias="hostName")
-    num_interfaces: Optional[StrictInt] = Field(default=None, alias="numInterfaces")
-    site: Optional[StrictInt] = None
-    status: Optional[StrictBool] = None
+    device_id: Optional[StrictInt] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [1234567891011]})
+    host_name: Optional[StrictStr] = Field(default=None, alias="hostName", json_schema_extra={"examples": ["example string"]})
+    num_interfaces: Optional[StrictInt] = Field(default=None, alias="numInterfaces", json_schema_extra={"examples": [123]})
+    site: Optional[StrictInt] = Field(default=None, json_schema_extra={"examples": [1234567891011]})
+    status: Optional[StrictBool] = Field(default=None, json_schema_extra={"examples": [True]})
     __properties: ClassVar[List[str]] = ["deviceId", "hostName", "numInterfaces", "site", "status"]
 
     model_config = ConfigDict(

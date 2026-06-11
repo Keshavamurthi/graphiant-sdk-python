@@ -28,8 +28,8 @@ class StatsmonV2CircuitBandwidthStatsSelector(BaseModel):
     """
     StatsmonV2CircuitBandwidthStatsSelector
     """ # noqa: E501
-    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName")
-    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId")
+    circuit_name: Optional[StrictStr] = Field(default=None, alias="circuitName", json_schema_extra={"examples": ["example string"]})
+    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [12345678910]})
     __properties: ClassVar[List[str]] = ["circuitName", "deviceId"]
 
     model_config = ConfigDict(

@@ -30,7 +30,7 @@ class V1BackboneHealthEtetSlaMatrixGetResponseRegionStatus(BaseModel):
     """ # noqa: E501
     peer_region: Optional[StatsmonTroubleshootingRegion] = Field(default=None, alias="peerRegion")
     region: Optional[StatsmonTroubleshootingRegion] = None
-    status: Optional[StrictStr] = None
+    status: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["peerRegion", "region", "status"]
 
     model_config = ConfigDict(

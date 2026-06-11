@@ -30,8 +30,8 @@ class ManaV2InterfaceCoreToCorePeerConfig(BaseModel):
     """ # noqa: E501
     cost: Optional[ManaV2CoreLinkCost] = Field(default=None, alias="Cost")
     ospf_cost: Optional[ManaV2CoreLinkCost] = Field(default=None, alias="ospfCost")
-    peer_hostname: Optional[StrictStr] = Field(default=None, alias="peerHostname")
-    type: Optional[StrictStr] = None
+    peer_hostname: Optional[StrictStr] = Field(default=None, alias="peerHostname", json_schema_extra={"examples": ["example string"]})
+    type: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     __properties: ClassVar[List[str]] = ["Cost", "ospfCost", "peerHostname", "type"]
 
     model_config = ConfigDict(

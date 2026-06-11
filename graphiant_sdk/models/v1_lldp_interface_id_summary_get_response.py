@@ -27,8 +27,8 @@ class V1LldpInterfaceIdSummaryGetResponse(BaseModel):
     """
     V1LldpInterfaceIdSummaryGetResponse
     """ # noqa: E501
-    num_neighbors: Optional[StrictInt] = Field(default=None, alias="numNeighbors")
-    num_vendors: Optional[StrictInt] = Field(default=None, alias="numVendors")
+    num_neighbors: Optional[StrictInt] = Field(default=None, alias="numNeighbors", json_schema_extra={"examples": [1234567891011]})
+    num_vendors: Optional[StrictInt] = Field(default=None, alias="numVendors", json_schema_extra={"examples": [1234567891011]})
     __properties: ClassVar[List[str]] = ["numNeighbors", "numVendors"]
 
     model_config = ConfigDict(

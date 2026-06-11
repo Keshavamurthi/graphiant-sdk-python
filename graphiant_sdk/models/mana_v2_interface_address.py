@@ -29,11 +29,11 @@ class ManaV2InterfaceAddress(BaseModel):
     """
     ManaV2InterfaceAddress
     """ # noqa: E501
-    address: Optional[StrictStr] = None
-    dhcp_client: Optional[StrictBool] = Field(default=None, alias="dhcpClient")
+    address: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    dhcp_client: Optional[StrictBool] = Field(default=None, alias="dhcpClient", json_schema_extra={"examples": [True]})
     dhcp_relay: Optional[ManaV2DhcpRelay] = Field(default=None, alias="dhcpRelay")
-    dhcp_server: Optional[StrictBool] = Field(default=None, alias="dhcpServer")
-    origin: Optional[StrictStr] = None
+    dhcp_server: Optional[StrictBool] = Field(default=None, alias="dhcpServer", json_schema_extra={"examples": [True]})
+    origin: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
     vrrp_group: Optional[ManaV2VrrpGroup] = Field(default=None, alias="vrrpGroup")
     __properties: ClassVar[List[str]] = ["address", "dhcpClient", "dhcpRelay", "dhcpServer", "origin", "vrrpGroup"]
 

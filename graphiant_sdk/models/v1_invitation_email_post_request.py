@@ -27,13 +27,13 @@ class V1InvitationEmailPostRequest(BaseModel):
     """
     V1InvitationEmailPostRequest
     """ # noqa: E501
-    admin_email: Optional[StrictStr] = Field(default=None, alias="adminEmail")
-    customer_id: Optional[StrictInt] = Field(default=None, alias="customerId")
-    customer_name: StrictStr = Field(description=" (required)", alias="customerName")
-    is_graphiant: Optional[StrictBool] = Field(default=None, alias="isGraphiant")
-    match_id: StrictInt = Field(description=" (required)", alias="matchId")
-    service_id: StrictInt = Field(description=" (required)", alias="serviceId")
-    service_name: StrictStr = Field(description=" (required)", alias="serviceName")
+    admin_email: Optional[StrictStr] = Field(default=None, alias="adminEmail", json_schema_extra={"examples": ["example string"]})
+    customer_id: Optional[StrictInt] = Field(default=None, alias="customerId", json_schema_extra={"examples": [1234567891011]})
+    customer_name: StrictStr = Field(description=" (required)", alias="customerName", json_schema_extra={"examples": ["example string"]})
+    is_graphiant: Optional[StrictBool] = Field(default=None, alias="isGraphiant", json_schema_extra={"examples": [True]})
+    match_id: StrictInt = Field(description=" (required)", alias="matchId", json_schema_extra={"examples": [1234567891011]})
+    service_id: StrictInt = Field(description=" (required)", alias="serviceId", json_schema_extra={"examples": [1234567891011]})
+    service_name: StrictStr = Field(description=" (required)", alias="serviceName", json_schema_extra={"examples": ["example string"]})
     __properties: ClassVar[List[str]] = ["adminEmail", "customerId", "customerName", "isGraphiant", "matchId", "serviceId", "serviceName"]
 
     model_config = ConfigDict(

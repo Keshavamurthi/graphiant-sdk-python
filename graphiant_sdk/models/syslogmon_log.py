@@ -29,11 +29,11 @@ class SyslogmonLog(BaseModel):
     """
     SyslogmonLog
     """ # noqa: E501
-    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId")
-    facility: Optional[StrictStr] = None
-    hostname: Optional[StrictStr] = None
-    level: Optional[StrictStr] = None
-    message: Optional[StrictStr] = None
+    device_id: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="deviceId", json_schema_extra={"examples": [12345678910]})
+    facility: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    hostname: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
+    level: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["ENUM_VALUE"]})
+    message: Optional[StrictStr] = Field(default=None, json_schema_extra={"examples": ["example string"]})
     ts: Optional[GoogleProtobufTimestamp] = None
     __properties: ClassVar[List[str]] = ["deviceId", "facility", "hostname", "level", "message", "ts"]
 

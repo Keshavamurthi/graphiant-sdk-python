@@ -29,11 +29,11 @@ class RoutingOspfasExternalLsa(BaseModel):
     """
     RoutingOspfasExternalLsa
     """ # noqa: E501
-    forwarding_address: Optional[StrictStr] = Field(default=None, alias="forwardingAddress")
-    metric: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
-    metric_type: Optional[StrictStr] = Field(default=None, alias="metricType")
-    network_mask: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="networkMask")
-    tag: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
+    forwarding_address: Optional[StrictStr] = Field(default=None, alias="forwardingAddress", json_schema_extra={"examples": ["example string"]})
+    metric: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
+    metric_type: Optional[StrictStr] = Field(default=None, alias="metricType", json_schema_extra={"examples": ["example string"]})
+    network_mask: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, alias="networkMask", json_schema_extra={"examples": [123]})
+    tag: Optional[Annotated[int, Field(strict=True, ge=0)]] = Field(default=None, json_schema_extra={"examples": [123]})
     tos_metric: Optional[RoutingOspflsaTosMetric] = Field(default=None, alias="tosMetric")
     __properties: ClassVar[List[str]] = ["forwardingAddress", "metric", "metricType", "networkMask", "tag", "tosMetric"]
 

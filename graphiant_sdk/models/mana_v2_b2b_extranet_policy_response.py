@@ -30,10 +30,10 @@ class ManaV2B2bExtranetPolicyResponse(BaseModel):
     """
     ManaV2B2bExtranetPolicyResponse
     """ # noqa: E501
-    dns_name: Optional[StrictStr] = Field(default=None, alias="dnsName")
+    dns_name: Optional[StrictStr] = Field(default=None, alias="dnsName", json_schema_extra={"examples": ["example string"]})
     inbound_security_rules: Optional[List[ManaV2SecurityPolicyRule]] = Field(default=None, alias="inboundSecurityRules")
     policy: Optional[ManaV2B2bExtranetProducerPolicy] = None
-    service_name: Optional[StrictStr] = Field(default=None, alias="serviceName")
+    service_name: Optional[StrictStr] = Field(default=None, alias="serviceName", json_schema_extra={"examples": ["example string"]})
     traffic_rules: Optional[List[ManaV2TrafficPolicyRule]] = Field(default=None, alias="trafficRules")
     __properties: ClassVar[List[str]] = ["dnsName", "inboundSecurityRules", "policy", "serviceName", "trafficRules"]
 

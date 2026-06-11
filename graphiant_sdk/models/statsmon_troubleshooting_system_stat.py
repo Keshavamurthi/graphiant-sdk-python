@@ -28,10 +28,10 @@ class StatsmonTroubleshootingSystemStat(BaseModel):
     """
     StatsmonTroubleshootingSystemStat
     """ # noqa: E501
-    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName")
-    peer_name: Optional[StrictStr] = Field(default=None, alias="peerName")
+    interface_name: Optional[StrictStr] = Field(default=None, alias="interfaceName", json_schema_extra={"examples": ["example string"]})
+    peer_name: Optional[StrictStr] = Field(default=None, alias="peerName", json_schema_extra={"examples": ["example string"]})
     time: Optional[GoogleProtobufTimestamp] = None
-    value: Optional[Union[StrictFloat, StrictInt]] = None
+    value: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, json_schema_extra={"examples": [123.45]})
     __properties: ClassVar[List[str]] = ["interfaceName", "peerName", "time", "value"]
 
     model_config = ConfigDict(
