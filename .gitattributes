@@ -1,0 +1,5 @@
+# Generated OpenAPI client files — collapsed in GitHub diffs/PRs
+graphiant_sdk/models/*.py          linguist-generated=true
+graphiant_sdk/api/default_api.py   linguist-generated=true
+graphiant_sdk/__init__.py          linguist-generated=true
+docs/*.md                          linguist-generated=true

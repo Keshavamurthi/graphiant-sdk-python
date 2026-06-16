@@ -3,8 +3,30 @@ LICENSE
 .travis.yml
 pyproject.toml
 requirements.txt
+test-requirements.txt
 setup.py
 README.md
+CHANGELOG.md
+CONTRIBUTING.md
+SECURITY.md
 .gitignore
+.gitattributes
+.flake8
+.bandit
 .gitlab-ci.yml
 .github/workflows/*
+Makefile
+scripts/generate.sh
+# Hand-written SDK core files — never overwrite
+graphiant_sdk/api_client.py
+graphiant_sdk/api_response.py
+graphiant_sdk/configuration.py
+graphiant_sdk/exceptions.py
+graphiant_sdk/rest.py
+graphiant_sdk/py.typed
+# Entire CLI package is hand-written
+graphiant_cli/*
+graphiant_cli/**/*
+# Hand-written tests
+tests/*
+tests/**/*

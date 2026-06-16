@@ -57,6 +57,12 @@ files = [
   #"test",  # auto-generated tests
   "tests", # hand-written tests
 ]
+# Skip generated models and API file — too large and not hand-maintained
+exclude = [
+  "graphiant_sdk/models/",
+  "graphiant_sdk/api/default_api\\.py",
+  "graphiant_sdk/__init__\\.py",
+]
 # TODO: enable "strict" once all these individual checks are passing
 # strict = true
 
