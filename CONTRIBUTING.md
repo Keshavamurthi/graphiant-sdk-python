@@ -12,13 +12,8 @@ Thank you for your interest in contributing!
    ```
 3. **Set up development environment:**
    ```bash
-   # Create virtual environment
-   python3 -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   
-   # Install dependencies
-   pip install --upgrade pip setuptools wheel
-   pip install -r requirements.txt
+   python3 -m venv venv && source venv/bin/activate
+   make install        # pip install -e ".[dev]"
    ```
 
 ## Development Workflow
@@ -30,32 +25,18 @@ Thank you for your interest in contributing!
 
 2. **Make your changes** and ensure they pass local checks:
    ```bash
-   # Format code (using black or autopep8)
-   black graphiant_sdk/  # if using black
-   # or
-   autopep8 --in-place --recursive graphiant_sdk/
-   
-   # Run linting
-   flake8 graphiant_sdk/
-   mypy graphiant_sdk/
-   
-   # Run static analysis
-   pylint graphiant_sdk/  # optional
-   
-   # Run tests
-   pytest --cov=graphiant_sdk --cov-report=html
+   make test           # pytest --cov=graphiant_sdk ...
+   make lint           # flake8 on hand-written files (generated excluded via .flake8)
+   make type-check     # mypy (generated models excluded via pyproject.toml)
+   make build          # python -m build (wheel + sdist)
+
+   # Or individually:
+   pytest -v tests/
+   flake8 graphiant_cli/ graphiant_sdk/api_client.py graphiant_sdk/configuration.py ...
+   mypy graphiant_sdk/ graphiant_cli/
    ```
 
-3. **Verify package builds:**
-   ```bash
-   # Build distribution
-   python setup.py sdist bdist_wheel
-   
-   # Verify package
-   twine check dist/*
-   ```
-
-4. **Commit with clear messages:**
+3. **Commit with clear messages:**
    ```bash
    git commit -m "Add: description of changes"
    ```
@@ -70,9 +51,10 @@ The project uses multiple linting tools to ensure code quality:
 
 | Tool | Purpose | Target | CI/CD |
 |------|---------|--------|-------|
-| `flake8` | Python style guide (PEP 8) | All `.py` files | Yes (lint stage) |
-| `mypy` | Static type checking | All `.py` files | Yes (lint stage) |
-| `pylint` | Python code analysis | All `.py` files | Optional (local only) |
+| `flake8` | Python style guide (PEP 8) | Hand-written files only (`.flake8` excludes generated models) | Yes (lint stage) |
+| `mypy` | Static type checking | Hand-written files (generated models excluded via `pyproject.toml`) | Yes (lint stage) |
+
+Generated files (`graphiant_sdk/models/`, `default_api.py`, `__init__.py`) are excluded from linting and type-checking. Run `make lint` and `make type-check` locally to verify.
 
 **Note:** All linting tools run automatically in CI/CD on every pull request and push to main/develop branches.
 
@@ -99,7 +81,7 @@ pytest tests/test_default_api.py::test_function_name
 
 ### Test Structure
 
-- `tests/` directory contains all test files
+- `tests/` directory contains all test files (hand-written; listed in `.openapi-generator-ignore`)
 - Tests use the `pytest` framework
 - Tests are automatically run in CI/CD across Python 3.10, 3.11, 3.12, and 3.13
 
@@ -124,6 +106,28 @@ def test_error_handling():
         # Code that should raise ApiException
         pass
 ```
+
+## Code Generation
+
+Most files in this repo (`graphiant_sdk/models/`, `graphiant_sdk/api/default_api.py`, `graphiant_sdk/__init__.py`, `docs/`) are auto-generated from the OpenAPI spec. **Do not edit them directly** — your changes will be overwritten on the next generation run.
+
+The hand-written files are protected by `.openapi-generator-ignore`:
+- `graphiant_cli/` — entire CLI package
+- `graphiant_sdk/api_client.py`, `configuration.py`, `exceptions.py`, `rest.py`, `api_response.py`, `py.typed`
+- `tests/` — all tests
+- `pyproject.toml`, `setup.py`, `requirements.txt`, `README.md`, `CHANGELOG.md`, tooling files
+
+To regenerate after a spec update:
+
+```bash
+# Place the new spec in api/ then:
+make generate
+# or: OPENAPI_SPEC=api/my-new-spec.json bash scripts/generate.sh
+```
+
+`scripts/generate.sh` auto-detects `openapi-generator` (Homebrew) or `openapi-generator-cli` (npm), reads `packageVersion` from `pyproject.toml`, and passes `--git-user-id`/`--git-repo-id` so generated docs never contain `GIT_USER_ID` placeholders.
+
+Review `git diff` carefully after generation — pay particular attention to files in `.openapi-generator-ignore` to confirm they were not overwritten.
 
 ## Code Standards
 
@@ -225,17 +229,16 @@ class DeviceManager:
 
 ## Pull Request Checklist
 
-- [ ] Code follows PEP 8 style guidelines
-- [ ] Code is formatted (black/autopep8)
-- [ ] All tests pass locally
-- [ ] Linting passes (`flake8`, `mypy`)
-- [ ] Type hints are included for all functions
-- [ ] Docstrings are included for all classes and functions
+- [ ] `make test` passes (all tests green)
+- [ ] `make lint` passes (no new flake8 errors in hand-written files)
+- [ ] `make type-check` passes (no new mypy errors)
+- [ ] `make build` succeeds (wheel and sdist build cleanly)
+- [ ] If adding/changing generated code: `make generate` was run and only expected files changed
+- [ ] Type hints included for all new functions
 - [ ] Commit messages are clear
 - [ ] Commits are signed with GPG (required)
 - [ ] Branch is rebased (no merge commits allowed)
 - [ ] All CI/CD checks pass (lint, test, build)
-- [ ] Package builds successfully
 
 ## Branch Protection Requirements
 

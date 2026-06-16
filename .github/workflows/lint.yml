@@ -41,7 +41,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: '3.13'
           cache: 'pip'
 
       - name: Install dependencies
@@ -52,8 +52,18 @@ jobs:
 
       - name: Run flake8
         run: |
-          flake8 graphiant_sdk/ --count --select=E9,F63,F7,F82 --show-source --statistics
-          flake8 graphiant_sdk/ --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+          # Fatal errors on hand-written code only (config in .flake8 excludes generated files)
+          flake8 --count --select=E9,F63,F7,F82 --show-source --statistics \
+            graphiant_cli/ \
+            graphiant_sdk/api_client.py graphiant_sdk/configuration.py \
+            graphiant_sdk/exceptions.py graphiant_sdk/rest.py graphiant_sdk/api_response.py \
+            tests/
+          # Style warnings across same set (non-fatal)
+          flake8 --count --exit-zero --statistics \
+            graphiant_cli/ \
+            graphiant_sdk/api_client.py graphiant_sdk/configuration.py \
+            graphiant_sdk/exceptions.py graphiant_sdk/rest.py graphiant_sdk/api_response.py \
+            tests/
 
   mypy:
     name: MyPy Type Checking
@@ -65,7 +75,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: '3.13'
           cache: 'pip'
 
       - name: Install dependencies

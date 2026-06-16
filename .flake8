@@ -1,0 +1,13 @@
+[flake8]
+# Only check hand-written source; generated models/api are excluded.
+exclude =
+    graphiant_sdk/models,
+    graphiant_sdk/api/default_api.py,
+    graphiant_sdk/__init__.py,
+    build,
+    dist,
+    .tox,
+    .venv,
+    venv
+max-line-length = 127
+max-complexity = 10

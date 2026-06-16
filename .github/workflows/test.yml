@@ -11,6 +11,7 @@ on:
       - 'requirements.txt'
       - 'test-requirements.txt'
       - 'setup.py'
+      - 'pyproject.toml'
   push:
     branches:
       - main
@@ -24,6 +25,7 @@ on:
       - 'requirements.txt'
       - 'test-requirements.txt'
       - 'setup.py'
+      - 'pyproject.toml'
   schedule:
     # Run nightly at 2 AM UTC
     - cron: '0 2 * * *'
@@ -80,7 +82,7 @@ jobs:
 
       - name: Upload coverage reports
         uses: codecov/codecov-action@v4
-        if: matrix.python-version == '3.12'
+        if: matrix.python-version == '3.13'
         with:
           file: ./coverage.xml
           flags: unittests

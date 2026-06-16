@@ -1,0 +1,8 @@
+[bandit]
+# B101: assert is standard in pytest/unittest — all assert findings are in tests/.
+# B110: try/except/pass used intentionally in token_parsing.py multi-fallback chain;
+#       each pass falls through to the next extraction method.
+# B404: subprocess import is informational only; usage is for playwright CLI install.
+# B603: subprocess.run with fixed args ([sys.executable, "-m", "playwright", ...]) — no user input.
+# B105/B106: test fixture token values (gr-auth-xyz, tok-b, wrong-not-used) are not real credentials.
+skips = B101,B110,B404,B603,B105,B106

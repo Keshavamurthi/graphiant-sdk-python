@@ -33,7 +33,7 @@ More product and platform context: [Graphiant Docs](https://docs.graphiant.com).
 | **Automation** | [Graphiant Automation](https://docs.graphiant.com/docs/automation) |
 | **REST API** | [Graphiant Portal REST API](https://docs.graphiant.com/docs/graphiant-portal-rest-api) |
 | **Method index (repo)** | [DefaultApi.md](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/docs/DefaultApi.md) |
-| **OpenAPI bundle (this build)** | [`graphiant_api_docs_v26.5.0.json`](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/graphiant_api_docs_v26.5.0.json) — source for generated paths and models |
+| **OpenAPI bundle (this build)** | [`api/graphiant_api_docs_v26.5.0.json`](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/api/graphiant_api_docs_v26.5.0.json) — source for generated paths and models |
 | **Model docs (`*.md`)** | [`docs/`](https://github.com/Graphiant-Inc/graphiant-sdk-python/tree/main/docs) (same names as Python classes, e.g. `V1EdgesSummaryGetResponse.md`) |
 | **PyPI** | [graphiant-sdk](https://pypi.org/project/graphiant-sdk) |
 | **Changelog** | [CHANGELOG.md](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/CHANGELOG.md) |
@@ -423,16 +423,16 @@ def get_device_info(api, bearer_token, device_id):
 
 ### Prerequisites
 
-- Python 3.10+ (3.12+ recommended)
+- Python 3.10+ (3.13 recommended)
 - Git
-- OpenAPI Generator (for code generation)
+- OpenAPI Generator (for code generation) — `brew install openapi-generator`
 
 ### CI/CD Workflows
 
 This repository uses GitHub Actions for continuous integration and deployment:
 
 - **Linting** ([lint.yml](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/.github/workflows/lint.yml)): Runs Flake8 and MyPy type checking on pull requests and pushes
-- **Testing** ([test.yml](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/.github/workflows/test.yml)): Runs pytest with coverage across Python 3.10, 3.11, 3.12, and 3.13
+- **Testing** ([test.yml](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/.github/workflows/test.yml)): Runs pytest with coverage across Python 3.10, 3.11, 3.12, and 3.13; coverage uploaded on 3.13
 - **Building** ([build.yml](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/.github/workflows/build.yml)): Builds wheel and source distributions
 - **Releasing** ([release.yml](https://github.com/Graphiant-Inc/graphiant-sdk-python/blob/main/.github/workflows/release.yml)): Publishes to PyPI (manual trigger, admin-only)
 
@@ -445,19 +445,27 @@ See [.github/workflows/README.md](https://github.com/Graphiant-Inc/graphiant-sdk
 git clone git@github.com:Graphiant-Inc/graphiant-sdk-python.git
 cd graphiant-sdk-python
 
-# Create virtual environment
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# Create virtual environment and install with dev dependencies
+python3 -m venv venv && source venv/bin/activate
+make install        # pip install -e ".[dev]"
 
-# Install dependencies
-pip install --upgrade pip setuptools wheel
-pip install -r requirements.txt
+# Run tests
+make test           # pytest --cov=graphiant_sdk ...
 
-# Build distribution
-python setup.py sdist bdist_wheel
+# Lint (hand-written files only; generated models excluded via .flake8)
+make lint
 
-# Install locally
-pip install dist/*.tar.gz
+# Type check (generated models excluded via pyproject.toml)
+make type-check
+
+# Build wheel and source distribution
+make build          # python -m build
+```
+
+Or without `make`:
+
+```bash
+pip install -e ".[dev]" && pytest --cov=graphiant_sdk
 ```
 
 ### Code Generation
@@ -465,37 +473,32 @@ pip install dist/*.tar.gz
 To regenerate the SDK from the latest API specification:
 
 ```bash
-# Install OpenAPI Generator
-brew install openapi-generator  # macOS
-# or download from: https://github.com/OpenAPITools/openapi-generator
+# Quickest path — uses scripts/generate.sh with api/openapi.yaml
+make generate
 
-# Generate SDK
-openapi-generator generate \
-    -i graphiant_api_docs_v26.5.0.json \
-    -g python \
-    --git-user-id Graphiant-Inc \
-    --git-repo-id graphiant-sdk-python \
-    --package-name graphiant_sdk \
-    --additional-properties=packageVersion=26.5.0
+# Or run the script directly (supports OPENAPI_SPEC override)
+OPENAPI_SPEC=api/graphiant_api_docs_v26.5.0.json bash scripts/generate.sh
 ```
 
-> **Note:** Download the latest API bundle from the Graphiant portal under **Support Hub** → **Developer Tools**. Set **`packageVersion`** to the SDK release you are publishing (this branch: **26.5.0**). The **`-i`** filename reflects the API doc bundle version (here `graphiant_api_docs_v26.5.0.json`) and may stay the same across patch releases when the spec is unchanged.
+`scripts/generate.sh` wraps the full `openapi-generator-cli generate` invocation. It auto-detects `openapi-generator` (Homebrew) or `openapi-generator-cli` (npm), reads the current version from `pyproject.toml`, and passes `--git-user-id`/`--git-repo-id` so generated docs never contain `GIT_USER_ID` placeholders.
+
+> **Note:** Download the latest API bundle from the Graphiant portal under **Support Hub** → **Developer Tools** and place it in `api/`. The versioned JSON bundle (`api/graphiant_api_docs_v26.5.0.json`) is the snapshot used for this release; `api/openapi.yaml` is the primary YAML spec. Hand-written files listed in `.openapi-generator-ignore` (`graphiant_cli/`, `graphiant_sdk/api_client.py`, `configuration.py`, etc.) are never overwritten by the generator.
 
 ### Testing
 
 ```bash
-# Run tests
-python -m pytest tests/
+make test           # pytest --cov=graphiant_sdk --cov-report=term --cov-report=xml
 
-# Run with coverage
-python -m pytest tests/ --cov=graphiant_sdk --cov-report=html
+# Or directly:
+pytest -v tests/
+pytest tests/ --cov=graphiant_sdk --cov-report=html
 ```
 
 ## 📖 API Reference
 
 ### Source of truth (this release)
 
-Operations and schemas are generated from **`graphiant_api_docs_v26.5.0.json`** (repo root and PyPI wheel). For a newer portal/API, download the current bundle (Support Hub → Developer Tools) and diff paths before relying on URLs here.
+Operations and schemas are generated from **`api/graphiant_api_docs_v26.5.0.json`** (in `api/` and bundled in the PyPI wheel). For a newer portal/API, download the current bundle (Support Hub → Developer Tools) and diff paths before relying on URLs here.
 
 | How to explore | Where |
 |----------------|-------|
@@ -574,14 +577,11 @@ We welcome contributions! Please follow these steps:
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes and ensure they pass local tests:
+3. Make your changes and ensure they pass local checks:
    ```bash
-   # Run linting
-   flake8 graphiant_sdk/
-   mypy graphiant_sdk/
-   
-   # Run tests
-   pytest --cov=graphiant_sdk
+   make test           # run tests with coverage
+   make lint           # flake8 on hand-written files (generated excluded via .flake8)
+   make type-check     # mypy (generated models excluded via pyproject.toml)
    ```
 4. Commit your changes with a clear message (`git commit -m 'Add amazing feature'`)
 5. Push to the branch (`git push origin feature/amazing-feature`)
